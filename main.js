@@ -1,6 +1,10 @@
 requirejs(['config'], function() {
 	if (window.location.origin === "file://") {
-		require(['livereload']);
+		try {
+			require(['livereload']);
+		}  catch (e) {
+			console.log('cannot load livereload.')
+		}
 	}
     console.log('Hello World');
 });
