@@ -1,10 +1,8 @@
 define([
 	'json!settings.json'
 ], function (settings) {
-	var app = {
-		init: function () {
-			console.log(settings.hello);
-		}
+	var App = function() {
+		this.hello = "Hello World!";
 	};
-	return app;
+	return App;
 });
