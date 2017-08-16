@@ -10,4 +10,4 @@ To run locally, (from the project root directory) run (requires Python):
 python -m SimpleHTTPServer 8000
 ```
 
-The impact fee calculator will then be running at http://localhost:4000/
+The impact fee calculator will then be running at http://localhost:8000/
