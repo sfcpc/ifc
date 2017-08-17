@@ -2,10 +2,36 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Impact Fee Calculator</title>
+		<title>SF Planning Impact Fee Calculator</title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
-	
-	<body>Hello world</body>
-	
-	<script data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+	<body>
+		<div style="display:none;" data-bind="visible: true;">
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<a class="navbar-brand" href="#" data-bind="text: name"></a>
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="collapse navbar-collapse" id="navbar">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Trigger <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#">Calculate</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#">Report</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		
+		<div class="loading-mask" data-bind="visible: loading"></div>
+		
+		<script data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+	</body>
 </html>
