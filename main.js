@@ -45,16 +45,11 @@ requirejs([
         return 'fees/' + feeTypeName + '/viewmodel'
     }), function () {
         var query = _.chain(decodeURIComponent(location.search).slice(1).split('&'))
-            // Split each array item into [key, value]
-            // ignore empty string if search is empty
             .map(function(item) {
                 if (item) return item.split('=');
             })
-            // Remove undefined in the case the search is empty
             .compact()
-            // Turn [key, value] arrays into object parameters
             .object()
-            // Return the value of the chain operation
             .value();
 
         var app = new App(
@@ -64,10 +59,10 @@ requirejs([
         );
         var feeQueries = query.fees ? JSON.parse(query.fees) : {};
         var feeViewModels = _.map(arguments, function(feeViewModel) {
-            var feeQuery = feeQueries[feeViewModel.name] || {};
+            var feeQuery = feeQueries[feeViewModel.feeTypeName] || {};
             return new feeViewModel(
                 _.extend(feeQuery, {
-                    name: settings.appName
+                    app: app
                 })
             );
         });

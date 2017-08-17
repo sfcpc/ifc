@@ -1,11 +1,19 @@
 <!-- ko if: state === 'form' -->
-<div class="">
-	Form here... <span data-bind="text: mockVariable"></span>
-</div>
+<form>
+	<div class="form-group">
+		<label for="mockFeeValue">Value</label>
+		<input type="number" class="form-control" id="mockFeeValue" placeholder="value" data-bind="value: fee.value">
+	</div>
+</form>
 <!-- /ko -->
 
 <!-- ko if: state === 'report' -->
-<div class="">
-	Report here... <span data-bind="text: mockVariable"></span>
+<div class="fee-report">
+	<h3>Base Value:</h3>
+	<div data-bind="text: fee.value"></div>
+	<h3>Multiplier:</h3>
+	<div data-bind="text: fee.multiplier"></div>
+	<h3>Calculated Fee:</h3>
+	<div><span data-bind="text: fee.value"></span> * <span data-bind="text: fee.multiplier"></span> = <span data-bind="text: fee.calculatedFee"></span></div>
 </div>
 <!-- /ko -->

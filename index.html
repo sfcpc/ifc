@@ -47,13 +47,41 @@
 				</form>
 			</div>
 		</div>
-		
+
 		<div class="container" data-bind="if: state() === 'calculate'">
-			calc fees here...
+			<div class="row">
+				<div class="col-4 triggered-fee-list">
+					<h3>Triggered Fees:</h3>
+					<ul class="list-group" data-bind="foreach: triggeredFeeViewModels">
+						<li class="list-group-item" data-bind="text: label, click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}"></li>
+					</ul>
+				</div>
+				<div class="col-8 selected-fee-form" data-bind="if: selectedFee()">
+					<!-- ko component: {
+						name:  selectedFee().feeTypeName,
+						params: {
+							fee: selectedFee(),
+							state: "form"
+						}
+					} --><!-- /ko -->
+				</div>
+			</div>
 		</div>
-		
+
 		<div class="container" data-bind="if: state() === 'report'">
-			report here...
+			<div class="report">
+				<h1>Fee Report</h1>
+				
+				<div data-bind="foreach: feeViewModels">
+					<!-- ko component: {
+						name:  feeTypeName,
+						params: {
+							fee: $data,
+							state: "report"
+						}
+					} --><!-- /ko -->
+				</div>
+			</div>
 		</div>
 	</div>
 

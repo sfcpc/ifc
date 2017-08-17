@@ -1,12 +1,21 @@
 define([
-	'knockout'
-], function (ko) {
+	'knockout',
+	'underscore'
+], function (ko, _) {
 	var App = function(params) {
 		var self = this;
 		this.name = params.name || "";
 		this.state = ko.observable(params.state || 'trigger');
 		this.loading = ko.observable(false);
 		this.feeViewModels = ko.observableArray();
+		this.selectedFee = ko.observable();
+		
+		this.triggeredFeeViewModels = ko.computed(function() {
+			var feeViewModels = this.feeViewModels();
+			return _.filter(feeViewModels, function (feeViewModel) {
+				return feeViewModel.triggered();
+			});
+		}, this);
 		
 		this.netNewDwellings = ko.observable(params.netNewDwellings || null);
 		
@@ -45,7 +54,7 @@ define([
 		this.json = ko.computed(function () {
 			var feeViewModelJSON = {};
 			_.each(this.feeViewModels(), function(feeViewModel) {
-				feeViewModelJSON[feeViewModel.name] = feeViewModel.json();
+				feeViewModelJSON[feeViewModel.feeTypeName] = feeViewModel.json();
 			});
 			return {
 				state: this.state(),
