@@ -1,7 +1,7 @@
 <!-- ko if: state === 'form' -->
 <form>
 	<div class="form-group">
-		<label for="mockFeeValue">Value</label>
+		<label for="mockFeeValue">Value ($)</label>
 		<input type="number" class="form-control" id="mockFeeValue" placeholder="value" data-bind="value: fee.value">
 	</div>
 </form>
@@ -10,10 +10,10 @@
 <!-- ko if: state === 'report' -->
 <div class="fee-report">
 	<h3>Base Value:</h3>
-	<div data-bind="text: fee.value"></div>
+	<div>$<span data-bind="text: fee.value"></div>
 	<h3>Multiplier:</h3>
 	<div data-bind="text: fee.multiplier"></div>
 	<h3>Calculated Fee:</h3>
-	<div><span data-bind="text: fee.value"></span> * <span data-bind="text: fee.multiplier"></span> = <span data-bind="text: fee.calculatedFee"></span></div>
+	<div>$<span data-bind="text: fee.value"></span> * <span data-bind="text: fee.multiplier"></span> = $<strong data-bind="text: fee.calculatedFee"></strong></div>
 </div>
 <!-- /ko -->
