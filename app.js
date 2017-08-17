@@ -1,8 +1,9 @@
 define([
-	'json!settings.json'
-], function (settings) {
-	var App = function() {
-		this.hello = "Hello World!";
+	'knockout'
+], function (ko) {
+	var App = function(params) {
+		this.name = params.name || "";
+		this.loading = ko.observable(false);
 	};
 	return App;
 });
