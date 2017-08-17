@@ -26,10 +26,11 @@ define('popper-wrap', ['popper'], function (popper) {
 
 requirejs([
     "knockout",
+    "underscore",
     'app',
     "json!settings.json",
     "bootstrap"
-], function(ko, App, settings) {
+], function(ko, _, App, settings) {
     if (window.location.hostname === "localhost") {
         require(['http://localhost:' + settings.livereloadPort + '/livereload.js'],
             function () {
@@ -40,9 +41,41 @@ requirejs([
             }
         );
     }
-    
-    var app = new App({
-        name: settings.appName
-    });
-    ko.applyBindings(app);
+    require(_.map(settings.feeTypes, function (feeTypeName) {
+        return 'fees/' + feeTypeName + '/viewmodel'
+    }), function () {
+        var query = _.chain(decodeURIComponent(location.search).slice(1).split('&'))
+            // Split each array item into [key, value]
+            // ignore empty string if search is empty
+            .map(function(item) {
+                if (item) return item.split('=');
+            })
+            // Remove undefined in the case the search is empty
+            .compact()
+            // Turn [key, value] arrays into object parameters
+            .object()
+            // Return the value of the chain operation
+            .value();
+
+        var app = new App(
+            _.extend(query, {
+                name: settings.appName
+            })
+        );
+        var feeQueries = query.fees ? JSON.parse(query.fees) : {};
+        var feeViewModels = _.map(arguments, function(feeViewModel) {
+            var feeQuery = feeQueries[feeViewModel.name] || {};
+            return new feeViewModel(
+                _.extend(feeQuery, {
+                    name: settings.appName
+                })
+            );
+        });
+        app.feeViewModels(feeViewModels);
+        ko.applyBindings(app);
+        
+        app.json.subscribe(function (appJSON) {
+            window.history.pushState({}, '', '?' + $.param(appJSON).split('+').join('%20'));
+        });
+    })
 });

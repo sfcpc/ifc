@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>SF Planning Impact Fee Calculator</title>
-		<link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		<div style="display:none;" data-bind="visible: true;">
-			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-				<a class="navbar-brand" href="#" data-bind="text: name"></a>
-				
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+
+<head>
+	<meta charset="utf-8">
+	<title>SF Planning Impact Fee Calculator</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div style="display:none;" data-bind="visible: true">
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#" data-bind="text: name"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				
-				<div class="collapse navbar-collapse" id="navbar">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="#">Trigger <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="#">Calculate</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="#">Report</a>
-						</li>
-					</ul>
+
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item" data-bind="css: {'active': state() === 'trigger'}">
+						<a class="nav-link" href="#" data-bind="click: viewTrigger">1. Trigger <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item" data-bind="css: {'active': state() === 'calculate'}">
+						<a class="nav-link" href="#" data-bind="css: {'disabled': !triggersReady()}, click: viewCalculate">2. Calculate</a>
+					</li>
+					<li class="nav-item" data-bind="css: {'active': state() === 'report'}">
+						<a class="nav-link disabled" href="#" data-bind="css: {'disabled': !feesReady()}, click: viewReport">3. Report</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div data-bind="if: state() === 'trigger'">
+			<div class="jumbotron">
+				<div class="container">
+					<h1 class="display-3" data-bind="text: name"></h1>
+					<p>Enter data below to begin calculating impact fees for a project:</p>
 				</div>
-			</nav>
+			</div>
+			<div class="container">
+				<form>
+					<div class="form-group">
+						<label for="netNewDwellings">Net new dwellings</label>
+						<input type="number" class="form-control" id="netNewDwellings" placeholder="Net new dwellings" data-bind="value: netNewDwellings">
+					</div>
+				</form>
+			</div>
 		</div>
 		
-		<div class="loading-mask" data-bind="visible: loading"></div>
+		<div class="container" data-bind="if: state() === 'calculate'">
+			calc fees here...
+		</div>
 		
-		<script data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-	</body>
+		<div class="container" data-bind="if: state() === 'report'">
+			report here...
+		</div>
+	</div>
+
+	<div class="loading-mask" data-bind="visible: loading"></div>
+
+	<script data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+</body>
+
 </html>

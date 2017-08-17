@@ -1,4 +1,7 @@
 {
 	"appName": "SF Planning Impact Fee Calculator",
+	"feeTypes": [
+		"mock-fee"
+	],
 	"livereloadPort": "35729"
 }
