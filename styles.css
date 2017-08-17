@@ -58,3 +58,7 @@ body {
 .report .fee-report {
     padding: 20px;
 }
+
+.fee-report .report-content {
+    padding-left: 20px;
+}
