@@ -11,12 +11,17 @@
 <div class="fee-report">
 	<h2>Mock Fee</h2>
 	<div class="report-content">
+		<!-- ko if: fee.triggered() -->
 		<h3>Base Value:</h3>
 		<div>$<span data-bind="text: fee.value"></div>
 		<h3>Multiplier:</h3>
 		<div data-bind="text: fee.multiplier"></div>
 		<h3>Calculated Fee:</h3>
 		<div>$<span data-bind="text: fee.value"></span> * <span data-bind="text: fee.multiplier"></span> = $<strong data-bind="text: fee.calculatedFee"></strong></div>
+		<!-- /ko -->
+		<!-- ko if: !fee.triggered() -->
+		<h3>Fee not triggered</h3>
+		<!-- /ko -->
 	</div>
 </div>
 <!-- /ko -->
