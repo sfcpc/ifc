@@ -34,3 +34,27 @@ body {
     transform: translate(0, 0);
     z-index: 100000001;
 }
+
+.triggered-fee-list {
+    margin-top: 25px;
+}
+
+.triggered-fee-list .list-group{
+    margin-top: 10px;
+}
+
+.selected-fee-form {
+    padding: 35px;
+}
+
+.report {
+    padding: 25px;
+}
+
+.report h3 {
+    padding-top: 10px;
+}
+
+.report .fee-report {
+    padding: 20px;
+}
