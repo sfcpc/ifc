@@ -17,6 +17,11 @@ define([
 			});
 		}, this);
 		
+		this.triggeredFeeViewModels.subscribe(function () {
+			var feeViewModels = self.triggeredFeeViewModels();
+			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
+		});
+		
 		this.netNewDwellings = ko.observable(params.netNewDwellings || null);
 		
 		this.triggersReady = ko.computed(function () {

@@ -50,6 +50,7 @@
 
 		<div class="container" data-bind="if: state() === 'calculate'">
 			<div class="row">
+				<!-- ko if: triggeredFeeViewModels().length > 0 -->
 				<div class="col-4 triggered-fee-list">
 					<h3>Triggered Fees:</h3>
 					<ul class="list-group" data-bind="foreach: triggeredFeeViewModels">
@@ -65,6 +66,12 @@
 						}
 					} --><!-- /ko -->
 				</div>
+				<!-- /ko -->
+				<!-- ko if: triggeredFeeViewModels().length === 0 -->
+				<div class="col-12 triggered-fee-list">
+					<h3>No fees triggered</h3>
+				</div>
+				<!-- /ko -->
 			</div>
 		</div>
 
