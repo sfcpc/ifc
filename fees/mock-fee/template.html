@@ -10,29 +10,33 @@
 
 <!-- ko if: state === 'report' -->
 <div class="fee-report">
-	<h2>Mock Fee: $<span data-bind="text: fee.calculatedFee"></span></h2>
+	<h4>Mock Fee:
+		<!-- ko if: fee.triggered() -->
+		$<span data-bind="text: fee.calculatedFee"></span>
+		<!-- /ko -->
+		<!-- ko if: !fee.triggered() -->
+		not triggered
+		<!-- /ko -->
+	</h4>
 	<div class="report-content">
 		<!-- ko if: fee.triggered() -->
 		<div class="row">
 			<div class="col-6">
-				<h4>Base Value: $<span data-bind="text: fee.value"></span></h4>
+				<h5>Base Value: $<span data-bind="text: fee.value"></span></h5>
 			</div>
 			<div class="col-6">
-				<h4>Multiplier: <span data-bind="text: fee.multiplier"></span></h4>
+				<h5>Multiplier: <span data-bind="text: fee.multiplier"></span></h5>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<h4>
+				<h5>
 					Calculated Fee: $<span data-bind="text: fee.value"></span>
 					* <span data-bind="text: fee.multiplier"></span>
 					= $<strong data-bind="text: fee.calculatedFee"></strong>
-				</h4>
+				</h5>
 			</div>
 		</div>
-		<!-- /ko -->
-		<!-- ko if: !fee.triggered() -->
-		<h3>Fee not triggered</h3>
 		<!-- /ko -->
 	</div>
 </div>
