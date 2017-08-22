@@ -89,8 +89,16 @@ body {
     top: 30px;
 }
 
+.link-btn {
+    position: absolute;
+    right: 10px;
+}
+
 @media print {
     .print-btn {
+        display: none;
+    }
+    .link-btn {
         display: none;
     }
 }

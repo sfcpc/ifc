@@ -1,7 +1,8 @@
 define([
 	'knockout',
-	'underscore'
-], function (ko, _) {
+	'underscore',
+	'jquery'
+], function (ko, _, $) {
 	var App = function(params) {
 		var self = this;
 		this.name = params.name || "";
@@ -88,6 +89,20 @@ define([
 				fees: JSON.stringify(feeViewModelJSON)
 			}
 		}, this);
+		
+		this.linkURL = ko.computed(function () {
+			this.json();
+			return window.location.href;
+		}, this);
+		
+		this.copyModBtn = window.navigator.platform === 'MacIntel' ? 'Cmd' : 'Ctrl';
+		
+		$('#linkModal').on('shown.bs.modal', function () {
+			$('#linkInput').focus().select()
+		});
+		$('#linkInput').keypress(function(e) {
+		    e.preventDefault();
+		});
 	};
 	return App;
 });
