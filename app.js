@@ -22,7 +22,13 @@ define([
 			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
 		});
 		
-		this.netNewDwellings = ko.observable(params.netNewDwellings || null);
+		this.newDwellings = ko.observable(params.newDwellings || null);
+		this.removedDwellings = ko.observable(params.removedDwellings || null);
+		this.netNewDwellings = ko.computed(function () {
+			var newDwellings = this.newDwellings() || 0;
+			var removedDwellings = this.removedDwellings() || 0;
+			return newDwellings - removedDwellings;
+		}, this);
 		
 		this.triggersReady = ko.computed(function () {
 			var netNewDwellings = this.netNewDwellings();
@@ -63,7 +69,8 @@ define([
 			});
 			return {
 				state: this.state(),
-				netNewDwellings: this.netNewDwellings(),
+				newDwellings: this.newDwellings(),
+				removedDwellings: this.removedDwellings(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}
 		}, this);
