@@ -5,6 +5,11 @@ body {
   padding-top: 3.5rem;
 }
 
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
 .loading-mask {
     position: fixed;
     opacity: .75;
