@@ -24,6 +24,9 @@ define([
 		}, this);
 		
 		this.calculatedFee = ko.computed(function () {
+			if (!this.triggered()) {
+				return 0;
+			}
 			var val = this.value();
 			return val ? val*this.multiplier : 0;
 		}, this);
