@@ -9,6 +9,10 @@ define([
 		this.loading = ko.observable(false);
 		this.feeViewModels = ko.observableArray();
 		this.selectedFee = ko.observable();
+		this.reportDate = (function() {
+			var now = new Date();
+			return  (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+		})();
 		
 		this.total = ko.computed(function () {
 			var total = 0;
