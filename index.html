@@ -41,8 +41,7 @@
 		<div data-bind="if: state() === 'trigger'">
 			<div class="jumbotron">
 				<div class="container">
-					<h1 class="display-3" data-bind="text: name"></h1>
-					<p>Enter data below to begin calculating impact fees for a project:</p>
+					<h2>Enter data below to begin calculating impact fees for a project:</h2>
 				</div>
 			</div>
 			<div class="container">
@@ -52,11 +51,11 @@
 						<div class="row">
 							<div class="col-6">
 								<label for="netNewDwellings"># of new dwellings</label>
-								<input type="number" class="form-control" id="newDwellings" placeholder="# of new dwellings" data-bind="value: newDwellings">
+								<input type="number" min="0" step="1" pattern="\d*" class="form-control" id="newDwellings" placeholder="# of new dwellings" data-bind="value: newDwellings">
 							</div>
 							<div class="col-6">
 								<label for="netNewDwellings"># of removed dwellings</label>
-								<input type="number" class="form-control" id="removedDwellings" placeholder="# of removed dwellings" data-bind="value: removedDwellings">
+								<input type="number" min="0" step="1" pattern="\d*" class="form-control" id="removedDwellings" placeholder="# of removed dwellings" data-bind="value: removedDwellings">
 							</div>
 						</div>
 						<div class="row">
@@ -75,7 +74,10 @@
 				<div class="col-4 triggered-fee-list">
 					<h3>Triggered Fees:</h3>
 					<ul class="list-group" data-bind="foreach: triggeredFeeViewModels">
-						<li class="list-group-item" data-bind="text: label, click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}"></li>
+						<li class="list-group-item" data-bind="click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}">
+							<span data-bind="text: label"></span>
+							<i class="fa fa-check-circle-o ready-check" aria-hidden="true" data-bind="visible: ready()"></i>
+						</li>
 					</ul>
 				</div>
 				<div class="col-8 selected-fee-form" data-bind="if: selectedFee()">
@@ -99,6 +101,7 @@
 		<div class="container" data-bind="if: state() === 'report'">
 			<div class="report">
 				<h1>Fee Report</h1>
+				<hr>
 				
 				<div data-bind="foreach: feeViewModels">
 					<!-- ko component: {
@@ -108,6 +111,10 @@
 							state: "report"
 						}
 					} --><!-- /ko -->
+					<hr>
+				</div>
+				<div class="fee-report">
+					<h2>Total: $<span data-bind="text: total"></span></h2>
 				</div>
 			</div>
 		</div>

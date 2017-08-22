@@ -3,9 +3,9 @@ define([
 ], function (ko) {
 	var AbstractFee = function(params) {
 		this.app = params.app || null;
-		this.feeTypeName = "";
 		this.label = "";
 		this.requiresInput = false;
+		this.feeTypeName = AbstractFee.feeTypeName;
 		
 		this.triggered = ko.computed(function () {
 			return true;
@@ -26,5 +26,7 @@ define([
 			return {};
 		}, this);
 	};
+	
+	AbstractFee.feeTypeName = "";
 	return AbstractFee;
 });

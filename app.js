@@ -10,6 +10,16 @@ define([
 		this.feeViewModels = ko.observableArray();
 		this.selectedFee = ko.observable();
 		
+		this.total = ko.computed(function () {
+			var total = 0;
+			this.feeViewModels().forEach(function (feeViewModel) {
+				if (feeViewModel.triggered()) {
+					total += feeViewModel.calculatedFee();
+				}
+			});
+			return total;
+		}, this);
+		
 		this.triggeredFeeViewModels = ko.computed(function() {
 			var feeViewModels = this.feeViewModels();
 			return _.filter(feeViewModels, function (feeViewModel) {
