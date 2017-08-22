@@ -62,3 +62,11 @@ body {
 .fee-report .report-content {
     padding-left: 20px;
 }
+
+.ready-check {
+    color: rgb(42, 162, 0);
+}
+
+.form-details {
+    margin-top: 15px;
+}
