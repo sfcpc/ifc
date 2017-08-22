@@ -100,7 +100,14 @@
 
 		<div class="container" data-bind="if: state() === 'report'">
 			<div class="report">
+				<small class="report-date" data-bind="text: reportDate"></small>
+				
 				<h1>Fee Report</h1>
+				
+				<button type="button" class="btn btn-primary print-btn" data-bind="click: function () { window.print() }">
+					<i class="fa fa-print"></i> Print
+				</button>
+				
 				<hr>
 				
 				<div data-bind="foreach: feeViewModels">
@@ -114,7 +121,9 @@
 					<hr>
 				</div>
 				<div class="fee-report">
-					<h2>Total: $<span data-bind="text: total"></span></h2>
+					<h2>Total:<span class="report-value">
+						$<span data-bind="text: total"></span></h2>
+					</span>
 				</div>
 			</div>
 		</div>

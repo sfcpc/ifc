@@ -49,6 +49,14 @@ body {
 
 .report {
     padding: 25px;
+    position: relative;
+}
+
+.report .report-date {
+    font-size: 1.25em;
+    position: absolute;
+    right: 30px;
+    top: 40px;
 }
 
 .report h3 {
@@ -73,4 +81,16 @@ body {
 
 .form-details {
     margin-top: 15px;
+}
+
+.print-btn {
+    position: absolute;
+    left: 250px;
+    top: 30px;
+}
+
+@media print {
+    .print-btn {
+        display: none;
+    }
 }
