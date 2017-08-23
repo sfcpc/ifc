@@ -47,6 +47,7 @@ define([
 		
 		this.triggersReady = ko.computed(function () {
 			var newDwellings = this.newDwellings();
+			var removedDwellings = this.removedDwellings();
 			return removedDwellings !== null && removedDwellings !== ''
 				&& newDwellings !== null && newDwellings !== '';
 		}, this);
