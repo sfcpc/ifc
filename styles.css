@@ -12,6 +12,15 @@ nav {
     border-bottom: solid rgb(198, 198, 198) 1px;
 }
 
+a {
+    color: #4994e4;
+}
+
+.list-group-item.active, .btn {
+    background-color: #4994e4;
+    border-color: #4994e4;
+}
+
 .btn, .list-group-item:first-child, .list-group-item:last-child, .modal-content {
     border-radius: 0;
 }
@@ -93,6 +102,19 @@ nav {
 
 .ready-check {
     color: rgb(42, 162, 0);
+}
+
+.ready-check-circle {
+    font-size: 1.4em;
+    color: white;
+}
+.ready-check-border {
+    font-size: 1.6em;
+    color: #4994e4;
+}
+
+.nav-link.disabled .ready-check-border {
+    color: #868e96;
 }
 
 .form-details {
