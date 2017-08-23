@@ -3,6 +3,11 @@
 
 body {
   padding-top: 3.5rem;
+  color: rgb(78, 78, 78);
+}
+
+nav {
+    border-bottom: solid rgb(198, 198, 198) 1px;
 }
 
 .logo {
