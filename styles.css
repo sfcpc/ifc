@@ -1,13 +1,19 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Lato:400");
 
 body {
+  font-family: Lato, sans-serif;
   padding-top: 3.5rem;
   color: rgb(78, 78, 78);
 }
 
 nav {
     border-bottom: solid rgb(198, 198, 198) 1px;
+}
+
+.btn, .list-group-item:first-child, .list-group-item:last-child, .modal-content {
+    border-radius: 0;
 }
 
 .logo {
