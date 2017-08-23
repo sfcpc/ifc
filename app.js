@@ -46,11 +46,15 @@ define([
 		}, this);
 		
 		this.triggersReady = ko.computed(function () {
-			var netNewDwellings = this.netNewDwellings();
-			return netNewDwellings !== null && netNewDwellings !== '';
+			var newDwellings = this.newDwellings();
+			return removedDwellings !== null && removedDwellings !== ''
+				&& newDwellings !== null && newDwellings !== '';
 		}, this);
 		
 		this.feesReady = ko.computed(function () {
+			if (!this.triggersReady()) {
+				return false;
+			}
 			var feeViewModels = this.feeViewModels();
 			var ready = true;
 			feeViewModels.forEach(function (feeViewModel) {
