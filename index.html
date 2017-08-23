@@ -56,17 +56,26 @@
 					<li class="nav-item" data-bind="css: {'active': state() === 'trigger'}">
 						<a class="nav-link" href="#" data-bind="click: viewTrigger">1. Trigger
 							<span class="sr-only">(current)</span>
-							<i class="fa fa-check-circle-o ready-check" aria-hidden="true" data-bind="visible: triggersReady()"></i>
+							<span class="fa-stack">
+							  	<i class="fa fa-circle fa-stack-1x ready-check-border"></i>
+							  	<i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+							  	<i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: triggersReady()"></i>
+							</span>
 						</a>
 					</li>
 					<li class="nav-item" data-bind="css: {'active': state() === 'calculate'}">
 						<a class="nav-link" href="#" data-bind="css: {'disabled': !triggersReady()}, click: viewCalculate">2. Calculate
-							<i class="fa fa-check-circle-o ready-check" aria-hidden="true" data-bind="visible: feesReady() && triggersReady()"></i>
+							<span class="fa-stack">
+							  	<i class="fa fa-circle fa-stack-1x ready-check-border"></i>
+							  	<i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+							  	<i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: feesReady() && triggersReady()"></i>
+							</span>
 						</a>
 					</li>
 					<li class="nav-item" data-bind="css: {'active': state() === 'report'}">
 						<a class="nav-link disabled" href="#" data-bind="css: {'disabled': !feesReady()}, click: viewReport">3. Report
-							<i class="fa fa-check-circle-o ready-check" aria-hidden="true" data-bind="visible: feesReady() && triggersReady()"></i>
+							<span class="fa-stack">
+							</span>
 						</a>
 					</li>
 				</ul>
@@ -115,7 +124,11 @@
 					<ul class="list-group" data-bind="foreach: triggeredFeeViewModels">
 						<li class="list-group-item" data-bind="click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}">
 							<span data-bind="text: label"></span>
-							<i class="fa fa-check-circle-o ready-check" aria-hidden="true" data-bind="visible: ready()"></i>
+							<span class="fa-stack">
+								<i class="fa fa-circle fa-stack-1x ready-check-border"></i>
+							  	<i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+							  	<i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: ready()"></i>
+							</span>
 						</li>
 					</ul>
 				</div>
