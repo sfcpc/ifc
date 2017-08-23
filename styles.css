@@ -4,7 +4,7 @@
 
 body {
   font-family: Lato, sans-serif;
-  padding-top: 3.5rem;
+  padding-top: 4rem;
   color: rgb(78, 78, 78);
 }
 
@@ -70,6 +70,10 @@ a {
 
 .selected-fee-form {
     padding: 35px;
+}
+
+.selected-fee-form .form-group {
+    padding: 20px;
 }
 
 .report {

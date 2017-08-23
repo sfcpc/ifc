@@ -133,6 +133,10 @@
 					</ul>
 				</div>
 				<div class="col-8 selected-fee-form" data-bind="if: selectedFee()">
+					<h2>
+						<span data-bind="text: selectedFee().label"></span>
+						<i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: selectedFee().ready()"></i>
+					</h2>
 					<!-- ko component: {
 						name:  selectedFee().feeTypeName,
 						params: {

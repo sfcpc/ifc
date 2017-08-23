@@ -1,6 +1,5 @@
 <!-- ko if: state === 'form' -->
 <form>
-	<h2>Mock Fee</h2>
 	<div class="form-group">
 		<label for="mockFeeValue">Value ($)</label>
 		<input type="number" class="form-control" id="mockFeeValue" placeholder="value" data-bind="value: fee.value">
@@ -10,7 +9,8 @@
 
 <!-- ko if: state === 'report' -->
 <div class="fee-report">
-	<h4>Mock Fee:
+	<h4>
+		<span data-bind="text: fee.label"></span>:
 		<!-- ko if: fee.triggered() -->
 		$<span data-bind="text: fee.calculatedFee"></span>
 		<!-- /ko -->
