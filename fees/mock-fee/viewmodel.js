@@ -9,7 +9,6 @@ define([
 
 		this.feeTypeName = MockFee.feeTypeName;
 		this.label = 'Mock Fee';
-		this.requiresInput = true;
 		this.value = ko.observable(params.value || null);
 		this.multiplier = settings.multiplier;
 
