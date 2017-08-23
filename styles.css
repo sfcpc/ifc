@@ -11,7 +11,7 @@ nav {
     border-bottom: solid rgb(198, 198, 198) 1px;
 }
 
-a, .ready-check-border {
+a, .ready-check-circle {
     color: #4994e4;
 }
 
@@ -116,12 +116,12 @@ a, .ready-check-border {
 }
 
 .ready-check-circle {
-    font-size: 1.4em;
-    color: white;
+    font-size: 1.6em;
 }
 
-.ready-check-border {
-    font-size: 1.6em;
+.ready-check-background {
+    color: white;
+    font-size: 1.5em;
 }
 
 .nav-link.disabled .ready-check-border {

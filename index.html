@@ -60,8 +60,8 @@
                             <span>1. Trigger</span>
                             <span class="sr-only">(current)</span>
                             <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
-                                <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+                                <i class="fa fa-circle fa-stack-1x ready-check-background"></i>
+                                <i class="fa fa-circle-o fa-stack-1x ready-check-circle"></i>
                                 <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: triggersReady()"></i>
                             </span>
                         </a>
@@ -70,8 +70,8 @@
                         <a class="nav-link" href="#" data-bind="css: {'disabled': !triggersReady()}, click: viewCalculate">
                             <span>2. Calculate</span>
                             <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
-                                <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+                                <i class="fa fa-circle fa-stack-1x ready-check-background"></i>
+                                <i class="fa fa-circle-o fa-stack-1x ready-check-circle"></i>
                                 <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: feesReady() && triggersReady()"></i>
                             </span>
                         </a>
@@ -128,8 +128,8 @@
                         <li class="list-group-item" data-bind="click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}">
                             <span data-bind="text: label"></span>
                             <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
-                                <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+                                <i class="fa fa-circle fa-stack-1x ready-check-background"></i>
+                                <i class="fa fa-circle-o fa-stack-1x ready-check-circle"></i>
                                 <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: ready()"></i>
                             </span>
                         </li>
