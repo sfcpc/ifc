@@ -54,7 +54,7 @@ requirejs([
 	require(_.map(settings.feeTypes, function(feeTypeName) {
 		return 'fees/' + feeTypeName + '/viewmodel'
 	}), function() {
-		var query = _.chain(decodeURIComponent(location.search).slice(1).split('&'))
+		var params = _.chain(decodeURIComponent(location.search).slice(1).split('&'))
 			.map(function(item) {
 				if (item) return item.split('=');
 			})
@@ -63,13 +63,13 @@ requirejs([
 			.value();
 
 		var app = new App(
-			_.extend(query, {
+			_.extend(params, {
 				name: settings.appName
 			})
 		);
-		var feeQueries = query.fees ? JSON.parse(query.fees) : {};
+		var feeParams = params.fees ? JSON.parse(params.fees) : {};
 		var feeViewModels = _.map(arguments, function(feeViewModel) {
-			var feeQuery = feeQueries[feeViewModel.feeTypeName] || {};
+			var feeQuery = feeParams[feeViewModel.feeTypeName] || {};
 			return new feeViewModel(
 				_.extend(feeQuery, {
 					app: app
@@ -82,5 +82,9 @@ requirejs([
 		app.queryString.subscribe(function(queryString) {
 			window.history.pushState({}, '', queryString);
 		});
+
+        window.onpopstate = function() {
+            window.location.reload();
+        };
 	})
 });
