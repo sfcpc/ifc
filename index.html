@@ -54,34 +54,34 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item" data-bind="css: {'active': state() === 'trigger'}">
-                        <a class="nav-link" href="#" data-bind="click: viewTrigger">1. Trigger
-              <span class="sr-only">(current)</span>
-              <span class="fa-stack">
-                  <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
-                  <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
-                  <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: triggersReady()"></i>
-              </span>
-            </a>
+                        <a class="nav-link" href="#" data-bind="click: viewTrigger">
+                            <span>1. Trigger</span>
+                            <span class="sr-only">(current)</span>
+                            <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
+                                <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+                                <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: triggersReady()"></i>
+                            </span>
+                        </a>
                     </li>
                     <li class="nav-item" data-bind="css: {'active': state() === 'calculate'}">
-                        <a class="nav-link" href="#" data-bind="css: {'disabled': !triggersReady()}, click: viewCalculate">2. Calculate
-              <span class="fa-stack">
-                  <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
-                  <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
-                  <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: feesReady() && triggersReady()"></i>
-              </span>
-            </a>
+                        <a class="nav-link" href="#" data-bind="css: {'disabled': !triggersReady()}, click: viewCalculate">
+                            <span>2. Calculate</span>
+                            <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
+                                <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+                                <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: feesReady() && triggersReady()"></i>
+                            </span>
+                        </a>
                     </li>
                     <li class="nav-item" data-bind="css: {'active': state() === 'report'}">
-                        <a class="nav-link disabled" href="#" data-bind="css: {'disabled': !feesReady()}, click: viewReport">
-              3. Report
-            </a>
+                        <a class="nav-link disabled" href="#" data-bind="css: {'disabled': !feesReady()}, click: viewReport">3. Report</a>
                     </li>
                 </ul>
             </div>
             <button type="button" class="btn btn-primary link-btn" data-toggle="modal" data-target="#linkModal">
-        <i class="fa fa-link"></i> Copy Link
-      </button>
+                <i class="fa fa-link"></i> Copy Link
+            </button>
         </nav>
 
         <div data-bind="if: state() === 'trigger'">
@@ -123,29 +123,30 @@
                         <li class="list-group-item" data-bind="click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}">
                             <span data-bind="text: label"></span>
                             <span class="fa-stack">
-                <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
-                  <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
-                  <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: ready()"></i>
-              </span>
+                                <i class="fa fa-circle fa-stack-1x ready-check-border"></i>
+                                <i class="fa fa-circle fa-stack-1x ready-check-circle"></i>
+                                <i class="fa fa-check ready-check fa-stack-1x" aria-hidden="true" data-bind="visible: ready()"></i>
+                            </span>
                         </li>
                     </ul>
                 </div>
                 <div class="col-8 selected-fee-form" data-bind="if: selectedFee()">
                     <h2>
-            <span data-bind="text: selectedFee().label"></span>
-            <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: selectedFee().ready()"></i>
-          </h2>
+                        <span data-bind="text: selectedFee().label"></span>
+                        <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: selectedFee().ready()"></i>
+                    </h2>
                     <hr>
                     <!-- ko component: {
-            name:  selectedFee().feeTypeName,
-            params: {
-              fee: selectedFee(),
-              state: "form"
-            }
-          } -->
+                        name:  selectedFee().feeTypeName,
+                        params: {
+                            fee: selectedFee(),
+                            state: "form"
+                        }
+                    } -->
                     <!-- /ko -->
                 </div>
                 <!-- /ko -->
+
                 <!-- ko if: triggeredFeeViewModels().length === 0 -->
                 <div class="col-12 triggered-fee-list">
                     <h3>No fees triggered</h3>
@@ -159,24 +160,26 @@
                 <small class="report-date" data-bind="text: reportDate"></small>
                 <h1>Fee Report</h1>
                 <button type="button" class="btn btn-primary print-btn" data-bind="click: function () { window.print() }">
-          <i class="fa fa-print"></i> Print
-        </button>
+                    <i class="fa fa-print"></i>
+                    <span>Print</span>
+                </button>
                 <hr>
                 <div data-bind="foreach: feeViewModels">
                     <!-- ko component: {
-            name:  feeTypeName,
-            params: {
-              fee: $data,
-              state: "report"
-            }
-          } -->
+                        name:  feeTypeName,
+                        params: {
+                            fee: $data,
+                            state: "report"
+                        }
+                    } -->
                     <!-- /ko -->
                     <hr>
                 </div>
                 <div class="fee-report">
-                    <h2>Total:<span class="report-value">
-            $<span data-bind="numericText: total"></span></h2>
-                    </span>
+                    <h2>
+                        <span>Total:</span>
+                        <span class="report-value">$<span data-bind="numericText: total"></span>
+                    </h2>
                 </div>
             </div>
         </div>
