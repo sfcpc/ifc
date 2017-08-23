@@ -1,6 +1,4 @@
-# SF Planning Impact Fee Calculator
-
-## (Under Development)
+# SF Planning Impact Fee Calculator (Under Development)
 
 See the calculator in action [here](https://sfcpc.github.io/ifc/).
 
@@ -18,8 +16,13 @@ The impact fee calculator will then be running at http://localhost:8000/
 
 ## Adding Fee Types
 
-To register new fee types with the system, create a folder for your fee type under `fees/` and add a module that defines the fee type's viewmodel as `viewmodel.js`.
+To register new fee types with the system:
+
+1. create a folder for your fee type under `fees/` and add a module that defines the fee type's viewmodel as `viewmodel.js`
+1. add a reference to your folder name in the `feeTypes` property of `settings.json`
 
 The fee type's viewmodel module should also register a component that has the same name as the folder for use in the fee type's form & report.
 
 Fee type viewmodels should extend the interface defined in `fees/abstract-fee.js`, and the fee type component's viewmodel should use or extend `fees/abstract-component.js`.
+
+You can see [`fees/mock-fee/`](https://github.com/sfcpc/ifc/tree/master/fees/mock-fee) for an example fee type.
