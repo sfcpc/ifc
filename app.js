@@ -82,22 +82,23 @@ define([
 			}
 		};
 		
-		this.json = ko.computed(function () {
+		this.queryString = ko.computed(function () {
 			var feeViewModelJSON = {};
 			_.each(this.feeViewModels(), function(feeViewModel) {
 				feeViewModelJSON[feeViewModel.feeTypeName] = feeViewModel.json();
 			});
-			return {
+			var appJSON =  {
 				state: this.state(),
 				newDwellings: this.newDwellings(),
 				removedDwellings: this.removedDwellings(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}
+			return '?' + $.param(appJSON).split('+').join('%20');
 		}, this);
 		
 		this.linkURL = ko.computed(function () {
-			this.json();
-			return window.location.href;
+			var queryString = this.queryString();
+			return window.location.origin + window.location.pathname + queryString;
 		}, this);
 		
 		this.copyModBtn = window.navigator.platform === 'MacIntel' ? 'Cmd' : 'Ctrl';
