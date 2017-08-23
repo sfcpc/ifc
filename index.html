@@ -44,13 +44,14 @@
     </div>
 
     <div style="display:none;" data-bind="visible: true">
+        <!-- navigation -->
         <nav class="navbar navbar-expand-md fixed-top">
             <img src="img/icon.png" alt="SF Planning" class="logo">
             <span class="navbar-brand" href="#" data-bind="text: name"></span>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav mr-auto">
@@ -85,6 +86,7 @@
             </button>
         </nav>
 
+        <!-- trigger form -->
         <div data-bind="if: state() === 'trigger'">
             <div class="jumbotron">
                 <div class="container">
@@ -115,6 +117,7 @@
             </div>
         </div>
 
+        <!-- calculation form -->
         <div class="container" data-bind="if: state() === 'calculate'">
             <div class="row">
                 <!-- ko if: triggeredFeeViewModels().length > 0 -->
@@ -157,6 +160,7 @@
             </div>
         </div>
 
+        <!-- report -->
         <div class="container" data-bind="if: state() === 'report'">
             <div class="report">
                 <small class="report-date" data-bind="text: reportDate"></small>
@@ -187,6 +191,7 @@
         </div>
     </div>
 
+    <!-- loading mask -->
     <div class="loading-mask" data-bind="visible: loading"></div>
 
     <script data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
