@@ -13,3 +13,5 @@ python -m SimpleHTTPServer 8000
 The impact fee calculator will then be running at http://localhost:8000/
 
 [Atom](https://atom.io/) is recommended for editing, as the code is built to work with [the Atom livereload package](https://atom.io/packages/livereload).
+
+To register new fee types with the system, create a folder for your fee type under `fees/` and add a module that defines the fee type's viewmodel as `viewmodel.js`.  This file should also register a component that has the same name as the folder for use in the fee type's form & report.  Fee type viewmodels should extend the interface defined in `fees/abstract-fee.js`, and the fee type component's viewmodel should use or extend `fees/abstract-component.js`.
