@@ -124,7 +124,7 @@ a, .ready-check-circle {
     font-size: 1.5em;
 }
 
-.nav-link.disabled .ready-check-border {
+.nav-link.disabled .ready-check-circle {
     color: #868e96;
 }
 
