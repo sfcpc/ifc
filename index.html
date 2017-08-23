@@ -42,6 +42,7 @@
             </div>
         </div>
     </div>
+
     <div style="display:none;" data-bind="visible: true">
         <nav class="navbar navbar-expand-md fixed-top">
             <img src="img/icon.png" alt="SF Planning" class="logo">
@@ -118,7 +119,8 @@
             <div class="row">
                 <!-- ko if: triggeredFeeViewModels().length > 0 -->
                 <div class="col-4 triggered-fee-list">
-                    <h3>Triggered Fees:</h3>
+                    <h2>Triggered Fees:</h2>
+                    <hr>
                     <ul class="list-group" data-bind="foreach: triggeredFeeViewModels">
                         <li class="list-group-item" data-bind="click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}">
                             <span data-bind="text: label"></span>
