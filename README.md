@@ -4,13 +4,13 @@ See the calculator in action [here](https://sfcpc.github.io/ifc/).
 
 ## Running Locally
 
-To facilitate loading of local json files, the application must be run via an HTTP server.  For a simple way to do this in development, run the following from the project root directory (requires Python):
+To facilitate loading of local json files, the application must be run via an HTTP server. For a simple way to do this in development, run the following from the project root directory (requires Python):
 
 ```sh
 python -m SimpleHTTPServer 8000
 ```
 
-The impact fee calculator will then be running at http://localhost:8000/
+The impact fee calculator will then be running at <http://localhost:8000/>
 
 [Atom](https://atom.io/) is recommended for editing, as the code is built to work with [the Atom livereload package](https://atom.io/packages/livereload).
 
@@ -19,7 +19,7 @@ The impact fee calculator will then be running at http://localhost:8000/
 To register new fee types with the system:
 
 1. create a folder for your fee type under `fees/` and add a module that defines the fee type's viewmodel as `viewmodel.js`
-1. add a reference to your folder name in the `feeTypes` property of `settings.json`
+2. add a reference to your folder name in the `feeTypes` property of `settings.json`
 
 The fee type's viewmodel module should also register a component that has the same name as the folder for use in the fee type's form & report.
 

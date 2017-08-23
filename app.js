@@ -2,7 +2,7 @@ define([
 	'knockout',
 	'underscore',
 	'jquery'
-], function (ko, _, $) {
+], function(ko, _, $) {
 	var App = function(params) {
 		var self = this;
 		this.name = params.name || "";
@@ -10,84 +10,82 @@ define([
 		this.loading = ko.observable(false);
 		this.feeViewModels = ko.observableArray();
 		this.selectedFee = ko.observable();
-		this.reportDate = (function() {
-			var now = new Date();
-			return  (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
-		})();
-		
-		this.total = ko.computed(function () {
+		var now = new Date();
+		this.reportDate = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+
+		this.total = ko.computed(function() {
 			var total = 0;
-			this.feeViewModels().forEach(function (feeViewModel) {
+			this.feeViewModels().forEach(function(feeViewModel) {
 				if (feeViewModel.triggered()) {
 					total += feeViewModel.calculatedFee();
 				}
 			});
 			return total;
 		}, this);
-		
+
 		this.triggeredFeeViewModels = ko.computed(function() {
 			var feeViewModels = this.feeViewModels();
-			return _.filter(feeViewModels, function (feeViewModel) {
+			return _.filter(feeViewModels, function(feeViewModel) {
 				return feeViewModel.triggered();
 			});
 		}, this);
-		
-		this.triggeredFeeViewModels.subscribe(function () {
+
+		this.triggeredFeeViewModels.subscribe(function() {
 			var feeViewModels = self.triggeredFeeViewModels();
 			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
 		});
-		
+
 		this.newDwellings = ko.observable(params.newDwellings || null);
 		this.removedDwellings = ko.observable(params.removedDwellings || null);
-		this.netNewDwellings = ko.computed(function () {
+		this.netNewDwellings = ko.computed(function() {
 			var newDwellings = this.newDwellings() || 0;
 			var removedDwellings = this.removedDwellings() || 0;
 			return newDwellings - removedDwellings;
 		}, this);
-		
-		this.triggersReady = ko.computed(function () {
+
+		this.triggersReady = ko.computed(function() {
 			var newDwellings = this.newDwellings();
 			var removedDwellings = this.removedDwellings();
-			return removedDwellings !== null && removedDwellings !== ''
-				&& newDwellings !== null && newDwellings !== '';
+			return removedDwellings !== null && removedDwellings !== '' &&
+				newDwellings !== null && newDwellings !== '';
 		}, this);
-		
-		this.feesReady = ko.computed(function () {
+
+		this.feesReady = ko.computed(function() {
 			if (!this.triggersReady()) {
 				return false;
 			}
 			var feeViewModels = this.feeViewModels();
 			var ready = true;
-			feeViewModels.forEach(function (feeViewModel) {
+			feeViewModels.forEach(function(feeViewModel) {
 				if (!feeViewModel.ready()) {
 					ready = false;
 				}
 			});
 			return ready;
 		}, this);
-		
-		this.viewTrigger = function () {
+
+		this.viewTrigger = function() {
 			self.state('trigger');
 		};
-		
-		this.viewCalculate = function () {
+
+		this.viewCalculate = function() {
 			if (self.triggersReady()) {
 				self.state('calculate');
 			}
 		};
-		
-		this.viewReport = function () {
+
+		this.viewReport = function() {
 			if (self.feesReady()) {
 				self.state('report');
 			}
 		};
-		
-		this.queryString = ko.computed(function () {
+
+		this.queryString = ko.computed(function() {
 			var feeViewModelJSON = {};
 			_.each(this.feeViewModels(), function(feeViewModel) {
 				feeViewModelJSON[feeViewModel.feeTypeName] = feeViewModel.json();
 			});
-			var appJSON =  {
+			var appJSON = {
 				state: this.state(),
 				newDwellings: this.newDwellings(),
 				removedDwellings: this.removedDwellings(),
@@ -95,20 +93,22 @@ define([
 			}
 			return '?' + $.param(appJSON).split('+').join('%20');
 		}, this);
-		
-		this.linkURL = ko.computed(function () {
+
+		this.linkURL = ko.computed(function() {
 			var queryString = this.queryString();
 			return window.location.origin + window.location.pathname + queryString;
 		}, this);
-		
+
 		this.copyModBtn = window.navigator.platform === 'MacIntel' ? 'Cmd' : 'Ctrl';
-		
-		$('#linkModal').on('shown.bs.modal', function () {
+
+		$('#linkModal').on('shown.bs.modal', function() {
 			$('#linkInput').focus().select()
 		});
+
 		$('#linkInput').keypress(function(e) {
-		    e.preventDefault();
+			e.preventDefault();
 		});
 	};
+
 	return App;
 });
