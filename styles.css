@@ -1,11 +1,10 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Lato:400");
-
 body {
-  font-family: Lato, sans-serif;
-  padding-top: 4.1rem;
-  color: rgb(78, 78, 78);
+    font-family: Lato, sans-serif;
+    padding-top: 4.1rem;
+    color: rgb(78, 78, 78);
 }
 
 nav {
@@ -72,7 +71,7 @@ a, .ready-check-border {
     margin-top: 25px;
 }
 
-.triggered-fee-list .list-group{
+.triggered-fee-list .list-group {
     margin-top: 10px;
 }
 
@@ -120,6 +119,7 @@ a, .ready-check-border {
     font-size: 1.4em;
     color: white;
 }
+
 .ready-check-border {
     font-size: 1.6em;
 }
