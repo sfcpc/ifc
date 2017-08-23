@@ -12,17 +12,25 @@ nav {
     border-bottom: solid rgb(198, 198, 198) 1px;
 }
 
-a {
+a, .ready-check-border {
     color: #4994e4;
 }
 
-.list-group-item.active, .btn {
+.list-group-item.active, .btn, .nav-item.active {
     background-color: #4994e4;
     border-color: #4994e4;
 }
 
-.btn, .list-group-item:first-child, .list-group-item:last-child, .modal-content {
-    border-radius: 0;
+.nav-link {
+    line-height: 2em;
+}
+
+.nav-item.active a {
+    color: white;
+}
+
+.btn, .list-group-item:first-child, .list-group-item:last-child, .modal-content, .nav-item {
+    border-radius: 3.5px;
 }
 
 .logo {
@@ -114,7 +122,6 @@ a {
 }
 .ready-check-border {
     font-size: 1.6em;
-    color: #4994e4;
 }
 
 .nav-link.disabled .ready-check-border {

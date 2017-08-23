@@ -24,6 +24,7 @@
 							Copy the link below (press <span data-bind="text: copyModBtn"></span> + C) to revisit or share your current calculation:
 						</div>
 					</div>
+					<hr>
 					<form>
 						<div class="form-group">
 							<div class="row">
@@ -73,9 +74,8 @@
 						</a>
 					</li>
 					<li class="nav-item" data-bind="css: {'active': state() === 'report'}">
-						<a class="nav-link disabled" href="#" data-bind="css: {'disabled': !feesReady()}, click: viewReport">3. Report
-							<span class="fa-stack">
-							</span>
+						<a class="nav-link disabled" href="#" data-bind="css: {'disabled': !feesReady()}, click: viewReport">
+							3. Report
 						</a>
 					</li>
 				</ul>
