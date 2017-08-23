@@ -69,8 +69,8 @@ requirejs([
         app.feeViewModels(feeViewModels);
         ko.applyBindings(app);
         
-        app.json.subscribe(function (appJSON) {
-            window.history.pushState({}, '', '?' + $.param(appJSON).split('+').join('%20'));
+        app.queryString.subscribe(function (queryString) {
+            window.history.pushState({}, '', queryString);
         });
     })
 });
