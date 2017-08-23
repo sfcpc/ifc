@@ -31,6 +31,14 @@ requirejs([
     "json!settings.json",
     "bootstrap"
 ], function(ko, _, App, settings) {
+    ko.bindingHandlers.numericText = {
+        update: function(element, valueAccessor, allBindingsAccessor) {
+           var value = ko.utils.unwrapObservable(valueAccessor()),
+               formattedValue = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+
+            ko.bindingHandlers.text.update(element, function() { return formattedValue; });
+        }
+    };
     if (window.location.hostname === "localhost") {
         require(['http://localhost:' + settings.livereloadPort + '/livereload.js'],
             function () {
