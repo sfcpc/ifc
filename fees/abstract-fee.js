@@ -36,6 +36,20 @@ define([
 		this.json = ko.computed(function() {
 			return {};
 		}, this);
+
+        // fee subtotal for use in reports;
+        // this should not need to be overridden in fee types
+        this.subtotal = ko.computed(function () {
+            var subtotal = 0;
+            var feeViewModels = this.app.feeViewModels();
+            for (var i = 0; i < feeViewModels.length; i++) {
+                subtotal += feeViewModels[i].calculatedFee();
+                if (this === feeViewModels[i]) {
+                    break;
+                }
+            }
+            return subtotal;
+        }, this);
 	};
 
     // feeTypeName should be the same on both prototype and instances

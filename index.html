@@ -173,18 +173,42 @@
                 </button>
                 <hr>
                 <div data-bind="foreach: feeViewModels">
-                    <!-- ko component: {
-                        name:  feeTypeName,
-                        params: {
-                            fee: $data,
-                            state: "report"
-                        }
-                    } -->
-                    <!-- /ko -->
+                    <div class="fee-report">
+                        <h2>
+                            <span data-bind="text: label"></span>:
+                            <!-- ko if: !triggered() -->
+                            not triggered
+                            <!-- /ko -->
+                        </h2>
+                        <div class="report-content">
+                            <!-- ko component: {
+                                name:  feeTypeName,
+                                params: {
+                                    fee: $data,
+                                    state: "report"
+                                }
+                            } -->
+                            <!-- /ko -->
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="calculated-fee">
+                                    Fee: $<strong data-bind="numericText: calculatedFee"></strong>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="calculated-fee">
+                                    (Subtotal: $<span data-bind="numericText: subtotal"></span>)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                 </div>
                 <div class="fee-report">
-                    <h2>
+                    <h2 class="calculated-fee">
                         <span>Total:</span>
                         <span class="report-value">$<span data-bind="numericText: total"></span>
                     </h2>

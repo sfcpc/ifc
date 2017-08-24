@@ -143,9 +143,10 @@ hr {
 
 .fee-report .report-content {
     padding-left: 20px;
+    margin-bottom: 10px;
 }
 
-.fee-report h4 {
+.fee-report h2 {
     padding-bottom: 15px;
 }
 
@@ -184,6 +185,10 @@ hr {
     position: absolute;
     right: 10px;
     top: 14px;
+}
+
+.calculated-fee {
+    float: right;
 }
 
 @media print {
