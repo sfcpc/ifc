@@ -47,7 +47,7 @@
         <!-- navigation -->
         <nav class="navbar navbar-expand-md fixed-top">
             <img src="img/icon.png" alt="SF Planning" class="logo">
-            <span class="navbar-brand" href="#" data-bind="text: name"></span>
+            <span class="navbar-brand" data-bind="text: name"></span>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -90,10 +90,17 @@
         <div data-bind="if: state() === 'trigger'">
             <div class="jumbotron">
                 <div class="container">
+                    <h1>
+                        <img src="img/logo-large.jpg" alt="SF Planning" class="logo-large">
+                        <span data-bind="text: name"></span>
+                    </h1>
+                    <hr>
                     <h2>Enter data below to begin calculating impact fees for a project:</h2>
                 </div>
             </div>
             <div class="container">
+                <h2>Trigger Information</h2>
+                <hr>
                 <h4>Dwellings</h4>
                 <form>
                     <div class="form-group">
@@ -105,11 +112,6 @@
                             <div class="col-6">
                                 <label for="netNewDwellings"># of removed dwellings</label>
                                 <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="removedDwellings" placeholder="# of removed dwellings" data-bind="value: removedDwellings, valueUpdate: 'keyup'">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 form-details">
-                                (net new dwellings: <strong data-bind="text: netNewDwellings"></strong>)
                             </div>
                         </div>
                     </div>
