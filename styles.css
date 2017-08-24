@@ -7,9 +7,11 @@ body {
     font-family: Titillium Web, sans-serif;
     padding-top: 4.1rem;
     color: rgb(78, 78, 78);
+    background-color: #f1f1f1;
 }
 
 nav {
+    background-color: #f1f1f1;
     border-bottom: solid rgb(198, 198, 198) 1px;
 }
 
@@ -17,8 +19,38 @@ a, .ready-check-circle {
     color: #4994e4;
 }
 
-.navbar-brand {
+hr {
+    border-top: 1px solid rgba(249, 149, 32, 1);
+}
+
+.navbar-brand, .jumbotron h1 {
     font-family: Offside;
+}
+
+.jumbotron {
+    background: transparent;
+    color: rgb(240, 240, 240);
+    text-shadow: 1px 1px rgb(60, 60, 60);
+    position: relative;
+}
+
+.jumbotron::after {
+  content: "";
+  background-image: url("img/background.jpg");
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.logo-large {
+    height: 70px;
+    border-radius: 5px;
+    border: 1px solid rgba(80, 80, 80, 0.4);
+    opacity: 0.85;
 }
 
 .list-group-item.active, .btn, .nav-item.active {
@@ -31,7 +63,7 @@ a, .ready-check-circle {
 }
 
 .nav-item.active a {
-    color: white;
+    color: #f1f1f1;
 }
 
 .btn, .list-group-item:first-child, .list-group-item:last-child, .modal-content, .nav-item {
@@ -126,8 +158,12 @@ a, .ready-check-circle {
 }
 
 .ready-check-background {
-    color: white;
+    color: #f1f1f1;
     font-size: 1.5em;
+}
+
+.list-group-item .ready-check-background {
+    color: white;
 }
 
 .nav-link.disabled .ready-check-circle {
@@ -156,5 +192,11 @@ a, .ready-check-circle {
     }
     .link-btn {
         display: none;
+    }
+    .navbar {
+        display: none;
+    }
+    body {
+        padding-top: 0;
     }
 }
