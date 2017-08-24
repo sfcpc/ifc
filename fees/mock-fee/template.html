@@ -8,39 +8,24 @@
 <!-- /ko -->
 
 <!-- ko if: state === 'report' -->
-<div class="fee-report">
-    <h4>
-        <span data-bind="text: fee.label"></span>:
-        <!-- ko if: fee.triggered() -->
-        $<span data-bind="numericText: fee.calculatedFee"></span>
-        <!-- /ko -->
-        <!-- ko if: !fee.triggered() -->
-        not triggered
-        <!-- /ko -->
-    </h4>
-    <div class="report-content">
-        <!-- ko if: fee.triggered() -->
-        <div class="row">
-            <div class="col-6">
-                <h5>Base Value: $<span data-bind="numericText: fee.value"></span></h5>
-            </div>
-            <div class="col-6">
-                <h5>Multiplier: <span data-bind="numericText: fee.multiplier"></span></h5>
-            </div>
+    <!-- ko if: fee.triggered() -->
+    <div class="row">
+        <div class="col-4">
+            <h5>Base Value: $<span data-bind="numericText: fee.value"></span></h5>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <h5>
-                    Calculated Fee:
-                    <span>
-                        $<span data-bind="numericText: fee.value"></span>
-                        * <span data-bind="numericText: fee.multiplier"></span>
-                        = $<strong data-bind="numericText: fee.calculatedFee"></strong>
-                    </span>
-                </h5>
-            </div>
+        <div class="col-4">
+            <h5>Multiplier: <span data-bind="numericText: fee.multiplier"></span></h5>
         </div>
-        <!-- /ko -->
+        <div class="col-4">
+            <h5>
+                Calculation:
+                <span>
+                    $<span data-bind="numericText: fee.value"></span>
+                    * <span data-bind="numericText: fee.multiplier"></span>
+                </span>
+
+            </h5>
+        </div>
     </div>
-</div>
+    <!-- /ko -->
 <!-- /ko -->
