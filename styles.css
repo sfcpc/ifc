@@ -2,6 +2,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Titillium Web");
 @import url("https://fonts.googleapis.com/css?family=Offside");
+
 body {
     font-family: Titillium Web, sans-serif;
     padding-top: 4.1rem;
@@ -146,6 +147,7 @@ a, .ready-check-circle {
 .link-btn {
     position: absolute;
     right: 10px;
+    top: 14px;
 }
 
 @media print {
