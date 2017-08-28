@@ -1,5 +1,6 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.3.1/ol.css");
 @import url("https://fonts.googleapis.com/css?family=Titillium Web");
 @import url("https://fonts.googleapis.com/css?family=Offside");
 
@@ -58,6 +59,10 @@ hr {
     border-color: #6091b3;
 }
 
+.list-group-item.active:hover, .btn:hover{
+    background-color: #61afd2;
+    border-color: #61afd2;
+}
 .nav-link {
     line-height: 2em;
 }
@@ -189,6 +194,12 @@ hr {
 
 .calculated-fee {
     float: right;
+}
+
+.ol-map {
+    background-color: white;
+    border: solid 1px #a6a6a6;
+    margin-bottom: 15px;
 }
 
 @media print {
