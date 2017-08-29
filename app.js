@@ -35,7 +35,7 @@ define([
 			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
 		});
 
-        this.geometry = ko.observable(params.geometry || null);
+		this.geometry = ko.observable(params.geometry || null);
 
 		this.newDwellings = ko.observable(params.newDwellings || null);
 		this.removedDwellings = ko.observable(params.removedDwellings || null);
@@ -49,7 +49,8 @@ define([
 			var newDwellings = this.newDwellings();
 			var removedDwellings = this.removedDwellings();
 			return removedDwellings !== null && removedDwellings !== '' &&
-				newDwellings !== null && newDwellings !== '';
+				newDwellings !== null && newDwellings !== '' &&
+				this.geometry();
 		}, this);
 
 		this.feesReady = ko.computed(function() {
@@ -91,7 +92,7 @@ define([
 				state: this.state(),
 				newDwellings: this.newDwellings(),
 				removedDwellings: this.removedDwellings(),
-                geometry: this.geometry(),
+				geometry: this.geometry(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}
 			return '?' + $.param(appJSON).split('+').join('%20');
@@ -103,14 +104,6 @@ define([
 		}, this);
 
 		this.copyModBtn = window.navigator.platform === 'MacIntel' ? 'Cmd' : 'Ctrl';
-
-		$('#linkModal').on('shown.bs.modal', function() {
-			$('#linkInput').focus().select()
-		});
-
-		$('#linkInput').keypress(function(e) {
-			e.preventDefault();
-		});
 	};
 
 	return App;

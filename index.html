@@ -10,7 +10,11 @@
 
 <body>
     <!-- copy link modal -->
-    <div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
+    <div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true" data-bind="event: {
+            'shown.bs.modal': function(d, e) {
+                $(e.target).find('input').focus().select();
+            }
+        }">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -30,7 +34,11 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-12">
-                                    <input id="linkInput" type="text" class="form-control" data-bind="value: linkURL">
+                                    <input type="text" class="form-control" data-bind="value: linkURL, event: {
+                                        'keypress': function(e) {
+                                			e.preventDefault();
+                                		}
+                                    }">
                                 </div>
                             </div>
                         </div>
@@ -101,8 +109,15 @@
             <div class="container">
                 <h2>Trigger Information</h2>
                 <hr>
-                <h4>Project Location/Parcel(s)</h4>
-                <div class="ol-map" data-bind="olMap:geometry"></div>
+                <h4>Project Location</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Select parcels below by clicking on the map to define the project location</label>
+                            <div class="ol-map" data-bind="olMap:geometry"></div>
+                        </div>
+                    </div>
+                </div>
                 <h4>Dwellings</h4>
                 <form>
                     <div class="form-group">

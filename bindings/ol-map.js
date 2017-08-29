@@ -2,11 +2,11 @@ define([
 	"knockout",
 	'openlayers',
 	'jquery',
-	'turf'
-], function(ko, ol, $, turf) {
+	'turf',
+	"json!settings.json"
+], function(ko, ol, $, turf, settings) {
 	return ko.bindingHandlers.olMap = {
 		init: function(el, valueAccessor, allBindingsAccessor, viewmodel, bindingContext) {
-			var mapserverURL = '//50.17.237.182/arcgis/rest/services/ImpactFees/MapServer';
 			var esrijsonFormat = new ol.format.EsriJSON();
             var geojsonFormat = new ol.format.GeoJSON();
 			var vectorSource = new ol.source.Vector();
@@ -24,14 +24,14 @@ define([
 			var layers = [
 				new ol.layer.Tile({
 					source: new ol.source.TileArcGISRest({
-						url: '//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer'
+						url: settings.basemap
 					})
 				}),
 				new ol.layer.Tile({
 					source: new ol.source.TileArcGISRest({
-						url: mapserverURL,
+						url: settings.mapserver,
 						params: {
-							layers: 'show:2'
+							layers: 'show:' + settings.mapserverLayers
 						}
 					}),
 					maxResolution: 2.323339178970923
@@ -41,8 +41,8 @@ define([
 				})
 			];
             var view = new ol.View({
-                center: [-13630478.763700977, 4544696.014222133],
-                zoom: 12,
+                center: settings.center,
+                zoom: settings.zoom,
                 maxZoom: 18
             });
 
@@ -58,7 +58,7 @@ define([
             }
 
 			map.on('click', function(e) {
-				$.getJSON(mapserverURL + '/identify', {
+				$.getJSON(settings.mapserver + '/identify', {
 					f: 'json',
 					geometry: JSON.stringify({
 						"x": e.coordinate[0],
@@ -82,7 +82,7 @@ define([
 					}),
 					geometryType: 'esriGeometryPoint',
 					sr: 102100,
-					layers: 'all:2',
+					layers: 'all:' + settings.mapserverLayers,
 					imageDisplay: '496,1374,96'
 				}, function(data) {
                     if (data['error']) {
