@@ -6,8 +6,9 @@ require.config({
 		"underscore": "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min",
 		"knockout": "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min",
 		"openlayers": "https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.3.1/ol",
+        "turf": "https://cdnjs.cloudflare.com/ajax/libs/Turf.js/4.6.1/turf.min",
 		"text": "https://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min",
-		"json": "https://cdnjs.cloudflare.com/ajax/libs/requirejs-plugins/1.0.3/json.min"
+		"json": "https://cdnjs.cloudflare.com/ajax/libs/requirejs-plugins/1.0.3/json.min",
 	},
 	shim: {
 		"popper": {
@@ -29,18 +30,10 @@ requirejs([
 	"underscore",
 	'app',
 	"json!settings.json",
-	"bootstrap"
+	"bootstrap",
+    "bindings/numeric-text",
+    "bindings/ol-map"
 ], function(ko, _, App, settings) {
-	ko.bindingHandlers.numericText = {
-		update: function(element, valueAccessor, allBindingsAccessor) {
-			var value = ko.utils.unwrapObservable(valueAccessor()),
-				formattedValue = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
-
-			ko.bindingHandlers.text.update(element, function() {
-				return formattedValue;
-			});
-		}
-	};
 	if (window.location.hostname === "localhost") {
 		require(['http://localhost:' + settings.livereloadPort + '/livereload.js'],
 			function() {
