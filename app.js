@@ -35,6 +35,8 @@ define([
 			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
 		});
 
+        this.geometry = ko.observable(params.geometry || null);
+
 		this.newDwellings = ko.observable(params.newDwellings || null);
 		this.removedDwellings = ko.observable(params.removedDwellings || null);
 		this.netNewDwellings = ko.computed(function() {
@@ -89,6 +91,7 @@ define([
 				state: this.state(),
 				newDwellings: this.newDwellings(),
 				removedDwellings: this.removedDwellings(),
+                geometry: this.geometry(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}
 			return '?' + $.param(appJSON).split('+').join('%20');
