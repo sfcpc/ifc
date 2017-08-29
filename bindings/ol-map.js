@@ -6,7 +6,7 @@ define([
 ], function(ko, ol, $, turf) {
 	return ko.bindingHandlers.olMap = {
 		init: function(el, valueAccessor, allBindingsAccessor, viewmodel, bindingContext) {
-			var mapserverURL = 'http://50.17.237.182/arcgis/rest/services/ImpactFees/MapServer';
+			var mapserverURL = '//50.17.237.182/arcgis/rest/services/ImpactFees/MapServer';
 			var esrijsonFormat = new ol.format.EsriJSON();
             var geojsonFormat = new ol.format.GeoJSON();
 			var vectorSource = new ol.source.Vector();
@@ -24,7 +24,7 @@ define([
 			var layers = [
 				new ol.layer.Tile({
 					source: new ol.source.TileArcGISRest({
-						url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer'
+						url: '//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer'
 					})
 				}),
 				new ol.layer.Tile({
