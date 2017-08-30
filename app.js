@@ -35,21 +35,37 @@ define([
 			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
 		});
 
-        this.geometry = ko.observable(params.geometry || null);
-
-		this.newDwellings = ko.observable(params.newDwellings || null);
-		this.removedDwellings = ko.observable(params.removedDwellings || null);
-		this.netNewDwellings = ko.computed(function() {
-			var newDwellings = this.newDwellings() || 0;
-			var removedDwellings = this.removedDwellings() || 0;
-			return newDwellings - removedDwellings;
+		// trigger parameters
+		this.geometry = ko.observable(params.geometry || null);
+		this.newUnits = ko.observable(params.newUnits || null);
+		this.removedUnits = ko.observable(params.removedUnits || null);
+		this.newNonRes = ko.observable(params.newNonRes || null);
+		this.nonResGSF = ko.observable(params.nonResGSF || null);
+		this.pdrGSF = ko.observable(params.pdrGSF || null);
+		this.resGSF = ko.observable(params.resGSF || null);
+		this.changeOfUse = ko.observable(params.changeOfUse || null);
+		this.netNewUnits = ko.computed(function() {
+			var newUnits = this.newUnits() || 0;
+			var removedUnits = this.removedUnits() || 0;
+			return newUnits - removedUnits;
 		}, this);
 
 		this.triggersReady = ko.computed(function() {
-			var newDwellings = this.newDwellings();
-			var removedDwellings = this.removedDwellings();
-			return removedDwellings !== null && removedDwellings !== '' &&
-				newDwellings !== null && newDwellings !== '';
+			var newUnits = this.newUnits();
+			var removedUnits = this.removedUnits();
+			var newNonRes = this.newNonRes();
+			var nonResGSF = this.nonResGSF();
+			var pdrGSF = this.pdrGSF();
+			var resGSF = this.resGSF();
+			var changeOfUse = this.changeOfUse();
+			return removedUnits !== null && removedUnits !== '' &&
+				newUnits !== null && newUnits !== '' &&
+				newNonRes !== null && newNonRes !== '' &&
+				nonResGSF !== null && nonResGSF !== '' &&
+				pdrGSF !== null && pdrGSF !== '' &&
+				resGSF !== null && resGSF !== '' &&
+				changeOfUse !== null && changeOfUse !== '' &&
+				this.geometry();
 		}, this);
 
 		this.feesReady = ko.computed(function() {
@@ -89,9 +105,14 @@ define([
 			});
 			var appJSON = {
 				state: this.state(),
-				newDwellings: this.newDwellings(),
-				removedDwellings: this.removedDwellings(),
-                geometry: this.geometry(),
+				newUnits: this.newUnits(),
+				removedUnits: this.removedUnits(),
+				newNonRes: this.newNonRes(),
+				nonResGSF: this.nonResGSF(),
+				pdrGSF: this.pdrGSF(),
+				resGSF: this.resGSF(),
+				changeOfUse: this.changeOfUse(),
+				geometry: this.geometry(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}
 			return '?' + $.param(appJSON).split('+').join('%20');
@@ -103,14 +124,6 @@ define([
 		}, this);
 
 		this.copyModBtn = window.navigator.platform === 'MacIntel' ? 'Cmd' : 'Ctrl';
-
-		$('#linkModal').on('shown.bs.modal', function() {
-			$('#linkInput').focus().select()
-		});
-
-		$('#linkInput').keypress(function(e) {
-			e.preventDefault();
-		});
 	};
 
 	return App;

@@ -1,4 +1,6 @@
 {
+	"name": "mock-fee",
+	"label": "Mock Fee",
 	"multiplier": 2,
-	"minNetNewDwellings": 10
+	"minNetNewUnits": 10
 }

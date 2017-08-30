@@ -3,5 +3,10 @@
 	"feeTypes": [
 		"mock-fee"
 	],
-	"livereloadPort": "35729"
+	"livereloadPort": "35729",
+	"basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+	"mapserver": "//50.17.237.182/arcgis/rest/services/ImpactFees/MapServer",
+	"mapserverLayers": "2",
+	"center": [-13630478.763700977, 4544696.014222133],
+	"zoom": 12
 }
