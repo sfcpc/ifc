@@ -3,7 +3,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.3.1/ol.css");
 @import url("https://fonts.googleapis.com/css?family=Titillium Web");
 @import url("https://fonts.googleapis.com/css?family=Offside");
-
 body {
     font-family: Titillium Web, sans-serif;
     padding-top: 4.1rem;
@@ -36,15 +35,15 @@ hr {
 }
 
 .jumbotron::after {
-  content: "";
-  background-image: url("img/background.jpg");
-  opacity: 0.6;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
+    content: "";
+    background-image: url("img/background.jpg");
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .logo-large {
@@ -59,10 +58,11 @@ hr {
     border-color: #6091b3;
 }
 
-.list-group-item.active:hover, .btn:hover{
+.list-group-item.active:hover, .btn:hover {
     background-color: #61afd2;
     border-color: #61afd2;
 }
+
 .nav-link {
     line-height: 2em;
 }

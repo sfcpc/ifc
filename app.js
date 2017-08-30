@@ -35,15 +35,15 @@ define([
 			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
 		});
 
-        // trigger parameters
+		// trigger parameters
 		this.geometry = ko.observable(params.geometry || null);
 		this.newUnits = ko.observable(params.newUnits || null);
 		this.removedUnits = ko.observable(params.removedUnits || null);
-        this.newNonRes = ko.observable(params.newNonRes || null);
-        this.nonResGSF = ko.observable(params.nonResGSF || null);
-        this.pdrGSF = ko.observable(params.pdrGSF || null);
-        this.resGSF = ko.observable(params.resGSF || null);
-        this.changeOfUse = ko.observable(params.changeOfUse || null);
+		this.newNonRes = ko.observable(params.newNonRes || null);
+		this.nonResGSF = ko.observable(params.nonResGSF || null);
+		this.pdrGSF = ko.observable(params.pdrGSF || null);
+		this.resGSF = ko.observable(params.resGSF || null);
+		this.changeOfUse = ko.observable(params.changeOfUse || null);
 		this.netNewUnits = ko.computed(function() {
 			var newUnits = this.newUnits() || 0;
 			var removedUnits = this.removedUnits() || 0;
@@ -53,18 +53,18 @@ define([
 		this.triggersReady = ko.computed(function() {
 			var newUnits = this.newUnits();
 			var removedUnits = this.removedUnits();
-            var newNonRes = this.newNonRes();
-            var nonResGSF = this.nonResGSF();
-            var pdrGSF = this.pdrGSF();
-            var resGSF = this.resGSF();
-            var changeOfUse = this.changeOfUse();
+			var newNonRes = this.newNonRes();
+			var nonResGSF = this.nonResGSF();
+			var pdrGSF = this.pdrGSF();
+			var resGSF = this.resGSF();
+			var changeOfUse = this.changeOfUse();
 			return removedUnits !== null && removedUnits !== '' &&
 				newUnits !== null && newUnits !== '' &&
-                newNonRes !== null && newNonRes !== '' &&
-                nonResGSF !== null && nonResGSF !== '' &&
-                pdrGSF !== null && pdrGSF !== '' &&
-                resGSF !== null && resGSF !== '' &&
-                changeOfUse !== null && changeOfUse !== '' &&
+				newNonRes !== null && newNonRes !== '' &&
+				nonResGSF !== null && nonResGSF !== '' &&
+				pdrGSF !== null && pdrGSF !== '' &&
+				resGSF !== null && resGSF !== '' &&
+				changeOfUse !== null && changeOfUse !== '' &&
 				this.geometry();
 		}, this);
 
@@ -107,11 +107,11 @@ define([
 				state: this.state(),
 				newUnits: this.newUnits(),
 				removedUnits: this.removedUnits(),
-                newNonRes: this.newNonRes(),
-                nonResGSF: this.nonResGSF(),
-                pdrGSF: this.pdrGSF(),
-                resGSF: this.resGSF(),
-                changeOfUse: this.changeOfUse(),
+				newNonRes: this.newNonRes(),
+				nonResGSF: this.nonResGSF(),
+				pdrGSF: this.pdrGSF(),
+				resGSF: this.resGSF(),
+				changeOfUse: this.changeOfUse(),
 				geometry: this.geometry(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}
