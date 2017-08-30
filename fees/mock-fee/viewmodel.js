@@ -13,7 +13,7 @@ define([
 		this.multiplier = settings.multiplier;
 
 		this.triggered = ko.computed(function() {
-			return this.app.netNewDwellings() >= settings.minNetNewDwellings;
+			return this.app.netNewUnits() >= settings.minNetNewUnits;
 		}, this);
 
 		this.ready = ko.computed(function() {
