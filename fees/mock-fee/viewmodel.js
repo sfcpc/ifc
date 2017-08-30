@@ -8,7 +8,7 @@ define([
 		AbstractFee.apply(this, [params]);
 
 		this.feeTypeName = MockFee.feeTypeName;
-		this.label = 'Mock Fee';
+		this.label = settings.label;
 		this.value = ko.observable(params.value || null);
 		this.multiplier = settings.multiplier;
 

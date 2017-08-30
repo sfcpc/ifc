@@ -39,6 +39,8 @@ define([
 
 		this.newDwellings = ko.observable(params.newDwellings || null);
 		this.removedDwellings = ko.observable(params.removedDwellings || null);
+        this.newFlrSpace = ko.observable(params.newFlrSpace || null);
+        this.removedFlrSpace = ko.observable(params.removedFlrSpace || null);
 		this.netNewDwellings = ko.computed(function() {
 			var newDwellings = this.newDwellings() || 0;
 			var removedDwellings = this.removedDwellings() || 0;
@@ -48,8 +50,12 @@ define([
 		this.triggersReady = ko.computed(function() {
 			var newDwellings = this.newDwellings();
 			var removedDwellings = this.removedDwellings();
+            var newFlrSpace = this.newFlrSpace();
+			var removedFlrSpace = this.removedFlrSpace();
 			return removedDwellings !== null && removedDwellings !== '' &&
 				newDwellings !== null && newDwellings !== '' &&
+                removedFlrSpace !== null && removedFlrSpace !== '' &&
+				newFlrSpace !== null && newFlrSpace !== '' &&
 				this.geometry();
 		}, this);
 
@@ -92,6 +98,8 @@ define([
 				state: this.state(),
 				newDwellings: this.newDwellings(),
 				removedDwellings: this.removedDwellings(),
+                newFlrSpace: this.newFlrSpace(),
+				removedFlrSpace: this.removedFlrSpace(),
 				geometry: this.geometry(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}

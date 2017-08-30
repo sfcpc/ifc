@@ -4,7 +4,7 @@ See the calculator in action [here](https://sfcpc.github.io/ifc/).
 
 ## Running Locally
 
-To facilitate loading of local json files, the application must be run via an HTTP server. For a simple way to do this in development, run the following from the project root directory (requires Python):
+To facilitate asynchronous loading of local json and html template files, the application must be run via an HTTP server. For a simple way to do this in development, run the following from the project root directory (requires Python):
 
 ```sh
 python -m SimpleHTTPServer 8000
