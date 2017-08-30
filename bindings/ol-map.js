@@ -38,7 +38,18 @@ define([
 					maxResolution: 2.323339178970923
 				}),
 				new ol.layer.Vector({
-					source: vectorSource
+					source: vectorSource,
+					style: [
+						new ol.style.Style({
+							stroke: new ol.style.Stroke({
+								color: 'rgba(249, 149, 32, 1)',
+								width: 3
+							}),
+							fill: new ol.style.Fill({
+								color: 'rgba(249, 149, 32, 0.3)'
+							})
+						})
+					]
 				})
 			];
 			var view = new ol.View({
