@@ -1,13 +1,13 @@
 define([
 	'knockout',
 	'fees/abstract-fee',
-	'json!fees/mock-fee/settings.json',
-	'fees/mock-fee/component'
+	'json!./settings.json',
+	'./component'
 ], function(ko, AbstractFee, settings) {
 	var MockFee = function(params) {
 		AbstractFee.apply(this, [params]);
 
-		this.feeTypeName = MockFee.feeTypeName;
+		this.feeTypeName = settings.name;
 		this.label = settings.label;
 		this.value = ko.observable(params.value || null);
 		this.multiplier = settings.multiplier;
@@ -35,7 +35,7 @@ define([
 		}, this);
 	};
 
-	MockFee.feeTypeName = 'mock-fee';
+	MockFee.feeTypeName = settings.name;
 
 	return MockFee;
 });
