@@ -23,16 +23,26 @@ define([
 			updateFeature(geometry());
 
 			var layers = [
-				new ol.layer.Tile({
+                new ol.layer.Tile({
+                	source: new ol.source.XYZ({
+                		attributions: 'Tiles © <a href="' + settings.basemap + '">ArcGIS</a>',
+                		url: settings.basemap + '/tile/{z}/{y}/{x}'
+                	})
+                }),
+                new ol.layer.Tile({
 					source: new ol.source.TileArcGISRest({
-						url: settings.basemap
-					})
+						url: settings.mapserver,
+						params: {
+							layers: 'show:' + settings.areaLayer
+						}
+					}),
+                    opacity: 0.4
 				}),
 				new ol.layer.Tile({
 					source: new ol.source.TileArcGISRest({
 						url: settings.mapserver,
 						params: {
-							layers: 'show:' + settings.mapserverLayers
+							layers: 'show:' + settings.parcelLayer
 						}
 					}),
 					maxResolution: 2.323339178970923
@@ -95,7 +105,7 @@ define([
 						}),
 						geometryType: 'esriGeometryPoint',
 						sr: 102100,
-						layers: 'all:' + settings.mapserverLayers,
+						layers: 'all:' + settings.parcelLayer,
 						imageDisplay: '496,1374,96'
 					}, function(data) {
 						if (data['error']) {
