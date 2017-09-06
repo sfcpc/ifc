@@ -1,9 +1,12 @@
 define([
 	'knockout',
+    'jquery',
+	'turf',
 	'fees/abstract-fee',
+    'utils/mapserver',
 	'json!./settings.json',
 	'./component'
-], function(ko, AbstractFee, settings) {
+], function(ko, $, turf, AbstractFee, mapserverUtils, settings) {
 	var RinconHillInfrastructureFee = function(params) {
 
         // (b)   Projects subject to the Rincon Hill Community Infrastructure Impact Fee. The Rincon Hill Community Infrastructure Impact Fee is applicable to any development project in the Rincon Hill Program Area which results in:
@@ -37,29 +40,67 @@ define([
 		this.feeTypeName = settings.name;
 		this.label = settings.label;
 		this.value = ko.observable(params.value || null);
-		this.multiplier = settings.multiplier;
 
-		this.triggered = ko.computed(function() {
-			return this.app.netNewUnits() >= settings.minNetNewUnits;
-		}, this);
+        this.areaGeom = ko.observable(null);
 
-		this.ready = ko.computed(function() {
-			if (!this.triggered()) {
-				return true;
+        this.newRes = ko.observable(params.newRes || null);
+        this.nonResToRes = ko.observable(params.nonResToRes || null);
+        this.pdrToRes = ko.observable(params.pdrToRes || null);
+
+        this.feePerNewRes = settings.feePerNewRes;
+        this.feePerNonResToRes = settings.feePerNonResToRes;
+        this.feePerPDRToRes = settings.feePerPDRToRes;
+
+        mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
+
+        this.triggered = ko.computed(function() {
+			if (!this.app.geometry() || !this.areaGeom()) {
+				return false;
 			}
-			return this.value();
+			var projectGeomPoints = turf.explode(JSON.parse(this.app.geometry()));
+			var areaGeom = turf.featureCollection([
+				this.areaGeom()
+			]);
+			var within = turf.within(
+				projectGeomPoints,
+				areaGeom
+			);
+			return within.features.length > 0 &&
+				(
+                    this.app.netNewUnits() >= settings.minNetNewUnits ||
+                    this.app.resGSF() >= settings.minResGSF
+                );
 		}, this);
 
-		this.calculatedFee = ko.computed(function() {
-			var val = this.value();
-			return val && this.triggered() ? val * this.multiplier : 0;
-		}, this);
+        this.ready = ko.computed(function() {
+            if (!this.triggered()) {
+                return true;
+            }
+            return this.newRes() !== null && this.newRes() !== '' &&
+                this.nonResToRes() !== null && this.nonResToRes() !== '' &&
+                this.pdrToRes() !== null && this.pdrToRes() !== ''
+        }, this);
 
-		this.json = ko.computed(function() {
-			return {
-				"value": this.value()
-			};
-		}, this);
+        this.calculatedFee = ko.computed(function() {
+            var newRes = this.newRes() || 0;
+            var nonResToRes = this.nonResToRes() || 0;
+            var pdrToRes = this.pdrToRes() || 0;
+            if(!this.triggered()) {
+                return 0;
+            }
+            return (this.feePerNewRes * newRes) +
+                (this.feePerNonResToRes * nonResToRes) +
+                (this.feePerPDRToRes * pdrToRes)
+        }, this);
+
+        this.json = ko.computed(function() {
+            return {
+                "newRes": this.newRes(),
+                "nonResToRes": this.nonResToRes(),
+                "pdrToRes": this.pdrToRes()
+            };
+        }, this);
+
 	};
 
 	RinconHillInfrastructureFee.feeTypeName = settings.name;
