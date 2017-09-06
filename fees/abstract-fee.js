@@ -15,7 +15,7 @@ define([
         // indicates if this fee has been triggered
         // override with fee type specific triggering logic
 		this.triggered = ko.computed(function() {
-			return true;
+			return false;
 		}, this);
 
         // indicates if this fee is ready for calculation

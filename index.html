@@ -230,32 +230,38 @@
                     <div class="report-content">
                         <div class="row">
                             <div class="col-12">
-                                Location:
+                                <h4>Location:</h4>
                                 <div class="ol-map" data-bind="olMap:geometry, readOnly: true"></div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-4">
-                                Net new dwellings: <span data-bind="numericText: netNewUnits"></span>
-                            </div>
-                            <div class="col-4">
-                                New construction of non‐residential: <span data-bind="numericText: newNonRes"></span> GSF
-                            </div>
-                            <div class="col-4">
-                                Increase in (E) non‐residential: <span data-bind="numericText: nonResGSF"></span> GSF
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4">
-                                Increase in (E) PDR: <span data-bind="numericText: pdrGSF"></span> GSF
-                            </div>
-                            <div class="col-4">
-                                Increase in (E) residential: <span data-bind="numericText: resGSF"></span> GSF
-                            </div>
-                            <div class="col-4">
-                                Change of use: <span data-bind="numericText: changeOfUse"></span> GSF
-                            </div>
-                        </div>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Net new dwellings:</th>
+                                    <td data-bind="numericText: netNewUnits"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">New construction of non‐residential:</th>
+                                    <td><span data-bind="numericText: newNonRes"></span> GSF</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Increase in (E) non‐residential:</th>
+                                    <td><span data-bind="numericText: nonResGSF"></span> GSF</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Increase in (E) PDR:</th>
+                                    <td><span data-bind="numericText: pdrGSF"></span> GSF</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Increase in (E) residential:</th>
+                                    <td><span data-bind="numericText: resGSF"></span> GSF</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Change of use:</th>
+                                    <td><span data-bind="numericText: changeOfUse"></span> GSF</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <hr>
