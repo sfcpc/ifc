@@ -1,14 +1,14 @@
 require.config({
 	paths: {
-		"jquery": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min",
-		"popper": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min",
-		"bootstrap": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min",
-		"underscore": "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min",
-		"knockout": "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min",
-		"openlayers": "https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.3.1/ol",
-		"turf": "https://cdnjs.cloudflare.com/ajax/libs/Turf.js/4.6.1/turf.min",
-		"text": "https://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min",
-		"json": "https://cdnjs.cloudflare.com/ajax/libs/requirejs-plugins/1.0.3/json.min",
+		"jquery": "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min",
+		"popper": "//cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min",
+		"bootstrap": "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min",
+		"underscore": "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min",
+		"knockout": "//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min",
+		"openlayers": "//cdnjs.cloudflare.com/ajax/libs/openlayers/4.3.1/ol",
+		"turf": "//cdnjs.cloudflare.com/ajax/libs/Turf.js/4.6.1/turf.min",
+		"text": "//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min",
+		"json": "//cdnjs.cloudflare.com/ajax/libs/requirejs-plugins/1.0.3/json.min",
 	},
 	shim: {
 		"popper": {

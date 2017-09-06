@@ -4,10 +4,10 @@ define([
 	'openlayers',
 	'turf',
 	'fees/abstract-fee',
-	'json!settings.json',
+	'utils/mapserver',
 	'json!./settings.json',
 	'./component'
-], function(ko, $, ol, turf, AbstractFee, appSettings, settings) {
+], function(ko, $, ol, turf, AbstractFee, mapserverUtils, settings) {
 	var esrijsonFormat = new ol.format.EsriJSON();
 	var geojsonFormat = new ol.format.GeoJSON();
 
@@ -31,28 +31,7 @@ define([
         this.feePerPDRToRes = settings.feePerPDRToRes;
         this.feePerPDRToNonRes = settings.feePerPDRToNonRes;
 
-		$.getJSON(appSettings.mapserver + '/' + appSettings.areaLayer + '/query', {
-			where: "FEE='Balboa Park Community Infrastructure Impact Fee'",
-			geometryType: 'esriGeometryEnvelope',
-			spatialRel: 'esriSpatialRelIntersects',
-			returnGeometry: true,
-			returnIdsOnly: false,
-			returnCountOnly: false,
-			returnZ: false,
-			returnM: false,
-			returnDistinctValues: false,
-			returnTrueCurves: false,
-			outSR: 102100,
-			f: 'json'
-		}, function(data) {
-			if (data['error']) {
-				console.error('Get fee area failed: ' + data['error'].message);
-				return;
-			}
-			var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
-			geom = geojsonFormat.writeGeometry(geom);
-			self.areaGeom(JSON.parse(geom));
-		});
+        mapserverUtils.getAreaGeoJSON('Balboa Park Community Infrastructure Impact Fee', this.areaGeom);
 
 		this.triggered = ko.computed(function() {
 			if (!this.app.geometry() || !this.areaGeom()) {
