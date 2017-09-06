@@ -27,7 +27,7 @@ define([
         this.feePerPDRToRes = settings.feePerPDRToRes;
         this.feePerPDRToNonRes = settings.feePerPDRToNonRes;
 
-        mapserverUtils.getAreaGeoJSON('Balboa Park Community Infrastructure Impact Fee', this.areaGeom);
+        mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
 
 		this.triggered = ko.computed(function() {
 			if (!this.app.geometry() || !this.areaGeom()) {

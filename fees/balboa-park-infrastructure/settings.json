@@ -1,6 +1,7 @@
 {
 	"name": "balboa-park-infrastructure",
 	"label": "Balboa Park Infrastructure Fee",
+	"areaName": "Balboa Park Community Infrastructure Impact Fee",
 	"minNetNewUnits": 1,
 	"minResGSF": 800,
 	"minNewNonRes": 0,
