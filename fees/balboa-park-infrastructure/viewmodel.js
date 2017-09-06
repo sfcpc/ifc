@@ -1,16 +1,12 @@
 define([
 	'knockout',
 	'jquery',
-	'openlayers',
 	'turf',
 	'fees/abstract-fee',
 	'utils/mapserver',
 	'json!./settings.json',
 	'./component'
-], function(ko, $, ol, turf, AbstractFee, mapserverUtils, settings) {
-	var esrijsonFormat = new ol.format.EsriJSON();
-	var geojsonFormat = new ol.format.GeoJSON();
-
+], function(ko, $, turf, AbstractFee, mapserverUtils, settings) {
 	var BalboaParkInfrastructureFee = function(params) {
 		var self = this;
 		AbstractFee.apply(this, [params]);
