@@ -2,7 +2,8 @@
 	"appName": "Impact Fee Calculator",
 	"feeTypes": [
 		"balboa-park-infrastructure",
-        "rincon-hill-infrastructure"
+        "rincon-hill-infrastructure",
+        "visitacion-valley-infrastructure"
 	],
 	"livereloadPort": "35729",
 	"basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
