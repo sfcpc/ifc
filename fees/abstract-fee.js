@@ -2,8 +2,25 @@ define([
 	'knockout'
 ], function(ko) {
 	var AbstractFee = function(params) {
+        var self = this;
+
+        // indicates the named parameters for this fee type
+        // override with fee type specific parameter names BEFORE calling the
+        // super constructor
+        this.paramNames = this.paramNames || [];
+        this.trackedParamNames = [];
+
         // the app viewmodel (will be passed in by app)
-		this.app = params.app || null;
+        this.app = params.app || null;
+
+        this.paramNames.forEach(function(name) {
+            if (self.app[name]) {
+                self[name] = self.app[name];
+                return;
+            }
+            self[name] = ko.observable(params[name] || null);
+            self.trackedParamNames.push(name);
+        });
 
         // the string label to use in the UI for this fee type
 		this.label = "";
@@ -32,9 +49,13 @@ define([
 
         // returns the json object needed to restore the state of this viewmodel
         // this value is automatically stored in the querystring
-        // override with fee type specific logic
+        // this should not need to be overridden in fee types
 		this.json = ko.computed(function() {
-			return {};
+            var json = {};
+            this.trackedParamNames.forEach(function(name) {
+                json[name] = ko.unwrap(self[name]);
+            });
+			return json;
 		}, this);
 
         // fee subtotal for use in reports;

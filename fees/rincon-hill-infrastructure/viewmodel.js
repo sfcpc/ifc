@@ -35,6 +35,12 @@ define([
         // PDR to Residential
         // $6.80/gsf
 
+        this.paramNames = [
+            'newRes',
+            'nonResToRes',
+            'pdrToRes'
+        ];
+
 		AbstractFee.apply(this, [params]);
 
 		this.feeTypeName = settings.name;
@@ -42,10 +48,6 @@ define([
 		this.value = ko.observable(params.value || null);
 
         this.areaGeom = ko.observable(null);
-
-        this.newRes = ko.observable(params.newRes || null);
-        this.nonResToRes = ko.observable(params.nonResToRes || null);
-        this.pdrToRes = ko.observable(params.pdrToRes || null);
 
         this.feePerNewRes = settings.feePerNewRes;
         this.feePerNonResToRes = settings.feePerNonResToRes;
@@ -91,14 +93,6 @@ define([
             return (this.feePerNewRes * newRes) +
                 (this.feePerNonResToRes * nonResToRes) +
                 (this.feePerPDRToRes * pdrToRes)
-        }, this);
-
-        this.json = ko.computed(function() {
-            return {
-                "newRes": this.newRes(),
-                "nonResToRes": this.nonResToRes(),
-                "pdrToRes": this.pdrToRes()
-            };
         }, this);
 
 	};

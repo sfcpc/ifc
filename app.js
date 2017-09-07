@@ -68,6 +68,12 @@ define([
 				this.geometry();
 		}, this);
 
+        // global fee parameters
+        this.newRes = ko.observable(params.newRes || null);
+        this.nonResToRes = ko.observable(params.nonResToRes || null);
+        this.pdrToRes = ko.observable(params.pdrToRes || null);
+        this.pdrToNonRes = ko.observable(params.pdrToNonRes || null);
+
 		this.feesReady = ko.computed(function() {
 			if (!this.triggersReady()) {
 				return false;
@@ -112,6 +118,10 @@ define([
 				pdrGSF: this.pdrGSF(),
 				resGSF: this.resGSF(),
 				changeOfUse: this.changeOfUse(),
+                newRes: this.newRes(),
+                nonResToRes: this.nonResToRes(),
+                pdrToRes: this.pdrToRes(),
+                pdrToNonRes: this.pdrToNonRes(),
 				geometry: this.geometry(),
 				fees: JSON.stringify(feeViewModelJSON)
 			}
