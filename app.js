@@ -35,15 +35,28 @@ define([
 			self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
 		});
 
-		// trigger parameters
-		this.geometry = ko.observable(params.geometry || null);
-		this.newUnits = ko.observable(params.newUnits || null);
-		this.removedUnits = ko.observable(params.removedUnits || null);
-		this.newNonRes = ko.observable(params.newNonRes || null);
-		this.nonResGSF = ko.observable(params.nonResGSF || null);
-		this.pdrGSF = ko.observable(params.pdrGSF || null);
-		this.resGSF = ko.observable(params.resGSF || null);
-		this.changeOfUse = ko.observable(params.changeOfUse || null);
+        this.paramNames = [
+            // trigger parameters
+            'geometry',
+            'newUnits',
+            'removedUnits',
+            'newNonRes',
+            'nonResGSF',
+            'pdrGSF',
+            'resGSF',
+            'changeOfUse',
+
+            // global fee parameters
+            'newRes',
+            'nonResToRes',
+            'pdrToRes',
+            'pdrToNonRes'
+        ];
+
+        this.paramNames.forEach(function(name) {
+            self[name] = ko.observable(params[name] || null);
+        });
+
 		this.netNewUnits = ko.computed(function() {
 			var newUnits = this.newUnits() || 0;
 			var removedUnits = this.removedUnits() || 0;
@@ -67,12 +80,6 @@ define([
 				changeOfUse !== null && changeOfUse !== '' &&
 				this.geometry();
 		}, this);
-
-        // global fee parameters
-        this.newRes = ko.observable(params.newRes || null);
-        this.nonResToRes = ko.observable(params.nonResToRes || null);
-        this.pdrToRes = ko.observable(params.pdrToRes || null);
-        this.pdrToNonRes = ko.observable(params.pdrToNonRes || null);
 
 		this.feesReady = ko.computed(function() {
 			if (!this.triggersReady()) {
@@ -107,24 +114,17 @@ define([
 		this.queryString = ko.computed(function() {
 			var feeViewModelJSON = {};
 			_.each(this.feeViewModels(), function(feeViewModel) {
-				feeViewModelJSON[feeViewModel.feeTypeName] = feeViewModel.json();
+                var feeJSON = feeViewModel.json();
+                if (feeJSON !== {}) {
+                    feeViewModelJSON[feeViewModel.feeTypeName] = feeViewModel.json();
+                }
 			});
 			var appJSON = {
-				state: this.state(),
-				newUnits: this.newUnits(),
-				removedUnits: this.removedUnits(),
-				newNonRes: this.newNonRes(),
-				nonResGSF: this.nonResGSF(),
-				pdrGSF: this.pdrGSF(),
-				resGSF: this.resGSF(),
-				changeOfUse: this.changeOfUse(),
-                newRes: this.newRes(),
-                nonResToRes: this.nonResToRes(),
-                pdrToRes: this.pdrToRes(),
-                pdrToNonRes: this.pdrToNonRes(),
-				geometry: this.geometry(),
 				fees: JSON.stringify(feeViewModelJSON)
-			}
+			};
+            this.paramNames.forEach(function(name) {
+                appJSON[name] = ko.unwrap(self[name]);
+            });
 			return '?' + $.param(appJSON).split('+').join('%20');
 		}, this);
 
