@@ -9,17 +9,19 @@ define([
 ], function(ko, $, turf, AbstractFee, mapserverUtils, settings) {
 	var BalboaParkInfrastructureFee = function(params) {
 		var self = this;
+        this.paramNames = [
+            'newRes',
+            'nonResToRes',
+            'pdrToRes',
+            'pdrToNonRes'
+        ];
+
 		AbstractFee.apply(this, [params]);
 
 		this.feeTypeName = settings.name;
 		this.label = settings.label;
 
 		this.areaGeom = ko.observable(null);
-
-        this.newRes = ko.observable(params.newRes || null);
-        this.nonResToRes = ko.observable(params.nonResToRes || null);
-        this.pdrToRes = ko.observable(params.pdrToRes || null);
-        this.pdrToNonRes = ko.observable(params.pdrToNonRes || null);
 
         this.feePerNewRes = settings.feePerNewRes;
         this.feePerNewNonRes = settings.feePerNewNonRes;
@@ -58,15 +60,6 @@ define([
                 this.nonResToRes() !== null && this.nonResToRes() !== '' &&
                 this.pdrToRes() !== null && this.pdrToRes() !== '' &&
                 this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
-        }, this);
-
-        this.json = ko.computed(function() {
-            return {
-                "newRes": this.newRes(),
-                "nonResToRes": this.nonResToRes(),
-                "pdrToRes": this.pdrToRes(),
-                "pdrToNonRes": this.pdrToNonRes()
-            };
         }, this);
 
         this.calculatedFee = ko.computed(function() {
