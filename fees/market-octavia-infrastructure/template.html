@@ -1,0 +1,26 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <label for="mockFeeValue">Value ($)</label>
+        <input type="number" class="form-control" id="mockFeeValue" placeholder="value" data-bind="value: fee.value, valueUpdate: 'keyup'">
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' -->
+    <!-- ko if: fee.triggered() -->
+    <div class="row">
+        <div class="col-4">
+            Base Value: $<span data-bind="numericText: fee.value"></span>
+        </div>
+        <div class="col-4">
+            Multiplier: <span data-bind="numericText: fee.multiplier"></span>
+        </div>
+        <div class="col-4">
+            Calculation:
+            $<span data-bind="numericText: fee.value"></span> *
+            <span data-bind="numericText: fee.multiplier"></span>
+        </div>
+    </div>
+    <!-- /ko -->
+<!-- /ko -->
