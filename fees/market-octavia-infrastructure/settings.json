@@ -1,6 +1,14 @@
 {
 	"name": "market-octavia-infrastructure",
 	"label": "Market Octavia Infrastructure",
-	"multiplier": 1,
-	"minNetNewUnits": 1
+  "areaName": "Market and Octavia Community Infrastructure Impact Fee",
+  "minNetNewUnits": 1,
+  "minNewNonRes": 1,
+  "minResGSF": 800,
+  "minNonResGSF": 800,
+  "feePerNewRes": 9.00,
+  "feePerNewNonRes": 3.40,
+  "feePerNonResToRes": 5.60,
+  "feePerPDRToRes": 7.30,
+  "feePerPDRToNonRes": 1.70
 }
