@@ -57,7 +57,8 @@ define([
                 return true;
             }
             return this.newRes() !== null && this.newRes() !== '' &&
-                this.nonResToRes() !== null && this.nonResToRes() !== '' &&
+                this.newNonRes() !== null && this.newNonRes() !== '' &&
+								this.nonResToRes() !== null && this.nonResToRes() !== '' &&
                 this.pdrToRes() !== null && this.pdrToRes() !== '' &&
                 this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
         }, this);
