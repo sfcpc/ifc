@@ -1,11 +1,12 @@
 define([
 	'knockout',
+	'jquery',
   'turf',
 	'fees/abstract-fee',
   'utils/mapserver',
 	'json!./settings.json',
 	'./component'
-], function(ko, turf, AbstractFee, mapserverUtils, settings) {
+], function(ko, $, turf, AbstractFee, mapserverUtils, settings) {
 
     var MarketOctaviaInfrastructureFee = function(params) {
 
@@ -51,6 +52,7 @@ define([
     var self = this;
         this.paramNames = [
             'newRes',
+						'newNonRes',
             'nonResToRes',
             'pdrToRes',
             'pdrToNonRes'
@@ -112,7 +114,7 @@ define([
           if(!this.triggered()) {
               return 0;
           }
-          return (this.feePerNewRes * newRes) +
+          return (this.feePerNonResToRes * newRes) +
               (this.feePerNewNonRes * newNonRes) +
               (this.feePerNonResToRes * nonResToRes) +
               (this.feePerPDRToRes * pdrToRes) +
