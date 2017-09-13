@@ -11,7 +11,10 @@ define([
 		this.paramNames = [
 			'newRes',
 			'nonResToRes',
-			'pdrToRes'
+			'pdrToRes',
+            'netNewUnits',
+            'resGSF',
+            'geometry'
 		];
 
 		AbstractFee.apply(this, [params]);
@@ -29,10 +32,10 @@ define([
 		mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
 
 		this.triggered = ko.computed(function() {
-			if (!this.app.geometry() || !this.areaGeom()) {
+			if (!this.geometry() || !this.areaGeom()) {
 				return false;
 			}
-			var projectGeomPoints = turf.explode(JSON.parse(this.app.geometry()));
+			var projectGeomPoints = turf.explode(JSON.parse(this.geometry()));
 			var areaGeom = turf.featureCollection([
 				this.areaGeom()
 			]);
@@ -42,8 +45,8 @@ define([
 			);
 			return within.features.length > 0 &&
 				(
-					this.app.netNewUnits() >= settings.minNetNewUnits ||
-					this.app.resGSF() >= settings.minResGSF
+					this.netNewUnits() >= settings.minNetNewUnits ||
+					this.resGSF() >= settings.minResGSF
 				);
 		}, this);
 
