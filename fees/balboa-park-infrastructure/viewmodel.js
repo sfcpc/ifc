@@ -47,7 +47,7 @@ define([
 		}, this);
 	};
 
-	BalboaParkInfrastructureFee.name = settings.name;
+	BalboaParkInfrastructureFee.settings = settings;
 
 	return BalboaParkInfrastructureFee;
 });

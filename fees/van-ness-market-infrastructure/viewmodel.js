@@ -21,7 +21,7 @@ define([
 		}, this);
 	};
 
-	VanNessMarketInfrastructureFee.name = settings.name;
+	VanNessMarketInfrastructureFee.settings = settings;
 
 	return VanNessMarketInfrastructureFee;
 });

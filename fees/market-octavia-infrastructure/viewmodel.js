@@ -47,7 +47,7 @@ define([
 		}, this);
 	};
 
-	MarketOctaviaInfrastructureFee.name = settings.name;
+	MarketOctaviaInfrastructureFee.settings = settings;
 
 	return MarketOctaviaInfrastructureFee;
 });

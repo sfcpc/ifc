@@ -27,7 +27,7 @@ define([
 		}, this);
 	};
 
-	SomaCommunityStabilizationFee.name = settings.name;
+	SomaCommunityStabilizationFee.settings = settings;
 
 	return SomaCommunityStabilizationFee;
 });
