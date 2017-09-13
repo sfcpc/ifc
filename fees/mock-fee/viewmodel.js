@@ -5,15 +5,19 @@ define([
 	'./component'
 ], function(ko, AbstractFee, settings) {
 	var MockFee = function(params) {
+        this.paramNames = [
+            'value',
+            'netNewUnits'
+        ];
+
 		AbstractFee.apply(this, [params]);
 
 		this.feeTypeName = settings.name;
 		this.label = settings.label;
-		this.value = ko.observable(params.value || null);
 		this.multiplier = settings.multiplier;
 
 		this.triggered = ko.computed(function() {
-			return this.app.netNewUnits() >= settings.minNetNewUnits;
+			return this.netNewUnits() >= settings.minNetNewUnits;
 		}, this);
 
 		this.ready = ko.computed(function() {
