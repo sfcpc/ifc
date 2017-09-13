@@ -1,34 +1,16 @@
 define([
 	'knockout',
-	'jquery',
 	'fees/abstract-fee',
-	'utils/mapserver',
 	'json!./settings.json',
 	'./component'
-], function(ko, $, AbstractFee, mapserverUtils, settings) {
+], function(ko, AbstractFee, settings) {
 	var BalboaParkInfrastructureFee = function(params) {
-		var self = this;
-		this.paramNames = [
-			'newRes',
-            'newNonRes',
-			'nonResToRes',
-			'pdrToRes',
-			'pdrToNonRes',
-            'netNewUnits',
-            'resGSF',
-            'nonResGSF',
-            'geometry'
-		];
         this.settings = settings;
 
 		AbstractFee.apply(this, [params]);
 
-		this.areaGeom = ko.observable(null);
-
-		mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
-
 		this.triggered = ko.computed(function() {
-			return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom) &&
+			return this.isProjectInArea() &&
 				(
 					this.netNewUnits() >= this.minNetNewUnits ||
 					this.resGSF() >= this.minResGSF ||

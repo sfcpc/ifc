@@ -1,5 +1,8 @@
 {
 	"name": "soma-community-stabilization-fee",
+	"paramNames": [
+		"geometry"
+	],
 	"label": "South of Market Community Stabilization Fee",
 	"areaName": "South of Market Area Community Stabilization Fee"
 }

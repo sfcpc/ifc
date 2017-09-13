@@ -1,5 +1,13 @@
 {
 	"name": "rincon-hill-infrastructure",
+	"paramNames": [
+		"newRes",
+		"nonResToRes",
+		"pdrToRes",
+		"netNewUnits",
+		"resGSF",
+		"geometry"
+	],
 	"label": "Rincon Hill Infrastructure",
 	"areaName": "Rincon Hill Community Infrastructure Impact Fee",
 	"minNetNewUnits": 1,

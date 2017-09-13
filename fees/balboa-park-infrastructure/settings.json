@@ -1,5 +1,16 @@
 {
 	"name": "balboa-park-infrastructure",
+	"paramNames": [
+		"newRes",
+		"newNonRes",
+		"nonResToRes",
+		"pdrToRes",
+		"pdrToNonRes",
+		"netNewUnits",
+		"resGSF",
+		"nonResGSF",
+		"geometry"
+	],
 	"label": "Balboa Park Infrastructure Fee",
 	"areaName": "Balboa Park Community Infrastructure Impact Fee",
 	"minNetNewUnits": 1,
