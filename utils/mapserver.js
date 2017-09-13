@@ -1,8 +1,9 @@
 define([
 	'jquery',
 	'openlayers',
+    'turf',
 	'json!settings.json',
-], function($, ol, settings) {
+], function($, ol, turf, settings) {
 	var esrijsonFormat = new ol.format.EsriJSON();
 	var geojsonFormat = new ol.format.GeoJSON();
 
@@ -30,6 +31,20 @@ define([
                 geom = geojsonFormat.writeGeometry(geom);
                 callback(JSON.parse(geom));
             });
+        },
+        isProjectInArea: function (projectGeom, areaGeom) {
+            if (!projectGeom() || !areaGeom()) {
+                return false;
+            }
+            var projectGeomPoints = turf.explode(JSON.parse(projectGeom()));
+            var areaGeom = turf.featureCollection([
+                areaGeom()
+            ]);
+            var within = turf.within(
+                projectGeomPoints,
+                areaGeom
+            );
+            return within.features.length > 0;
         }
     }
 
