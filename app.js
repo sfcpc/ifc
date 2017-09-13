@@ -120,6 +120,7 @@ define([
                 }
 			});
 			var appJSON = {
+                state: this.state(),
 				fees: JSON.stringify(feeViewModelJSON)
 			};
             this.paramNames.forEach(function(name) {
