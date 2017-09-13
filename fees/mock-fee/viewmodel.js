@@ -9,15 +9,12 @@ define([
             'value',
             'netNewUnits'
         ];
+        this.settings = settings;
 
 		AbstractFee.apply(this, [params]);
 
-		this.feeTypeName = settings.name;
-		this.label = settings.label;
-		this.multiplier = settings.multiplier;
-
 		this.triggered = ko.computed(function() {
-			return this.netNewUnits() >= settings.minNetNewUnits;
+			return this.netNewUnits() >= this.minNetNewUnits;
 		}, this);
 
 		this.ready = ko.computed(function() {

@@ -45,8 +45,8 @@ requirejs([
 			}
 		);
 	}
-	require(_.map(settings.feeTypes, function(feeTypeName) {
-		return 'fees/' + feeTypeName + '/viewmodel'
+	require(_.map(settings.feeTypes, function(name) {
+		return 'fees/' + name + '/viewmodel'
 	}), function() {
 		var params = _.chain(decodeURIComponent(location.search).slice(1).split('&'))
 			.map(function(item) {
@@ -63,7 +63,7 @@ requirejs([
 		);
 		var feeParams = params.fees ? JSON.parse(params.fees) : {};
 		var feeViewModels = _.map(arguments, function(feeViewModel) {
-			var feeQuery = feeParams[feeViewModel.feeTypeName] || {};
+			var feeQuery = feeParams[feeViewModel.name] || {};
 			return new feeViewModel(
 				_.extend(feeQuery, {
 					app: app

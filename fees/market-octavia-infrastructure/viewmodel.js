@@ -19,29 +19,21 @@ define([
             'nonResGSF',
             'geometry'
 		];
+        this.settings = settings;
 
 		AbstractFee.apply(this, [params]);
 
-		this.feeTypeName = settings.name;
-		this.label = settings.label;
-
 		this.areaGeom = ko.observable(null);
 
-		this.feePerNewRes = settings.feePerNewRes;
-		this.feePerNewNonRes = settings.feePerNewNonRes;
-		this.feePerNonResToRes = settings.feePerNonResToRes;
-		this.feePerPDRToRes = settings.feePerPDRToRes;
-		this.feePerPDRToNonRes = settings.feePerPDRToNonRes;
-
-		mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
+		mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
 
 		this.triggered = ko.computed(function() {
 			return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom) &&
 				(
-					this.netNewUnits() >= settings.minNetNewUnits ||
-					this.resGSF() >= settings.minResGSF ||
-					this.newNonRes() > settings.minNewNonRes ||
-					this.nonResGSF() >= settings.minNonResGSF
+					this.netNewUnits() >= this.minNetNewUnits ||
+					this.resGSF() >= this.minResGSF ||
+					this.newNonRes() > this.minNewNonRes ||
+					this.nonResGSF() >= this.minNonResGSF
 				);
 		}, this);
 
@@ -73,7 +65,7 @@ define([
 		}, this);
 	};
 
-	MarketOctaviaInfrastructureFee.feeTypeName = settings.name;
+	MarketOctaviaInfrastructureFee.name = settings.name;
 
 	return MarketOctaviaInfrastructureFee;
 });

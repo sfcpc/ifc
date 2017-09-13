@@ -116,7 +116,7 @@ define([
 			_.each(this.feeViewModels(), function(feeViewModel) {
                 var feeJSON = feeViewModel.json();
                 if (feeJSON !== {}) {
-                    feeViewModelJSON[feeViewModel.feeTypeName] = feeViewModel.json();
+                    feeViewModelJSON[feeViewModel.name] = feeViewModel.json();
                 }
 			});
 			var appJSON = {
