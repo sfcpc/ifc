@@ -13,11 +13,17 @@ define([
 		this.triggered = this.isProjectInArea;
 
 		this.ready = ko.computed(function() {
-			return true;
+            if (!this.triggered()) {
+                return true;
+            }
+			return this.totalRes() !== null && this.totalRes !== '';
 		}, this);
 
 		this.calculatedFee = ko.computed(function() {
-			return 0;
+            if (!this.triggered()) {
+                return 0;
+            }
+			return this.feePerResGSF * this.totalRes();
 		}, this);
 	};
 

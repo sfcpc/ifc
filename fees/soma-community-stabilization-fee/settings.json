@@ -1,8 +1,10 @@
 {
 	"name": "soma-community-stabilization-fee",
 	"paramNames": [
+		"totalRes",
 		"geometry"
 	],
 	"label": "South of Market Community Stabilization Fee",
-	"areaName": "South of Market Area Community Stabilization Fee"
+	"areaName": "South of Market Area Community Stabilization Fee",
+	"feePerResGSF": 10.95
 }
