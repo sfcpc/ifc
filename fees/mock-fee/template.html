@@ -11,14 +11,14 @@
     <!-- ko if: fee.triggered() -->
     <div class="row">
         <div class="col-4">
-            Base Value: $<span data-bind="numericText: fee.value"></span>
+            Base Value: <span data-bind="dollarsText: fee.value"></span>
         </div>
         <div class="col-4">
             Multiplier: <span data-bind="numericText: fee.multiplier"></span>
         </div>
         <div class="col-4">
             Calculation:
-            $<span data-bind="numericText: fee.value"></span> *
+            <span data-bind="dollarsText: fee.value"></span> *
             <span data-bind="numericText: fee.multiplier"></span>
         </div>
     </div>

@@ -32,6 +32,7 @@ requirejs([
 	"json!settings.json",
 	"bootstrap",
 	"bindings/numeric-text",
+    "bindings/dollars-text",
 	"bindings/ol-map"
 ], function(ko, _, App, settings) {
 	if (window.location.hostname === "localhost") {

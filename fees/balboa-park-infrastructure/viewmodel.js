@@ -9,12 +9,13 @@ define([
 ], function(ko, $, turf, AbstractFee, mapserverUtils, settings) {
 	var BalboaParkInfrastructureFee = function(params) {
 		var self = this;
-        this.paramNames = [
-            'newRes',
-            'nonResToRes',
-            'pdrToRes',
-            'pdrToNonRes'
-        ];
+		this.paramNames = [
+			'newRes',
+            'newNonRes',
+			'nonResToRes',
+			'pdrToRes',
+			'pdrToNonRes'
+		];
 
 		AbstractFee.apply(this, [params]);
 
@@ -23,13 +24,13 @@ define([
 
 		this.areaGeom = ko.observable(null);
 
-        this.feePerNewRes = settings.feePerNewRes;
-        this.feePerNewNonRes = settings.feePerNewNonRes;
-        this.feePerNonResToRes = settings.feePerNonResToRes;
-        this.feePerPDRToRes = settings.feePerPDRToRes;
-        this.feePerPDRToNonRes = settings.feePerPDRToNonRes;
+		this.feePerNewRes = settings.feePerNewRes;
+		this.feePerNewNonRes = settings.feePerNewNonRes;
+		this.feePerNonResToRes = settings.feePerNonResToRes;
+		this.feePerPDRToRes = settings.feePerPDRToRes;
+		this.feePerPDRToNonRes = settings.feePerPDRToNonRes;
 
-        mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
+		mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
 
 		this.triggered = ko.computed(function() {
 			if (!this.app.geometry() || !this.areaGeom()) {
@@ -45,39 +46,39 @@ define([
 			);
 			return within.features.length > 0 &&
 				(
-                    this.app.netNewUnits() >= settings.minNetNewUnits ||
-                    this.app.resGSF() >= settings.minResGSF ||
-                    this.app.newNonRes() > settings.minNewNonRes ||
-                    this.app.nonResGSF() >= settings.minNonResGSF
-                );
+					this.app.netNewUnits() >= settings.minNetNewUnits ||
+					this.app.resGSF() >= settings.minResGSF ||
+					this.app.newNonRes() > settings.minNewNonRes ||
+					this.app.nonResGSF() >= settings.minNonResGSF
+				);
 		}, this);
 
-        this.ready = ko.computed(function() {
-            if (!this.triggered()) {
-                return true;
-            }
-            return this.newRes() !== null && this.newRes() !== '' &&
-                this.newNonRes() !== null && this.newNonRes() !== '' &&
-								this.nonResToRes() !== null && this.nonResToRes() !== '' &&
-                this.pdrToRes() !== null && this.pdrToRes() !== '' &&
-                this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
-        }, this);
+		this.ready = ko.computed(function() {
+			if (!this.triggered()) {
+				return true;
+			}
+			return this.newRes() !== null && this.newRes() !== '' &&
+				this.newNonRes() !== null && this.newNonRes() !== '' &&
+				this.nonResToRes() !== null && this.nonResToRes() !== '' &&
+				this.pdrToRes() !== null && this.pdrToRes() !== '' &&
+				this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
+		}, this);
 
-        this.calculatedFee = ko.computed(function() {
-            var newRes = this.newRes() || 0;
-            var newNonRes = this.app.newNonRes() || 0;
-            var nonResToRes = this.nonResToRes() || 0;
-            var pdrToRes = this.pdrToRes() || 0;
-            var pdrToNonRes = this.pdrToNonRes() || 0;
-            if(!this.triggered()) {
-                return 0;
-            }
-            return (this.feePerNewRes * newRes) +
-                (this.feePerNewNonRes * newNonRes) +
-                (this.feePerNonResToRes * nonResToRes) +
-                (this.feePerPDRToRes * pdrToRes) +
-                (this.feePerPDRToNonRes * pdrToNonRes);
-        }, this);
+		this.calculatedFee = ko.computed(function() {
+			var newRes = this.newRes() || 0;
+			var newNonRes = this.newNonRes() || 0;
+			var nonResToRes = this.nonResToRes() || 0;
+			var pdrToRes = this.pdrToRes() || 0;
+			var pdrToNonRes = this.pdrToNonRes() || 0;
+			if (!this.triggered()) {
+				return 0;
+			}
+			return (this.feePerNewRes * newRes) +
+				(this.feePerNewNonRes * newNonRes) +
+				(this.feePerNonResToRes * nonResToRes) +
+				(this.feePerPDRToRes * pdrToRes) +
+				(this.feePerPDRToNonRes * pdrToNonRes);
+		}, this);
 	};
 
 	BalboaParkInfrastructureFee.feeTypeName = settings.name;

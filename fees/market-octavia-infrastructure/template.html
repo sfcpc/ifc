@@ -49,11 +49,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerNewRes"></span>/GSF
+                    <span data-bind="dollarsText: fee.feePerNewRes"></span>/GSF
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.newRes() * fee.feePerNewRes"></span>
+                    <span data-bind="dollarsText: fee.newRes() * fee.feePerNewRes"></span>
                 </td>
             </tr>
             <tr>
@@ -63,11 +63,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerNewNonRes"></span>/GSF
+                    <span data-bind="dollarsText: fee.feePerNewNonRes"></span>/GSF
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.app.newNonRes() * fee.feePerNewNonRes"></span>
+                    <span data-bind="dollarsText: fee.app.newNonRes() * fee.feePerNewNonRes"></span>
                 </td>
             </tr>
             <tr>
@@ -87,11 +87,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerNonResToRes"></span>/GSF
+                    <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GSF
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
+                    <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
                 </td>
             </tr>
             <tr>
@@ -101,11 +101,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerPDRToRes"></span>/GSF
+                    <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GSF
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
+                    <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
                 </td>
             </tr>
             <tr>
@@ -115,11 +115,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerPDRToNonRes"></span>/GSF
+                    <span data-bind="dollarsText: fee.feePerPDRToNonRes"></span>/GSF
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.pdrToNonRes() * fee.feePerPDRToNonRes"></span>
+                    <span data-bind="dollarsText: fee.pdrToNonRes() * fee.feePerPDRToNonRes"></span>
                 </td>
             </tr>
         </tbody>
