@@ -144,18 +144,18 @@
                                 <input type="number" min="0" class="form-control" id="newNonRes" placeholder="New construction of non‐residential (GSF)" data-bind="value: newNonRes, valueUpdate: 'keyup'">
                             </div>
                             <div class="col-6">
-                                <label for="nonResGSF">Increase in (E) non‐residential (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="nonResGSF" placeholder="Increase in (E) non‐residential (GSF)" data-bind="value: nonResGSF, valueUpdate: 'keyup'">
+                                <label for="nonResGSF">Increase in non‐residential (GSF)</label>
+                                <input type="number" min="0" class="form-control" id="nonResGSF" placeholder="Increase in non‐residential (GSF)" data-bind="value: nonResGSF, valueUpdate: 'keyup'">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="pdrGSF">Increase in (E) PDR (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="pdrGSF" placeholder="Increase in (E) PDR (GSF)" data-bind="value: pdrGSF, valueUpdate: 'keyup'">
+                                <label for="pdrGSF">Increase in PDR (GSF)</label>
+                                <input type="number" min="0" class="form-control" id="pdrGSF" placeholder="Increase in PDR (GSF)" data-bind="value: pdrGSF, valueUpdate: 'keyup'">
                             </div>
                             <div class="col-6">
-                                <label for="resGSF">Increase in (E) residential (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="resGSF" placeholder="Increase in (E) residential (GSF)" data-bind="value: resGSF, valueUpdate: 'keyup'">
+                                <label for="resGSF">Increase in residential (GSF)</label>
+                                <input type="number" min="0" class="form-control" id="resGSF" placeholder="Increase in residential (GSF)" data-bind="value: resGSF, valueUpdate: 'keyup'">
                             </div>
                         </div>
                         <div class="row">
@@ -245,15 +245,15 @@
                                     <td><span data-bind="numericText: newNonRes"></span> GSF</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Increase in (E) non‐residential:</th>
+                                    <th scope="row">Increase in non‐residential:</th>
                                     <td><span data-bind="numericText: nonResGSF"></span> GSF</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Increase in (E) PDR:</th>
+                                    <th scope="row">Increase in PDR:</th>
                                     <td><span data-bind="numericText: pdrGSF"></span> GSF</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Increase in (E) residential:</th>
+                                    <th scope="row">Increase in residential:</th>
                                     <td><span data-bind="numericText: resGSF"></span> GSF</td>
                                 </tr>
                                 <tr>
@@ -286,14 +286,14 @@
                         <div class="row">
                             <div class="col-12">
                                 <h5 class="calculated-fee">
-                                    Fee: $<strong data-bind="numericText: calculatedFee"></strong>
+                                    Fee: <strong data-bind="dollarsText: calculatedFee"></strong>
                                 </h5>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="calculated-fee">
-                                    (Subtotal: $<span data-bind="numericText: subtotal"></span>)
+                                    (Subtotal: <span data-bind="dollarsText: subtotal"></span>)
                                 </div>
                             </div>
                         </div>
@@ -303,7 +303,7 @@
                 <div class="fee-report">
                     <h2 class="calculated-fee">
                         <span>Total:</span>
-                        <span class="report-value">$<span data-bind="numericText: total"></span>
+                        <span class="report-value"><span data-bind="dollarsText: total"></span>
                     </h2>
                 </div>
             </div>
