@@ -7,20 +7,18 @@
 </form>
 <!-- /ko -->
 
-<!-- ko if: state === 'report' -->
-    <!-- ko if: fee.triggered() -->
-    <div class="row">
-        <div class="col-4">
-            Base Value: <span data-bind="dollarsText: fee.value"></span>
-        </div>
-        <div class="col-4">
-            Multiplier: <span data-bind="numericText: fee.multiplier"></span>
-        </div>
-        <div class="col-4">
-            Calculation:
-            <span data-bind="dollarsText: fee.value"></span> *
-            <span data-bind="numericText: fee.multiplier"></span>
-        </div>
+<!-- ko if: state === 'report' && fee.triggered() -->
+<div class="row">
+    <div class="col-4">
+        Base Value: <span data-bind="dollarsText: fee.value"></span>
     </div>
-    <!-- /ko -->
+    <div class="col-4">
+        Multiplier: <span data-bind="numericText: fee.multiplier"></span>
+    </div>
+    <div class="col-4">
+        Calculation:
+        <span data-bind="dollarsText: fee.value"></span> *
+        <span data-bind="numericText: fee.multiplier"></span>
+    </div>
+</div>
 <!-- /ko -->
