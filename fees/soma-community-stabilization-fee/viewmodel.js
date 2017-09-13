@@ -6,7 +6,7 @@ define([
 	'json!./settings.json',
 	'./component'
 ], function(ko, $, AbstractFee, mapserverUtils, settings) {
-	var VanNessMarketInfrastructureFee = function(params) {
+	var SomaCommunityStabilizationFee = function(params) {
 		var self = this;
 		this.paramNames = [
             'geometry'
@@ -34,7 +34,7 @@ define([
 		}, this);
 	};
 
-	VanNessMarketInfrastructureFee.feeTypeName = settings.name;
+	SomaCommunityStabilizationFee.feeTypeName = settings.name;
 
-	return VanNessMarketInfrastructureFee;
+	return SomaCommunityStabilizationFee;
 });

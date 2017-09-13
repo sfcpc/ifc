@@ -1,12 +1,11 @@
 define([
 	'knockout',
 	'jquery',
-	'turf',
 	'fees/abstract-fee',
 	'utils/mapserver',
 	'json!./settings.json',
 	'./component'
-], function(ko, $, turf, AbstractFee, mapserverUtils, settings) {
+], function(ko, $, AbstractFee, mapserverUtils, settings) {
 	var RinconHillInfrastructureFee = function(params) {
 		this.paramNames = [
 			'newRes',
@@ -32,18 +31,7 @@ define([
 		mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
 
 		this.triggered = ko.computed(function() {
-			if (!this.geometry() || !this.areaGeom()) {
-				return false;
-			}
-			var projectGeomPoints = turf.explode(JSON.parse(this.geometry()));
-			var areaGeom = turf.featureCollection([
-				this.areaGeom()
-			]);
-			var within = turf.within(
-				projectGeomPoints,
-				areaGeom
-			);
-			return within.features.length > 0 &&
+			return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom) &&
 				(
 					this.netNewUnits() >= settings.minNetNewUnits ||
 					this.resGSF() >= settings.minResGSF
