@@ -40,7 +40,7 @@ define([
 
 	};
 
-	RinconHillInfrastructureFee.name = settings.name;
+	RinconHillInfrastructureFee.settings = settings;
 
 	return RinconHillInfrastructureFee;
 });

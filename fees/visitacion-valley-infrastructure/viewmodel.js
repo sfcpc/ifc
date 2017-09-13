@@ -42,7 +42,7 @@ define([
 		}, this);
 	};
 
-	VisitacionInfrastructureFee.name = settings.name;
+	VisitacionInfrastructureFee.settings = settings;
 
 	return VisitacionInfrastructureFee;
 });

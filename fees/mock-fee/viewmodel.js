@@ -32,7 +32,7 @@ define([
 		}, this);
 	};
 
-	MockFee.feeTypeName = settings.name;
+	MockFee.settings = settings;
 
 	return MockFee;
 });

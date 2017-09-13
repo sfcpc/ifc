@@ -63,7 +63,7 @@ requirejs([
 		);
 		var feeParams = params.fees ? JSON.parse(params.fees) : {};
 		var feeViewModels = _.map(arguments, function(feeViewModel) {
-			var feeQuery = feeParams[feeViewModel.name] || {};
+			var feeQuery = feeParams[feeViewModel.settings.name] || {};
 			return new feeViewModel(
 				_.extend(feeQuery, {
 					app: app
