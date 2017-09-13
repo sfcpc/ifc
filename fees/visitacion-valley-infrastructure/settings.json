@@ -1,5 +1,15 @@
 {
 	"name": "visitacion-valley-infrastructure",
+	"paramNames": [
+		"newRes",
+		"nonResToRes",
+		"pdrToRes",
+		"geometry",
+		"netNewUnits",
+		"resGSF",
+		"newUnits",
+		"removedUnits"
+	],
 	"label": "Visitacion Valley Facilities and Infrastructure Fee",
 	"areaName": "Visitacion Valley Community Facilities and Infrastructure Impact Fee",
 	"minResidentialUnits": 20,

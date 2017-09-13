@@ -5,10 +5,6 @@ define([
 	'./component'
 ], function(ko, AbstractFee, settings) {
 	var MockFee = function(params) {
-        this.paramNames = [
-            'value',
-            'netNewUnits'
-        ];
         this.settings = settings;
 
 		AbstractFee.apply(this, [params]);

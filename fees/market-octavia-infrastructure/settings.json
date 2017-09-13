@@ -1,5 +1,16 @@
 {
 	"name": "market-octavia-infrastructure",
+	"paramNames": [
+		"newRes",
+		"newNonRes",
+		"nonResToRes",
+		"pdrToRes",
+		"pdrToNonRes",
+		"netNewUnits",
+		"resGSF",
+		"nonResGSF",
+		"geometry"
+	],
 	"label": "Market Octavia Infrastructure",
 	"areaName": "Market and Octavia Community Infrastructure Impact Fee",
 	"minNetNewUnits": 1,
