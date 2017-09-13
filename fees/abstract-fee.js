@@ -1,6 +1,7 @@
 define([
-	'knockout'
-], function(ko) {
+	'knockout',
+    'underscore'
+], function(ko, _) {
 	var AbstractFee = function(params) {
         var self = this;
 
@@ -8,10 +9,22 @@ define([
         // override with fee type specific parameter names BEFORE calling the
         // super constructor
         this.paramNames = this.paramNames || [];
+        this.settings = this.settings || {};
         this.trackedParamNames = [];
+
+        // the string label to use in the UI for this fee type
+        this.label = "";
+
+        // fee type name (should match folder name)
+        // ensure this is applied to both the prototype and instances
+        this.name = AbstractFee.name;
 
         // the app viewmodel (will be passed in by app)
         this.app = params.app || null;
+
+        _.each(this.settings, function (value, key) {
+            self[key] = value;
+        });
 
         this.paramNames.forEach(function(name) {
             if (self.app[name]) {
@@ -21,13 +34,6 @@ define([
             self[name] = ko.observable(params[name] || null);
             self.trackedParamNames.push(name);
         });
-
-        // the string label to use in the UI for this fee type
-		this.label = "";
-
-        // fee type name (should match folder name)
-        // ensure this is applied to both the prototype and instances
-		this.feeTypeName = AbstractFee.feeTypeName;
 
         // indicates if this fee has been triggered
         // override with fee type specific triggering logic
@@ -73,9 +79,9 @@ define([
         }, this);
 	};
 
-    // feeTypeName should be the same on both prototype and instances
+    // name should be the same on both prototype and instances
     // (see above)
-	AbstractFee.feeTypeName = "";
+	AbstractFee.name = "";
 
 	return AbstractFee;
 });

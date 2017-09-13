@@ -17,29 +17,22 @@ define([
             'newUnits',
             'removedUnits'
 		];
+        this.settings = settings;
 
 		AbstractFee.apply(this, [params]);
 
-		this.feeTypeName = settings.name;
-		this.label = settings.label;
-		this.value = ko.observable(params.value || null);
-
 		this.areaGeom = ko.observable(null);
 
-		this.feePerNewRes = settings.feePerNewRes;
-		this.feePerNonResToRes = settings.feePerNonResToRes;
-		this.feePerPDRToRes = settings.feePerPDRToRes;
-
-		mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
+		mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
 
 		this.triggered = ko.computed(function() {
 			return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom) &&
 				(
 					(
-						this.netNewUnits() >= settings.minNetNewUnits ||
-						this.resGSF() >= settings.minResGSF
+						this.netNewUnits() >= this.minNetNewUnits ||
+						this.resGSF() >= this.minResGSF
 					) &&
-					this.newUnits() + this.removedUnits() >= settings.minResidentialUnits
+					this.newUnits() + this.removedUnits() >= this.minResidentialUnits
 				);
 		}, this);
 
@@ -65,7 +58,7 @@ define([
 		}, this);
 	};
 
-	VisitacionInfrastructureFee.feeTypeName = settings.name;
+	VisitacionInfrastructureFee.name = settings.name;
 
 	return VisitacionInfrastructureFee;
 });

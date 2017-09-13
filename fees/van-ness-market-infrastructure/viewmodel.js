@@ -11,15 +11,13 @@ define([
 		this.paramNames = [
             'geometry'
 		];
+        this.settings = settings;
 
 		AbstractFee.apply(this, [params]);
 
-		this.feeTypeName = settings.name;
-		this.label = settings.label;
-
 		this.areaGeom = ko.observable(null);
 
-		mapserverUtils.getAreaGeoJSON(settings.areaName, this.areaGeom);
+		mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
 
 		this.triggered = ko.computed(function() {
 			return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom);
@@ -34,7 +32,7 @@ define([
 		}, this);
 	};
 
-	VanNessMarketInfrastructureFee.feeTypeName = settings.name;
+	VanNessMarketInfrastructureFee.name = settings.name;
 
 	return VanNessMarketInfrastructureFee;
 });
