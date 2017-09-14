@@ -5,7 +5,8 @@
 		"rincon-hill-infrastructure",
 		"soma-community-stabilization-fee",
 		"visitacion-valley-infrastructure",
-		"market-octavia-infrastructure"
+		"market-octavia-infrastructure",
+        "eastern-neighborhoods-infrastructure"
 	],
 	"livereloadPort": "35729",
 	"basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
