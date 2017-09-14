@@ -18,25 +18,15 @@ define([
 		}, this);
 
         this.ready = ko.computed(function() {
-            if (!this.triggered()) {
-                return true;
-            }
-            return this.value();
+            return true;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            var val = this.value();
-            return val && this.triggered() ? val * this.multiplier : 0;
-        }, this);
-
-        this.json = ko.computed(function() {
-            return {
-                "value": this.value()
-            };
+            return 0;
         }, this);
     };
 
-    somaNonResOpenSpace.feeTypeName = settings.name;
+    somaNonResOpenSpace.settings = settings;
 
     return somaNonResOpenSpace;
 });

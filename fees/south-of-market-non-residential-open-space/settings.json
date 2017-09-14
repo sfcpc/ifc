@@ -1,6 +1,8 @@
 {
     "name": "south-of-market-non-residential-open-space",
     "paramNames": [
+        "newNonRes",
+        "nonResGSF",
         "geometry"
     ],
     "label": "South Of Market Non-Residential Open Space Fee",
