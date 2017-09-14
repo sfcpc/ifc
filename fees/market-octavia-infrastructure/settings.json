@@ -1,14 +1,25 @@
 {
 	"name": "market-octavia-infrastructure",
+	"paramNames": [
+		"newRes",
+		"newNonRes",
+		"nonResToRes",
+		"pdrToRes",
+		"pdrToNonRes",
+		"netNewUnits",
+		"resGSF",
+		"nonResGSF",
+		"geometry"
+	],
 	"label": "Market Octavia Infrastructure",
-  "areaName": "Market and Octavia Community Infrastructure Impact Fee",
-  "minNetNewUnits": 1,
-  "minNewNonRes": 1,
-  "minResGSF": 800,
-  "minNonResGSF": 800,
-  "feePerNewRes": 9.00,
-  "feePerNewNonRes": 3.40,
-  "feePerNonResToRes": 5.60,
-  "feePerPDRToRes": 7.30,
-  "feePerPDRToNonRes": 1.70
+	"areaName": "Market and Octavia Community Infrastructure Impact Fee",
+	"minNetNewUnits": 1,
+	"minNewNonRes": 1,
+	"minResGSF": 800,
+	"minNonResGSF": 800,
+	"feePerNewRes": 9,
+	"feePerNewNonRes": 3.4,
+	"feePerNonResToRes": 5.6,
+	"feePerPDRToRes": 7.3,
+	"feePerPDRToNonRes": 1.7
 }

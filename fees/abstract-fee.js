@@ -1,18 +1,40 @@
 define([
-	'knockout'
-], function(ko) {
+	'knockout',
+    'underscore',
+	'utils/mapserver'
+], function(ko, _, mapserverUtils) {
 	var AbstractFee = function(params) {
         var self = this;
 
+        // settings, or constants to be applied for this fee
+        // override with fee type specific settings BEFORE calling the super
+        // constructor
+        this.settings = this.settings || {};
+        _.each(this.settings, function (value, key) {
+            self[key] = value;
+        });
+
         // indicates the named parameters for this fee type
         // override with fee type specific parameter names BEFORE calling the
-        // super constructor
+        // super constructor (or add to settings)
         this.paramNames = this.paramNames || [];
-        this.trackedParamNames = [];
+
+        if (this.areaName) {
+            this.areaGeom = ko.observable(null);
+            mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
+        }
+
+        // the string label to use in the UI for this fee type
+        this.label = this.label || "";
+
+        // fee type name (should match folder name)
+        // ensure this is applied to both the prototype and instances
+        this.name = this.name || AbstractFee.name;
 
         // the app viewmodel (will be passed in by app)
         this.app = params.app || null;
 
+        this.trackedParamNames = [];
         this.paramNames.forEach(function(name) {
             if (self.app[name]) {
                 self[name] = self.app[name];
@@ -21,13 +43,6 @@ define([
             self[name] = ko.observable(params[name] || null);
             self.trackedParamNames.push(name);
         });
-
-        // the string label to use in the UI for this fee type
-		this.label = "";
-
-        // fee type name (should match folder name)
-        // ensure this is applied to both the prototype and instances
-		this.feeTypeName = AbstractFee.feeTypeName;
 
         // indicates if this fee has been triggered
         // override with fee type specific triggering logic
@@ -71,11 +86,20 @@ define([
             }
             return subtotal;
         }, this);
+
+        this.isProjectInArea = ko.computed(function () {
+            if (ko.unwrap(this.geometry) && ko.unwrap(this.areaGeom)) {
+                return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom);
+            }
+            return false;
+        }, this);
 	};
 
-    // feeTypeName should be the same on both prototype and instances
-    // (see above)
-	AbstractFee.feeTypeName = "";
+	AbstractFee.settings = {
+        // name should setting is required and should match folder name
+        // (see above)
+        name: ''
+    };
 
 	return AbstractFee;
 });

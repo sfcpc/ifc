@@ -1,0 +1,43 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>Land Use</h4>
+
+        <label for="totalRes">Total Residential (GSF)</label>
+        <input type="number" class="form-control" id="totalRes" placeholder="value" data-bind="value: fee.totalRes, valueUpdate: 'keyup'">
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>Land Use</h4>
+            </th>
+            <th>GSF</th>
+            <th></th>
+            <th>Fee per GSF</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Residential</th>
+            <td>
+                <span data-bind="numericText: fee.totalRes"></span> GSF
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerResGSF"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.totalRes() * fee.feePerResGSF"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- /ko -->
