@@ -23,8 +23,7 @@ define([
 			if (!this.triggered()) {
 				return true;
 			}
-			return
-                this.newRes() !== null && this.newRes() !== '' &&
+			return this.newRes() !== null && this.newRes() !== '' &&
 				this.newNonRes() !== null && this.newNonRes() !== '' &&
 				this.nonResToRes() !== null && this.nonResToRes() !== '' &&
 				this.pdrToRes() !== null && this.pdrToRes() !== '' &&

@@ -23,8 +23,7 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return
-                this.newRes() !== null && this.newRes() !== '' &&
+            return this.newRes() !== null && this.newRes() !== '' &&
                 this.newNonRes() !== null && this.newNonRes() !== '' &&
                 this.newTIDF() !== null && this.newTIDF() !== '' &&
                 this.nonResToRes() !== null && this.nonResToRes() !== '' &&
@@ -36,6 +35,7 @@ define([
         this.calculatedFee = ko.computed(function() {
             var newRes = this.newRes() || 0;
             var newNonRes = this.app.newNonRes() || 0;
+            var newTIDF = this.app.newTIDF() || 0;
             var nonResToRes = this.nonResToRes() || 0;
             var pdrToRes = this.pdrToRes() || 0;
             var pdrToNonRes = this.pdrToNonRes() || 0;
