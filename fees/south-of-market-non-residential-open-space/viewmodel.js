@@ -5,12 +5,9 @@ define([
     './component'
 ], function(ko, AbstractFee, settings) {
     var somaNonResOpenSpace = function(params) {
-        AbstractFee.apply(this, [params]);
+        this.settings = settings;
 
-        this.feeTypeName = settings.name;
-        this.label = settings.label;
-        this.value = ko.observable(params.value || null);
-        this.multiplier = settings.multiplier;
+        AbstractFee.apply(this, [params]);
 
         this.triggered = ko.computed(function() {
 			return this.isProjectInArea() &&
