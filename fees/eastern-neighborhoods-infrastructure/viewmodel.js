@@ -34,16 +34,27 @@ define([
 
         this.calculatedFee = ko.computed(function() {
             var newRes = this.newRes() || 0;
-            var newNonRes = this.app.newNonRes() || 0;
-            var newTIDF = this.app.newTIDF() || 0;
+            var newNonRes = this.newNonRes() || 0;
+            var newTIDF = this.newTIDF() || 0;
             var nonResToRes = this.nonResToRes() || 0;
             var pdrToRes = this.pdrToRes() || 0;
             var pdrToNonRes = this.pdrToNonRes() || 0;
             var heightIncrease = this.heightIncrease() || 0;
+            var tier = ''
+            if(heightIncrease < 9) {
+                tier = 'tier 1'
+            }
+            else if (heightIncrease >= 9 && heightIncrease < 29) {
+                tier = 'tier 2'
+            }
+            else if (heightIncrease > 29) {
+                tier = 'tier 3'
+            }
+
             if(!this.triggered()) {
                 return 0;
             }
-            return (this.feePerNewRes * newRes) +
+            return (this.fees.tier.feePerNewRes * newRes) +
                 (this.feePerNewNonRes * newNonRes) +
                 (this.feePerNonResToRes * nonResToRes) +
                 (this.feePerPDRToRes * pdrToRes) +
