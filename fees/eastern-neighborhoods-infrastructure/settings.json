@@ -19,30 +19,42 @@
     "minNewNonRes": 0,
     "minResGSF": 800,
     "minNonResGSF": 800,
-    "fees": {
-        "tier 1": {
-            "feePerRes": 8,
-            "feePerNonRes": 6,
-            "feePerNetTIDF": 10,
+    "tier1Height": {
+        "min": "",
+        "max": 9
+    },
+    "tier2Height": {
+        "min": 9,
+        "max": 29
+    },
+    "tier3Height": {
+        "min": 29,
+        "max": ""
+    },
+    "tiers": [
+        {
+            "feePerNewRes": 8,
+            "feePerNewNonRes": 6,
+            "feePerNewTIDF": 10,
             "feePerNonResToRes": 2,
             "feePerPDRToRes": 5,
-            "feePerPDRToNonRes": 3,
+            "feePerPDRToNonRes": 3
         },
-        "tier 2": {
-            "feePerRes": 12,
-            "feePerNonRes": 10,
-            "feePerNetTIDF": 10,
+        {
+            "feePerNewRes": 12,
+            "feePerNewNonRes": 10,
+            "feePerNewTIDF": 10,
             "feePerNonResToRes": 2,
             "feePerPDRToRes": 9,
-            "feePerPDRToNonRes": 7,
+            "feePerPDRToNonRes": 7
         },
-        "tier 3": {
-            "feePerRes": 16,
-            "feePerNonRes": 14,
-            "feePerNetTIDF": 10,
+        {
+            "feePerNewRes": 16,
+            "feePerNewNonRes": 14,
+            "feePerNewTIDF": 10,
             "feePerNonResToRes": 2,
             "feePerPDRToRes": 13,
             "feePerPDRToNonRes": 11
         }
-    }
+    ]
 }

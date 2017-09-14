@@ -9,6 +9,18 @@ define([
 
         AbstractFee.apply(this, [params]);
 
+        this.tier = ko.computed(function() {
+            var heightIncrease = this.heightIncrease() || 0;
+            var tier = 0
+            if (heightIncrease >= this.tier2Height.min && heightIncrease < this.tier2Height.max) {
+                tier = 1
+            }
+            else if (heightIncrease > this.tier3Height.min) {
+                tier = 2
+            }
+            return tier
+        }, this)
+
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
@@ -39,26 +51,18 @@ define([
             var nonResToRes = this.nonResToRes() || 0;
             var pdrToRes = this.pdrToRes() || 0;
             var pdrToNonRes = this.pdrToNonRes() || 0;
-            var heightIncrease = this.heightIncrease() || 0;
-            var tier = ''
-            if(heightIncrease < 9) {
-                tier = 'tier 1'
-            }
-            else if (heightIncrease >= 9 && heightIncrease < 29) {
-                tier = 'tier 2'
-            }
-            else if (heightIncrease > 29) {
-                tier = 'tier 3'
-            }
+            var tier = this.tier();
 
             if(!this.triggered()) {
                 return 0;
             }
-            return (this.fees.tier.feePerNewRes * newRes) +
-                (this.feePerNewNonRes * newNonRes) +
-                (this.feePerNonResToRes * nonResToRes) +
-                (this.feePerPDRToRes * pdrToRes) +
-                (this.feePerPDRToNonRes * pdrToNonRes);
+
+            return (this.tiers[tier].feePerNewRes * newRes) +
+                (this.tiers[tier].feePerNewNonRes * newNonRes) +
+                (this.tiers[tier].feePerNewTIDF * newTIDF) +
+                (this.tiers[tier].feePerNonResToRes * nonResToRes) +
+                (this.tiers[tier].feePerPDRToRes * pdrToRes) +
+                (this.tiers[tier].feePerPDRToNonRes * pdrToNonRes);
         }, this);
     };
 

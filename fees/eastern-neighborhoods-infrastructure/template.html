@@ -48,20 +48,6 @@
                 <th>
                     <h4>New Construction</h4>
                 </th>
-                <th>
-                </th>
-                <th>GSF</th>
-                <th></th>
-                <th>Fee per GSF</th>
-                <th></th>
-                <th>Assessed Fee</th>
-                </th>
-                <th>GSF</th>
-                <th></th>
-                <th>Fee per GSF</th>
-                <th></th>
-                <th>Assessed Fee</th>
-                </th>
                 <th>GSF</th>
                 <th></th>
                 <th>Fee per GSF</th>
@@ -77,25 +63,39 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerNewRes"></span>/GSF
+                    $<span data-bind="numericText: fee.tiers[fee.tier()].feePerNewRes"></span>/GSF (Tier <span data-bind="text: fee.tier() + 1"></span>)
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.newRes() * fee.feePerNewRes"></span>
+                    $<span data-bind="numericText: fee.newRes() * fee.tiers[fee.tier()].feePerNewRes"></span>
                 </td>
             </tr>
             <tr>
                 <th scope="row">Non-Residential</th>
                 <td>
-                    <span data-bind="numericText: fee.app.newNonRes"></span> GSF
+                    <span data-bind="numericText: fee.newNonRes"></span> GSF
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerNewNonRes"></span>/GSF
+                    $<span data-bind="numericText: fee.tiers[fee.tier()].feePerNewNonRes"></span>/GSF (Tier <span data-bind="text: fee.tier() + 1"></span>)
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.app.newNonRes() * fee.feePerNewNonRes"></span>
+                    $<span data-bind="numericText: fee.newNonRes() * fee.tiers[fee.tier()].feePerNewNonRes"></span>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">TIDF</th>
+                <td>
+                    <span data-bind="numericText: fee.newTIDF"></span> GSF
+                </td>
+                <td>*</td>
+                <td>
+                    $<span data-bind="numericText: fee.tiers[fee.tier()].feePerNewTIDF"></span>/GSF (Tier <span data-bind="text: fee.tier() + 1"></span>)
+                </td>
+                <td>=</td>
+                <td>
+                    $<span data-bind="numericText: fee.newNonRes() * fee.tiers[fee.tier()].feePerNewTIDF"></span>
                 </td>
             </tr>
             <tr>
@@ -115,11 +115,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerNonResToRes"></span>/GSF
+                    $<span data-bind="numericText: fee.tiers[fee.tier()].feePerNonResToRes"></span>/GSF (Tier <span data-bind="text: fee.tier() + 1"></span>)
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
+                    $<span data-bind="numericText: fee.nonResToRes() * fee.tiers[fee.tier()].feePerNonResToRes"></span>
                 </td>
             </tr>
             <tr>
@@ -129,11 +129,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerPDRToRes"></span>/GSF
+                    $<span data-bind="numericText: fee.tiers[fee.tier()].feePerPDRToRes"></span>/GSF (Tier <span data-bind="text: fee.tier() + 1"></span>)
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
+                    $<span data-bind="numericText: fee.pdrToRes() * fee.tiers[fee.tier()].feePerPDRToRes"></span>
                 </td>
             </tr>
             <tr>
@@ -143,11 +143,11 @@
                 </td>
                 <td>*</td>
                 <td>
-                    $<span data-bind="numericText: fee.feePerPDRToNonRes"></span>/GSF
+                    $<span data-bind="numericText: fee.tiers[fee.tier()].feePerPDRToNonRes"></span>/GSF (Tier <span data-bind="text: fee.tier() + 1"></span>)
                 </td>
                 <td>=</td>
                 <td>
-                    $<span data-bind="numericText: fee.pdrToNonRes() * fee.feePerPDRToNonRes"></span>
+                    $<span data-bind="numericText: fee.pdrToNonRes() * fee.tiers[fee.tier()].feePerPDRToNonRes"></span>
                 </td>
             </tr>
         </tbody>
