@@ -2,6 +2,11 @@
     "name": "south-of-market-non-residential-open-space",
     "label": "South Of Market Non-Residential Open Space Fee",
     "areaName": "Eastern Neighborhoods Plan Area",
-    "costMultiplier": 0.8,
-    "minNetNewUnits": 10
+	"minNewNonResGSF": 1,
+	"minNetNonResGSF": 1,
+	"feePerSqFt": 0.8,
+	"openSpaceReqPerRetail": 250,
+	"openSpaceReqPerManufacturing": 120,
+	"openSpaceReqPerOfficeSOMA": 90,
+    "costMultiplier": 0.8
 }

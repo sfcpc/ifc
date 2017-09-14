@@ -13,8 +13,12 @@ define([
         this.multiplier = settings.multiplier;
 
         this.triggered = ko.computed(function() {
-            return this.app.netNewUnits() >= settings.minNetNewUnits;
-        }, this);
+			return this.isProjectInArea() &&
+				(
+					this.newNonRes() >= this.minNewNonResGSF ||
+					this.nonResGSF() >= this.minNetNonResGSF
+				);
+		}, this);
 
         this.ready = ko.computed(function() {
             if (!this.triggered()) {
