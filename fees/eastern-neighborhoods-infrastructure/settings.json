@@ -3,6 +3,7 @@
     "paramNames": [
         "newRes",
         "newNonRes",
+        "newTIDF",
         "nonResToRes",
         "pdrToRes",
         "pdrToNonRes",
