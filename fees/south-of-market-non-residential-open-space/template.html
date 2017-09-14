@@ -1,26 +1,92 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
-        <label for="somaNonResOpenSpaceFeeValue">Value ($)</label>
-        <input type="number" class="form-control" id="somaNonResOpenSpaceFeeValue" placeholder="value" data-bind="value: fee.value, valueUpdate: 'keyup'">
+        <h4>New Square Footage</h4>
+
+        <label for="newRetail">New Retail Space (GSF)</label>
+        <input type="number" class="form-control" id="newRetail" placeholder="value" data-bind="value: fee.newRetail, valueUpdate: 'keyup'">
+
+        <label for="newManufacturing">New Manufacturing Space (GSF)</label>
+        <input type="number" class="form-control" id="newManufacturing" placeholder="value" data-bind="value: fee.newManufacturing, valueUpdate: 'keyup'">
+
+        <label for="newOffice">New Office Space (GSF)</label>
+        <input type="number" class="form-control" id="newOffice" placeholder="value" data-bind="value: fee.newOffice, valueUpdate: 'keyup'">
     </div>
 </form>
 <!-- /ko -->
 
-<!-- ko if: state === 'report' -->
-    <!-- ko if: fee.triggered() -->
-    <div class="row">
-        <div class="col-4">
-            Base Value: $<span data-bind="numericText: fee.value"></span>
-        </div>
-        <div class="col-4">
-            Multiplier: <span data-bind="numericText: fee.multiplier"></span>
-        </div>
-        <div class="col-4">
-            Calculation:
-            $<span data-bind="numericText: fee.value"></span> *
-            <span data-bind="numericText: fee.multiplier"></span>
-        </div>
-    </div>
-    <!-- /ko -->
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>New Square Footage</h4>
+            </th>
+            <th>GSF</th>
+            <th></th>
+            <th>SqFt of Open Space per GSF</th>
+            <th></th>
+            <th>Required Open Space (SqFt)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Retail</th>
+            <td>
+                <span data-bind="numericText: fee.newRetail"></span> GSF
+            </td>
+            <td>/</td>
+            <td>
+                <span data-bind="numericText: fee.openSpaceReqPerRetail"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="numericText: fee.newRetail() / fee.openSpaceReqPerRetail"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Manufacturing</th>
+            <td>
+                <span data-bind="numericText: fee.newManufacturing"></span> GSF
+            </td>
+            <td>/</td>
+            <td>
+                <span data-bind="numericText: fee.openSpaceReqPerManufacturing"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="numericText: fee.newManufacturing() / fee.openSpaceReqPerManufacturing"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Office</th>
+            <td>
+                <span data-bind="numericText: fee.newOffice"></span> GSF
+            </td>
+            <td>/</td>
+            <td>
+                <span data-bind="numericText: fee.openSpaceReqPerOffice"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="numericText: fee.newOffice() / fee.openSpaceReqPerOffice"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Optional Fee Cost</th>
+            <td>
+                <span data-bind="numericText: (fee.newRetail() / fee.openSpaceReqPerRetail) + (fee.newManufacturing() / fee.openSpaceReqPerManufacturing) + (fee.newOffice() / fee.openSpaceReqPerOffice)"></span> GSF
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.costMultiplier"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <!-- /ko -->

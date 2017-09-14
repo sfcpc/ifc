@@ -3,15 +3,17 @@
     "paramNames": [
         "newNonRes",
         "nonResGSF",
+        "newRetail",
+        "newManufacturing",
+        "newOffice",
         "geometry"
     ],
-    "label": "South Of Market Non-Residential Open Space Fee",
-    "areaName": "Eastern Neighborhoods Plan Area",
+    "label": "South Of Market Non-Residential Open Space Fee (optional)",
+    "areaName": "Eastern Neighborhoods Infrastructure Impact Fee",
 	"minNewNonResGSF": 1,
 	"minNetNonResGSF": 1,
-	"feePerSqFt": 0.8,
 	"openSpaceReqPerRetail": 250,
 	"openSpaceReqPerManufacturing": 120,
-	"openSpaceReqPerOfficeSOMA": 90,
+	"openSpaceReqPerOffice": 90,
     "costMultiplier": 0.8
 }

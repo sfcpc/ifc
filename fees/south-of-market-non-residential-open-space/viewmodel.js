@@ -18,12 +18,26 @@ define([
 		}, this);
 
         this.ready = ko.computed(function() {
-            return true;
+            if (!this.triggered()) {
+                return true;
+            }
+            return this.newRetail() !== null && this.newRetail() !== '' &&
+                this.newManufacturing() !== null && this.newManufacturing() !== '' &&
+                this.newOffice() !== null && this.newOffice() !== '';
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            return 0;
-        }, this);
+			var newRetail = this.newRetail() || 0;
+			var newManufacturing = this.newManufacturing() || 0;
+			var newOffice = this.newOffice() || 0;
+			if (!this.triggered()) {
+				return 0;
+			}
+			return ((newRetail / this.openSpaceReqPerRetail) +
+				(newManufacturing / this.openSpaceReqPerManufacturing) +
+				(newOffice / this.openSpaceReqPerOffice))
+                * this.costMultiplier;
+		}, this);
     };
 
     somaNonResOpenSpace.settings = settings;
