@@ -1,0 +1,7 @@
+{
+    "name": "south-of-market-non-residential-open-space",
+    "label": "South Of Market Non-Residential Open Space Fee",
+    "areaName": "Eastern Neighborhoods Plan Area",
+    "costMultiplier": 0.8,
+    "minNetNewUnits": 10
+}
