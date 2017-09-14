@@ -5,7 +5,6 @@ define([
 	'./component'
 ], function(ko, AbstractFee, settings) {
 	var VanNessMarketInfrastructureFee = function(params) {
-		var self = this;
         this.settings = settings;
 
 		AbstractFee.apply(this, [params]);

@@ -95,9 +95,11 @@ define([
         }, this);
 	};
 
-    // name should be the same on both prototype and instances
-    // (see above)
-	AbstractFee.name = "";
+	AbstractFee.settings = {
+        // name should setting is required and should match folder name
+        // (see above)
+        name: ''
+    };
 
 	return AbstractFee;
 });
