@@ -63,22 +63,30 @@ define([
 			return newUnits - removedUnits;
 		}, this);
 
-		this.triggersReady = ko.computed(function() {
-			var newUnits = this.newUnits();
-			var removedUnits = this.removedUnits();
+        this.dwellingsReady = ko.computed(function () {
+            var newUnits = this.newUnits();
+            var removedUnits = this.removedUnits();
+            return removedUnits !== null && removedUnits !== '' &&
+                newUnits !== null && newUnits !== '';
+        }, this);
+
+        this.landUseReady = ko.computed(function () {
 			var newNonRes = this.newNonRes();
 			var nonResGSF = this.nonResGSF();
 			var pdrGSF = this.pdrGSF();
 			var resGSF = this.resGSF();
 			var changeOfUse = this.changeOfUse();
-			return removedUnits !== null && removedUnits !== '' &&
-				newUnits !== null && newUnits !== '' &&
-				newNonRes !== null && newNonRes !== '' &&
+			return newNonRes !== null && newNonRes !== '' &&
 				nonResGSF !== null && nonResGSF !== '' &&
 				pdrGSF !== null && pdrGSF !== '' &&
 				resGSF !== null && resGSF !== '' &&
-				changeOfUse !== null && changeOfUse !== '' &&
-				this.geometry();
+				changeOfUse !== null && changeOfUse !== '';
+        }, this);
+
+		this.triggersReady = ko.computed(function() {
+			return this.dwellingsReady() &&
+                this.landUseReady() &&
+                this.geometry();
 		}, this);
 
 		this.feesReady = ko.computed(function() {
