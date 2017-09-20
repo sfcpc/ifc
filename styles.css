@@ -53,14 +53,27 @@ hr {
     opacity: 0.85;
 }
 
-.list-group-item.active, .btn, .nav-item.active {
+.list-group-item.active, .btn-primary, .nav-item.active {
     background-color: #6091b3;
     border-color: #6091b3;
 }
 
-.list-group-item.active:hover, .btn:hover {
+.list-group-item:hover {
+    background-color: #c5ecfe;
+    border-color: #c5ecfe;
+    cursor: pointer;
+}
+
+.list-group-item.active:hover, .btn-primary:hover {
     background-color: #61afd2;
     border-color: #61afd2;
+    cursor: pointer;
+}
+
+.btn-primary.disabled, .btn-primary:disabled, .btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    background-color: #98b5c8;
+    border-color: #98b5c8;
+    cursor: default;
 }
 
 .nav-link {
@@ -116,6 +129,7 @@ hr {
 
 .triggered-fee-list .list-group {
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .selected-fee-form {
@@ -200,6 +214,14 @@ hr {
     background-color: white;
     border: solid 1px #a6a6a6;
     margin-bottom: 15px;
+}
+
+.next-btn {
+    float: right;
+}
+
+.no-fees-triggered {
+    padding: 30px;
 }
 
 @media print {
