@@ -1,8 +1,9 @@
 define([
 	'knockout',
 	'underscore',
-	'jquery'
-], function(ko, _, $) {
+	'jquery',
+	"json!settings.json"
+], function(ko, _, $, settings) {
 	var App = function(params) {
 		var self = this;
 		this.name = params.name || "";
@@ -117,6 +118,68 @@ define([
 			if (self.feesReady()) {
 				self.state('report');
 			}
+		};
+
+		this.geocodeString = ko.observable('');
+        this.geocodeSuccess = ko.observable(null);
+        this.geocodeLoading = ko.observable(false);
+
+        this.geocoderIcon = ko.computed(function () {
+            var success = self.geocodeSuccess();
+            var icon;
+            switch (success) {
+                case null:
+                    icon = 'fa-search';
+                    break;
+                case true:
+                    icon = 'fa-check';
+                    break;
+                default:
+                    icon = 'fa-times-circle shake';
+            }
+            if (self.geocodeLoading()) {
+                icon = 'fa-spinner fa-spin';
+            }
+            return icon;
+        });
+
+        this.geocodeString.subscribe(function () {
+            self.geocodeSuccess(null);
+        });
+
+		this.geocode = function () {
+            if (self.geocodeLoading()) {
+                return;
+            }
+            if (self.geocodeSuccess() !== null) {
+                self.geocodeString('');
+            } else if (self.geocodeString()) {
+                self.geocodeLoading(true);
+                $.ajax({
+                  url: settings.geocoder,
+                  dataType: 'json',
+                  data: {
+                      search: self.geocodeString()
+                  },
+                  success: function(data) {
+                      if (data['error']) {
+                          console.error('Geocode failed: ' + data['error'].message);
+                          return;
+                      }
+                      if (data.features && data.features.length > 0) {
+                          self.geocodeSuccess(true);
+                      } else {
+                          self.geocodeSuccess(false);
+                      }
+                  },
+                  error: function() {
+                      self.geocodeSuccess(false);
+                  },
+                  complete: function() {
+                      self.geocodeLoading(false);
+                  }
+                });
+            }
 		};
 
 		this.queryString = ko.computed(function() {

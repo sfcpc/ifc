@@ -8,6 +8,7 @@ define([
 	return ko.bindingHandlers.olMap = {
 		init: function(el, valueAccessor, allBindingsAccessor, viewmodel, bindingContext) {
 			var readOnly = allBindingsAccessor().readOnly;
+			var selectedPoint = allBindingsAccessor().selectedPoint || ko.observable();
 			var esrijsonFormat = new ol.format.EsriJSON();
 			var geojsonFormat = new ol.format.GeoJSON();
 			var vectorSource = new ol.source.Vector();
@@ -79,13 +80,13 @@ define([
 				view.fit(geom, map.getSize())
 			}
 
-			if (!readOnly) {
-				map.on('click', function(e) {
+			selectedPoint.subscribe(function(point) {
+				if (point) {
 					$.getJSON(settings.mapserver + '/identify', {
 						f: 'json',
 						geometry: JSON.stringify({
-							"x": e.coordinate[0],
-							"y": e.coordinate[1],
+							"x": point[0],
+							"y": point[1],
 							"spatialReference": {
 								"wkid": 102100,
 								"latestWkid": 3857
@@ -94,10 +95,10 @@ define([
 						tolerance: 0,
 						returnGeometry: true,
 						mapExtent: JSON.stringify({
-							"xmin": e.coordinate[0],
-							"ymin": e.coordinate[1],
-							"xmax": e.coordinate[0],
-							"ymax": e.coordinate[1],
+							"xmin": point[0],
+							"ymin": point[1],
+							"xmax": point[0],
+							"ymax": point[1],
 							"spatialReference": {
 								"wkid": 102100,
 								"latestWkid": 3857
@@ -133,6 +134,12 @@ define([
 							geometry(null);
 						}
 					});
+				}
+			})
+
+			if (!readOnly) {
+				map.on('click', function(e) {
+					selectedPoint(e.coordinate);
 				});
 			}
 		}

@@ -33,7 +33,8 @@ requirejs([
 	"bootstrap",
 	"bindings/numeric-text",
     "bindings/dollars-text",
-	"bindings/ol-map"
+	"bindings/ol-map",
+    "bindings/enter-key"
 ], function(ko, _, App, settings) {
 	if (window.location.hostname === "localhost") {
 		require(['http://localhost:' + settings.livereloadPort + '/livereload.js'],

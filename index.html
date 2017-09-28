@@ -126,8 +126,15 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-12">
-                                <label>Select parcels below by clicking on the map to define the project location</label>
-                                <div class="ol-map" data-bind="olMap:geometry"></div>
+                                <label>Search for an address, parcel, block, planning application or building permit and/or select parcels below by clicking on the map to define the project location</label>
+                                <div class="ol-map" data-bind="olMap:geometry">
+                                    <div class="geocoder form-group">
+                                        <input type="text" class="form-control" data-bind="value: geocodeString, valueUpdate: 'keyup', css: (geocodeSuccess() === false) ? 'shake' : '', enterKey: geocode">
+                                        <div class="search-btn">
+                                            <i class="fa" data-bind="click: geocode, css: geocoderIcon"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

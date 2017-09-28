@@ -24,12 +24,6 @@ define([
 			var val = this.value();
 			return val && this.triggered() ? val * this.multiplier : 0;
 		}, this);
-
-		this.json = ko.computed(function() {
-			return {
-				"value": this.value()
-			};
-		}, this);
 	};
 
 	MockFee.settings = settings;
