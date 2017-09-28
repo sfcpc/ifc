@@ -1,13 +1,13 @@
 define([
-	'jquery',
-	'openlayers',
+    'jquery',
+    'openlayers',
     'turf',
-	'json!settings.json',
+    'json!settings.json',
 ], function($, ol, turf, settings) {
-	var esrijsonFormat = new ol.format.EsriJSON();
-	var geojsonFormat = new ol.format.GeoJSON();
+    var esrijsonFormat = new ol.format.EsriJSON();
+    var geojsonFormat = new ol.format.GeoJSON();
 
-	var mapserverUtils = {
+    var mapserverUtils = {
         getAreaGeoJSON: function(feeName, callback) {
             $.getJSON(settings.mapserver + '/' + settings.areaLayer + '/query', {
                 where: "FEE='" + feeName + "'",
@@ -32,7 +32,7 @@ define([
                 callback(JSON.parse(geom));
             });
         },
-        isProjectInArea: function (projectGeom, areaGeom) {
+        isProjectInArea: function(projectGeom, areaGeom) {
             if (!projectGeom() || !areaGeom()) {
                 return false;
             }
@@ -48,5 +48,5 @@ define([
         }
     }
 
-	return mapserverUtils;
+    return mapserverUtils;
 });

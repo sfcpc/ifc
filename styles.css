@@ -173,6 +173,14 @@ hr {
     color: rgb(42, 162, 0);
 }
 
+.geocoder .fa-times-circle {
+    color: rgb(221, 35, 2);
+}
+
+.geocoder input.shake {
+    border-color: rgb(221, 35, 2);
+}
+
 .ready-check-circle {
     font-size: 1.6em;
 }
@@ -240,7 +248,7 @@ hr {
 
 .search-btn {
     position: absolute;
-    top: 5px;
+    top: 6px;
     right: 10px;
     z-index: 1001;
     cursor: pointer;
@@ -251,43 +259,45 @@ hr {
 }
 
 .shake {
-  -moz-animation: shake 0.3s;
-  -webkit-animation: shake 0.3s;
-  animation: shake 0.3s;
+    -moz-animation: shake 0.3s;
+    -webkit-animation: shake 0.3s;
+    animation: shake 0.3s;
 }
 
 @-moz-keyframes shake {
-  0%, 100% {
-    left: 0px;
-  }
-  20% , 60% {
-    left: 15px;
-  }
-  40% , 80% {
-    left: -15px;
-  }
+    0%, 100% {
+        left: 0px;
+    }
+    20%, 60% {
+        left: 15px;
+    }
+    40%, 80% {
+        left: -15px;
+    }
 }
+
 @-webkit-keyframes shake {
-  0%, 100% {
-    left: 0px;
-  }
-  20% , 60% {
-    left: 15px;
-  }
-  40% , 80% {
-    left: -15px;
-  }
+    0%, 100% {
+        left: 0px;
+    }
+    20%, 60% {
+        left: 15px;
+    }
+    40%, 80% {
+        left: -15px;
+    }
 }
+
 @keyframes shake {
-  0%, 100% {
-    left: 0px;
-  }
-  20% , 60% {
-    left: 15px;
-  }
-  40% , 80% {
-    left: -15px;
-  }
+    0%, 100% {
+        left: 0px;
+    }
+    20%, 60% {
+        left: 15px;
+    }
+    40%, 80% {
+        left: -15px;
+    }
 }
 
 @media print {
