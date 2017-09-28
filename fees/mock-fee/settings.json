@@ -1,10 +1,10 @@
 {
-	"name": "mock-fee",
-	"paramNames": [
-		"value",
-		"netNewUnits"
-	],
-	"label": "Mock Fee",
-	"multiplier": 2,
-	"minNetNewUnits": 10
+    "name": "mock-fee",
+    "paramNames": [
+        "value",
+        "netNewUnits"
+    ],
+    "label": "Mock Fee",
+    "multiplier": 2,
+    "minNetNewUnits": 10
 }

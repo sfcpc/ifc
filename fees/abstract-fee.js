@@ -1,16 +1,16 @@
 define([
-	'knockout',
+    'knockout',
     'underscore',
-	'utils/mapserver'
+    'utils/mapserver'
 ], function(ko, _, mapserverUtils) {
-	var AbstractFee = function(params) {
+    var AbstractFee = function(params) {
         var self = this;
 
         // settings, or constants to be applied for this fee
         // override with fee type specific settings BEFORE calling the super
         // constructor
         this.settings = this.settings || {};
-        _.each(this.settings, function (value, key) {
+        _.each(this.settings, function(value, key) {
             self[key] = value;
         });
 
@@ -46,36 +46,36 @@ define([
 
         // indicates if this fee has been triggered
         // override with fee type specific triggering logic
-		this.triggered = ko.computed(function() {
-			return false;
-		}, this);
+        this.triggered = ko.computed(function() {
+            return false;
+        }, this);
 
         // indicates if this fee is ready for calculation
         // override with fee type specific logic
-		this.ready = ko.computed(function() {
-			return true
-		}, this);
+        this.ready = ko.computed(function() {
+            return true
+        }, this);
 
         // returns the calculated fee value
         // override with fee type specific calculation logic
-		this.calculatedFee = ko.computed(function() {
-			return 0;
-		}, this);
+        this.calculatedFee = ko.computed(function() {
+            return 0;
+        }, this);
 
         // returns the json object needed to restore the state of this viewmodel
         // this value is automatically stored in the querystring
         // this should not need to be overridden in fee types
-		this.json = ko.computed(function() {
+        this.json = ko.computed(function() {
             var json = {};
             this.trackedParamNames.forEach(function(name) {
                 json[name] = ko.unwrap(self[name]);
             });
-			return json;
-		}, this);
+            return json;
+        }, this);
 
         // fee subtotal for use in reports;
         // this should not need to be overridden in fee types
-        this.subtotal = ko.computed(function () {
+        this.subtotal = ko.computed(function() {
             var subtotal = 0;
             var feeViewModels = this.app.feeViewModels();
             for (var i = 0; i < feeViewModels.length; i++) {
@@ -87,19 +87,19 @@ define([
             return subtotal;
         }, this);
 
-        this.isProjectInArea = ko.computed(function () {
+        this.isProjectInArea = ko.computed(function() {
             if (ko.unwrap(this.geometry) && ko.unwrap(this.areaGeom)) {
                 return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom);
             }
             return false;
         }, this);
-	};
+    };
 
-	AbstractFee.settings = {
+    AbstractFee.settings = {
         // name should setting is required and should match folder name
         // (see above)
         name: ''
     };
 
-	return AbstractFee;
+    return AbstractFee;
 });
