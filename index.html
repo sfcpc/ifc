@@ -129,7 +129,7 @@
                                 <label>Search for an address, parcel, block, planning application or building permit and/or select parcels below by clicking on the map to define the project location</label>
                                 <div class="ol-map" data-bind="olMap:geometry, onMapReady: setupMap">
                                     <div class="geocoder form-group">
-                                        <input type="text" class="form-control" data-bind="value: geocodeString, valueUpdate: 'keyup', css: (geocodeSuccess() === false) ? 'shake' : '', enterKey: geocode">
+                                        <input type="text" class="form-control" data-bind="value: geocodeString, valueUpdate: 'keyup', css: (geocodeSuccess() === false) ? 'shake' : '', enterKey: geocode", placeholder="Search for an address, parcel, block, planning application or building permit">
                                         <div class="search-btn">
                                             <i class="fa" data-bind="click: geocode, css: geocoderIcon"></i>
                                         </div>
