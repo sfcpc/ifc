@@ -235,9 +235,10 @@ hr {
 
 .geocoder {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 250px;
+    top: 10px;
+    right: 10px;
+    left: 50px;
+    /*width: 250px;*/
     z-index: 1000;
 }
 
