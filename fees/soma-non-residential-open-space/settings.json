@@ -1,14 +1,15 @@
 {
-    "name": "south-of-market-non-residential-open-space",
+    "name": "soma-non-residential-open-space",
     "paramNames": [
         "newNonRes",
         "nonResGSF",
         "newRetail",
         "newManufacturing",
         "newOffice",
-        "geometry"
+        "geometry",
+        "payFee"
     ],
-    "label": "South Of Market Non-Residential Open Space Fee (optional)",
+    "label": "South Of Market Non-Residential Open Space Fee",
     "areaName": "Eastern Neighborhoods Infrastructure Impact Fee",
     "minNewNonResGSF": 1,
     "minNetNonResGSF": 1,

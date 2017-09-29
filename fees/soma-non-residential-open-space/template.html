@@ -3,14 +3,21 @@
     <div class="form-group">
         <h4>New Square Footage</h4>
 
-        <label for="newRetail">New Retail Space (GSF)</label>
+        <label for="newRetail">New Retail Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerRetail"></span> GSF open space required)</label>
         <input type="number" class="form-control" id="newRetail" placeholder="value" data-bind="value: fee.newRetail, valueUpdate: 'keyup'">
 
-        <label for="newManufacturing">New Manufacturing Space (GSF)</label>
+        <label for="newManufacturing">New Manufacturing Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerManufacturing"></span> GSF open space required)</label>
         <input type="number" class="form-control" id="newManufacturing" placeholder="value" data-bind="value: fee.newManufacturing, valueUpdate: 'keyup'">
 
-        <label for="newOffice">New Office Space (GSF)</label>
+        <label for="newOffice">New Office Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerOffice"></span> GSF open space required)</label>
         <input type="number" class="form-control" id="newOffice" placeholder="value" data-bind="value: fee.newOffice, valueUpdate: 'keyup'">
+        <hr>
+        <div class="">
+            Total open space required: <span data-bind="numericText: fee.openSpaceRequired"></span> GSF
+        </div>
+        <input type="checkbox" id="paySomaOSFee" data-bind="checked: fee.payFee">
+        <label for="paySomaOSFee">Pay this fee (<span data-bind="dollarsText: fee.feeIfRequired"></span>) in lieu of providing the required open space?</label>
+
     </div>
 </form>
 <!-- /ko -->
@@ -20,7 +27,7 @@
     <thead>
         <tr>
             <th>
-                <h4>New Square Footage</h4>
+                <h4>New Construction</h4>
             </th>
             <th>GSF</th>
             <th></th>
@@ -72,10 +79,26 @@
                 <span data-bind="numericText: fee.newOffice() / fee.openSpaceReqPerOffice"></span>
             </td>
         </tr>
+    </tbody>
+</table>
+<!-- ko if: fee.payFee() -->
+<table class="table">
+    <thead>
         <tr>
-            <th scope="row">Optional Fee Cost</th>
+            <th>
+                <h4>In lieu fee applied</h4>
+            </th>
+            <th>Open space required</th>
+            <th></th>
+            <th>Fee per GSF</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+        <tr>
+            <td></td>
             <td>
-                <span data-bind="numericText: (fee.newRetail() / fee.openSpaceReqPerRetail) + (fee.newManufacturing() / fee.openSpaceReqPerManufacturing) + (fee.newOffice() / fee.openSpaceReqPerOffice)"></span> GSF
+                <span data-bind="numericText: fee.openSpaceRequired"></span> GSF
             </td>
             <td>*</td>
             <td>
@@ -83,10 +106,13 @@
             </td>
             <td>=</td>
             <td>
-
+                <span data-bind="dollarsText: fee.calculatedFee"></span>/GSF
             </td>
         </tr>
     </tbody>
 </table>
-
+<!-- /ko -->
+<!-- ko if: !fee.payFee() -->
+<h4>Project required to provide <span data-bind="numericText: fee.openSpaceRequired"></span> GSF of open space in lieu of paying fee.</h4>
+<!-- /ko -->
 <!-- /ko -->

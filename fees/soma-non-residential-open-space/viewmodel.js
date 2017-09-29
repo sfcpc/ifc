@@ -26,17 +26,27 @@ define([
                 this.newOffice() !== null && this.newOffice() !== '';
         }, this);
 
-        this.calculatedFee = ko.computed(function() {
+        this.feeIfRequired = ko.computed(function () {
             var newRetail = this.newRetail() || 0;
             var newManufacturing = this.newManufacturing() || 0;
             var newOffice = this.newOffice() || 0;
-            if (!this.triggered()) {
-                return 0;
-            }
             return ((newRetail / this.openSpaceReqPerRetail) +
                     (newManufacturing / this.openSpaceReqPerManufacturing) +
                     (newOffice / this.openSpaceReqPerOffice)) *
                 this.costMultiplier;
+        }, this);
+
+        this.calculatedFee = ko.computed(function() {
+            if (!this.triggered() || !this.payFee()) {
+                return 0;
+            }
+            return this.feeIfRequired();
+        }, this);
+
+        this.openSpaceRequired = ko.computed(function () {
+            return (this.newRetail() / this.openSpaceReqPerRetail) +
+                (this.newManufacturing() / this.openSpaceReqPerManufacturing) +
+                (this.newOffice() / this.openSpaceReqPerOffice);
         }, this);
     };
 
