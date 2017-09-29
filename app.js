@@ -7,12 +7,14 @@ define([
 ], function(ko, _, $, ol, settings) {
     var App = function(params) {
         var self = this;
+        var now = new Date();
+        var esrijsonFormat = new ol.format.EsriJSON();
+        var geojsonFormat = new ol.format.GeoJSON();
         this.name = params.name || "";
         this.state = ko.observable(params.state || 'trigger');
         this.loading = ko.observable(false);
         this.feeViewModels = ko.observableArray();
         this.selectedFee = ko.observable();
-        var now = new Date();
         this.reportDate = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
 
         this.total = ko.computed(function() {
@@ -153,8 +155,6 @@ define([
             self.olMap = olMap;
         };
 
-        var esrijsonFormat = new ol.format.EsriJSON();
-        var geojsonFormat = new ol.format.GeoJSON();
         this.geocode = function() {
             if (self.geocodeLoading()) {
                 return;
