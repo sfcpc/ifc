@@ -1,0 +1,20 @@
+{
+    "name": "soma-non-residential-open-space",
+    "paramNames": [
+        "newNonRes",
+        "nonResGSF",
+        "newRetail",
+        "newManufacturing",
+        "newOffice",
+        "geometry",
+        "payFee"
+    ],
+    "label": "South Of Market Non-Residential Open Space Fee",
+    "areaName": "Eastern Neighborhoods Infrastructure Impact Fee",
+    "minNewNonResGSF": 1,
+    "minNetNonResGSF": 1,
+    "openSpaceReqPerRetail": 250,
+    "openSpaceReqPerManufacturing": 120,
+    "openSpaceReqPerOffice": 90,
+    "costMultiplier": 0.8
+}

@@ -108,21 +108,41 @@
             </div>
             <div class="container">
                 <form>
-                    <h2>Trigger Information</h2>
+                    <h2>
+                        Trigger Information
+                        <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: triggersReady()"></i>
+                        <button class="btn btn-primary next-btn" data-bind="disable: !triggersReady(), click: viewCalculate">
+                            Next: calculate fees...
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </h2>
 
                     <hr>
 
-                    <h4>Project Location</h4>
+                    <h4>
+                        Project Location
+                        <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: geometry()"></i>
+                    </h4>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-12">
-                                <label>Select parcels below by clicking on the map to define the project location</label>
-                                <div class="ol-map" data-bind="olMap:geometry"></div>
+                                <label>Search for an address, parcel, block, planning application or building permit and/or select parcels below by clicking on the map to define the project location</label>
+                                <div class="ol-map" data-bind="olMap:geometry, onMapReady: setupMap">
+                                    <div class="geocoder form-group">
+                                        <input type="text" class="form-control" data-bind="value: geocodeString, valueUpdate: 'keyup', css: (geocodeSuccess() === false) ? 'shake' : '', enterKey: geocode", placeholder="Search for an address, parcel, block, planning application or building permit">
+                                        <div class="search-btn">
+                                            <i class="fa" data-bind="click: geocode, css: geocoderIcon"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <h4>Dwellings</h4>
+                    <h4>
+                        Dwellings
+                        <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: dwellingsReady()"></i>
+                    </h4>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-6">
@@ -136,7 +156,10 @@
                         </div>
                     </div>
 
-                    <h4>Land Use</h4>
+                    <h4>
+                        Land Use
+                        <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: landUseReady()"></i>
+                    </h4>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-6">
@@ -173,10 +196,21 @@
         <!-- calculation form -->
         <div class="container" data-bind="if: state() === 'calculate'">
             <div class="row">
-                <!-- ko if: triggeredFeeViewModels().length > 0 -->
-                <div class="col-4 triggered-fee-list">
-                    <h2>Triggered Fees:</h2>
+                <div class="col-12 triggered-fee-list">
+                    <h2>
+                        Calculate Triggered Fees
+                        <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: feesReady()"></i>
+                        <button class="btn btn-primary next-btn" data-bind="disable: !feesReady(), click: viewReport">
+                            Next: view report...
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </h2>
                     <hr>
+                </div>
+            </div>
+            <!-- ko if: triggeredFeeViewModels().length > 0 -->
+            <div class="row">
+                <div class="col-5 triggered-fee-list">
                     <ul class="list-group" data-bind="foreach: triggeredFeeViewModels">
                         <li class="list-group-item" data-bind="click: $parent.selectedFee, css: { 'active': $parent.selectedFee() === $data}">
                             <span data-bind="text: label"></span>
@@ -188,7 +222,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-8 selected-fee-form" data-bind="if: selectedFee()">
+                <div class="col-7 selected-fee-form" data-bind="if: selectedFee()">
                     <h2>
                         <span data-bind="text: selectedFee().label"></span>
                         <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: selectedFee().ready()"></i>
@@ -203,14 +237,18 @@
                     } -->
                     <!-- /ko -->
                 </div>
-                <!-- /ko -->
-
-                <!-- ko if: triggeredFeeViewModels().length === 0 -->
-                <div class="col-12 triggered-fee-list">
-                    <h3>No fees triggered</h3>
-                </div>
-                <!-- /ko -->
             </div>
+            <!-- /ko -->
+
+            <!-- ko if: triggeredFeeViewModels().length === 0 -->
+            <div class="row">
+                <div class="col-12 no-fees-triggered">
+                    <h3>
+                        No fees triggered
+                    </h3>
+                </div>
+            </div>
+            <!-- /ko -->
         </div>
 
         <!-- report -->
@@ -265,13 +303,10 @@
                     </div>
                 </div>
                 <hr>
-                <div data-bind="foreach: feeViewModels">
+                <div data-bind="foreach: triggeredFeeViewModels">
                     <div class="fee-report">
                         <h2>
                             <span data-bind="text: label"></span>:
-                            <!-- ko if: !triggered() -->
-                            not triggered
-                            <!-- /ko -->
                         </h2>
                         <div class="report-content">
                             <!-- ko component: {
@@ -300,6 +335,17 @@
                     </div>
                     <hr>
                 </div>
+                <div class="fee-report">
+                    <h2>
+                        Fees not triggered:
+                    </h2>
+                    <div class="report-content" data-bind="foreach: feeViewModels">
+                        <!-- ko if: !triggered() -->
+                        <div data-bind="text: label"></div>
+                        <!-- /ko  -->
+                    </div>
+                </div>
+                <hr>
                 <div class="fee-report">
                     <h2 class="calculated-fee">
                         <span>Total:</span>

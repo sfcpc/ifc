@@ -53,14 +53,27 @@ hr {
     opacity: 0.85;
 }
 
-.list-group-item.active, .btn, .nav-item.active {
+.list-group-item.active, .btn-primary, .nav-item.active {
     background-color: #6091b3;
     border-color: #6091b3;
 }
 
-.list-group-item.active:hover, .btn:hover {
+.list-group-item:hover {
+    background-color: #c5ecfe;
+    border-color: #c5ecfe;
+    cursor: pointer;
+}
+
+.list-group-item.active:hover, .btn-primary:hover {
     background-color: #61afd2;
     border-color: #61afd2;
+    cursor: pointer;
+}
+
+.btn-primary.disabled, .btn-primary:disabled, .btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    background-color: #98b5c8;
+    border-color: #98b5c8;
+    cursor: default;
 }
 
 .nav-link {
@@ -116,6 +129,7 @@ hr {
 
 .triggered-fee-list .list-group {
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .selected-fee-form {
@@ -155,8 +169,16 @@ hr {
     padding-bottom: 15px;
 }
 
-.ready-check {
+.ready-check, .geocoder .fa-check {
     color: rgb(42, 162, 0);
+}
+
+.geocoder .fa-times-circle {
+    color: rgb(221, 35, 2);
+}
+
+.geocoder input.shake {
+    border-color: rgb(221, 35, 2);
 }
 
 .ready-check-circle {
@@ -200,6 +222,83 @@ hr {
     background-color: white;
     border: solid 1px #a6a6a6;
     margin-bottom: 15px;
+    position: relative;
+}
+
+.next-btn {
+    float: right;
+}
+
+.no-fees-triggered {
+    padding: 30px;
+}
+
+.geocoder {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    left: 50px;
+    /*width: 250px;*/
+    z-index: 1000;
+}
+
+.geocoder input {
+    padding-right: 30px;
+    position: relative;
+}
+
+.search-btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.search-btn i {
+    position: relative;
+}
+
+.shake {
+    -moz-animation: shake 0.3s;
+    -webkit-animation: shake 0.3s;
+    animation: shake 0.3s;
+}
+
+@-moz-keyframes shake {
+    0%, 100% {
+        left: 0px;
+    }
+    20%, 60% {
+        left: 15px;
+    }
+    40%, 80% {
+        left: -15px;
+    }
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {
+        left: 0px;
+    }
+    20%, 60% {
+        left: 15px;
+    }
+    40%, 80% {
+        left: -15px;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        left: 0px;
+    }
+    20%, 60% {
+        left: 15px;
+    }
+    40%, 80% {
+        left: -15px;
+    }
 }
 
 @media print {

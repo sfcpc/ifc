@@ -1,18 +1,20 @@
 {
-	"appName": "Impact Fee Calculator",
-	"feeTypes": [
-		"balboa-park-infrastructure",
-		"rincon-hill-infrastructure",
-		"soma-community-stabilization-fee",
-		"visitacion-valley-infrastructure",
-		"market-octavia-infrastructure",
+    "appName": "Impact Fee Calculator",
+    "feeTypes": [
+        "balboa-park-infrastructure",
+        "rincon-hill-infrastructure",
+        "soma-community-stabilization-fee",
+        "soma-non-residential-open-space",
+        "visitacion-valley-infrastructure",
+        "market-octavia-infrastructure",
         "eastern-neighborhoods-infrastructure"
-	],
-	"livereloadPort": "35729",
-	"basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
-	"mapserver": "//50.17.237.182/arcgis/rest/services/ImpactFees/MapServer",
-	"parcelLayer": "2",
-	"areaLayer": "0",
-	"center": [-13630478.763700977, 4544696.014222133],
-	"zoom": 12
+    ],
+    "livereloadPort": "35729",
+    "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+    "mapserver": "//50.17.237.182/arcgis/rest/services/ImpactFees/MapServer",
+    "geocoder": "//50.17.237.182/cpc_geocode/",
+    "parcelLayer": "2",
+    "areaLayer": "0",
+    "center": [-13630478.763700977, 4544696.014222133],
+    "zoom": 12
 }
