@@ -19,12 +19,8 @@ define([
         // super constructor (or add to settings)
         this.paramNames = this.paramNames || [];
 
-        if (this.areaName) {
-            this.areaGeom = ko.observable(null);
-            mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
-        }
-
         // the string label to use in the UI for this fee type
+
         this.label = this.label || "";
 
         // fee type name (should match folder name)
@@ -43,6 +39,20 @@ define([
             self[name] = ko.observable(params[name] || null);
             self.trackedParamNames.push(name);
         });
+
+        if (this.areaName) {
+            this.areaGeom = ko.observable(null);
+            mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
+        } else if (this.areaLayer) {
+            this.intersectFeatures = ko.observable();
+            var updateIntersectFeatures = function () {
+                if (self.geometry()) {
+                    mapserverUtils.queryLayer(self.geometry, self.areaLayer, self.intersectFeatures)
+                }
+            };
+            this.geometry.subscribe(updateIntersectFeatures);
+            updateIntersectFeatures();
+        }
 
         // indicates if this fee has been triggered
         // override with fee type specific triggering logic
@@ -88,10 +98,15 @@ define([
         }, this);
 
         this.isProjectInArea = ko.computed(function() {
-            if (ko.unwrap(this.geometry) && ko.unwrap(this.areaGeom)) {
-                return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom);
+            if (this.areaName) {
+                if (ko.unwrap(this.geometry) && ko.unwrap(this.areaGeom)) {
+                    return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom);
+                }
+                return false;
+            } else if (this.areaLayer) {
+                var intersectFeatures = this.intersectFeatures();
+                return intersectFeatures &&  intersectFeatures.length > 0;
             }
-            return false;
         }, this);
     };
 
