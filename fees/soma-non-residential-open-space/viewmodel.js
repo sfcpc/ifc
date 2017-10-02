@@ -2,9 +2,11 @@ define([
     'knockout',
     'fees/abstract-fee',
     'json!./settings.json',
+    'utils/mapserver',
     './component'
-], function(ko, AbstractFee, settings) {
+], function(ko, AbstractFee, settings, mapserverUtils) {
     var somaNonResOpenSpace = function(params) {
+        var self = this;
         this.settings = settings;
 
         AbstractFee.apply(this, [params]);

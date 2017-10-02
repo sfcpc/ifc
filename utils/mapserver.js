@@ -33,18 +33,54 @@ define([
             });
         },
         isProjectInArea: function(projectGeom, areaGeom) {
-            if (!projectGeom() || !areaGeom()) {
+            var projectGeom = projectGeom();
+            var areaGeom = areaGeom();
+            if (!projectGeom || !areaGeom) {
                 return false;
             }
-            var projectGeomPoints = turf.explode(JSON.parse(projectGeom()));
-            var areaGeom = turf.featureCollection([
-                areaGeom()
-            ]);
-            var within = turf.within(
-                projectGeomPoints,
-                areaGeom
-            );
-            return within.features.length > 0;
+            projectGeom = JSON.parse(projectGeom);
+            var intersection = turf.intersect(projectGeom, areaGeom);
+            return intersection !== undefined;
+        },
+        queryLayer: function(geometry, layer, callback) {
+            var geoJSONGeom = geometry();
+            if (geoJSONGeom) {
+                geom = geojsonFormat.readGeometry(geoJSONGeom);
+                $.getJSON(settings.mapserver + '/' + layer + '/query', {
+                    where: "1=1",
+                    geometry: geom.getExtent().join(','),
+                    inSR: 102100,
+                    geometryType: 'esriGeometryEnvelope',
+                    spatialRel: 'esriSpatialRelIntersects',
+                    returnGeometry: true,
+                    returnIdsOnly: false,
+                    returnCountOnly: false,
+                    returnZ: false,
+                    returnM: false,
+                    returnDistinctValues: false,
+                    returnTrueCurves: false,
+                    outSR: 102100,
+                    f: 'json'
+                }, function(data) {
+                    if (data['error']) {
+                        console.error('Query mapserver layer (' + layer + ') failed: ' + data['error'].message);
+                        return;
+                    }
+                    var intersectedFeatures = [];
+                    data.features.forEach(function (feature) {
+                        var geometry = esrijsonFormat.readGeometry(feature.geometry);
+                        geometry = geojsonFormat.writeGeometry(geometry);
+                        var intersection = turf.intersect(
+                            JSON.parse(geoJSONGeom),
+                            JSON.parse(geometry)
+                        );
+                        if (intersection !== undefined) {
+                            intersectedFeatures.push(feature);
+                        }
+                    });
+                    callback(intersectedFeatures);
+                });
+            }
         }
     }
 

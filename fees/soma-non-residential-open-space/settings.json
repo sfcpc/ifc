@@ -10,7 +10,7 @@
         "payFee"
     ],
     "label": "South Of Market Non-Residential Open Space Fee",
-    "areaName": "Eastern Neighborhoods Infrastructure Impact Fee",
+    "areaLayer": "4",
     "minNewNonResGSF": 1,
     "minNetNonResGSF": 1,
     "openSpaceReqPerRetail": 250,
