@@ -27,83 +27,17 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row">Residential</th>
+            <th scope="row">Office Space</th>
             <td>
-                <span data-bind="numericText: fee.newRes"></span> GSF
+                <span data-bind="numericText: fee.newOfficeGSF"></span> GSF
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNewRes"></span>/GSF
+                <span data-bind="dollarsText: fee.feePerNewOfficeGSF"></span>/GSF
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newRes() * fee.feePerNewRes"></span>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Non-Residential</th>
-            <td>
-                <span data-bind="numericText: fee.newNonRes"></span> GSF
-            </td>
-            <td>*</td>
-            <td>
-                <span data-bind="dollarsText: fee.feePerNewNonRes"></span>/GSF
-            </td>
-            <td>=</td>
-            <td>
-                <span data-bind="dollarsText: fee.newNonRes() * fee.feePerNewNonRes"></span>
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <h4>Change of Use</h4>
-            </th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">Non-Residential to Residential</th>
-            <td>
-                <span data-bind="numericText: fee.nonResToRes"></span> GSF
-            </td>
-            <td>*</td>
-            <td>
-                <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GSF
-            </td>
-            <td>=</td>
-            <td>
-                <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">PDR to Residential</th>
-            <td>
-                <span data-bind="numericText: fee.pdrToRes"></span> GSF
-            </td>
-            <td>*</td>
-            <td>
-                <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GSF
-            </td>
-            <td>=</td>
-            <td>
-                <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">PDR to Non-Residential</th>
-            <td>
-                <span data-bind="numericText: fee.pdrToNonRes"></span>GSF
-            </td>
-            <td>*</td>
-            <td>
-                <span data-bind="dollarsText: fee.feePerPDRToNonRes"></span>/GSF
-            </td>
-            <td>=</td>
-            <td>
-                <span data-bind="dollarsText: fee.pdrToNonRes() * fee.feePerPDRToNonRes"></span>
+                <span data-bind="dollarsText: fee.newOfficeGSF() * fee.feePerNewOfficeGSF"></span>
             </td>
         </tr>
     </tbody>

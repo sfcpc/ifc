@@ -12,7 +12,7 @@ define([
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
-                    this.newOfficeGSF() >= this.newOfficeGSF
+                    this.newOfficeGSF() > this.minNewOfficeGSF
                 );
         }, this);
 
