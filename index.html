@@ -186,6 +186,10 @@
                                 <label for="changeOfUse">Change of use (GSF)</label>
                                 <input type="number" min="0" class="form-control" id="changeOfUse" placeholder="Change of use (GSF)" data-bind="value: changeOfUse, valueUpdate: 'keyup'">
                             </div>
+                            <div class="col-6">
+                                <label for="newOfficeGSF">Increase in office space (GSF)</label>
+                                <input type="number" min="0" class="form-control" id="resGSF" placeholder="Increase in office space (GSF)" data-bind="value: newOfficeGSF, valueUpdate: 'keyup'">
+                            </div>
                         </div>
                     </div>
 
@@ -281,6 +285,10 @@
                                 <tr>
                                     <th scope="row">New construction of non‐residential:</th>
                                     <td><span data-bind="numericText: newNonRes"></span> GSF</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">New construction of office space:</th>
+                                    <td><span data-bind="numericText: newOfficeGSF"></span> GSF</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Increase in non‐residential:</th>

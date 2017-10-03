@@ -49,6 +49,7 @@ define([
             'pdrGSF',
             'resGSF',
             'changeOfUse',
+            'newOfficeGSF',
 
             // global fee parameters
             'newRes',
