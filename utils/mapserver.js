@@ -32,15 +32,21 @@ define([
                 callback(JSON.parse(geom));
             });
         },
-        isProjectInArea: function(projectGeom, areaGeom) {
+        isProjectInArea: function(projectGeom, areaGeoms) {
             var projectGeom = projectGeom();
-            var areaGeom = areaGeom();
-            if (!projectGeom || !areaGeom) {
+            var areaGeoms = areaGeoms();
+            if (!projectGeom || !areaGeoms || areaGeoms.length === 0) {
                 return false;
             }
+            var intersects = false;
             projectGeom = JSON.parse(projectGeom);
-            var intersection = turf.intersect(projectGeom, areaGeom);
-            return intersection !== undefined;
+            areaGeoms.forEach(function(areaGeom) {
+                var intersection = turf.intersect(projectGeom, areaGeom);
+                if (intersection !== undefined) {
+                    intersects = true;
+                }
+            });
+            return intersects;
         },
         queryLayer: function(geometry, layer, callback) {
             var geoJSONGeom = geometry();
