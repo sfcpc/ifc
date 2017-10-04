@@ -5,7 +5,7 @@
         "geometry"
     ],
     "label": "Downtown Park Fee",
-    "areaLayer": 5,
+    "areaLayer": "5",
     "feePerNewOfficeGSF": 2,
     "minNewOfficeGSF": 0
 }

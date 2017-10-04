@@ -40,19 +40,27 @@ define([
             self.trackedParamNames.push(name);
         });
 
+        this.areaGeoms = ko.observableArray();
+        this.intersectFeatures = ko.observableArray();
         if (this.areaName) {
             var areaNames = this.areaName.split(',');
-            this.areaGeoms = ko.observableArray();
             areaNames.forEach(function (areaName) {
                 mapserverUtils.getAreaGeoJSON(areaName, function (areaGeom) {
                     self.areaGeoms.push(areaGeom);
                 });
             });
         } else if (this.areaLayer) {
-            this.intersectFeatures = ko.observable();
+            var areaLayers = this.areaLayer.split(',');
             var updateIntersectFeatures = function () {
+                self.intersectFeatures.removeAll();
                 if (self.geometry()) {
-                    mapserverUtils.queryLayer(self.geometry, self.areaLayer, self.intersectFeatures)
+                    areaLayers.forEach(function(areaLayer) {
+                        mapserverUtils.queryLayer(self.geometry, areaLayer, function(features) {
+                            features.forEach(function(feature) {
+                                self.intersectFeatures.push(feature);
+                            });
+                        })
+                    })
                 }
             };
             this.geometry.subscribe(updateIntersectFeatures);

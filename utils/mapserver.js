@@ -82,6 +82,7 @@ define([
                             JSON.parse(geometry)
                         );
                         if (intersection !== undefined) {
+                            feature.attributes.layer = layer;
                             intersectedFeatures.push(feature);
                         }
                     });
