@@ -9,8 +9,8 @@
         <label for="newManufacturing">New Manufacturing Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerManufacturing"></span> GSF open space required)</label>
         <input type="number" class="form-control" id="newManufacturing" placeholder="value" data-bind="value: fee.newManufacturing, valueUpdate: 'keyup'">
 
-        <label for="newOffice">New Office Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerOffice"></span> GSF open space required)</label>
-        <input type="number" class="form-control" id="newOffice" placeholder="value" data-bind="value: fee.newOffice, valueUpdate: 'keyup'">
+        <label for="newOfficeGSF">New Office Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerOffice"></span> GSF open space required)</label>
+        <input type="number" class="form-control" id="newOfficeGSF" placeholder="value" data-bind="value: fee.newOfficeGSF, valueUpdate: 'keyup'" disabled>
         <hr>
         <div class="">
             Total open space required: <span data-bind="numericText: fee.openSpaceRequired"></span> GSF
@@ -68,7 +68,7 @@
         <tr>
             <th scope="row">Office</th>
             <td>
-                <span data-bind="numericText: fee.newOffice"></span> GSF
+                <span data-bind="numericText: fee.newOfficeGSF"></span> GSF
             </td>
             <td>/</td>
             <td>
@@ -76,7 +76,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="numericText: fee.newOffice() / fee.openSpaceReqPerOffice"></span>
+                <span data-bind="numericText: fee.newOfficeGSF() / fee.openSpaceReqPerOffice"></span>
             </td>
         </tr>
     </tbody>

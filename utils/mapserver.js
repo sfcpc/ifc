@@ -47,7 +47,6 @@ define([
             if (geoJSONGeom) {
                 geom = geojsonFormat.readGeometry(geoJSONGeom);
                 $.getJSON(settings.mapserver + '/' + layer + '/query', {
-                    where: "1=1",
                     geometry: geom.getExtent().join(','),
                     inSR: 102100,
                     geometryType: 'esriGeometryEnvelope',
