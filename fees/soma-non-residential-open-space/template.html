@@ -15,7 +15,7 @@
         <div class="">
             Total open space required: <span data-bind="numericText: fee.openSpaceRequired"></span> GSF
         </div>
-        <input type="checkbox" id="paySomaOSFee" data-bind="checked: fee.payFee">
+        <input type="checkbox" id="paySomaOSFee" data-bind="checked: fee.paySomaFee">
         <label for="paySomaOSFee">Pay this fee (<span data-bind="dollarsText: fee.feeIfRequired"></span>) in lieu of providing the required open space?</label>
 
     </div>
@@ -81,7 +81,8 @@
         </tr>
     </tbody>
 </table>
-<!-- ko if: fee.payFee() -->
+
+<!-- ko if: fee.paySomaFee() -->
 <table class="table">
     <thead>
         <tr>
@@ -112,7 +113,8 @@
     </tbody>
 </table>
 <!-- /ko -->
-<!-- ko if: !fee.payFee() -->
+
+<!-- ko if: !fee.paySomaFee() -->
 <h4>Project required to provide <span data-bind="numericText: fee.openSpaceRequired"></span> GSF of open space in lieu of paying fee.</h4>
 <!-- /ko -->
 <!-- /ko -->

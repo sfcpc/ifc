@@ -28,24 +28,25 @@ define([
                 this.newOfficeGSF() !== null && this.newOfficeGSF() !== '';
         }, this);
 
-        this.feeIfRequired = ko.computed(function () {
+        this.feeIfRequired = ko.computed(function() {
             var newRetail = this.newRetail() || 0;
             var newManufacturing = this.newManufacturing() || 0;
             var newOfficeGSF = this.newOfficeGSF() || 0;
-            return ((newRetail / this.openSpaceReqPerRetail) +
-                    (newManufacturing / this.openSpaceReqPerManufacturing) +
-                    (newOfficeGSF / this.openSpaceReqPerOffice)) *
-                this.costMultiplier;
+            return (
+                (newRetail / this.openSpaceReqPerRetail) +
+                (newManufacturing / this.openSpaceReqPerManufacturing) +
+                (newOfficeGSF / this.openSpaceReqPerOffice)
+            ) * this.costMultiplier;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            if (!this.triggered() || !this.payFee()) {
+            if (!this.triggered() || !this.paySomaFee()) {
                 return 0;
             }
             return this.feeIfRequired();
         }, this);
 
-        this.openSpaceRequired = ko.computed(function () {
+        this.openSpaceRequired = ko.computed(function() {
             return (this.newRetail() / this.openSpaceReqPerRetail) +
                 (this.newManufacturing() / this.openSpaceReqPerManufacturing) +
                 (this.newOfficeGSF() / this.openSpaceReqPerOffice);
