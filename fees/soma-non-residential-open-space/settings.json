@@ -7,7 +7,7 @@
         "newManufacturing",
         "newOfficeGSF",
         "geometry",
-        "payFee"
+        "paySomaFee"
     ],
     "label": "South Of Market Non-Residential Open Space Fee",
     "areaLayer": "4",
