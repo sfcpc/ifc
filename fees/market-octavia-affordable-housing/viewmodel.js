@@ -1,10 +1,9 @@
 define([
     'knockout',
-    'underscore',
     'fees/abstract-fee',
     'json!./settings.json',
     './component'
-], function(ko, _, AbstractFee, settings) {
+], function(ko, AbstractFee, settings) {
     var MarketOctaviaAffordableHousingFee = function(params) {
         this.settings = settings;
 
