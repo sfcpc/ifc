@@ -81,11 +81,13 @@ define([
             var pdrGSF = this.pdrGSF();
             var resGSF = this.resGSF();
             var changeOfUse = this.changeOfUse();
+            var newOfficeGSF = this.newOfficeGSF();
             return newNonRes !== null && newNonRes !== '' &&
                 nonResGSF !== null && nonResGSF !== '' &&
                 pdrGSF !== null && pdrGSF !== '' &&
                 resGSF !== null && resGSF !== '' &&
-                changeOfUse !== null && changeOfUse !== '';
+                changeOfUse !== null && changeOfUse !== '' &&
+                newOfficeGSF !== null && newOfficeGSF !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {
