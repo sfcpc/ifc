@@ -1,27 +1,21 @@
 define([
     'knockout',
+    'underscore',
     'fees/abstract-fee',
     'json!./settings.json',
     './component'
-], function(ko, AbstractFee, settings) {
+], function(ko, _, AbstractFee, settings) {
     var MarketOctaviaAffordableHousingFee = function(params) {
         this.settings = settings;
 
         AbstractFee.apply(this, [params]);
 
         this.district = ko.computed(function() {
-            var districts =  []
-            if (this.isProjectInArea()) {
-                this.isProjectInArea().forEach(function(e) {
-                    if (e.attributes.hasOwnProperty('districtname')) {
-                        districts.push(e.attributes.districtname)
-                    }
-                    else if (e.attributes.hasOwnProperty('name')) {
-                        districts.push(e.attributes.name)
-                    }
-                })
+            var features = this.isProjectInArea();
+            if (Array.isArray(features) && features.length > 0) {
+                var attr = features[0].attributes;
+                return attr.districtname || attr.name;
             }
-            return districts
         }, this)
 
         this.triggered = ko.computed(function() {
@@ -44,8 +38,8 @@ define([
             var newRes = this.newRes() || 0;
             var nonResToRes = this.nonResToRes() || 0;
             var pdrToRes = this.pdrToRes() || 0;
-            var district = this.district()[0];
-            if (!this.triggered()) {
+            var district = this.district();
+            if (!this.triggered() || !district) {
                 return 0;
             }
 

@@ -17,7 +17,9 @@
     "parcelLayer": "2",
     "areaLayer": "0",
     "somaDistrictsLayer": "4",
-    "mixedUseLayer": "5",
+    "downtownZoningLayer": "5",
+    "vanNessSUDLayer": "6",
+    "upperMarketNCTLayer": "7",
     "center": [-13630478.763700977, 4544696.014222133],
     "zoom": 12
 }
