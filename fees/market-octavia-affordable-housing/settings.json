@@ -1,0 +1,24 @@
+{
+    "name": "market-octavia-affordable-housing",
+    "paramNames": [
+        "newRes",
+        "nonResToRes",
+        "pdrToRes",
+        "netNewUnits",
+        "resGSF",
+        "geometry"
+    ],
+    "label": "Market Octavia Affordable Housing Fee",
+    "areaLayer": "6,7",
+    "minNetNewUnits": 10,
+    "Van Ness & Market Downtown Residential": {
+        "feePerNewRes": 7.2,
+        "feePerNonResToRes": 3.8,
+        "feePerPDRToRes": 5.5
+    },
+    "UPPER MARKET NEIGHBORHOOD COMMERCIAL TRANSIT": {
+        "feePerNewRes": 3.6,
+        "feePerNonResToRes": 0.2,
+        "feePerPDRToRes": 1.9
+    }
+}
