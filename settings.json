@@ -7,7 +7,8 @@
         "soma-non-residential-open-space",
         "visitacion-valley-infrastructure",
         "market-octavia-infrastructure",
-        "downtown-park-fee"
+        "downtown-park-fee",
+        "citywide-childcare-residential"
     ],
     "livereloadPort": "35729",
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
