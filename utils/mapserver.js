@@ -8,9 +8,9 @@ define([
     var geojsonFormat = new ol.format.GeoJSON();
 
     var mapserverUtils = {
-        getAreaGeoJSON: function(feeName, callback) {
+        getAreaGeoJSON: function(areaName, callback) {
             $.getJSON(settings.mapserver + '/' + settings.areaLayer + '/query', {
-                where: "FEE='" + feeName + "'",
+                where: "FEE='" + areaName + "'",
                 geometryType: 'esriGeometryEnvelope',
                 spatialRel: 'esriSpatialRelIntersects',
                 returnGeometry: true,
@@ -29,7 +29,9 @@ define([
                 }
                 var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
                 geom = geojsonFormat.writeGeometry(geom);
-                callback(JSON.parse(geom));
+                geom = JSON.parse(geom);
+                geom.areaName = areaName;
+                callback(geom);
             });
         },
         isProjectInArea: function(projectGeom, areaGeoms) {
@@ -43,7 +45,7 @@ define([
             areaGeoms.forEach(function(areaGeom) {
                 var intersection = turf.intersect(projectGeom, areaGeom);
                 if (intersection !== undefined) {
-                    intersects = true;
+                    intersects = areaGeom.areaName || true;
                 }
             });
             return intersects;
