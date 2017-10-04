@@ -4,13 +4,13 @@
         <h4>New Square Footage</h4>
 
         <label for="newRetail">New Retail Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerRetail"></span> GSF open space required)</label>
-        <input type="number" class="form-control" id="newRetail" placeholder="value" data-bind="value: fee.newRetail, valueUpdate: 'keyup'">
+        <input type="number" class="form-control" id="newRetail" data-bind="value: fee.newRetail, valueUpdate: 'keyup'">
 
         <label for="newManufacturing">New Manufacturing Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerManufacturing"></span> GSF open space required)</label>
-        <input type="number" class="form-control" id="newManufacturing" placeholder="value" data-bind="value: fee.newManufacturing, valueUpdate: 'keyup'">
+        <input type="number" class="form-control" id="newManufacturing" data-bind="value: fee.newManufacturing, valueUpdate: 'keyup'">
 
         <label for="newOfficeGSF">New Office Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerOffice"></span> GSF open space required)</label>
-        <input type="number" class="form-control" id="newOfficeGSF" placeholder="value" data-bind="value: fee.newOfficeGSF, valueUpdate: 'keyup'" disabled>
+        <input type="number" class="form-control" id="newOfficeGSF" data-bind="value: fee.newOfficeGSF, valueUpdate: 'keyup'" disabled>
         <hr>
         <div class="">
             Total open space required: <span data-bind="numericText: fee.openSpaceRequired"></span> GSF

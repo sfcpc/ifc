@@ -1,7 +1,13 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
+        <h4>Area Measurements</h4>
 
+        <label for="totalGSF">Total Building GSF</label>
+        <input type="number" class="form-control" id="totalGSF" data-bind="value: fee.totalGSF, valueUpdate: 'keyup'">
+
+        <label for="parcelArea">Parcel Area (Sq Ft)</label>
+        <input type="number" class="form-control" id="parcelArea" data-bind="value: fee.parcelArea, valueUpdate: 'keyup'">
     </div>
 </form>
 <!-- /ko -->
@@ -10,11 +16,54 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                <h4>Area Measurements</h4>
+            </th>
+            <th>Total Building GSF</th>
+            <th>Parcel Area (Sq Ft)</th>
+            <th>Total FAR</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-
+            <td></td>
+            <td data-bind="numericText: fee.totalGSF"></td>
+            <td data-bind="numericText: fee.parcelArea"></td>
+            <td>
+                <span data-bind="ratioText: fee.totalFAR"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>FAR</h4>
+            </th>
+            <th>GSF</th>
+            <th></th>
+            <th>Fee per GSF</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">&gt; 6:1 &lt; 9:1</th>
+            <td data-bind="numericText: fee.gsfAbove6To1"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.far6to1"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.gsfAbove6To1Fee"></td>
+        </tr>
+        <tr>
+            <th scope="row">&gt; 9:1</th>
+            <td data-bind="numericText: fee.gsfAbove9To1"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.far9to1"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.gsfAbove9To1Fee"></td>
         </tr>
     </tbody>
 </table>
