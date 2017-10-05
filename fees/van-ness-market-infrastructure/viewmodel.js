@@ -13,7 +13,11 @@ define([
         this.triggered = this.isProjectInArea;
 
         this.ready = ko.computed(function() {
-            return true;
+            if (!this.triggered()) {
+                return true;
+            }
+            return this.totalGSF() !== null && this.totalGSF() !== '' &&
+                this.parcelArea() !== null && this.parcelArea() !== '';
         }, this);
 
         this.totalFAR = ko.computed(function() {
