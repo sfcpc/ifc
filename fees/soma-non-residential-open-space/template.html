@@ -3,14 +3,14 @@
     <div class="form-group">
         <h4>New Square Footage</h4>
 
-        <label for="newRetail">New Retail Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerRetail"></span> GSF open space required)</label>
-        <input type="number" class="form-control" id="newRetail" data-bind="value: fee.newRetail, valueUpdate: 'keyup'">
+        <label for="retailGSF">New Retail Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerRetail"></span> GSF open space required)</label>
+        <input type="number" class="form-control" id="retailGSF" data-bind="value: fee.retailGSF, valueUpdate: 'keyup'">
 
         <label for="newManufacturing">New Manufacturing Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerManufacturing"></span> GSF open space required)</label>
         <input type="number" class="form-control" id="newManufacturing" data-bind="value: fee.newManufacturing, valueUpdate: 'keyup'">
 
-        <label for="newOfficeGSF">New Office Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerOffice"></span> GSF open space required)</label>
-        <input type="number" class="form-control" id="newOfficeGSF" data-bind="value: fee.newOfficeGSF, valueUpdate: 'keyup'" disabled>
+        <label for="officeGSF">New Office Space (GSF, 1/<span data-bind="numericText: fee.openSpaceReqPerOffice"></span> GSF open space required)</label>
+        <input type="number" class="form-control" id="officeGSF" data-bind="value: fee.officeGSF, valueUpdate: 'keyup'" disabled>
         <hr>
         <div class="">
             Total open space required: <span data-bind="numericText: fee.openSpaceRequired"></span> GSF
@@ -40,7 +40,7 @@
         <tr>
             <th scope="row">Retail</th>
             <td>
-                <span data-bind="numericText: fee.newRetail"></span> GSF
+                <span data-bind="numericText: fee.retailGSF"></span> GSF
             </td>
             <td>*</td>
             <td>
@@ -48,7 +48,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="numericText: fee.newRetail() / fee.openSpaceReqPerRetail"></span>
+                <span data-bind="numericText: fee.retailGSF() / fee.openSpaceReqPerRetail"></span>
             </td>
         </tr>
         <tr>
@@ -68,7 +68,7 @@
         <tr>
             <th scope="row">Office</th>
             <td>
-                <span data-bind="numericText: fee.newOfficeGSF"></span> GSF
+                <span data-bind="numericText: fee.officeGSF"></span> GSF
             </td>
             <td>*</td>
             <td>
@@ -76,7 +76,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="numericText: fee.newOfficeGSF() / fee.openSpaceReqPerOffice"></span>
+                <span data-bind="numericText: fee.officeGSF() / fee.openSpaceReqPerOffice"></span>
             </td>
         </tr>
     </tbody>

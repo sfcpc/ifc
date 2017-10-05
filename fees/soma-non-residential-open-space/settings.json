@@ -3,9 +3,9 @@
     "paramNames": [
         "newNonRes",
         "nonResGSF",
-        "newRetail",
+        "retailGSF",
         "newManufacturing",
-        "newOfficeGSF",
+        "officeGSF",
         "geometry",
         "paySomaFee"
     ],

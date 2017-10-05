@@ -1,0 +1,31 @@
+{
+    "name": "transit-center-open-space",
+    "paramNames": [
+        "resGSF",
+        "newNonRes",
+        "officeGSF",
+        "netNewUnits",
+        "geometry",
+        "retailGSF",
+        "hotelGSF",
+        "institutionalGSF",
+        "industrialGSF",
+        "parcelArea"
+    ],
+    "label": "Transit Center District Open Space Impact Fee",
+    "areaName": "Transit Center Open Space Fee",
+    "minNetNewUnits": 1,
+    "minResGSF": 800,
+    "minNewNonRes": 0,
+    "minNonResGSF": 800,
+    "farBaseMax": 9,
+    "resBaseFee": 2.5,
+    "officeBaseFee": 3,
+    "officeFARFee": 7,
+    "retailBaseFee": 5,
+    "retailFARFee": 4.5,
+    "hotelBaseFee": 4,
+    "institutionalBaseFee": 5,
+    "institutionalFARFee": 4.3,
+    "industrialBaseFee": 2.5
+}

@@ -12,7 +12,7 @@ define([
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
-                    this.newOfficeGSF() > this.minNewOfficeGSF
+                    this.officeGSF() > this.minofficeGSF
                 );
         }, this);
 
@@ -20,15 +20,15 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.newOfficeGSF() !== null && this.newOfficeGSF() !== '';
+            return this.officeGSF() !== null && this.officeGSF() !== '';
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            var newOfficeGSF = this.newOfficeGSF() || 0;
+            var officeGSF = this.officeGSF() || 0;
             if (!this.triggered()) {
                 return 0;
             }
-            return (this.feePerNewOfficeGSF * newOfficeGSF);
+            return (this.feePerofficeGSF * officeGSF);
         }, this);
     };
 
