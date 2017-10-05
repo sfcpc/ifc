@@ -51,11 +51,11 @@
         </tr>
         <tr>
             <th scope="row">FAR &gt; 9:1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
             <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <tr>
@@ -64,11 +64,11 @@
                 </th>
             </tr>
             <th scope="row">Base</th>
-            <td data-bind="numericText: fee.getBaseGSF(fee.officeGSF())"></td>
+            <td data-bind="numericText: fee.officeGSF()"></td>
             <td>*</td>
             <td data-bind="dollarsText: fee.officeBaseFee"></td>
             <td>=</td>
-            <td data-bind="dollarsText: fee.getBaseGSF(fee.officeGSF()) * fee.officeBaseFee"></td>
+            <td data-bind="dollarsText: fee.officeGSF() * fee.officeBaseFee"></td>
         </tr>
         <tr>
             <th scope="row">FAR &gt; 9:1</th>
@@ -85,11 +85,11 @@
                 </th>
             </tr>
             <th scope="row">Base</th>
-            <td data-bind="numericText: fee.getBaseGSF(fee.retailGSF())"></td>
+            <td data-bind="numericText: fee.retailGSF()"></td>
             <td>*</td>
             <td data-bind="dollarsText: fee.retailBaseFee"></td>
             <td>=</td>
-            <td data-bind="dollarsText: fee.getBaseGSF(fee.retailGSF()) * fee.retailBaseFee"></td>
+            <td data-bind="dollarsText: fee.retailGSF() * fee.retailBaseFee"></td>
         </tr>
         <tr>
             <th scope="row">FAR &gt; 9:1</th>
@@ -114,11 +114,11 @@
         </tr>
         <tr>
             <th scope="row">FAR &gt; 9:1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
             <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <tr>
@@ -127,11 +127,11 @@
                 </th>
             </tr>
             <th scope="row">Base</th>
-            <td data-bind="numericText: fee.getBaseGSF(fee.institutionalGSF())"></td>
+            <td data-bind="numericText: fee.institutionalGSF()"></td>
             <td>*</td>
             <td data-bind="dollarsText: fee.institutionalBaseFee"></td>
             <td>=</td>
-            <td data-bind="dollarsText: fee.getBaseGSF(fee.institutionalGSF()) * fee.institutionalBaseFee"></td>
+            <td data-bind="dollarsText: fee.institutionalGSF() * fee.institutionalBaseFee"></td>
         </tr>
         <tr>
             <th scope="row">FAR &gt; 9:1</th>
@@ -156,11 +156,11 @@
         </tr>
         <tr>
             <th scope="row">FAR &gt; 9:1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
             <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>
