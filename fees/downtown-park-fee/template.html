@@ -24,15 +24,15 @@
         <tr>
             <th scope="row">Office Space</th>
             <td>
-                <span data-bind="numericText: fee.newOfficeGSF"></span> GSF
+                <span data-bind="numericText: fee.officeGSF"></span> GSF
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNewOfficeGSF"></span>/GSF
+                <span data-bind="dollarsText: fee.feePerofficeGSF"></span>/GSF
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newOfficeGSF() * fee.feePerNewOfficeGSF"></span>
+                <span data-bind="dollarsText: fee.officeGSF() * fee.feePerofficeGSF"></span>
             </td>
         </tr>
     </tbody>

@@ -23,19 +23,19 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.newRetail() !== null && this.newRetail() !== '' &&
+            return this.retailGSF() !== null && this.retailGSF() !== '' &&
                 this.newManufacturing() !== null && this.newManufacturing() !== '' &&
-                this.newOfficeGSF() !== null && this.newOfficeGSF() !== '';
+                this.officeGSF() !== null && this.officeGSF() !== '';
         }, this);
 
         this.feeIfRequired = ko.computed(function() {
-            var newRetail = this.newRetail() || 0;
+            var retailGSF = this.retailGSF() || 0;
             var newManufacturing = this.newManufacturing() || 0;
-            var newOfficeGSF = this.newOfficeGSF() || 0;
+            var officeGSF = this.officeGSF() || 0;
             return (
-                (newRetail / this.openSpaceReqPerRetail) +
+                (retailGSF / this.openSpaceReqPerRetail) +
                 (newManufacturing / this.openSpaceReqPerManufacturing) +
-                (newOfficeGSF / this.openSpaceReqPerOffice)
+                (officeGSF / this.openSpaceReqPerOffice)
             ) * this.costMultiplier;
         }, this);
 
@@ -47,9 +47,9 @@ define([
         }, this);
 
         this.openSpaceRequired = ko.computed(function() {
-            return (this.newRetail() / this.openSpaceReqPerRetail) +
+            return (this.retailGSF() / this.openSpaceReqPerRetail) +
                 (this.newManufacturing() / this.openSpaceReqPerManufacturing) +
-                (this.newOfficeGSF() / this.openSpaceReqPerOffice);
+                (this.officeGSF() / this.openSpaceReqPerOffice);
         }, this);
     };
 

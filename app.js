@@ -49,13 +49,14 @@ define([
             'pdrGSF',
             'resGSF',
             'changeOfUse',
-            'newOfficeGSF',
+            'officeGSF',
 
             // global fee parameters
             'newRes',
             'nonResToRes',
             'pdrToRes',
-            'pdrToNonRes'
+            'pdrToNonRes',
+            'retailGSF'
         ];
 
         this.paramNames.forEach(function(name) {
@@ -81,13 +82,13 @@ define([
             var pdrGSF = this.pdrGSF();
             var resGSF = this.resGSF();
             var changeOfUse = this.changeOfUse();
-            var newOfficeGSF = this.newOfficeGSF();
+            var officeGSF = this.officeGSF();
             return newNonRes !== null && newNonRes !== '' &&
                 nonResGSF !== null && nonResGSF !== '' &&
                 pdrGSF !== null && pdrGSF !== '' &&
                 resGSF !== null && resGSF !== '' &&
                 changeOfUse !== null && changeOfUse !== '' &&
-                newOfficeGSF !== null && newOfficeGSF !== '';
+                officeGSF !== null && officeGSF !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {

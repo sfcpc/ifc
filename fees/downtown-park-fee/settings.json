@@ -1,11 +1,11 @@
 {
     "name": "downtown-park-fee",
     "paramNames": [
-        "newOfficeGSF",
+        "officeGSF",
         "geometry"
     ],
     "label": "Downtown Park Fee",
     "areaLayer": "5",
-    "feePerNewOfficeGSF": 2,
-    "minNewOfficeGSF": 0
+    "feePerofficeGSF": 2,
+    "minofficeGSF": 0
 }
