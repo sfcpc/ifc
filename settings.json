@@ -10,7 +10,8 @@
         "downtown-park-fee",
         "market-octavia-affordable-housing",
         "van-ness-market-infrastructure",
-        "transit-center-open-space"
+        "transit-center-open-space",
+        "transit-center-transportation"
     ],
     "livereloadPort": "35729",
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",

@@ -12,7 +12,7 @@
         "industrialGSF",
         "parcelArea"
     ],
-    "label": "Transit Center District Open Space Impact Fee",
+    "label": "Transit Center Open Space Impact Fee",
     "areaName": "Transit Center Open Space Fee",
     "minNetNewUnits": 1,
     "minResGSF": 800,
