@@ -34,28 +34,24 @@ define([
 
         this.getFAR = function(gsf) {
             return gsf / self.parcelArea();
-        }
-
-        this.getBaseGSF = function(gsf) {
-            if (self.getFAR(gsf) <= self.farBaseMax) {
-                return gsf;
-            }
-            return self.parcelArea() * self.farBaseMax;
-        }
+        };
 
         this.getGSFAboveFAR = function(gsf) {
-            return gsf - self.getBaseGSF(gsf);
+            if (self.getFAR(gsf) <= self.farBaseMax) {
+                return 0;
+            }
+            return gsf - (self.parcelArea() * self.farBaseMax);
         };
 
         this.calculatedFee = ko.computed(function() {
             return this.resGSF() * this.resBaseFee +
                 this.hotelGSF() * this.hotelBaseFee +
                 this.industrialGSF() * this.industrialBaseFee +
-                this.getBaseGSF(this.officeGSF()) * this.officeBaseFee +
+                this.officeGSF() * this.officeBaseFee +
                 this.getGSFAboveFAR(this.officeGSF()) * this.officeFARFee +
-                this.getBaseGSF(this.retailGSF()) * this.retailBaseFee +
+                this.retailGSF() * this.retailBaseFee +
                 this.getGSFAboveFAR(this.retailGSF()) * this.retailFARFee +
-                this.getBaseGSF(this.institutionalGSF()) * this.institutionalBaseFee +
+                this.institutionalGSF() * this.institutionalBaseFee +
                 this.getGSFAboveFAR(this.institutionalGSF()) * this.institutionalFARFee;
         }, this);
     };
