@@ -28,6 +28,7 @@
     <thead>
         <tr>
             <th>Use</th>
+            <th>Fee type</th>
             <th>GSF</th>
             <th></th>
             <th>Fee per GSF</th>
@@ -37,11 +38,12 @@
     </thead>
     <tbody>
         <tr>
-            <tr>
-                <th>
-                    <h5>Residential</h5>
-                </th>
-            </tr>
+            <th colspan=7>
+                <h5>Residential</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
             <th scope="row">Base</th>
             <td data-bind="numericText: fee.resGSF"></td>
             <td>*</td>
@@ -50,6 +52,7 @@
             <td data-bind="dollarsText: fee.resGSF() * fee.resBaseFee"></td>
         </tr>
         <tr>
+            <td></td>
             <th scope="row">FAR &gt; 9:1</th>
             <td>N/A</td>
             <td></td>
@@ -58,11 +61,12 @@
             <td></td>
         </tr>
         <tr>
-            <tr>
-                <th>
-                    <h5>Office</h5>
-                </th>
-            </tr>
+            <th colspan=7>
+                <h5>Office</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
             <th scope="row">Base</th>
             <td data-bind="numericText: fee.officeGSF()"></td>
             <td>*</td>
@@ -71,6 +75,7 @@
             <td data-bind="dollarsText: fee.officeGSF() * fee.officeBaseFee"></td>
         </tr>
         <tr>
+            <td></td>
             <th scope="row">FAR &gt; 9:1</th>
             <td data-bind="numericText: fee.getGSFAboveFAR(fee.officeGSF())"></td>
             <td>*</td>
@@ -79,11 +84,12 @@
             <td data-bind="dollarsText: fee.getGSFAboveFAR(fee.officeGSF()) * fee.officeFARFee"></td>
         </tr>
         <tr>
-            <tr>
-                <th>
-                    <h5>Retail</h5>
-                </th>
-            </tr>
+            <th colspan=7>
+                <h5>Retail</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
             <th scope="row">Base</th>
             <td data-bind="numericText: fee.retailGSF()"></td>
             <td>*</td>
@@ -92,6 +98,7 @@
             <td data-bind="dollarsText: fee.retailGSF() * fee.retailBaseFee"></td>
         </tr>
         <tr>
+            <td></td>
             <th scope="row">FAR &gt; 9:1</th>
             <td data-bind="numericText: fee.getGSFAboveFAR(fee.retailGSF())"></td>
             <td>*</td>
@@ -100,11 +107,12 @@
             <td data-bind="dollarsText: fee.getGSFAboveFAR(fee.retailGSF()) * fee.retailFARFee"></td>
         </tr>
         <tr>
-            <tr>
-                <th>
-                    <h5>Hotel</h5>
-                </th>
-            </tr>
+            <th colspan=7>
+                <h5>Hotel</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
             <th scope="row">Base</th>
             <td data-bind="numericText: fee.hotelGSF"></td>
             <td>*</td>
@@ -113,6 +121,7 @@
             <td data-bind="dollarsText: fee.hotelGSF() * fee.hotelBaseFee"></td>
         </tr>
         <tr>
+            <td></td>
             <th scope="row">FAR &gt; 9:1</th>
             <td>N/A</td>
             <td></td>
@@ -121,11 +130,12 @@
             <td></td>
         </tr>
         <tr>
-            <tr>
-                <th>
-                    <h5>Institutional/Cultural/Medical</h5>
-                </th>
-            </tr>
+            <th colspan=7>
+                <h5>Institutional/Cultural/Medical</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
             <th scope="row">Base</th>
             <td data-bind="numericText: fee.institutionalGSF()"></td>
             <td>*</td>
@@ -134,6 +144,7 @@
             <td data-bind="dollarsText: fee.institutionalGSF() * fee.institutionalBaseFee"></td>
         </tr>
         <tr>
+            <td></td>
             <th scope="row">FAR &gt; 9:1</th>
             <td data-bind="numericText: fee.getGSFAboveFAR(fee.institutionalGSF())"></td>
             <td>*</td>
@@ -142,11 +153,12 @@
             <td data-bind="dollarsText: fee.getGSFAboveFAR(fee.institutionalGSF()) * fee.institutionalFARFee"></td>
         </tr>
         <tr>
-            <tr>
-                <th>
-                    <h5>Industrial</h5>
-                </th>
-            </tr>
+            <th colspan=7>
+                <h5>Industrial</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
             <th scope="row">Base</th>
             <td data-bind="numericText: fee.industrialGSF"></td>
             <td>*</td>
@@ -155,6 +167,7 @@
             <td data-bind="dollarsText: fee.industrialGSF() * fee.industrialBaseFee"></td>
         </tr>
         <tr>
+            <td></td>
             <th scope="row">FAR &gt; 9:1</th>
             <td>N/A</td>
             <td></td>

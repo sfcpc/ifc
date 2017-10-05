@@ -56,7 +56,11 @@ define([
             'nonResToRes',
             'pdrToRes',
             'pdrToNonRes',
-            'retailGSF'
+            'retailGSF',
+            "hotelGSF",
+            "institutionalGSF",
+            "industrialGSF",
+            "parcelArea"
         ];
 
         this.paramNames.forEach(function(name) {
