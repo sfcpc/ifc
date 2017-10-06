@@ -44,6 +44,7 @@ define([
             'geometry',
             'newUnits',
             'removedUnits',
+            'existingUnits',
             'newNonRes',
             'nonResGSF',
             'pdrGSF',
@@ -76,8 +77,10 @@ define([
         this.dwellingsReady = ko.computed(function() {
             var newUnits = this.newUnits();
             var removedUnits = this.removedUnits();
+            var existingUnits = this.existingUnits();
             return removedUnits !== null && removedUnits !== '' &&
-                newUnits !== null && newUnits !== '';
+                newUnits !== null && newUnits !== '' &&
+                existingUnits !== null && existingUnits !== '';
         }, this);
 
         this.landUseReady = ko.computed(function() {
