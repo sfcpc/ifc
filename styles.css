@@ -265,6 +265,12 @@ hr {
     animation: shake 0.3s;
 }
 
+.disclaimer {
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 0.8em;
+}
+
 @-moz-keyframes shake {
     0%, 100% {
         left: 0px;
