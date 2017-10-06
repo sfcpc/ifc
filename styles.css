@@ -203,9 +203,7 @@ hr {
 }
 
 .print-btn {
-    position: absolute;
-    left: 250px;
-    top: 30px;
+    margin-left: 16px;
 }
 
 .link-btn {
