@@ -259,18 +259,18 @@
         <div class="container" data-bind="if: state() === 'report'">
             <div class="report">
                 <small class="report-date" data-bind="text: reportDate"></small>
-                <h1>
+                <h2>
                     Estimated Fee Report
                     <button type="button" class="btn btn-primary print-btn" data-bind="click: function () { window.print() }">
                         <i class="fa fa-print"></i>
                         <span>Print</span>
                     </button>
-                </h1>
+                </h2>
                 <hr>
                 <div class="fee-report">
-                    <h2>
+                    <h3>
                         Project Details:
-                    </h2>
+                    </h3>
                     <div class="report-content">
                         <div class="row">
                             <div class="col-12">
@@ -315,9 +315,9 @@
                 <hr>
                 <div data-bind="foreach: triggeredFeeViewModels">
                     <div class="fee-report">
-                        <h2>
+                        <h3>
                             <span data-bind="text: label"></span>:
-                        </h2>
+                        </h3>
                         <div class="report-content">
                             <!-- ko component: {
                                 name:  name,
@@ -346,9 +346,9 @@
                     <hr>
                 </div>
                 <div class="fee-report">
-                    <h2>
+                    <h3>
                         Fees not triggered:
-                    </h2>
+                    </h3>
                     <div class="report-content" data-bind="foreach: feeViewModels">
                         <!-- ko if: !triggered() -->
                         <div data-bind="text: label"></div>
@@ -357,10 +357,10 @@
                 </div>
                 <hr>
                 <div class="fee-report">
-                    <h2 class="calculated-fee">
+                    <h3 class="calculated-fee">
                         <span>Total:</span>
                         <span class="report-value"><span data-bind="dollarsText: total"></span>
-                    </h2>
+                    </h3>
                 </div>
                 <div class="disclaimer">
                     <strong>Disclaimer:</strong>
