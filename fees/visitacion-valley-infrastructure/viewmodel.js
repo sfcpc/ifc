@@ -13,10 +13,9 @@ define([
             return this.isProjectInArea() &&
                 (
                     (
-                        this.netNewUnits() >= this.minNetNewUnits ||
-                        this.resGSF() >= this.minResGSF
+                        this.netNewUnits() >= this.minNetNewUnits || this.resGSF() >= this.minResGSF
                     ) &&
-                    this.newUnits() + this.removedUnits() >= this.minResidentialUnits
+                    this.existingUnits() >= this.minResidentialUnits
                 );
         }, this);
 
@@ -26,7 +25,8 @@ define([
             }
             return this.newRes() !== null && this.newRes() !== '' &&
                 this.nonResToRes() !== null && this.nonResToRes() !== '' &&
-                this.pdrToRes() !== null && this.pdrToRes() !== ''
+                this.pdrToRes() !== null && this.pdrToRes() !== '' &&
+                this.existingUnits() !== null && this.existingUnits() !== ''
         }, this);
 
         this.calculatedFee = ko.computed(function() {

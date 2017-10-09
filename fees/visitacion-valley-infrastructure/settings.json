@@ -8,7 +8,8 @@
         "netNewUnits",
         "resGSF",
         "newUnits",
-        "removedUnits"
+        "removedUnits",
+        "existingUnits"
     ],
     "label": "Visitacion Valley Facilities and Infrastructure Fee",
     "areaName": "Visitacion Valley Community Facilities and Infrastructure Impact Fee",
