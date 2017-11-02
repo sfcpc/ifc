@@ -89,9 +89,14 @@
                     </li>
                 </ul>
             </div>
-            <button type="button" class="btn btn-primary link-btn" data-toggle="modal" data-target="#linkModal">
-                <i class="fa fa-link"></i> Copy Link
-            </button>
+            <div class="link-btn">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkModal">
+                    <i class="fa fa-link"></i> Copy Link
+                </button>
+                <button type="button" class="btn btn-warning restart-btn" data-bind="click: function() { window.location.href = '?'; }">
+                    <i class="fa fa-refresh"></i> Restart
+                </button>
+            </div>
         </nav>
 
         <!-- trigger form -->

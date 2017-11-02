@@ -269,6 +269,23 @@ hr {
     font-size: 0.8em;
 }
 
+.restart-btn {
+    margin-left: 5px;
+}
+
+.btn-warning {
+    background-color: #e4963d;
+    border-color: #e4963d;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e08925;
+    border-color: #e08925;
+    color: white;
+    cursor: pointer;
+}
+
 @-moz-keyframes shake {
     0%, 100% {
         left: 0px;
