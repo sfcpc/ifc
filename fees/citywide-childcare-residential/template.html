@@ -16,6 +16,11 @@
         <label for="pdrToRes">PDR to Residential (GSF)</label>
         <input type="number" class="form-control" id="pdrToRes" placeholder="value" data-bind="value: fee.pdrToRes, valueUpdate: 'keyup'">
 
+
+        <h4>Credits</h4>
+
+        <label for="percentCcCredit">Percent credit approved by Planning Dept.</label>
+        <input type="number" class="form-control" id="percentCcCredit" placeholder="value" data-bind="value: fee.percentCcCredit, attr: {'min': 0, 'max': 100}">
     </div>
 </form>
 <!-- /ko -->
@@ -85,6 +90,58 @@
             <td>=</td>
             <td>
                 <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>Credits</h4>
+            </th>
+            <th>Fee before credits</th>
+            <th></th>
+            <th>Percent credit</th>
+            <th></th>
+            <th>Fee credit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Credit calculation</th>
+            <td>
+                <span data-bind="dollarsText: fee.uncreditedFee"></span>
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="numericText: fee.percentCcCredit"></span>%
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.feeCredit"></span>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Fee before credits</th>
+            <th></th>
+            <th>Fee credit</th>
+            <th></th>
+            <th>Final Fee</th>
+        </tr>
+        <tr>
+            <th scope="row">Fee calculation</th>
+            <td>
+                <span data-bind="dollarsText: fee.uncreditedFee"></span>
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="dollarsText: fee.feeCredit"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.calculatedFee"></span>
             </td>
         </tr>
     </tbody>

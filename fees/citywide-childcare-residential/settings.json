@@ -1,28 +1,29 @@
 {
-  "name": "citywide-childcare-residential",
-  "paramNames": [
-    "newRes",
-    "newNonRes",
-    "nonResToRes",
-    "pdrToRes",
-    "pdrToNonRes",
-    "netNewUnits",
-    "resGSF",
-    "nonResGSF",
-    "geometry"
-  ],
-  "label": "Citywide Childcare Fee - Residential",
-  "minNetNewUnits": 1,
-  "minNewNonRes": 1,
-  "minResGSF": 800,
-  "lessThanOrEqualTo9": {
-    "feePerNewRes": 0.91,
-    "feePerNonResToRes": 0.13,
-    "feePerPDRToRes": 0.13
-  },
-  "greaterThanOrEqualTo10": {
-    "feePerNewRes": 1.83,
-    "feePerNonResToRes": 0.26,
-    "feePerPDRToRes": 0.26
-  }
+    "name": "citywide-childcare-residential",
+    "paramNames": [
+        "newRes",
+        "newNonRes",
+        "nonResToRes",
+        "pdrToRes",
+        "pdrToNonRes",
+        "netNewUnits",
+        "resGSF",
+        "nonResGSF",
+        "geometry",
+        "percentCcCredit"
+    ],
+    "label": "Residential Child Care Impact Fee",
+    "minNetNewUnits": 1,
+    "minNewNonRes": 1,
+    "minResGSF": 800,
+    "lessThanOrEqualTo9": {
+        "feePerNewRes": 0.91,
+        "feePerNonResToRes": 0.13,
+        "feePerPDRToRes": 0.13
+    },
+    "greaterThanOrEqualTo10": {
+        "feePerNewRes": 1.83,
+        "feePerNonResToRes": 0.26,
+        "feePerPDRToRes": 0.26
+    }
 }

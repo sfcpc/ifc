@@ -5,9 +5,19 @@ define([
     './component'
 ], function(ko, AbstractFee, settings) {
     var CitywideChildCareResidentialFee = function(params) {
+        var self = this;
         this.settings = settings;
 
         AbstractFee.apply(this, [params]);
+
+        this.percentCcCredit.subscribe(function (val) {
+            if (val < 0) {
+                self.percentCcCredit(0);
+            }
+            if (val > 100) {
+                self.percentCcCredit(100);
+            }
+        });
 
         this.triggered = ko.computed(function() {
             return (
@@ -25,7 +35,7 @@ define([
                 this.pdrToRes() !== null && this.pdrToRes() !== '';
         }, this);
 
-        this.calculatedFee = ko.computed(function() {
+        this.uncreditedFee = ko.computed(function() {
             var newRes = this.newRes() || 0;
             var nonResToRes = this.nonResToRes() || 0;
             var pdrToRes = this.pdrToRes() || 0;
@@ -47,6 +57,14 @@ define([
             return (this.feePerNewRes * newRes) +
                 (this.feePerNonResToRes * nonResToRes) +
                 (this.feePerPDRToRes * pdrToRes);
+        }, this);
+
+        this.feeCredit = ko.computed(function () {
+            return this.uncreditedFee() * (this.percentCcCredit() / 100);
+        }, this);
+
+        this.calculatedFee = ko.computed(function() {
+            return this.uncreditedFee() - this.feeCredit();
         }, this);
     };
 
