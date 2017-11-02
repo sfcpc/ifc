@@ -1,4 +1,4 @@
-# [IMPOSITION OF RESIDENTIAL CHILD CARE IMPACT FEE REQUIREMENT](http://library.amlegal.com/nxt/gateway.dll/California/planning/article4developmentimpactfeesandprojectr?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=JD_414A.4)
+# [RESIDENTIAL CHILD CARE IMPACT FEE](http://library.amlegal.com/nxt/gateway.dll/California/planning/article4developmentimpactfeesandprojectr?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=JD_414A.4)
 
 ## 414A.5\. CALCULATION OF THE RESIDENTIAL CHILD CARE IMPACT FEE.
 
