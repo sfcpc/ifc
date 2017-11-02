@@ -23,32 +23,33 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.newRetail() !== null && this.newRetail() !== '' &&
+            return this.retailGSF() !== null && this.retailGSF() !== '' &&
                 this.newManufacturing() !== null && this.newManufacturing() !== '' &&
-                this.newOffice() !== null && this.newOffice() !== '';
+                this.officeGSF() !== null && this.officeGSF() !== '';
         }, this);
 
-        this.feeIfRequired = ko.computed(function () {
-            var newRetail = this.newRetail() || 0;
+        this.feeIfRequired = ko.computed(function() {
+            var retailGSF = this.retailGSF() || 0;
             var newManufacturing = this.newManufacturing() || 0;
-            var newOffice = this.newOffice() || 0;
-            return ((newRetail / this.openSpaceReqPerRetail) +
-                    (newManufacturing / this.openSpaceReqPerManufacturing) +
-                    (newOffice / this.openSpaceReqPerOffice)) *
-                this.costMultiplier;
+            var officeGSF = this.officeGSF() || 0;
+            return (
+                (retailGSF / this.openSpaceReqPerRetail) +
+                (newManufacturing / this.openSpaceReqPerManufacturing) +
+                (officeGSF / this.openSpaceReqPerOffice)
+            ) * this.costMultiplier;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            if (!this.triggered() || !this.payFee()) {
+            if (!this.triggered() || !this.paySomaFee()) {
                 return 0;
             }
             return this.feeIfRequired();
         }, this);
 
-        this.openSpaceRequired = ko.computed(function () {
-            return (this.newRetail() / this.openSpaceReqPerRetail) +
+        this.openSpaceRequired = ko.computed(function() {
+            return (this.retailGSF() / this.openSpaceReqPerRetail) +
                 (this.newManufacturing() / this.openSpaceReqPerManufacturing) +
-                (this.newOffice() / this.openSpaceReqPerOffice);
+                (this.officeGSF() / this.openSpaceReqPerOffice);
         }, this);
     };
 

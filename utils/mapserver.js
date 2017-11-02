@@ -8,9 +8,9 @@ define([
     var geojsonFormat = new ol.format.GeoJSON();
 
     var mapserverUtils = {
-        getAreaGeoJSON: function(feeName, callback) {
+        getAreaGeoJSON: function(areaName, callback) {
             $.getJSON(settings.mapserver + '/' + settings.areaLayer + '/query', {
-                where: "FEE='" + feeName + "'",
+                where: "FEE='" + areaName + "'",
                 geometryType: 'esriGeometryEnvelope',
                 spatialRel: 'esriSpatialRelIntersects',
                 returnGeometry: true,
@@ -29,25 +29,32 @@ define([
                 }
                 var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
                 geom = geojsonFormat.writeGeometry(geom);
-                callback(JSON.parse(geom));
+                geom = JSON.parse(geom);
+                geom.areaName = areaName;
+                callback(geom);
             });
         },
-        isProjectInArea: function(projectGeom, areaGeom) {
+        isProjectInArea: function(projectGeom, areaGeoms) {
             var projectGeom = projectGeom();
-            var areaGeom = areaGeom();
-            if (!projectGeom || !areaGeom) {
+            var areaGeoms = areaGeoms();
+            if (!projectGeom || !areaGeoms || areaGeoms.length === 0) {
                 return false;
             }
+            var intersects = false;
             projectGeom = JSON.parse(projectGeom);
-            var intersection = turf.intersect(projectGeom, areaGeom);
-            return intersection !== undefined;
+            areaGeoms.forEach(function(areaGeom) {
+                var intersection = turf.intersect(projectGeom, areaGeom);
+                if (intersection !== undefined) {
+                    intersects = areaGeom.areaName || true;
+                }
+            });
+            return intersects;
         },
         queryLayer: function(geometry, layer, callback) {
             var geoJSONGeom = geometry();
             if (geoJSONGeom) {
                 geom = geojsonFormat.readGeometry(geoJSONGeom);
                 $.getJSON(settings.mapserver + '/' + layer + '/query', {
-                    where: "1=1",
                     geometry: geom.getExtent().join(','),
                     inSR: 102100,
                     geometryType: 'esriGeometryEnvelope',
@@ -75,6 +82,7 @@ define([
                             JSON.parse(geometry)
                         );
                         if (intersection !== undefined) {
+                            feature.attributes.layer = layer;
                             intersectedFeatures.push(feature);
                         }
                     });

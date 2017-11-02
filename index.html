@@ -89,9 +89,14 @@
                     </li>
                 </ul>
             </div>
-            <button type="button" class="btn btn-primary link-btn" data-toggle="modal" data-target="#linkModal">
-                <i class="fa fa-link"></i> Copy Link
-            </button>
+            <div class="link-btn">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkModal">
+                    <i class="fa fa-link"></i> Copy Link
+                </button>
+                <button type="button" class="btn btn-warning restart-btn" data-bind="click: function() { window.location.href = '?'; }">
+                    <i class="fa fa-refresh"></i> Restart
+                </button>
+            </div>
         </nav>
 
         <!-- trigger form -->
@@ -129,7 +134,7 @@
                                 <label>Search for an address, parcel, block, planning application or building permit and/or select parcels below by clicking on the map to define the project location</label>
                                 <div class="ol-map" data-bind="olMap:geometry, onMapReady: setupMap">
                                     <div class="geocoder form-group">
-                                        <input type="text" class="form-control" data-bind="value: geocodeString, valueUpdate: 'keyup', css: (geocodeSuccess() === false) ? 'shake' : '', enterKey: geocode", placeholder="Search for an address, parcel, block, planning application or building permit">
+                                        <input type="text" class="form-control" data-bind="value: geocodeString, valueUpdate: 'keyup', css: (geocodeSuccess() === false) ? 'shake' : '', enterKey: geocode" , placeholder="Search for an address, parcel, block, planning application or building permit">
                                         <div class="search-btn">
                                             <i class="fa" data-bind="click: geocode, css: geocoderIcon"></i>
                                         </div>
@@ -145,11 +150,15 @@
                     </h4>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label for="newUnits"># of new dwellings</label>
                                 <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="newUnits" placeholder="# of new dwellings" data-bind="value: newUnits, valueUpdate: 'keyup'">
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
+                                <label for="existingUnits"># of existing dwellings</label>
+                                <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="existingUnits" placeholder="# of existing dwellings" data-bind="value: existingUnits, valueUpdate: 'keyup'">
+                            </div>
+                            <div class="col-4">
                                 <label for="removedUnits"># of removed dwellings</label>
                                 <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="removedUnits" placeholder="# of removed dwellings" data-bind="value: removedUnits, valueUpdate: 'keyup'">
                             </div>
@@ -187,8 +196,8 @@
                                 <input type="number" min="0" class="form-control" id="changeOfUse" placeholder="Change of use (GSF)" data-bind="value: changeOfUse, valueUpdate: 'keyup'">
                             </div>
                             <div class="col-6">
-                                <label for="newOfficeGSF">Increase in office space (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="resGSF" placeholder="Increase in office space (GSF)" data-bind="value: newOfficeGSF, valueUpdate: 'keyup'">
+                                <label for="officeGSF">Increase in office space (GSF)</label>
+                                <input type="number" min="0" class="form-control" id="resGSF" placeholder="Increase in office space (GSF)" data-bind="value: officeGSF, valueUpdate: 'keyup'">
                             </div>
                         </div>
                     </div>
@@ -259,16 +268,18 @@
         <div class="container" data-bind="if: state() === 'report'">
             <div class="report">
                 <small class="report-date" data-bind="text: reportDate"></small>
-                <h1>Fee Report</h1>
-                <button type="button" class="btn btn-primary print-btn" data-bind="click: function () { window.print() }">
-                    <i class="fa fa-print"></i>
-                    <span>Print</span>
-                </button>
+                <h2>
+                    Estimated Fee Report
+                    <button type="button" class="btn btn-primary print-btn" data-bind="click: function () { window.print() }">
+                        <i class="fa fa-print"></i>
+                        <span>Print</span>
+                    </button>
+                </h2>
                 <hr>
                 <div class="fee-report">
-                    <h2>
+                    <h3>
                         Project Details:
-                    </h2>
+                    </h3>
                     <div class="report-content">
                         <div class="row">
                             <div class="col-12">
@@ -288,7 +299,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">New construction of office space:</th>
-                                    <td><span data-bind="numericText: newOfficeGSF"></span> GSF</td>
+                                    <td><span data-bind="numericText: officeGSF"></span> GSF</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Increase in non‐residential:</th>
@@ -313,9 +324,9 @@
                 <hr>
                 <div data-bind="foreach: triggeredFeeViewModels">
                     <div class="fee-report">
-                        <h2>
+                        <h3>
                             <span data-bind="text: label"></span>:
-                        </h2>
+                        </h3>
                         <div class="report-content">
                             <!-- ko component: {
                                 name:  name,
@@ -344,9 +355,9 @@
                     <hr>
                 </div>
                 <div class="fee-report">
-                    <h2>
+                    <h3>
                         Fees not triggered:
-                    </h2>
+                    </h3>
                     <div class="report-content" data-bind="foreach: feeViewModels">
                         <!-- ko if: !triggered() -->
                         <div data-bind="text: label"></div>
@@ -355,10 +366,14 @@
                 </div>
                 <hr>
                 <div class="fee-report">
-                    <h2 class="calculated-fee">
+                    <h3 class="calculated-fee">
                         <span>Total:</span>
                         <span class="report-value"><span data-bind="dollarsText: total"></span>
-                    </h2>
+                    </h3>
+                </div>
+                <div class="disclaimer">
+                    <strong>Disclaimer:</strong> This web site is made available for educational purposes only, not to provide legal advice. The above estimates shall not substitute the final fees assessed by SF Planning staff. The latest impact fee schedule
+                    can be downloaded at <a href="http://sf-planning.org/impact-fees" target="_blank">http://sf-planning.org/impact-fees</a>
                 </div>
             </div>
         </div>

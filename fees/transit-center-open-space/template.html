@@ -1,0 +1,180 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>Net New Additions (GSF)</h4>
+
+        <label for="retailGSF">New Retail (GSF)</label>
+        <input type="number" class="form-control" id="retailGSF" data-bind="value: fee.retailGSF, valueUpdate: 'keyup'">
+
+        <label for="hotelGSF">New Hotel (GSF)</label>
+        <input type="number" class="form-control" id="hotelGSF" data-bind="value: fee.hotelGSF, valueUpdate: 'keyup'">
+
+        <label for="institutionalGSF">New Institutional/Cultural/Medical (GSF)</label>
+        <input type="number" class="form-control" id="institutionalGSF" data-bind="value: fee.institutionalGSF, valueUpdate: 'keyup'">
+
+        <label for="industrialGSF">New Industrial (GSF)</label>
+        <input type="number" class="form-control" id="industrialGSF" data-bind="value: fee.industrialGSF, valueUpdate: 'keyup'">
+
+        <h4>Area Measurements</h4>
+
+        <label for="parcelArea">Parcel Area (Sq Ft)</label>
+        <input type="number" class="form-control" id="parcelArea" data-bind="value: fee.parcelArea, valueUpdate: 'keyup'">
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Use</th>
+            <th>Fee type</th>
+            <th>GSF</th>
+            <th></th>
+            <th>Fee per GSF</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th colspan=7>
+                <h5>Residential</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">Base</th>
+            <td data-bind="numericText: fee.resGSF"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.resBaseFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.resGSF() * fee.resBaseFee"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">FAR &gt; 9:1</th>
+            <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th colspan=7>
+                <h5>Office</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">Base</th>
+            <td data-bind="numericText: fee.officeGSF()"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.officeBaseFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.officeGSF() * fee.officeBaseFee"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">FAR &gt; 9:1</th>
+            <td data-bind="numericText: fee.getGSFAboveFAR(fee.officeGSF())"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.officeFARFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.getGSFAboveFAR(fee.officeGSF()) * fee.officeFARFee"></td>
+        </tr>
+        <tr>
+            <th colspan=7>
+                <h5>Retail</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">Base</th>
+            <td data-bind="numericText: fee.retailGSF()"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.retailBaseFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.retailGSF() * fee.retailBaseFee"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">FAR &gt; 9:1</th>
+            <td data-bind="numericText: fee.getGSFAboveFAR(fee.retailGSF())"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.retailFARFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.getGSFAboveFAR(fee.retailGSF()) * fee.retailFARFee"></td>
+        </tr>
+        <tr>
+            <th colspan=7>
+                <h5>Hotel</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">Base</th>
+            <td data-bind="numericText: fee.hotelGSF"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.hotelBaseFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.hotelGSF() * fee.hotelBaseFee"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">FAR &gt; 9:1</th>
+            <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th colspan=7>
+                <h5>Institutional/Cultural/Medical</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">Base</th>
+            <td data-bind="numericText: fee.institutionalGSF()"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.institutionalBaseFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.institutionalGSF() * fee.institutionalBaseFee"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">FAR &gt; 9:1</th>
+            <td data-bind="numericText: fee.getGSFAboveFAR(fee.institutionalGSF())"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.institutionalFARFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.getGSFAboveFAR(fee.institutionalGSF()) * fee.institutionalFARFee"></td>
+        </tr>
+        <tr>
+            <th colspan=7>
+                <h5>Industrial</h5>
+            </th>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">Base</th>
+            <td data-bind="numericText: fee.industrialGSF"></td>
+            <td>*</td>
+            <td data-bind="dollarsText: fee.industrialBaseFee"></td>
+            <td>=</td>
+            <td data-bind="dollarsText: fee.industrialGSF() * fee.industrialBaseFee"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <th scope="row">FAR &gt; 9:1</th>
+            <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<!-- /ko -->

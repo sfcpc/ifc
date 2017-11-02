@@ -165,7 +165,7 @@ hr {
     margin-bottom: 10px;
 }
 
-.fee-report h2 {
+.fee-report h3 {
     padding-bottom: 15px;
 }
 
@@ -203,9 +203,7 @@ hr {
 }
 
 .print-btn {
-    position: absolute;
-    left: 250px;
-    top: 30px;
+    margin-left: 16px;
 }
 
 .link-btn {
@@ -263,6 +261,29 @@ hr {
     -moz-animation: shake 0.3s;
     -webkit-animation: shake 0.3s;
     animation: shake 0.3s;
+}
+
+.disclaimer {
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 0.8em;
+}
+
+.restart-btn {
+    margin-left: 5px;
+}
+
+.btn-warning {
+    background-color: #e4963d;
+    border-color: #e4963d;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e08925;
+    border-color: #e08925;
+    color: white;
+    cursor: pointer;
 }
 
 @-moz-keyframes shake {

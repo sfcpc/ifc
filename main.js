@@ -33,6 +33,7 @@ requirejs([
     "bootstrap",
     "bindings/numeric-text",
     "bindings/dollars-text",
+    "bindings/ratio-text",
     "bindings/ol-map",
     "bindings/enter-key"
 ], function(ko, _, App, settings) {

@@ -15,7 +15,7 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.totalRes() !== null && this.totalRes !== '';
+            return this.totalRes() !== null && this.totalRes() !== '';
         }, this);
 
         this.calculatedFee = ko.computed(function() {

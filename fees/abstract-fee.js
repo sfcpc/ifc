@@ -40,14 +40,28 @@ define([
             self.trackedParamNames.push(name);
         });
 
+        this.areaGeoms = ko.observableArray();
+        this.intersectFeatures = ko.observableArray();
         if (this.areaName) {
-            this.areaGeom = ko.observable(null);
-            mapserverUtils.getAreaGeoJSON(this.areaName, this.areaGeom);
-        } else if (this.areaLayer) {
-            this.intersectFeatures = ko.observable();
+            var areaNames = this.areaName.split(',');
+            areaNames.forEach(function (areaName) {
+                mapserverUtils.getAreaGeoJSON(areaName, function (areaGeom) {
+                    self.areaGeoms.push(areaGeom);
+                });
+            });
+        }
+        if (this.areaLayer) {
+            var areaLayers = this.areaLayer.split(',');
             var updateIntersectFeatures = function () {
+                self.intersectFeatures.removeAll();
                 if (self.geometry()) {
-                    mapserverUtils.queryLayer(self.geometry, self.areaLayer, self.intersectFeatures)
+                    areaLayers.forEach(function(areaLayer) {
+                        mapserverUtils.queryLayer(self.geometry, areaLayer, function(features) {
+                            features.forEach(function(feature) {
+                                self.intersectFeatures.push(feature);
+                            });
+                        })
+                    })
                 }
             };
             this.geometry.subscribe(updateIntersectFeatures);
@@ -98,15 +112,17 @@ define([
         }, this);
 
         this.isProjectInArea = ko.computed(function() {
-            if (this.areaName) {
-                if (ko.unwrap(this.geometry) && ko.unwrap(this.areaGeom)) {
-                    return mapserverUtils.isProjectInArea(this.geometry, this.areaGeom);
-                }
-                return false;
-            } else if (this.areaLayer) {
-                var intersectFeatures = this.intersectFeatures();
-                return intersectFeatures &&  intersectFeatures.length > 0;
+            var inArea = false;
+            if (this.areaName && ko.unwrap(this.geometry) && ko.unwrap(this.areaGeoms)) {
+                inArea = mapserverUtils.isProjectInArea(this.geometry, this.areaGeoms);
             }
+            if (!inArea && this.areaLayer) {
+                var intersectFeatures = this.intersectFeatures();
+                if (intersectFeatures &&  intersectFeatures.length > 0) {
+                    inArea = intersectFeatures;
+                }
+            }
+            return inArea;
         }, this);
     };
 

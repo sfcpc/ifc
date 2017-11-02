@@ -3,11 +3,11 @@
     "paramNames": [
         "newNonRes",
         "nonResGSF",
-        "newRetail",
+        "retailGSF",
         "newManufacturing",
-        "newOffice",
+        "officeGSF",
         "geometry",
-        "payFee"
+        "paySomaFee"
     ],
     "label": "South Of Market Non-Residential Open Space Fee",
     "areaLayer": "4",

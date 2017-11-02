@@ -44,19 +44,14 @@ define([
             'geometry',
             'newUnits',
             'removedUnits',
+            'existingUnits',
             'newNonRes',
             'nonResGSF',
             'pdrGSF',
             'resGSF',
             'changeOfUse',
-            'newOfficeGSF',
-
-            // global fee parameters
-            'newRes',
-            'nonResToRes',
-            'pdrToRes',
-            'pdrToNonRes'
-        ];
+            'officeGSF'
+        ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
             self[name] = ko.observable(params[name] || null);
@@ -71,8 +66,10 @@ define([
         this.dwellingsReady = ko.computed(function() {
             var newUnits = this.newUnits();
             var removedUnits = this.removedUnits();
+            var existingUnits = this.existingUnits();
             return removedUnits !== null && removedUnits !== '' &&
-                newUnits !== null && newUnits !== '';
+                newUnits !== null && newUnits !== '' &&
+                existingUnits !== null && existingUnits !== '';
         }, this);
 
         this.landUseReady = ko.computed(function() {
@@ -81,13 +78,13 @@ define([
             var pdrGSF = this.pdrGSF();
             var resGSF = this.resGSF();
             var changeOfUse = this.changeOfUse();
-            var newOfficeGSF = this.newOfficeGSF();
+            var officeGSF = this.officeGSF();
             return newNonRes !== null && newNonRes !== '' &&
                 nonResGSF !== null && nonResGSF !== '' &&
                 pdrGSF !== null && pdrGSF !== '' &&
                 resGSF !== null && resGSF !== '' &&
                 changeOfUse !== null && changeOfUse !== '' &&
-                newOfficeGSF !== null && newOfficeGSF !== '';
+                officeGSF !== null && officeGSF !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {
@@ -204,8 +201,8 @@ define([
             var feeViewModelJSON = {};
             _.each(this.feeViewModels(), function(feeViewModel) {
                 var feeJSON = feeViewModel.json();
-                if (feeJSON !== {}) {
-                    feeViewModelJSON[feeViewModel.name] = feeViewModel.json();
+                if (!_.isEmpty(feeJSON)) {
+                    feeViewModelJSON[feeViewModel.name] = feeJSON;
                 }
             });
             var appJSON = {

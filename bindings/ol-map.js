@@ -37,25 +37,13 @@ define([
                     source: new ol.source.TileArcGISRest({
                         url: settings.mapserver,
                         params: {
-                            layers: 'show:' + settings.somaDistrictsLayer
-                        }
-                    }),
-                    opacity: 0.4
-                }),
-                new ol.layer.Tile({
-                    source: new ol.source.TileArcGISRest({
-                        url: settings.mapserver,
-                        params: {
-                            layers: 'show:' + settings.mixedUseLayer
-                        }
-                    }),
-                    opacity: 0.4
-                }),
-                new ol.layer.Tile({
-                    source: new ol.source.TileArcGISRest({
-                        url: settings.mapserver,
-                        params: {
-                            layers: 'show:' + settings.areaLayer
+                            layers: 'show:' + [
+                                settings.somaDistrictsLayer,
+                                settings.downtownZoningLayer,
+                                settings.vanNessSUDLayer,
+                                settings.upperMarketNCTLayer,
+                                settings.areaLayer
+                            ].join(',')
                         }
                     }),
                     opacity: 0.4
