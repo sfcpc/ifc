@@ -11,7 +11,8 @@
         "market-octavia-affordable-housing",
         "van-ness-market-infrastructure",
         "transit-center-open-space",
-        "transit-center-transportation"
+        "transit-center-transportation",
+        "citywide-childcare-residential"
     ],
     "globalFeeParams": [
         "newRes",

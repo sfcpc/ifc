@@ -1,0 +1,149 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>New Construction</h4>
+
+        <label for="newRes">New Residential (GSF)</label>
+        <input type="number" class="form-control" id="newRes" placeholder="value" data-bind="value: fee.newRes, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h4>Change of Use</h4>
+
+        <label for="nonResToRes">Non-Residential to Residential (GSF)</label>
+        <input type="number" class="form-control" id="nonResToRes" placeholder="value" data-bind="value: fee.nonResToRes, valueUpdate: 'keyup'">
+
+        <label for="pdrToRes">PDR to Residential (GSF)</label>
+        <input type="number" class="form-control" id="pdrToRes" placeholder="value" data-bind="value: fee.pdrToRes, valueUpdate: 'keyup'">
+
+
+        <h4>Credits</h4>
+
+        <label for="percentCcCredit">Percent credit approved by Planning Dept.</label>
+        <input type="number" class="form-control" id="percentCcCredit" placeholder="value" data-bind="value: fee.percentCcCredit, attr: {'min': 0, 'max': 100}">
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>New Construction</h4>
+            </th>
+            <th>GSF</th>
+            <th></th>
+            <th>Fee per GSF</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Residential</th>
+            <td>
+                <span data-bind="numericText: fee.newRes"></span> GSF
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewRes"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newRes() * fee.feePerNewRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h4>Change of Use</h4>
+            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">Non-Residential to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.nonResToRes"></span> GSF
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">PDR to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.pdrToRes"></span> GSF
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GSF
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>Credits</h4>
+            </th>
+            <th>Fee before credits</th>
+            <th></th>
+            <th>Percent credit</th>
+            <th></th>
+            <th>Fee credit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Credit calculation</th>
+            <td>
+                <span data-bind="dollarsText: fee.uncreditedFee"></span>
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="numericText: fee.percentCcCredit"></span>%
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.feeCredit"></span>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Fee before credits</th>
+            <th></th>
+            <th>Fee credit</th>
+            <th></th>
+            <th>Final Fee</th>
+        </tr>
+        <tr>
+            <th scope="row">Fee calculation</th>
+            <td>
+                <span data-bind="dollarsText: fee.uncreditedFee"></span>
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="dollarsText: fee.feeCredit"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.calculatedFee"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- /ko -->
