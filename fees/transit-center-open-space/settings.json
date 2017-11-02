@@ -1,6 +1,7 @@
 {
     "name": "transit-center-open-space",
     "paramNames": [
+        "nonResGSF",
         "resGSF",
         "newNonRes",
         "officeGSF",

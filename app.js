@@ -50,19 +50,8 @@ define([
             'pdrGSF',
             'resGSF',
             'changeOfUse',
-            'officeGSF',
-
-            // global fee parameters
-            'newRes',
-            'nonResToRes',
-            'pdrToRes',
-            'pdrToNonRes',
-            'retailGSF',
-            "hotelGSF",
-            "institutionalGSF",
-            "industrialGSF",
-            "parcelArea"
-        ];
+            'officeGSF'
+        ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
             self[name] = ko.observable(params[name] || null);
