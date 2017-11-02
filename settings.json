@@ -13,6 +13,17 @@
         "transit-center-open-space",
         "transit-center-transportation"
     ],
+    "globalFeeParams": [
+        "newRes",
+        "nonResToRes",
+        "pdrToRes",
+        "pdrToNonRes",
+        "retailGSF",
+        "hotelGSF",
+        "institutionalGSF",
+        "industrialGSF",
+        "parcelArea"
+    ],
     "livereloadPort": "35729",
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
     "mapserver": "//sfplanninggis.org/arcgis/rest/services/ImpactFees/MapServer",

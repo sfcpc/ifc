@@ -1,6 +1,7 @@
 {
     "name": "transit-center-transportation",
     "paramNames": [
+        "nonResGSF",
         "resGSF",
         "newNonRes",
         "officeGSF",
