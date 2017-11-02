@@ -25,4 +25,4 @@ The fee type's viewmodel module should also register a component that has the sa
 
 Fee type viewmodels should extend the interface defined in `fees/abstract-fee.js`, and the fee type component's viewmodel should use or extend `fees/abstract-component.js`.
 
-You can see [`fees/mock-fee/`](https://github.com/sfcpc/ifc/tree/master/fees/mock-fee) for an example fee type.
+You can see [`fees/balboa-park-infrastructure/`](https://github.com/sfcpc/ifc/tree/master/fees/balboa-park-infrastructure) for an example fee type.
