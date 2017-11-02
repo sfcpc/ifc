@@ -32,6 +32,7 @@ define([
             }
             return this.newRes() !== null && this.newRes() !== '' &&
                 this.nonResToRes() !== null && this.nonResToRes() !== '' &&
+                this.percentCcCredit() !== null && this.percentCcCredit() !== '' &&
                 this.pdrToRes() !== null && this.pdrToRes() !== '';
         }, this);
 
