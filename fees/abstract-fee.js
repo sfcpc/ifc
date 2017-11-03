@@ -103,7 +103,9 @@ define([
             var subtotal = 0;
             var feeViewModels = this.app.feeViewModels();
             for (var i = 0; i < feeViewModels.length; i++) {
-                subtotal += feeViewModels[i].calculatedFee();
+                if (feeViewModels[i].triggered()) {
+                    subtotal += feeViewModels[i].calculatedFee();
+                }
                 if (this === feeViewModels[i]) {
                     break;
                 }
