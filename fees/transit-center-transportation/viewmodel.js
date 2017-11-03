@@ -44,6 +44,9 @@ define([
         };
 
         this.calculatedFee = ko.computed(function() {
+            if (!this.triggered()) {
+                return 0;
+            }
             return this.resGSF() * this.resBaseFee +
                 this.resGSF() * this.resMitigationFee +
                 this.getGSFAboveFAR(this.resGSF(), 9) * this.resFARFee +
