@@ -12,6 +12,15 @@ define([
 
         this.triggered = this.isProjectInArea;
 
+        this.totalGSF = ko.computed(function() {
+            var total = parseFloat(this.nonResGSF()) +
+                parseFloat(this.pdrGSF()) +
+                parseFloat(this.resGSF()) +
+                parseFloat(this.officeGSF());
+            console.log(total);
+            return total;
+        }, this);
+
         this.ready = ko.computed(function() {
             if (!this.triggered()) {
                 return true;
