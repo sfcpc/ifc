@@ -17,7 +17,6 @@ define([
                 parseFloat(this.pdrGSF()) +
                 parseFloat(this.resGSF()) +
                 parseFloat(this.officeGSF());
-            console.log(total);
             return total;
         }, this);
 
