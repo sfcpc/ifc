@@ -1,7 +1,7 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
-        <h4>New Construction</h4>
+        <h4>New Construction or Addition</h4>
 
         <label for="newRes">New Residential (GSF)</label>
         <input type="number" class="form-control" id="newRes" placeholder="value" data-bind="value: fee.newRes, valueUpdate: 'keyup'">
@@ -19,8 +19,11 @@
 
         <h4>Credits</h4>
 
-        <label for="percentCcCredit">Percent credit approved by Planning Dept.</label>
-        <input type="number" class="form-control" id="percentCcCredit" placeholder="value" data-bind="value: fee.percentCcCredit, attr: {'min': 0, 'max': 100}">
+        <label for="newConstructionCredit">New construction credit approved by Planning Dept. ($)</label>
+        <input type="number" class="form-control" id="newConstructionCredit" placeholder="value" min="0" data-bind="value: fee.newConstructionCredit, valueUpdate: 'keyup', attr: {'max': fee.newConstructionFee}">
+
+        <label for="changeOfUseCredit">Change of use credit approved by Planning Dept. ($)</label>
+        <input type="number" class="form-control" id="changeOfUseCredit" placeholder="value" min="0" data-bind="value: fee.changeOfUseCredit, valueUpdate: 'keyup', attr: {'max': fee.changeOfUseFee}">
     </div>
 </form>
 <!-- /ko -->
@@ -51,7 +54,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newRes() * fee.feePerNewRes"></span>
+                <span data-bind="dollarsText: fee.newRes() * fee.feePerNewRes()"></span>
             </td>
         </tr>
         <tr>
@@ -75,7 +78,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
+                <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes()"></span>
             </td>
         </tr>
         <tr>
@@ -89,7 +92,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
+                <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes()"></span>
             </td>
         </tr>
     </tbody>
@@ -100,22 +103,22 @@
             <th>
                 <h4>Credits</h4>
             </th>
-            <th>Fee before credits</th>
+            <th>New construction</th>
             <th></th>
-            <th>Percent credit</th>
+            <th>Change of use</th>
             <th></th>
-            <th>Fee credit</th>
+            <th>Total credit</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th scope="row">Credit calculation</th>
             <td>
-                <span data-bind="dollarsText: fee.uncreditedFee"></span>
+                <span data-bind="dollarsText: fee.newConstructionCredit"></span>
             </td>
-            <td>*</td>
+            <td>+</td>
             <td>
-                <span data-bind="numericText: fee.percentCcCredit"></span>%
+                <span data-bind="dollarsText: fee.changeOfUseCredit"></span>
             </td>
             <td>=</td>
             <td>

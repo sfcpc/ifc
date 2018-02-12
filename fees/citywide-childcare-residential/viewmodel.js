@@ -10,15 +10,6 @@ define([
 
         AbstractFee.apply(this, [params]);
 
-        this.percentCcCredit.subscribe(function (val) {
-            if (val < 0) {
-                self.percentCcCredit(0);
-            }
-            if (val > 100) {
-                self.percentCcCredit(100);
-            }
-        });
-
         this.triggered = ko.computed(function() {
             return (
                     this.netNewUnits() >= this.minNetNewUnits ||
@@ -32,40 +23,62 @@ define([
             }
             return this.newRes() !== null && this.newRes() !== '' &&
                 this.nonResToRes() !== null && this.nonResToRes() !== '' &&
-                this.percentCcCredit() !== null && this.percentCcCredit() !== '' &&
+                this.newConstructionCredit() !== null && this.newConstructionCredit() !== '' &&
+                this.changeOfUseCredit() !== null && this.changeOfUseCredit() !== '' &&
                 this.pdrToRes() !== null && this.pdrToRes() !== '';
         }, this);
 
-        this.uncreditedFee = ko.computed(function() {
-            var newRes = this.newRes() || 0;
-            var nonResToRes = this.nonResToRes() || 0;
-            var pdrToRes = this.pdrToRes() || 0;
+        var getFeeRate = function (feeType) {
+            var netNewUnits = self.netNewUnits();
+            if (netNewUnits <= 9) {
+                return self.lessThanOrEqualTo9[feeType];
+            }
+            return self.greaterThanOrEqualTo10[feeType];
+        }
+
+        this.feePerNonResToRes = ko.computed(function () {
+            return getFeeRate('feePerNonResToRes');
+        }, this);
+
+        this.feePerPDRToRes = ko.computed(function () {
+            return getFeeRate('feePerPDRToRes');
+        }, this);
+
+        this.feePerNewRes = ko.computed(function () {
+            return getFeeRate('feePerNewRes');
+        }, this);
+
+        this.newConstructionFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
             }
+            var newRes = this.newRes() || 0;
 
-            if (this.netNewUnits() <= 9) {
-                this.feePerNewRes = this.lessThanOrEqualTo9.feePerNewRes;
-                this.feePerNonResToRes = this.lessThanOrEqualTo9.feePerNonResToRes;
-                this.feePerPDRToRes = this.lessThanOrEqualTo9.feePerPDRToRes;
-            }
-            else if (this.netNewUnits() >= 10) {
-                this.feePerNewRes = this.greaterThanOrEqualTo10.feePerNewRes;
-                this.feePerNonResToRes = this.greaterThanOrEqualTo10.feePerNonResToRes;
-                this.feePerPDRToRes = this.greaterThanOrEqualTo10.feePerPDRToRes;
-            }
+            return this.feePerNewRes() * newRes;
+        }, this);
 
-            return (this.feePerNewRes * newRes) +
-                (this.feePerNonResToRes * nonResToRes) +
-                (this.feePerPDRToRes * pdrToRes);
+        this.changeOfUseFee = ko.computed(function() {
+            if (!this.triggered()) {
+                return 0;
+            }
+            var nonResToRes = this.nonResToRes() || 0;
+            var pdrToRes = this.pdrToRes() || 0;
+
+            return (this.feePerNonResToRes() * nonResToRes) +
+                (this.feePerPDRToRes() * pdrToRes);
+        }, this);
+
+        this.uncreditedFee = ko.computed(function() {
+            return parseFloat(this.newConstructionFee()) + parseFloat(this.changeOfUseFee());
         }, this);
 
         this.feeCredit = ko.computed(function () {
-            return this.uncreditedFee() * (this.percentCcCredit() / 100);
+            return parseFloat(this.newConstructionCredit()) + parseFloat(this.changeOfUseCredit());
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            return this.uncreditedFee() - this.feeCredit();
+            var feeValue = this.uncreditedFee() - this.feeCredit();
+            return feeValue > 0 ? feeValue : 0;
         }, this);
     };
 
