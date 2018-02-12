@@ -22,6 +22,7 @@
             <th>Total Building GSF</th>
             <th>Parcel Area (Sq Ft)</th>
             <th>Total FAR</th>
+            <th>Net New GSF</th>
         </tr>
     </thead>
     <tbody>
@@ -29,9 +30,8 @@
             <td></td>
             <td data-bind="numericText: fee.totalGSF"></td>
             <td data-bind="numericText: fee.parcelArea"></td>
-            <td>
-                <span data-bind="ratioText: fee.totalFAR"></span>
-            </td>
+            <td data-bind="ratioText: fee.totalFAR"></td>
+            <td data-bind="numericText: fee.netNewGSF"></td>
         </tr>
     </tbody>
 </table>
@@ -41,7 +41,7 @@
             <th>
                 <h4>FAR</h4>
             </th>
-            <th>GSF</th>
+            <th>New GSF</th>
             <th></th>
             <th>Fee per GSF</th>
             <th></th>
@@ -51,7 +51,7 @@
     <tbody>
         <tr>
             <th scope="row">&gt; 6:1 &lt; 9:1</th>
-            <td data-bind="numericText: fee.gsfAbove6To1"></td>
+            <td data-bind="numericText: fee.newGSFAbove6To1"></td>
             <td>*</td>
             <td data-bind="dollarsText: fee.far6to1"></td>
             <td>=</td>
@@ -59,7 +59,7 @@
         </tr>
         <tr>
             <th scope="row">&gt; 9:1</th>
-            <td data-bind="numericText: fee.gsfAbove9To1"></td>
+            <td data-bind="numericText: fee.newGSFAbove9To1"></td>
             <td>*</td>
             <td data-bind="dollarsText: fee.far9to1"></td>
             <td>=</td>

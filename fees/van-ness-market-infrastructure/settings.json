@@ -3,6 +3,10 @@
     "paramNames": [
         "geometry",
         "parcelArea",
+        "nonResGSF",
+        "pdrGSF",
+        "resGSF",
+        "officeGSF",
         "totalGSF"
     ],
     "label": "Van Ness & Market Affordable Housing and Infrastructure Fee",

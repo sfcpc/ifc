@@ -25,7 +25,7 @@
         "industrialGSF",
         "parcelArea"
     ],
-    "livereloadPort": "35729",
+    "livereloadPort": "53212",
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
     "mapserver": "//sfplanninggis.org/arcgis/rest/services/ImpactFees/MapServer",
     "geocoder": "//sfplanninggis.org/cpc_geocode/",
