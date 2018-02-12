@@ -10,7 +10,8 @@
         "resGSF",
         "nonResGSF",
         "geometry",
-        "percentCcCredit"
+        "newConstructionCredit",
+        "changeOfUseCredit"
     ],
     "label": "Residential Child Care Impact Fee",
     "minNetNewUnits": 1,
