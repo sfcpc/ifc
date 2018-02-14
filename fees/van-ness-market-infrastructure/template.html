@@ -30,7 +30,9 @@
             <td></td>
             <td data-bind="numericText: fee.totalGFA"></td>
             <td data-bind="numericText: fee.parcelArea"></td>
-            <td data-bind="ratioText: fee.totalFAR"></td>
+            <td>
+                <span data-bind="numericText: fee.totalFAR"></span>:1
+            </td>
             <td data-bind="numericText: fee.netNewGFA"></td>
         </tr>
     </tbody>
