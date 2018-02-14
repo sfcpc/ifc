@@ -366,6 +366,15 @@
                 </div>
                 <hr>
                 <div class="fee-report">
+                    <h3>
+                        Fees not currently supported:
+                    </h3>
+                    <div class="report-content" data-bind="foreach: unsupportedFees">
+                        <div data-bind="text: $data"></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="fee-report">
                     <h3 class="calculated-fee">
                         <span>Total:</span>
                         <span class="report-value"><span data-bind="dollarsText: total"></span>

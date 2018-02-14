@@ -16,6 +16,7 @@ define([
         this.feeViewModels = ko.observableArray();
         this.selectedFee = ko.observable();
         this.reportDate = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+        this.unsupportedFees = settings.unsupportedFees;
 
         this.total = ko.computed(function() {
             var total = 0;
