@@ -116,10 +116,6 @@
                     <h2>
                         Trigger Information
                         <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: triggersReady()"></i>
-                        <button class="btn btn-primary next-btn" data-bind="disable: !triggersReady(), click: viewCalculate">
-                            Next: calculate fees...
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
                     </h2>
 
                     <hr>
@@ -202,6 +198,12 @@
                         </div>
                     </div>
 
+                    <h2>
+                        <button class="btn btn-primary next-btn" data-bind="disable: !triggersReady(), click: viewCalculate">
+                            Next: calculate fees...
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </h2>
                 </form>
             </div>
         </div>
@@ -213,10 +215,6 @@
                     <h2>
                         Calculate Triggered Fees
                         <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: feesReady()"></i>
-                        <button class="btn btn-primary next-btn" data-bind="disable: !feesReady(), click: viewReport">
-                            Next: view report...
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
                     </h2>
                     <hr>
                 </div>
@@ -262,6 +260,17 @@
                 </div>
             </div>
             <!-- /ko -->
+
+            <div class="row">
+                <div class="col-12 triggered-fee-list">
+                    <h2>
+                        <button class="btn btn-primary next-btn" data-bind="disable: !feesReady(), click: viewReport">
+                            Next: view report...
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </h2>
+                </div>
+            </div>
         </div>
 
         <!-- report -->
