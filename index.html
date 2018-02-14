@@ -325,7 +325,9 @@
                 <div data-bind="foreach: triggeredFeeViewModels">
                     <div class="fee-report">
                         <h3>
-                            <span data-bind="text: label"></span>:
+                            <a data-bind="attr: {href: ($parent.codeURL + code)}" target="_blank">
+                                <span data-bind="text: label"></span>
+                            </a>
                         </h3>
                         <div class="report-content">
                             <!-- ko component: {
@@ -360,7 +362,11 @@
                     </h3>
                     <div class="report-content" data-bind="foreach: feeViewModels">
                         <!-- ko if: !triggered() -->
-                        <div data-bind="text: label"></div>
+                        <div>
+                            <a data-bind="attr: {href: ($parent.codeURL + code)}" target="_blank">
+                                <span data-bind="text: label"></span>
+                            </a>
+                        </div>
                         <!-- /ko  -->
                     </div>
                 </div>
@@ -370,7 +376,11 @@
                         Fees not currently supported:
                     </h3>
                     <div class="report-content" data-bind="foreach: unsupportedFees">
-                        <div data-bind="text: $data"></div>
+                        <div>
+                            <a data-bind="attr: {href: ($parent.codeURL + code)}" target="_blank">
+                                <span data-bind="text: label"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <hr>

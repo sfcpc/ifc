@@ -29,6 +29,7 @@
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
     "mapserver": "//sfplanninggis.org/arcgis/rest/services/ImpactFees/MapServer",
     "geocoder": "//sfplanninggis.org/cpc_geocode/",
+    "codeURL": "http://library.amlegal.com/nxt/gateway.dll/California/planning/article4developmentimpactfeesandprojectr?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=",
     "parcelLayer": "2",
     "areaLayer": "0",
     "somaDistrictsLayer": "4",
@@ -37,24 +38,65 @@
     "upperMarketNCTLayer": "7",
     "center": [-13630478.763700977, 4544696.014222133],
     "zoom": 12,
-    "unsupportedFees": [
-        "Eastern Neighborhoods Infrastructure Fee",
-        "Bicycle Parking Fee",
-        "Transportation Sustainability Fee",
-        "South of Market Non-Residential Open Space Fee",
-        "Child Care Fee: Office/Hotel Projects",
-        "Eastern Neighborhoods Non-Residential Open Space Fee",
-        "Transit Development Fee",
-        "Jobs-Housing Linkage Fee",
-        "Eastern Neighborhoods Residential Open Space Fee",
-        "Public Artwork Fee",
-        "Downtown Special Development District",
-        "Eastern Neighborhoods Alternate Affordable Housing Fee",
-        "UMU District Affordable Housing Fee",
-        "Street Tree In-Leiu Fee",
-        "Wastewater Capacity Charge",
-        "School Impact Fee",
-        "Water Capacity Charge",
-        "Affordable Housing Fee"
+    "unsupportedFees": [{
+            "label": "Eastern Neighborhoods Infrastructure Fee",
+            "code": "JD_423"
+        },
+        {
+            "label": "Bicycle Parking Fee",
+            "code": "JD_430"
+        },
+        {
+            "label": "Transportation Sustainability Fee",
+            "code": "JD_411A"
+        },
+        {
+            "label": "South of Market Non-Residential Open Space Fee",
+            "code": "JD_425"
+        },
+        {
+            "label": "Child Care Fee: Office/Hotel Projects",
+            "code": "JD_414"
+        },
+        {
+            "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
+            "code": "JD_426"
+        },
+        {
+            "label": "Transit Development Fee",
+            "code": "JD_411"
+        },
+        {
+            "label": "Jobs-Housing Linkage Fee",
+            "code": "JD_413"
+        },
+        {
+            "label": "Eastern Neighborhoods Residential Open Space Fee",
+            "code": "JD_427"
+        },
+        {
+            "label": "Public Artwork Fee",
+            "code": "JD_429"
+        },
+        {
+            "label": "Downtown Special Development District",
+            "code": "JD_427"
+        },
+        {
+            "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",
+            "code": "JD_417"
+        },
+        {
+            "label": "UMU District Affordable Housing Fee",
+            "code": "JD_419"
+        },
+        {
+            "label": "Street Tree In-Leiu Fee",
+            "code": "JD_425"
+        },
+        {
+            "label": "Affordable Housing Fee",
+            "code": "JD_415"
+        }
     ]
 }

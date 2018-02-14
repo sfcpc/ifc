@@ -1,5 +1,6 @@
 {
     "name": "soma-community-stabilization-fee",
+    "code": "JD_418.3",
     "paramNames": [
         "totalRes",
         "geometry"

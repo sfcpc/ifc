@@ -1,5 +1,6 @@
 {
     "name": "soma-non-residential-open-space",
+    "code": "JD_425",
     "paramNames": [
         "newNonRes",
         "nonResGFA",
