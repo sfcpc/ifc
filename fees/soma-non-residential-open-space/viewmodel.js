@@ -14,8 +14,8 @@ define([
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
-                    this.newNonRes() >= this.minNewNonResGSF ||
-                    this.nonResGSF() >= this.minNetNonResGSF
+                    this.newNonRes() >= this.minNewNonResGFA ||
+                    this.nonResGFA() >= this.minNetNonResGFA
                 );
         }, this);
 
@@ -23,19 +23,19 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.retailGSF() !== null && this.retailGSF() !== '' &&
+            return this.retailGFA() !== null && this.retailGFA() !== '' &&
                 this.newManufacturing() !== null && this.newManufacturing() !== '' &&
-                this.officeGSF() !== null && this.officeGSF() !== '';
+                this.officeGFA() !== null && this.officeGFA() !== '';
         }, this);
 
         this.feeIfRequired = ko.computed(function() {
-            var retailGSF = this.retailGSF() || 0;
+            var retailGFA = this.retailGFA() || 0;
             var newManufacturing = this.newManufacturing() || 0;
-            var officeGSF = this.officeGSF() || 0;
+            var officeGFA = this.officeGFA() || 0;
             return (
-                (retailGSF / this.openSpaceReqPerRetail) +
+                (retailGFA / this.openSpaceReqPerRetail) +
                 (newManufacturing / this.openSpaceReqPerManufacturing) +
-                (officeGSF / this.openSpaceReqPerOffice)
+                (officeGFA / this.openSpaceReqPerOffice)
             ) * this.costMultiplier;
         }, this);
 
@@ -47,9 +47,9 @@ define([
         }, this);
 
         this.openSpaceRequired = ko.computed(function() {
-            return (this.retailGSF() / this.openSpaceReqPerRetail) +
+            return (this.retailGFA() / this.openSpaceReqPerRetail) +
                 (this.newManufacturing() / this.openSpaceReqPerManufacturing) +
-                (this.officeGSF() / this.openSpaceReqPerOffice);
+                (this.officeGFA() / this.openSpaceReqPerOffice);
         }, this);
     };
 

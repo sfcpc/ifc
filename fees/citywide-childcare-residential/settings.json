@@ -7,8 +7,8 @@
         "pdrToRes",
         "pdrToNonRes",
         "netNewUnits",
-        "resGSF",
-        "nonResGSF",
+        "resGFA",
+        "nonResGFA",
         "geometry",
         "newConstructionCredit",
         "changeOfUseCredit"
@@ -16,7 +16,7 @@
     "label": "Residential Child Care Impact Fee",
     "minNetNewUnits": 1,
     "minNewNonRes": 1,
-    "minResGSF": 800,
+    "minResGFA": 800,
     "lessThanOrEqualTo9": {
         "feePerNewRes": 0.91,
         "feePerNonResToRes": 0.13,

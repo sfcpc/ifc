@@ -47,11 +47,11 @@ define([
             'removedUnits',
             'existingUnits',
             'newNonRes',
-            'nonResGSF',
-            'pdrGSF',
-            'resGSF',
+            'nonResGFA',
+            'pdrGFA',
+            'resGFA',
             'changeOfUse',
-            'officeGSF'
+            'officeGFA'
         ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
@@ -75,17 +75,17 @@ define([
 
         this.landUseReady = ko.computed(function() {
             var newNonRes = this.newNonRes();
-            var nonResGSF = this.nonResGSF();
-            var pdrGSF = this.pdrGSF();
-            var resGSF = this.resGSF();
+            var nonResGFA = this.nonResGFA();
+            var pdrGFA = this.pdrGFA();
+            var resGFA = this.resGFA();
             var changeOfUse = this.changeOfUse();
-            var officeGSF = this.officeGSF();
+            var officeGFA = this.officeGFA();
             return newNonRes !== null && newNonRes !== '' &&
-                nonResGSF !== null && nonResGSF !== '' &&
-                pdrGSF !== null && pdrGSF !== '' &&
-                resGSF !== null && resGSF !== '' &&
+                nonResGFA !== null && nonResGFA !== '' &&
+                pdrGFA !== null && pdrGFA !== '' &&
+                resGFA !== null && resGFA !== '' &&
                 changeOfUse !== null && changeOfUse !== '' &&
-                officeGSF !== null && officeGSF !== '';
+                officeGFA !== null && officeGFA !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {

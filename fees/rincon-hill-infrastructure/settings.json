@@ -5,13 +5,13 @@
         "nonResToRes",
         "pdrToRes",
         "netNewUnits",
-        "resGSF",
+        "resGFA",
         "geometry"
     ],
     "label": "Rincon Hill Infrastructure",
     "areaName": "Rincon Hill Community Infrastructure Impact Fee",
     "minNetNewUnits": 1,
-    "minResGSF": 800,
+    "minResGFA": 800,
     "feePerNewRes": 8.60,
     "feePerNonResToRes": 5.0,
     "feePerPDRToRes": 6.80

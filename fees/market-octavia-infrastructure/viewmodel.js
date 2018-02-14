@@ -13,9 +13,9 @@ define([
             return this.isProjectInArea() &&
                 (
                     this.netNewUnits() >= this.minNetNewUnits ||
-                    this.resGSF() >= this.minResGSF ||
+                    this.resGFA() >= this.minResGFA ||
                     this.newNonRes() > this.minNewNonRes ||
-                    this.nonResGSF() >= this.minNonResGSF
+                    this.nonResGFA() >= this.minNonResGFA
                 );
         }, this);
 

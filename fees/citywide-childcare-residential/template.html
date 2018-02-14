@@ -3,17 +3,17 @@
     <div class="form-group">
         <h4>New Construction or Addition</h4>
 
-        <label for="newRes">New Residential (GSF)</label>
+        <label for="newRes">New Residential (GFA)</label>
         <input type="number" class="form-control" id="newRes" placeholder="value" data-bind="value: fee.newRes, valueUpdate: 'keyup'">
 
         <hr>
 
         <h4>Change of Use</h4>
 
-        <label for="nonResToRes">Non-Residential to Residential (GSF)</label>
+        <label for="nonResToRes">Non-Residential to Residential (GFA)</label>
         <input type="number" class="form-control" id="nonResToRes" placeholder="value" data-bind="value: fee.nonResToRes, valueUpdate: 'keyup'">
 
-        <label for="pdrToRes">PDR to Residential (GSF)</label>
+        <label for="pdrToRes">PDR to Residential (GFA)</label>
         <input type="number" class="form-control" id="pdrToRes" placeholder="value" data-bind="value: fee.pdrToRes, valueUpdate: 'keyup'">
 
 
@@ -35,9 +35,9 @@
             <th>
                 <h4>New Construction</h4>
             </th>
-            <th>GSF</th>
+            <th>GFA</th>
             <th></th>
-            <th>Fee per GSF</th>
+            <th>Fee per GFA</th>
             <th></th>
             <th>Assessed Fee</th>
         </tr>
@@ -46,11 +46,11 @@
         <tr>
             <th scope="row">Residential</th>
             <td>
-                <span data-bind="numericText: fee.newRes"></span> GSF
+                <span data-bind="numericText: fee.newRes"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNewRes"></span>/GSF
+                <span data-bind="dollarsText: fee.feePerNewRes"></span>/GFA
             </td>
             <td>=</td>
             <td>
@@ -70,11 +70,11 @@
         <tr>
             <th scope="row">Non-Residential to Residential</th>
             <td>
-                <span data-bind="numericText: fee.nonResToRes"></span> GSF
+                <span data-bind="numericText: fee.nonResToRes"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GSF
+                <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GFA
             </td>
             <td>=</td>
             <td>
@@ -84,11 +84,11 @@
         <tr>
             <th scope="row">PDR to Residential</th>
             <td>
-                <span data-bind="numericText: fee.pdrToRes"></span> GSF
+                <span data-bind="numericText: fee.pdrToRes"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GSF
+                <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GFA
             </td>
             <td>=</td>
             <td>

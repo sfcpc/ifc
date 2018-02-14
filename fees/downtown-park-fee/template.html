@@ -13,9 +13,9 @@
             <th>
                 <h4>New Construction</h4>
             </th>
-            <th>GSF</th>
+            <th>GFA</th>
             <th></th>
-            <th>Fee per GSF</th>
+            <th>Fee per GFA</th>
             <th></th>
             <th>Assessed Fee</th>
         </tr>
@@ -24,15 +24,15 @@
         <tr>
             <th scope="row">Office Space</th>
             <td>
-                <span data-bind="numericText: fee.officeGSF"></span> GSF
+                <span data-bind="numericText: fee.officeGFA"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerofficeGSF"></span>/GSF
+                <span data-bind="dollarsText: fee.feePerofficeGFA"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.officeGSF() * fee.feePerofficeGSF"></span>
+                <span data-bind="dollarsText: fee.officeGFA() * fee.feePerofficeGFA"></span>
             </td>
         </tr>
     </tbody>

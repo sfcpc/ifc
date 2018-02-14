@@ -3,7 +3,7 @@
     <div class="form-group">
         <h4>Land Use</h4>
 
-        <label for="totalRes">Total Residential (GSF)</label>
+        <label for="totalRes">Total Residential (GFA)</label>
         <input type="number" class="form-control" id="totalRes" data-bind="value: fee.totalRes, valueUpdate: 'keyup'">
     </div>
 </form>
@@ -16,9 +16,9 @@
             <th>
                 <h4>Land Use</h4>
             </th>
-            <th>GSF</th>
+            <th>GFA</th>
             <th></th>
-            <th>Fee per GSF</th>
+            <th>Fee per GFA</th>
             <th></th>
             <th>Assessed Fee</th>
         </tr>
@@ -27,15 +27,15 @@
         <tr>
             <th scope="row">Residential</th>
             <td>
-                <span data-bind="numericText: fee.totalRes"></span> GSF
+                <span data-bind="numericText: fee.totalRes"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerResGSF"></span>/GSF
+                <span data-bind="dollarsText: fee.feePerResGFA"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.totalRes() * fee.feePerResGSF"></span>
+                <span data-bind="dollarsText: fee.totalRes() * fee.feePerResGFA"></span>
             </td>
         </tr>
     </tbody>

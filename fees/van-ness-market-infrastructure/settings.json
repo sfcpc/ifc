@@ -3,11 +3,11 @@
     "paramNames": [
         "geometry",
         "parcelArea",
-        "nonResGSF",
-        "pdrGSF",
-        "resGSF",
-        "officeGSF",
-        "totalGSF"
+        "nonResGFA",
+        "pdrGFA",
+        "resGFA",
+        "officeGFA",
+        "totalGFA"
     ],
     "label": "Van Ness & Market Affordable Housing and Infrastructure Fee",
     "areaName": "Van Ness and Market Inclusionary Affordable Housing Fee",
