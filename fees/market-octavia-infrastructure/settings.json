@@ -1,5 +1,6 @@
 {
     "name": "market-octavia-infrastructure",
+    "code": "JD_421",
     "paramNames": [
         "newRes",
         "newNonRes",
@@ -7,16 +8,16 @@
         "pdrToRes",
         "pdrToNonRes",
         "netNewUnits",
-        "resGSF",
-        "nonResGSF",
+        "resGFA",
+        "nonResGFA",
         "geometry"
     ],
     "label": "Market Octavia Infrastructure Fee",
     "areaName": "Market and Octavia Community Infrastructure Impact Fee",
     "minNetNewUnits": 1,
     "minNewNonRes": 1,
-    "minResGSF": 800,
-    "minNonResGSF": 800,
+    "minResGFA": 800,
+    "minNonResGFA": 800,
     "feePerNewRes": 9,
     "feePerNewNonRes": 3.4,
     "feePerNonResToRes": 5.6,

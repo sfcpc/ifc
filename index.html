@@ -116,10 +116,6 @@
                     <h2>
                         Trigger Information
                         <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: triggersReady()"></i>
-                        <button class="btn btn-primary next-btn" data-bind="disable: !triggersReady(), click: viewCalculate">
-                            Next: calculate fees...
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
                     </h2>
 
                     <hr>
@@ -143,6 +139,17 @@
                             </div>
                         </div>
                     </div>
+                    <h4>
+                        Project Name (optional)
+                        <i class="fa fa-check ready-check" aria-hidden="true"></i>
+                    </h4>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="text" class="form-control" id="title" placeholder="Project name" data-bind="value: title, valueUpdate: 'keyup'">
+                            </div>
+                        </div>
+                    </div>
 
                     <h4>
                         Dwellings
@@ -151,16 +158,16 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-4">
-                                <label for="newUnits"># of new dwellings</label>
-                                <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="newUnits" placeholder="# of new dwellings" data-bind="value: newUnits, valueUpdate: 'keyup'">
-                            </div>
-                            <div class="col-4">
                                 <label for="existingUnits"># of existing dwellings</label>
                                 <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="existingUnits" placeholder="# of existing dwellings" data-bind="value: existingUnits, valueUpdate: 'keyup'">
                             </div>
                             <div class="col-4">
                                 <label for="removedUnits"># of removed dwellings</label>
                                 <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="removedUnits" placeholder="# of removed dwellings" data-bind="value: removedUnits, valueUpdate: 'keyup'">
+                            </div>
+                            <div class="col-4">
+                                <label for="newUnits"># of new dwellings</label>
+                                <input type="number" min="0" step="1" pattern="\d*" class="form-control" id="newUnits" placeholder="# of new dwellings" data-bind="value: newUnits, valueUpdate: 'keyup'">
                             </div>
                         </div>
                     </div>
@@ -172,36 +179,42 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-6">
-                                <label for="newNonRes">New construction of non‐residential (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="newNonRes" placeholder="New construction of non‐residential (GSF)" data-bind="value: newNonRes, valueUpdate: 'keyup'">
+                                <label for="newNonRes">New construction of non‐residential (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="newNonRes" placeholder="New construction of non‐residential (GFA)" data-bind="value: newNonRes, valueUpdate: 'keyup'">
                             </div>
                             <div class="col-6">
-                                <label for="nonResGSF">Increase in non‐residential (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="nonResGSF" placeholder="Increase in non‐residential (GSF)" data-bind="value: nonResGSF, valueUpdate: 'keyup'">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="pdrGSF">Increase in PDR (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="pdrGSF" placeholder="Increase in PDR (GSF)" data-bind="value: pdrGSF, valueUpdate: 'keyup'">
-                            </div>
-                            <div class="col-6">
-                                <label for="resGSF">Increase in residential (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="resGSF" placeholder="Increase in residential (GSF)" data-bind="value: resGSF, valueUpdate: 'keyup'">
+                                <label for="nonResGFA">Increase in non‐residential (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="nonResGFA" placeholder="Increase in non‐residential (GFA)" data-bind="value: nonResGFA, valueUpdate: 'keyup'">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="changeOfUse">Change of use (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="changeOfUse" placeholder="Change of use (GSF)" data-bind="value: changeOfUse, valueUpdate: 'keyup'">
+                                <label for="pdrGFA">Increase in PDR (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="pdrGFA" placeholder="Increase in PDR (GFA)" data-bind="value: pdrGFA, valueUpdate: 'keyup'">
                             </div>
                             <div class="col-6">
-                                <label for="officeGSF">Increase in office space (GSF)</label>
-                                <input type="number" min="0" class="form-control" id="resGSF" placeholder="Increase in office space (GSF)" data-bind="value: officeGSF, valueUpdate: 'keyup'">
+                                <label for="resGFA">Increase in residential (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="resGFA" placeholder="Increase in residential (GFA)" data-bind="value: resGFA, valueUpdate: 'keyup'">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="changeOfUse">Change of Use or Replacement of Use (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="changeOfUse" placeholder="Change of use (GFA)" data-bind="value: changeOfUse, valueUpdate: 'keyup'">
+                            </div>
+                            <div class="col-6">
+                                <label for="officeGFA">Increase in office space (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="resGFA" placeholder="Increase in office space (GFA)" data-bind="value: officeGFA, valueUpdate: 'keyup'">
                             </div>
                         </div>
                     </div>
 
+                    <h2>
+                        <button class="btn btn-primary next-btn" data-bind="disable: !triggersReady(), click: viewCalculate">
+                            Next: calculate fees...
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </h2>
                 </form>
             </div>
         </div>
@@ -213,10 +226,6 @@
                     <h2>
                         Calculate Triggered Fees
                         <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: feesReady()"></i>
-                        <button class="btn btn-primary next-btn" data-bind="disable: !feesReady(), click: viewReport">
-                            Next: view report...
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
                     </h2>
                     <hr>
                 </div>
@@ -249,6 +258,16 @@
                         }
                     } -->
                     <!-- /ko -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>
+                                <button class="btn btn-primary next-btn" data-bind="disable: !nextFeeReady(), click: nextFee">
+                                    Next: <span data-bind="text: nextFeeLabel"></span>...
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
+                            </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- /ko -->
@@ -261,7 +280,18 @@
                     </h3>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12 triggered-fee-list">
+                    <h2>
+                        <button class="btn btn-primary next-btn" data-bind="disable: !nextFeeReady(), click: nextFee">
+                            Next: <span data-bind="text: nextFeeLabel"></span>...
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </h2>
+                </div>
+            </div>
             <!-- /ko -->
+
         </div>
 
         <!-- report -->
@@ -283,6 +313,13 @@
                     <div class="report-content">
                         <div class="row">
                             <div class="col-12">
+                                <h4>
+                                    <strong data-bind="text:title"></strong>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
                                 <h4>Location:</h4>
                                 <div class="ol-map" data-bind="olMap:geometry, readOnly: true"></div>
                             </div>
@@ -295,27 +332,27 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">New construction of non‐residential:</th>
-                                    <td><span data-bind="numericText: newNonRes"></span> GSF</td>
+                                    <td><span data-bind="numericText: newNonRes"></span> GFA</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">New construction of office space:</th>
-                                    <td><span data-bind="numericText: officeGSF"></span> GSF</td>
+                                    <td><span data-bind="numericText: officeGFA"></span> GFA</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Increase in non‐residential:</th>
-                                    <td><span data-bind="numericText: nonResGSF"></span> GSF</td>
+                                    <td><span data-bind="numericText: nonResGFA"></span> GFA</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Increase in PDR:</th>
-                                    <td><span data-bind="numericText: pdrGSF"></span> GSF</td>
+                                    <td><span data-bind="numericText: pdrGFA"></span> GFA</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Increase in residential:</th>
-                                    <td><span data-bind="numericText: resGSF"></span> GSF</td>
+                                    <td><span data-bind="numericText: resGFA"></span> GFA</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Change of use:</th>
-                                    <td><span data-bind="numericText: changeOfUse"></span> GSF</td>
+                                    <td><span data-bind="numericText: changeOfUse"></span> GFA</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -325,7 +362,9 @@
                 <div data-bind="foreach: triggeredFeeViewModels">
                     <div class="fee-report">
                         <h3>
-                            <span data-bind="text: label"></span>:
+                            <a data-bind="attr: {href: ($parent.codeURL + code)}" target="_blank">
+                                <span data-bind="text: label"></span>
+                            </a>
                         </h3>
                         <div class="report-content">
                             <!-- ko component: {
@@ -360,8 +399,25 @@
                     </h3>
                     <div class="report-content" data-bind="foreach: feeViewModels">
                         <!-- ko if: !triggered() -->
-                        <div data-bind="text: label"></div>
+                        <div>
+                            <a data-bind="attr: {href: ($parent.codeURL + code)}" target="_blank">
+                                <span data-bind="text: label"></span>
+                            </a>
+                        </div>
                         <!-- /ko  -->
+                    </div>
+                </div>
+                <hr>
+                <div class="fee-report">
+                    <h3>
+                        Fees not currently supported:
+                    </h3>
+                    <div class="report-content" data-bind="foreach: unsupportedFees">
+                        <div>
+                            <a data-bind="attr: {href: ($parent.codeURL + code)}" target="_blank">
+                                <span data-bind="text: label"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <hr>

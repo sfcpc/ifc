@@ -13,7 +13,7 @@ define([
         this.triggered = ko.computed(function() {
             return (
                     this.netNewUnits() >= this.minNetNewUnits ||
-                    this.resGSF() >= this.minResGSF
+                    this.resGFA() >= this.minResGFA
                 );
         }, this);
 

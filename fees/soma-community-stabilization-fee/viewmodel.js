@@ -22,7 +22,7 @@ define([
             if (!this.triggered()) {
                 return 0;
             }
-            return this.feePerResGSF * this.totalRes();
+            return this.feePerResGFA * this.totalRes();
         }, this);
     };
 

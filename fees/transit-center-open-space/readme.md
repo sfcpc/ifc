@@ -20,7 +20,7 @@
 
 ## 424.6A FEE SCHEDULE FOR NET ADDITIONS OF GROSS SQUARE FEET IN THE TRANSIT CENTER DISTRICT AREA
 
-Use                            | Column A (Base Fee) | Column B (GSF Above 9:1)
+Use                            | Column A (Base Fee) | Column B (GFA Above 9:1)
 ------------------------------ | ------------------- | ------------------------
 Residential                    | $2.50/gsf           | N/A
 Office                         | $3.00/gsf           | $7.00/gsf

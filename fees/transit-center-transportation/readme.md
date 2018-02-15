@@ -22,7 +22,7 @@
 
 ## 424.7A FEE SCHEDULE FOR NET ADDITIONS OF GROSS SQUARE FEET IN THE TRANSIT CENTER DISTRICT AREA
 
-Use                            | Column A (Transit Delay Mitigation Fee) | Column B (Base Fee) | Column C (GSF Above 9:1) | Column D (GSF Above 18:1)
+Use                            | Column A (Transit Delay Mitigation Fee) | Column B (Base Fee) | Column C (GFA Above 9:1) | Column D (GFA Above 18:1)
 ------------------------------ | --------------------------------------- | ------------------- | ------------------------ | -------------------------
 Residential                    | $0.06/gsf                               | $3.94/gsf           | $6.00/gsf                | $3.00/gsf
 Office                         | $0.20/gsf                               | $3.80/gsf           | $19.50/gsf               | $10.00/gsf

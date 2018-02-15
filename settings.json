@@ -19,16 +19,17 @@
         "nonResToRes",
         "pdrToRes",
         "pdrToNonRes",
-        "retailGSF",
-        "hotelGSF",
-        "institutionalGSF",
-        "industrialGSF",
+        "retailGFA",
+        "hotelGFA",
+        "institutionalGFA",
+        "industrialGFA",
         "parcelArea"
     ],
-    "livereloadPort": "53212",
+    "livereloadPort": "35729",
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
     "mapserver": "//sfplanninggis.org/arcgis/rest/services/ImpactFees/MapServer",
     "geocoder": "//sfplanninggis.org/cpc_geocode/",
+    "codeURL": "http://library.amlegal.com/nxt/gateway.dll/California/planning/article4developmentimpactfeesandprojectr?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=",
     "parcelLayer": "2",
     "areaLayer": "0",
     "somaDistrictsLayer": "4",
@@ -36,5 +37,66 @@
     "vanNessSUDLayer": "6",
     "upperMarketNCTLayer": "7",
     "center": [-13630478.763700977, 4544696.014222133],
-    "zoom": 12
+    "zoom": 12,
+    "unsupportedFees": [{
+            "label": "Eastern Neighborhoods Infrastructure Fee",
+            "code": "JD_423"
+        },
+        {
+            "label": "Bicycle Parking Fee",
+            "code": "JD_430"
+        },
+        {
+            "label": "Transportation Sustainability Fee",
+            "code": "JD_411A"
+        },
+        {
+            "label": "South of Market Non-Residential Open Space Fee",
+            "code": "JD_425"
+        },
+        {
+            "label": "Child Care Fee: Office/Hotel Projects",
+            "code": "JD_414"
+        },
+        {
+            "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
+            "code": "JD_426"
+        },
+        {
+            "label": "Transit Development Fee",
+            "code": "JD_411"
+        },
+        {
+            "label": "Jobs-Housing Linkage Fee",
+            "code": "JD_413"
+        },
+        {
+            "label": "Eastern Neighborhoods Residential Open Space Fee",
+            "code": "JD_427"
+        },
+        {
+            "label": "Public Artwork Fee",
+            "code": "JD_429"
+        },
+        {
+            "label": "Downtown Special Development District",
+            "code": "JD_427"
+        },
+        {
+            "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",
+            "code": "JD_417"
+        },
+        {
+            "label": "UMU District Affordable Housing Fee",
+            "code": "JD_419"
+        },
+        {
+            "label": "Street Tree In-Leiu Fee",
+            "code": "JD_425"
+        },
+        {
+            "label": "Affordable Housing Fee",
+            "code": "JD_415"
+        }
+    ]
 }

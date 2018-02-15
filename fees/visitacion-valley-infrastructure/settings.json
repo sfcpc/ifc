@@ -1,12 +1,13 @@
 {
     "name": "visitacion-valley-infrastructure",
+    "code": "JD_420",
     "paramNames": [
         "newRes",
         "nonResToRes",
         "pdrToRes",
         "geometry",
         "netNewUnits",
-        "resGSF",
+        "resGFA",
         "newUnits",
         "removedUnits",
         "existingUnits"
@@ -15,7 +16,7 @@
     "areaName": "Visitacion Valley Community Facilities and Infrastructure Impact Fee",
     "minResidentialUnits": 20,
     "minNetNewUnits": 1,
-    "minResGSF": 800,
+    "minResGFA": 800,
     "feePerNewRes": 4.58,
     "feePerNonResToRes": 3.6,
     "feePerPDRToRes": 2.32

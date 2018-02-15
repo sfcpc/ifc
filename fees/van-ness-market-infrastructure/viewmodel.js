@@ -12,11 +12,11 @@ define([
 
         this.triggered = this.isProjectInArea;
 
-        this.netNewGSF = ko.computed(function() {
-            var total = parseFloat(this.nonResGSF()) +
-                parseFloat(this.pdrGSF()) +
-                parseFloat(this.resGSF()) +
-                parseFloat(this.officeGSF());
+        this.netNewGFA = ko.computed(function() {
+            var total = parseFloat(this.nonResGFA()) +
+                parseFloat(this.pdrGFA()) +
+                parseFloat(this.resGFA()) +
+                parseFloat(this.officeGFA());
             return total;
         }, this);
 
@@ -24,49 +24,49 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.totalGSF() !== null && this.totalGSF() !== '' &&
+            return this.totalGFA() !== null && this.totalGFA() !== '' &&
                 this.parcelArea() !== null && this.parcelArea() !== '';
         }, this);
 
         this.totalFAR = ko.computed(function() {
-            return this.totalGSF() / this.parcelArea();
+            return this.totalGFA() / this.parcelArea();
         }, this);
 
         this.gsfAbove9To1 = ko.computed(function () {
             var totalFAR = this.totalFAR();
-            var totalGSF = this.totalGSF();
+            var totalGFA = this.totalGFA();
             var parcelArea = this.parcelArea();
-            return totalFAR > 9 ? totalGSF - (parcelArea * 9) : 0;
+            return totalFAR > 9 ? totalGFA - (parcelArea * 9) : 0;
         }, this);
 
         this.gsfAbove6To1 = ko.computed(function () {
             var totalFAR = this.totalFAR();
-            var totalGSF = this.totalGSF();
+            var totalGFA = this.totalGFA();
             var parcelArea = this.parcelArea();
             var gsfAbove9To1 = this.gsfAbove9To1();
-            return totalFAR > 6 ? totalGSF - gsfAbove9To1 - (parcelArea * 6) : 0;
+            return totalFAR > 6 ? totalGFA - gsfAbove9To1 - (parcelArea * 6) : 0;
         }, this);
 
-        this.newGSFAbove6To1 = ko.computed(function () {
+        this.newGFAAbove6To1 = ko.computed(function () {
             var gsfAbove6To1 = this.gsfAbove6To1();
-            var netNewGSF = this.netNewGSF();
-            return gsfAbove6To1 > netNewGSF ? netNewGSF : gsfAbove6To1;
+            var netNewGFA = this.netNewGFA();
+            return gsfAbove6To1 > netNewGFA ? netNewGFA : gsfAbove6To1;
         }, this);
 
         this.gsfAbove6To1Fee = ko.computed(function () {
-            var newGSFAbove6To1 = this.newGSFAbove6To1();
-            return newGSFAbove6To1 * this.far6to1;
+            var newGFAAbove6To1 = this.newGFAAbove6To1();
+            return newGFAAbove6To1 * this.far6to1;
         }, this);
 
-        this.newGSFAbove9To1 = ko.computed(function () {
+        this.newGFAAbove9To1 = ko.computed(function () {
             var gsfAbove9To1 = this.gsfAbove9To1();
-            var remainingNewGSF = this.netNewGSF() - this.newGSFAbove6To1();
-            return gsfAbove9To1 > remainingNewGSF ? remainingNewGSF : gsfAbove9To1;
+            var remainingNewGFA = this.netNewGFA() - this.newGFAAbove6To1();
+            return gsfAbove9To1 > remainingNewGFA ? remainingNewGFA : gsfAbove9To1;
         }, this);
 
         this.gsfAbove9To1Fee = ko.computed(function () {
-            var newGSFAbove9To1 = this.newGSFAbove9To1();
-            return newGSFAbove9To1 * this.far9to1;
+            var newGFAAbove9To1 = this.newGFAAbove9To1();
+            return newGFAAbove9To1 * this.far9to1;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
@@ -74,7 +74,7 @@ define([
             if (!this.triggered() || !totalFAR) {
                 return 0;
             }
-            var totalGSF = this.totalGSF();
+            var totalGFA = this.totalGFA();
             var parcelArea = this.parcelArea();
             var gsfAbove9To1Fee = this.gsfAbove9To1Fee();
             var gsfAbove6To1Fee = this.gsfAbove6To1Fee();

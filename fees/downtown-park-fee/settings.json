@@ -1,11 +1,12 @@
 {
     "name": "downtown-park-fee",
+    "code": "JD_412",
     "paramNames": [
-        "officeGSF",
+        "officeGFA",
         "geometry"
     ],
     "label": "Downtown Park Fee",
     "areaLayer": "5",
-    "feePerofficeGSF": 2,
-    "minofficeGSF": 0
+    "feePerofficeGFA": 2,
+    "minofficeGFA": 0
 }

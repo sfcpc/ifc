@@ -13,7 +13,7 @@ define([
             return this.isProjectInArea() &&
                 (
                     (
-                        this.netNewUnits() >= this.minNetNewUnits || this.resGSF() >= this.minResGSF
+                        this.netNewUnits() >= this.minNetNewUnits || this.resGFA() >= this.minResGFA
                     ) &&
                     this.existingUnits() >= this.minResidentialUnits
                 );

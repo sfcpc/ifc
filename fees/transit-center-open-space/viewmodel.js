@@ -15,9 +15,9 @@ define([
             return this.isProjectInArea() &&
                 (
                     this.netNewUnits() >= this.minNetNewUnits ||
-                    this.resGSF() >= this.minResGSF ||
+                    this.resGFA() >= this.minResGFA ||
                     this.newNonRes() > this.minNewNonRes ||
-                    this.nonResGSF() >= this.minNonResGSF
+                    this.nonResGFA() >= this.minNonResGFA
                 );
         }, this);
 
@@ -25,10 +25,10 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.retailGSF() !== null && this.retailGSF() !== '' &&
-                this.hotelGSF() !== null && this.hotelGSF() !== '' &&
-                this.institutionalGSF() !== null && this.institutionalGSF() !== '' &&
-                this.industrialGSF() !== null && this.industrialGSF() !== '' &&
+            return this.retailGFA() !== null && this.retailGFA() !== '' &&
+                this.hotelGFA() !== null && this.hotelGFA() !== '' &&
+                this.institutionalGFA() !== null && this.institutionalGFA() !== '' &&
+                this.industrialGFA() !== null && this.industrialGFA() !== '' &&
                 this.parcelArea() !== null && this.parcelArea() !== '';
         }, this);
 
@@ -36,7 +36,7 @@ define([
             return gsf / self.parcelArea();
         };
 
-        this.getGSFAboveFAR = function(gsf) {
+        this.getGFAAboveFAR = function(gsf) {
             if (self.getFAR(gsf) <= self.farBaseMax) {
                 return 0;
             }
@@ -47,15 +47,15 @@ define([
             if (!this.triggered()) {
                 return 0;
             }
-            return this.resGSF() * this.resBaseFee +
-                this.hotelGSF() * this.hotelBaseFee +
-                this.industrialGSF() * this.industrialBaseFee +
-                this.officeGSF() * this.officeBaseFee +
-                this.getGSFAboveFAR(this.officeGSF()) * this.officeFARFee +
-                this.retailGSF() * this.retailBaseFee +
-                this.getGSFAboveFAR(this.retailGSF()) * this.retailFARFee +
-                this.institutionalGSF() * this.institutionalBaseFee +
-                this.getGSFAboveFAR(this.institutionalGSF()) * this.institutionalFARFee;
+            return this.resGFA() * this.resBaseFee +
+                this.hotelGFA() * this.hotelBaseFee +
+                this.industrialGFA() * this.industrialBaseFee +
+                this.officeGFA() * this.officeBaseFee +
+                this.getGFAAboveFAR(this.officeGFA()) * this.officeFARFee +
+                this.retailGFA() * this.retailBaseFee +
+                this.getGFAAboveFAR(this.retailGFA()) * this.retailFARFee +
+                this.institutionalGFA() * this.institutionalBaseFee +
+                this.getGFAAboveFAR(this.institutionalGFA()) * this.institutionalFARFee;
         }, this);
     };
 

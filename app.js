@@ -16,6 +16,8 @@ define([
         this.feeViewModels = ko.observableArray();
         this.selectedFee = ko.observable();
         this.reportDate = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+        this.unsupportedFees = settings.unsupportedFees;
+        this.codeURL = settings.codeURL;
 
         this.total = ko.computed(function() {
             var total = 0;
@@ -41,16 +43,17 @@ define([
 
         this.paramNames = [
             // trigger parameters
+            'title',
             'geometry',
             'newUnits',
             'removedUnits',
             'existingUnits',
             'newNonRes',
-            'nonResGSF',
-            'pdrGSF',
-            'resGSF',
+            'nonResGFA',
+            'pdrGFA',
+            'resGFA',
             'changeOfUse',
-            'officeGSF'
+            'officeGFA'
         ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
@@ -74,17 +77,17 @@ define([
 
         this.landUseReady = ko.computed(function() {
             var newNonRes = this.newNonRes();
-            var nonResGSF = this.nonResGSF();
-            var pdrGSF = this.pdrGSF();
-            var resGSF = this.resGSF();
+            var nonResGFA = this.nonResGFA();
+            var pdrGFA = this.pdrGFA();
+            var resGFA = this.resGFA();
             var changeOfUse = this.changeOfUse();
-            var officeGSF = this.officeGSF();
+            var officeGFA = this.officeGFA();
             return newNonRes !== null && newNonRes !== '' &&
-                nonResGSF !== null && nonResGSF !== '' &&
-                pdrGSF !== null && pdrGSF !== '' &&
-                resGSF !== null && resGSF !== '' &&
+                nonResGFA !== null && nonResGFA !== '' &&
+                pdrGFA !== null && pdrGFA !== '' &&
+                resGFA !== null && resGFA !== '' &&
                 changeOfUse !== null && changeOfUse !== '' &&
-                officeGSF !== null && officeGSF !== '';
+                officeGFA !== null && officeGFA !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {
@@ -127,6 +130,52 @@ define([
                 self.state('report');
             }
         };
+
+        this.lastFeeSelected = ko.computed(function() {
+            var fees = self.feeViewModels().filter(function (fee) {
+                return fee.triggered();
+            });
+            var selectedFee = self.selectedFee();
+            if (fees.length === 0) {
+                return true;
+            }
+            return (fees.indexOf(selectedFee) + 1) === fees.length;
+        }, this);
+
+        this.nextFee = function() {
+            if (self.feesReady() && this.lastFeeSelected()) {
+                self.state('report');
+            } else {
+                var fees = self.feeViewModels().filter(function (fee) {
+                    return fee.triggered();
+                });
+                var selectedFee = self.selectedFee();
+                var nextFee = fees[fees.indexOf(selectedFee) + 1];
+                self.selectedFee(nextFee);
+            }
+        };
+
+        this.nextFeeReady = ko.computed(function() {
+            if (this.lastFeeSelected()) {
+                return this.feesReady();
+            } else {
+                var fee = self.selectedFee();
+                return fee.ready();
+            }
+        }, this);
+
+        this.nextFeeLabel = ko.computed(function() {
+            if (this.lastFeeSelected()) {
+                return 'view report';
+            } else {
+                var selectedFee = self.selectedFee();
+                var fees = self.feeViewModels().filter(function (fee) {
+                    return fee.triggered();
+                });
+                var nextFee = fees[fees.indexOf(selectedFee) + 1];
+                return ko.unwrap(nextFee.label);
+            }
+        }, this);
 
         this.geocoderIcon = ko.computed(function() {
             var success = self.geocodeSuccess();
@@ -175,13 +224,17 @@ define([
                             return;
                         }
                         if (data.features && data.features.length > 0) {
-                            var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
+                            var feature = data.features[0];
+                            var geom = esrijsonFormat.readGeometry(feature.geometry);
                             geom.transform('EPSG:4326', 'EPSG:3857');
                             if (self.olMap) {
                                 self.olMap.getView().fit(geom, self.olMap.getSize());
                             }
                             geom = geojsonFormat.writeGeometry(geom);
                             self.geometry(geom);
+                            if (!self.title() && feature.attributes.record_name) {
+                                self.title(feature.attributes.record_name);
+                            }
                             self.geocodeSuccess(true);
                         } else {
                             self.geocodeSuccess(false);
