@@ -130,6 +130,52 @@ define([
             }
         };
 
+        this.lastFeeSelected = ko.computed(function() {
+            var fees = self.feeViewModels().filter(function (fee) {
+                return fee.triggered();
+            });
+            var selectedFee = self.selectedFee();
+            if (fees.length === 0) {
+                return true;
+            }
+            return (fees.indexOf(selectedFee) + 1) === fees.length;
+        }, this);
+
+        this.nextFee = function() {
+            if (self.feesReady() && this.lastFeeSelected()) {
+                self.state('report');
+            } else {
+                var fees = self.feeViewModels().filter(function (fee) {
+                    return fee.triggered();
+                });
+                var selectedFee = self.selectedFee();
+                var nextFee = fees[fees.indexOf(selectedFee) + 1];
+                self.selectedFee(nextFee);
+            }
+        };
+
+        this.nextFeeReady = ko.computed(function() {
+            if (this.lastFeeSelected()) {
+                return this.feesReady();
+            } else {
+                var fee = self.selectedFee();
+                return fee.ready();
+            }
+        }, this);
+
+        this.nextFeeLabel = ko.computed(function() {
+            if (this.lastFeeSelected()) {
+                return 'view report';
+            } else {
+                var selectedFee = self.selectedFee();
+                var fees = self.feeViewModels().filter(function (fee) {
+                    return fee.triggered();
+                });
+                var nextFee = fees[fees.indexOf(selectedFee) + 1];
+                return ko.unwrap(nextFee.label);
+            }
+        }, this);
+
         this.geocoderIcon = ko.computed(function() {
             var success = self.geocodeSuccess();
             var icon;
