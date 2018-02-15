@@ -43,6 +43,7 @@ define([
 
         this.paramNames = [
             // trigger parameters
+            'title',
             'geometry',
             'newUnits',
             'removedUnits',
@@ -223,13 +224,17 @@ define([
                             return;
                         }
                         if (data.features && data.features.length > 0) {
-                            var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
+                            var feature = data.features[0];
+                            var geom = esrijsonFormat.readGeometry(feature.geometry);
                             geom.transform('EPSG:4326', 'EPSG:3857');
                             if (self.olMap) {
                                 self.olMap.getView().fit(geom, self.olMap.getSize());
                             }
                             geom = geojsonFormat.writeGeometry(geom);
                             self.geometry(geom);
+                            if (!self.title() && feature.attributes.record_name) {
+                                self.title(feature.attributes.record_name);
+                            }
                             self.geocodeSuccess(true);
                         } else {
                             self.geocodeSuccess(false);
