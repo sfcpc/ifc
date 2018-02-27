@@ -39,7 +39,7 @@ define([
             if (!this.triggered()) {
                 return 0;
             }
-            return (this.feePerNonResToRes * newRes) +
+            return (this.feePerNewRes * newRes) +
                 (this.feePerNewNonRes * newNonRes) +
                 (this.feePerNonResToRes * nonResToRes) +
                 (this.feePerPDRToRes * pdrToRes) +
