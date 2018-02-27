@@ -10,10 +10,13 @@ define([
         AbstractFee.apply(this, [params]);
 
         this.district = ko.computed(function() {
-            var features = this.isProjectInArea();
-            if (Array.isArray(features) && features.length > 0) {
-                var attr = features[0].attributes;
-                return attr.districtname || attr.name;
+            var intersects = this.isProjectInArea();
+
+            if (intersects) {
+                if (Array.isArray(intersects) && intersects.length > 0) {
+                    return "UPPER MARKET NEIGHBORHOOD COMMERCIAL TRANSIT"
+                }
+                return "Van Ness & Market Downtown Residential"
             }
         }, this)
 

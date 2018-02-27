@@ -10,7 +10,8 @@
         "geometry"
     ],
     "label": "Market Octavia Affordable Housing Fee",
-    "areaLayer": "6,7",
+    "areaLayer": "7",
+    "areaName": "Market and Octavia Inclusionary Affordable Housing Fee",
     "minNetNewUnits": 10,
     "Van Ness & Market Downtown Residential": {
         "feePerNewRes": 7.2,
