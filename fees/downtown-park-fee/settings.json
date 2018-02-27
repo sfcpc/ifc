@@ -7,7 +7,6 @@
     ],
     "label": "Downtown Park Fee",
     "areaLayer": "5",
-    "areaName": "Downtown Park Fee",
     "feePerofficeGFA": 2,
     "minofficeGFA": 0
 }
