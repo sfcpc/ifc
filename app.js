@@ -3,7 +3,8 @@ define([
     'underscore',
     'jquery',
     'openlayers',
-    "json!settings.json"
+    "json!settings.json",
+    'bindings/auto-numeric'
 ], function(ko, _, $, ol, settings) {
     var App = function(params) {
         var self = this;
