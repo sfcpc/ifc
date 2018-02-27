@@ -9,11 +9,15 @@ require.config({
         "turf": "//cdnjs.cloudflare.com/ajax/libs/Turf.js/4.6.1/turf.min",
         "text": "//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min",
         "json": "//cdnjs.cloudflare.com/ajax/libs/requirejs-plugins/1.0.3/json.min",
+        "autoNumeric": "//cdnjs.cloudflare.com/ajax/libs/autonumeric/2.0.13/autoNumeric.min"
     },
     shim: {
         "popper": {
             deps: ["jquery"],
             exports: "Popper"
+        },
+        "autoNumeric": {
+            deps: ["jquery"]
         },
         "bootstrap": {
             deps: ["jquery", "popper-wrap"]
