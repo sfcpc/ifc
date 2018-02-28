@@ -12,10 +12,7 @@ define([
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
-                    (
-                        this.netNewUnits() >= this.minNetNewUnits || this.resGFA() >= this.minResGFA
-                    ) &&
-                    this.existingUnits() >= this.minResidentialUnits
+                    this.netNewUnits() + Number(this.existingUnits()) >= this.minResidentialUnits && this.netNewUnits() >= this.minNetNewUnits || this.netNewUnits() + Number(this.existingUnits()) >= this.minResidentialUnits && this.resGFA() >= this.minResGFA
                 );
         }, this);
 
