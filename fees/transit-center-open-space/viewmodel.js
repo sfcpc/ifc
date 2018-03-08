@@ -43,19 +43,34 @@ define([
             return gsf - (self.parcelArea() * self.farBaseMax);
         };
 
+        this.totalGFA = ko.computed(function() {
+            return parseFloat(this.resGFA()) +
+                parseFloat(this.hotelGFA()) +
+                parseFloat(this.industrialGFA()) +
+                parseFloat(this.officeGFA()) +
+                parseFloat(this.retailGFA()) +
+                parseFloat(this.institutionalGFA());
+        }, this);
+
+        this.percentAboveFAR = ko.computed(function() {
+            return this.getGFAAboveFAR(this.totalGFA()) / this.totalGFA();
+        }, this);
+
         this.calculatedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
             }
-            return this.resGFA() * this.resBaseFee +
+            var baseFee =  this.resGFA() * this.resBaseFee +
                 this.hotelGFA() * this.hotelBaseFee +
                 this.industrialGFA() * this.industrialBaseFee +
                 this.officeGFA() * this.officeBaseFee +
-                this.getGFAAboveFAR(this.officeGFA()) * this.officeFARFee +
                 this.retailGFA() * this.retailBaseFee +
-                this.getGFAAboveFAR(this.retailGFA()) * this.retailFARFee +
-                this.institutionalGFA() * this.institutionalBaseFee +
-                this.getGFAAboveFAR(this.institutionalGFA()) * this.institutionalFARFee;
+                this.institutionalGFA() * this.institutionalBaseFee;
+            var percentAboveFAR = this.percentAboveFAR();
+            var farFee = (percentAboveFAR * this.officeGFA()) * this.officeFARFee  +
+                (percentAboveFAR * this.retailGFA()) * this.retailFARFee  +
+                (percentAboveFAR * this.institutionalGFA()) * this.institutionalFARFee;
+            return baseFee + farFee;
         }, this);
     };
 
