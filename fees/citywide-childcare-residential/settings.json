@@ -19,13 +19,13 @@
     "minNewNonRes": 1,
     "minResGFA": 800,
     "lessThanOrEqualTo9": {
-        "feePerNewRes": 0.91,
-        "feePerNonResToRes": 0.13,
-        "feePerPDRToRes": 0.13
+        "feePerNewRes": 1.02,
+        "feePerNonResToRes": 0.15,
+        "feePerPDRToRes": 0.15
     },
     "greaterThanOrEqualTo10": {
-        "feePerNewRes": 1.83,
-        "feePerNonResToRes": 0.26,
-        "feePerPDRToRes": 0.26
+        "feePerNewRes": 2.03,
+        "feePerNonResToRes": 0.29,
+        "feePerPDRToRes": 0.29
     }
 }

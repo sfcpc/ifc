@@ -16,7 +16,9 @@
   1. Any net addition of gross square feet shall pay per the Fee Schedule in Table 422.3A, and
   2. Any replacement of gross square feet or change of use shall pay per the Fee Schedule in Table 422.3B.
 
+
 ## 422.3A FEE SCHEDULE FOR NET ADDITIONS OF GROSS SQUARE FEET IN THE BALBOA PARK PROGRAM AREA
+All fees consistent with 2018 fee schedule
 
 Residential | Non-residential
 ----------- | ---------------

@@ -9,6 +9,7 @@
 
 2. Credit for On-Site Childcare Facilities. A project may be eligible for a credit for on-site Childcare Facilities: The project sponsor must apply to the Planning Department to receive a credit for on-site child care facilities. To qualify for a credit, the facility shall be open and available to the general public on the same terms and conditions as to residents of the residential development project in which the facilities are located. Subject to the review and approval of the Planning Commission, the project sponsor may apply for a credit up to 100% of the required fee. The City shall enter into an In-Kind Agreement with the Project Sponsor under the conditions described for In-Kind Agreements in Section 421.3(d), subsections (2) through (5).
 
+
 ## TABLE 414A.5A FEE SCHEDULE FOR NET ADDITIONS OF GROSS SQUARE FEET
 
 Residential projects of 10 or more units | Residential Protects of up to 9 units
@@ -19,5 +20,8 @@ $1.83/gsf                                | $0.91/gsf
 
 Residential project units | Residential Use to Residential Use | Non-Residential to Residential | PDR to Residential
 ---------------------------------------- | ---------------------------------- | ------------------------------ | ------------------
-10 or more | $0/gsf                             | $0.26/gsf                      | $0.26/gsf
-up to 9    | $0/gsf                             | $0.13/gsf                      | $0.13/gsf
+10 or more | $0/gsf                             | $0.29/gsf                      | $0.29/gsf
+up to 9    | $0/gsf                             | $0.15/gsf                      | $0.15/gsf
+
+
+**Info above based on 2018 fee schedule
