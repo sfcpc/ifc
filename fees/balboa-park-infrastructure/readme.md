@@ -16,14 +16,18 @@
   1. Any net addition of gross square feet shall pay per the Fee Schedule in Table 422.3A, and
   2. Any replacement of gross square feet or change of use shall pay per the Fee Schedule in Table 422.3B.
 
+
 ## 422.3A FEE SCHEDULE FOR NET ADDITIONS OF GROSS SQUARE FEET IN THE BALBOA PARK PROGRAM AREA
+All fees consistent with 2018 fee schedule
 
 Residential | Non-residential
 ----------- | ---------------
-$8.00/gsf   | $1.50/gsf
+$11.32/gsf   | $2.13/gsf
 
 ## 422.3B FEE SCHEDULE FOR REPLACEMENT OF USE OR CHANGE OF USE IN THE BALBOA PARK PROGRAM AREA
 
 Residential to Residential or Non-residential; or Non-residential to Non-residential | Non-Residential to Residential | PDR to Residential | PDR to Non-Residential
 ------------------------------------------------------------------------------------ | ------------------------------ | ------------------ | ----------------------
-$0                                                                                   | $6.50/gsf                      | $7.25/gsf          | $0.75/gsf
+$0                                                                                   | $9.20/gsf                      | $10.26/gsf          | $1.06/gsf
+
+**2018 fee schedule

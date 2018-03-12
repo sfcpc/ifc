@@ -17,5 +17,5 @@
     "openSpaceReqPerRetail": 250,
     "openSpaceReqPerManufacturing": 120,
     "openSpaceReqPerOffice": 90,
-    "costMultiplier": 0.8
+    "costMultiplier": 1.13
 }
