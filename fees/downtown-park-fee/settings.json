@@ -7,6 +7,6 @@
     ],
     "label": "Downtown Park Fee",
     "areaLayer": "5",
-    "feePerofficeGFA": 2,
+    "feePerofficeGFA": 2.83,
     "minofficeGFA": 0
 }

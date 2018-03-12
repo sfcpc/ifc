@@ -24,9 +24,11 @@
 
 Use                            | Column A (Transit Delay Mitigation Fee) | Column B (Base Fee) | Column C (GFA Above 9:1) | Column D (GFA Above 18:1)
 ------------------------------ | --------------------------------------- | ------------------- | ------------------------ | -------------------------
-Residential                    | $0.06/gsf                               | $3.94/gsf           | $6.00/gsf                | $3.00/gsf
-Office                         | $0.20/gsf                               | $3.80/gsf           | $19.50/gsf               | $10.00/gsf
-Retail                         | $1.95/gsf                               | $2.05/gsf           | $19.50/gsf               | $10.00/gsf
-Hotel                          | $0.10/gsf                               | $3.90/gsf           | $8.00/gsf                | $3.00/gsf
-Institutional/Cultural/Medical | $0.30/gsf                               | $3.70/gsf           | $19.50/gsf               | $10.00/gsf
-Industrial                     | N/A                                     | $4.00/gsf           | N/A                      | N/A
+Residential                    | $0.06/gsf                               | $5.04/gsf           | $7.68/gsf                | $3.84/gsf
+Office                         | $0.20/gsf                               | $4.87/gsf           | $24.95/gsf               | $12.80/gsf
+Retail                         | $1.95/gsf                               | $2.62/gsf           | $24.95/gsf               | $12.80/gsf
+Hotel                          | $0.10/gsf                               | $4.99/gsf           | $10.24/gsf               | $3.84/gsf
+Institutional/Cultural/Medical | $0.30/gsf                               | $4.74/gsf           | $24.95/gsf               | $12.80/gsf
+Industrial                     | N/A                                     | $5.12/gsf           | N/A                      | N/A
+
+**2018 fee schedule

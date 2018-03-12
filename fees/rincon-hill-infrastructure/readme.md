@@ -16,10 +16,12 @@
 
 | Residential
 | -----------
-| $8.60/gsf
+| $12.17/gsf
 
 ## 418.3B FEE SCHEDULE FOR REPLACEMENT OR CHANGE OF USE IN THE RINCON HILL PROGRAM AREA
 
 Residential to Residential or Non-residential; Non-residential to Non-residential; PDR to Non-Residential | Non-Residential to Residential | PDR to Residential
 --------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------
-$0/gsf                                                                                                    | $5.00/gsf                      | $6.80/gsf
+$0/gsf                                                                                                    | $7.08/gsf                      | $9.62/gsf
+
+**based on 2018 fee schedule

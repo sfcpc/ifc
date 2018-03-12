@@ -24,4 +24,4 @@ Residential project units | Residential Use to Residential Use | Non-Residential
 up to 9    | $0/gsf                             | $0.15/gsf                      | $0.15/gsf
 
 
-**Info above based on 2018 fee schedule
+**2018 fee schedule
