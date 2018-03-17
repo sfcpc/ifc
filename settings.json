@@ -12,7 +12,8 @@
         "van-ness-market-infrastructure",
         "transit-center-open-space",
         "transit-center-transportation",
-        "citywide-childcare-residential"
+        "citywide-childcare-residential",
+        "eastern-neighborhoods-infrastructure"
     ],
     "globalFeeParams": [
         "newRes",
@@ -39,10 +40,6 @@
     "center": [-13630478.763700977, 4544696.014222133],
     "zoom": 12,
     "unsupportedFees": [{
-            "label": "Eastern Neighborhoods Infrastructure Fee",
-            "code": "JD_423"
-        },
-        {
             "label": "Bicycle Parking Fee",
             "code": "JD_430"
         },
