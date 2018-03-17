@@ -28,7 +28,6 @@ define([
             if (area) {
                 var tiers = area.split('Eastern Neighborhoods Infrastructure Impact Fee - ');
                 tiers.shift();
-                console.log(tiers)
                 if (tiers.length > 1 || !(tiers[0] in this.fees)) {
                     return null;
                 }
