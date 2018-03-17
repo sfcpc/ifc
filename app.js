@@ -22,7 +22,8 @@ define([
         this.total = ko.computed(function() {
             var total = 0;
             this.feeViewModels().forEach(function(feeViewModel) {
-                if (feeViewModel.triggered()) {
+                var calculatedFee = feeViewModel.calculatedFee();
+                if (feeViewModel.triggered() && calculatedFee !== null) {
                     total += feeViewModel.calculatedFee();
                 }
             });

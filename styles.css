@@ -286,6 +286,19 @@ hr {
     cursor: pointer;
 }
 
+.cannot-calc, .fee-tier.tier-not-found {
+    color: rgb(158, 49, 42);
+}
+
+.fee-tier {
+    padding: 12px;
+    font-size: 22px;
+}
+
+.fee-tier.tier-not-found, .fee-tier .tier-value {
+    font-weight: bold;
+}
+
 @-moz-keyframes shake {
     0%, 100% {
         left: 0px;
