@@ -20,7 +20,14 @@ define([
         }, this);
 
         this.ready = ko.computed(function() {
-            return true;
+            if (!this.triggered()) {
+                return true;
+            }
+            return this.newRes() !== null && this.newRes() !== '' &&
+                this.newNonRes() !== null && this.newNonRes() !== '' &&
+                this.nonResToRes() !== null && this.nonResToRes() !== '' &&
+                this.pdrToRes() !== null && this.pdrToRes() !== '' &&
+                this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
         }, this);
         
         this.tier = ko.computed(function() {
