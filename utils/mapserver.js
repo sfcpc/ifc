@@ -45,7 +45,11 @@ define([
             areaGeoms.forEach(function(areaGeom) {
                 var intersection = turf.intersect(projectGeom, areaGeom);
                 if (intersection !== undefined) {
-                    intersects = areaGeom.areaName || true;
+                    if (!intersects) {
+                        intersects = areaGeom.areaName || true;
+                    } else if (areaGeom.areaName) {
+                        intersects += ',' + areaGeom.areaName;
+                    }
                 }
             });
             return intersects;

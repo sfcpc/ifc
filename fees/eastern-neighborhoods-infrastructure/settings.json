@@ -2,7 +2,71 @@
     "name": "eastern-neighborhoods-infrastructure",
     "code": "JD_423",
     "paramNames": [
-
+        "newRes",
+        "nonResToRes",
+        "pdrToRes",
+        "pdrToNonRes",
+        "newNonRes",
+        "netNewUnits",
+        "resGFA",
+        "nonResGFA",
+        "geometry"
     ],
-    "label": "Eastern Neighborhoods Infrastructure Fee"
+    "minNetNewUnits": 1,
+    "minResGFA": 800,
+    "minNewNonRes": 0,
+    "minNonResGFA": 800,
+    "areaName": [
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 45 and 55 feet. Tier 2 for 65 feet.",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 45 feet. Tier 2 for 65 feet.",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 if residential, 2 if non-residential",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 65 feet. Tier 2 for 85 feet.",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 if residential, 3 if non-residential",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 2",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 3"
+    ],
+    "unsupportedTiers": [
+        "Tier 1 for 45 and 55 feet. Tier 2 for 65 feet.",
+        "Tier 1 for 45 feet. Tier 2 for 65 feet.",
+        "Tier 1 for 65 feet. Tier 2 for 85 feet."
+    ],
+    "label": "Eastern Neighborhoods Infrastructure Fee",
+    "fees": {
+        "Tier 1": {
+            "newRes": 11.32,
+            "newNonRes": 8.49,
+            "nonResToRes": 2.83,
+            "pdrToRes": 7.08,
+            "pdrToNonRes": 4.24
+        },
+        "Tier 1 if residential, 2 if non-residential": {
+            "newRes": 11.32,
+            "newNonRes": 14.15,
+            "nonResToRes": 2.83,
+            "pdrToRes": 7.08,
+            "pdrToNonRes": 9.91
+        },
+        "Tier 1 if residential, 3 if non-residential": {
+            "newRes": 11.32,
+            "newNonRes": 19.81,
+            "nonResToRes": 2.83,
+            "pdrToRes": 7.08,
+            "pdrToNonRes": 15.57
+        },
+        "Tier 2": {
+            "newRes": 16.98,
+            "newNonRes": 14.15,
+            "nonResToRes": 2.83,
+            "pdrToRes": 12.73,
+            "pdrToNonRes": 9.91
+        },
+        "Tier 3": {
+            "newRes": 22.64,
+            "newNonRes": 19.81,
+            "nonResToRes": 2.83,
+            "pdrToRes": 18.39,
+            "pdrToNonRes": 15.57
+        }
+    }
 }

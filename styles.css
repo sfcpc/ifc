@@ -286,6 +286,10 @@ hr {
     cursor: pointer;
 }
 
+.cannot-calc {
+    color: rgb(158, 49, 42);
+}
+
 @-moz-keyframes shake {
     0%, 100% {
         left: 0px;

@@ -43,7 +43,12 @@ define([
         this.areaGeoms = ko.observableArray();
         this.intersectFeatures = ko.observableArray();
         if (this.areaName) {
-            var areaNames = this.areaName.split(',');
+            var areaNames = [];
+            if (Array.isArray(this.areaName)){
+                areaNames = this.areaName;
+            } else {
+                areaNames = this.areaName.split(',');
+            }
             areaNames.forEach(function (areaName) {
                 mapserverUtils.getAreaGeoJSON(areaName, function (areaGeom) {
                     self.areaGeoms.push(areaGeom);
@@ -103,8 +108,9 @@ define([
             var subtotal = 0;
             var feeViewModels = this.app.feeViewModels();
             for (var i = 0; i < feeViewModels.length; i++) {
-                if (feeViewModels[i].triggered()) {
-                    subtotal += feeViewModels[i].calculatedFee();
+                var calculatedFee = feeViewModels[i].calculatedFee();
+                if (feeViewModels[i].triggered() && calculatedFee !== null) {
+                    subtotal += calculatedFee;
                 }
                 if (this === feeViewModels[i]) {
                     break;
