@@ -293,7 +293,7 @@ hr {
 
 .fee-tier {
     padding: 12px;
-    font-size: 22px;
+    font-size: 1.6em;
 }
 
 .fee-tier.tier-not-found, .fee-tier .tier-value {
