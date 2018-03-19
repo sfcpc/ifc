@@ -31,13 +31,15 @@ define([
         }, this);
         
         this.tier = ko.computed(function() {
+            var self = this;
             var areas = this.isProjectInArea();
             if (areas) {
+                var prefix = this.areaName[0] + ' - ';
                 var tiers = areas.map(function(area) {
                     return area.areaName;
                 }).reduce(function(tiers, areaName) {
-                    if (areaName !== 'Eastern Neighborhoods Infrastructure Impact Fee') {
-                        var tierName = areaName.split('Eastern Neighborhoods Infrastructure Impact Fee - ')[1];
+                    if (areaName !== self.areaName[0]) {
+                        var tierName = areaName.split(prefix)[1];
                         tiers.push(tierName);
                     }
                     return tiers;
