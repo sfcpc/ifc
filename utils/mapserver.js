@@ -46,10 +46,9 @@ define([
                 var intersection = turf.intersect(projectGeom, areaGeom);
                 if (intersection !== undefined) {
                     if (!intersects) {
-                        intersects = areaGeom.areaName || true;
-                    } else if (areaGeom.areaName) {
-                        intersects += ',' + areaGeom.areaName;
+                        intersects = [];
                     }
+                    intersects.push(areaGeom);
                 }
             });
             return intersects;
