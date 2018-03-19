@@ -31,10 +31,19 @@ define([
         }, this);
         
         this.tier = ko.computed(function() {
-            var area = this.isProjectInArea();
-            if (area) {
-                var tiers = area.split('Eastern Neighborhoods Infrastructure Impact Fee - ');
-                tiers.shift();
+            var self = this;
+            var areas = this.isProjectInArea();
+            if (areas) {
+                var prefix = this.areaName[0] + ' - ';
+                var tiers = areas.map(function(area) {
+                    return area.areaName;
+                }).reduce(function(tiers, areaName) {
+                    if (areaName !== self.areaName[0]) {
+                        var tierName = areaName.split(prefix)[1];
+                        tiers.push(tierName);
+                    }
+                    return tiers;
+                }, []);
                 if (tiers.length > 1 || !(tiers[0] in this.fees)) {
                     return null;
                 }
