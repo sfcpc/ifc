@@ -137,7 +137,7 @@ hr {
 }
 
 .selected-fee-form .form-group {
-    padding: 20px;
+    padding: 20px 20px 0 20px;
 }
 
 .report {
@@ -225,6 +225,7 @@ hr {
 
 .next-btn {
     float: right;
+    margin: 20px;
 }
 
 .no-fees-triggered {
