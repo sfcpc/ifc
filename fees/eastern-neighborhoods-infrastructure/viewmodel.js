@@ -30,11 +30,11 @@ define([
                 this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
         }, this);
         
-        var defaultAreaName = this.areaName[0];
-        var prefix = defaultAreaName + ' - ';
         this.tier = ko.computed(function() {
             var areas = this.isProjectInArea();
             if (areas) {
+                var defaultAreaName = this.areaName[0];
+                var prefix = defaultAreaName + ' - ';
                 var tiers = areas.map(function(area) {
                     return area.areaName;
                 }).reduce(function(tierNames, areaName) {
