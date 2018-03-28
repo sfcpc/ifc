@@ -18,6 +18,17 @@
 
         <label for="pdrToNonRes">PDR to Non-Residential (GFA)</label>
         <input type="number" class="form-control" id="pdrToNonRes" data-bind="value: fee.pdrToNonRes, valueUpdate: 'keyup'">
+
+        <hr>
+        <h4>Replacement of Use</h4>
+        <label for="nonResToResReplacemet">Non-Residential to Residential (GFA)</label>
+        <input type="number" class="form-control" id="nonResToResReplacement" data-bind="value: fee.nonResToResReplacement, valueUpdate: 'keyup'">
+
+        <label for="pdrToResReplacemet">PDR to Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToResReplacement" data-bind="value: fee.pdrToResReplacement, valueUpdate: 'keyup'">
+
+        <label for="pdrToNonResReplacement">PDR to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToNonResReplacement" data-bind="value: fee.pdrToNonResReplacement, valueUpdate: 'keyup'">
     </div>
 </form>
 <!-- /ko -->
@@ -127,6 +138,20 @@
                 <span data-bind="dollarsText: fee.pdrToNonRes() * fee.fees[fee.tier()].pdrToNonRes"></span>
             </td>
         </tr>
+
+
+
+        <tr>
+            <th>
+                <h4>Replacement of Use</h4>
+            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
     </tbody>
 </table>
 <!-- /ko -->
