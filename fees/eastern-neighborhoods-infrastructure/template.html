@@ -18,6 +18,17 @@
 
         <label for="pdrToNonRes">PDR to Non-Residential (GFA)</label>
         <input type="number" class="form-control" id="pdrToNonRes" data-bind="value: fee.pdrToNonRes, valueUpdate: 'keyup'">
+
+        <hr>
+        <h4>Replacement of Use</h4>
+        <label for="nonResToResReplacemet">Non-Residential to Residential (GFA)</label>
+        <input type="number" class="form-control" id="nonResToResReplacement" data-bind="value: fee.nonResToResReplacement, valueUpdate: 'keyup'">
+
+        <label for="pdrToResReplacemet">PDR to Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToResReplacement" data-bind="value: fee.pdrToResReplacement, valueUpdate: 'keyup'">
+
+        <label for="pdrToNonResReplacement">PDR to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToNonResReplacement" data-bind="value: fee.pdrToNonResReplacement, valueUpdate: 'keyup'">
     </div>
 </form>
 <!-- /ko -->
@@ -92,11 +103,11 @@
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.fees[fee.tier()].nonResToRes"></span>/GFA
+                <span data-bind="dollarsText: fee.fees['Tier 1'].nonResToRes"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.nonResToRes() * fee.fees[fee.tier()].nonResToRes"></span>
+                <span data-bind="dollarsText: fee.nonResToRes() * fee.fees['Tier 1'].nonResToRes"></span>
             </td>
         </tr>
         <tr>
@@ -106,11 +117,11 @@
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.fees[fee.tier()].pdrToRes"></span>/GFA
+                <span data-bind="dollarsText: fee.fees['Tier 1'].pdrToRes"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.pdrToRes() * fee.fees[fee.tier()].pdrToRes"></span>
+                <span data-bind="dollarsText: fee.pdrToRes() * fee.fees['Tier 1'].pdrToRes"></span>
             </td>
         </tr>
         <tr>
@@ -120,13 +131,72 @@
             </td>
             <td>*</td>
             <td>
+                <span data-bind="dollarsText: fee.fees['Tier 1'].pdrToNonRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.pdrToNonRes() * fee.fees['Tier 1'].pdrToNonRes"></span>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <th>
+                <h4>Replacement of Use</h4>
+            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">Non-Residential to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.nonResToResReplacement"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.fees[fee.tier()].nonResToRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.nonResToResReplacement() * fee.fees[fee.tier()].nonResToRes"></span>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <th scope="row">PDR to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.pdrToResReplacement"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.fees[fee.tier()].pdrToRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.pdrToResReplacement() * fee.fees[fee.tier()].pdrToRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">PDR to Non-Residential</th>
+            <td>
+                <span data-bind="numericText: fee.pdrToNonResReplacement"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
                 <span data-bind="dollarsText: fee.fees[fee.tier()].pdrToNonRes"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.pdrToNonRes() * fee.fees[fee.tier()].pdrToNonRes"></span>
+                <span data-bind="dollarsText: fee.pdrToNonResReplacement() * fee.fees[fee.tier()].pdrToNonRes"></span>
             </td>
         </tr>
+
     </tbody>
 </table>
 <!-- /ko -->
