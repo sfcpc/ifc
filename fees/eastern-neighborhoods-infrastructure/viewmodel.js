@@ -69,7 +69,8 @@ define([
             var pdrToResReplacement = this.pdrToResReplacement() || 0;
             var pdrToNonResReplacement = this.pdrToNonResReplacement() || 0;
             if (tier) {
-                //console.log(tier);
+                console.log(tier);
+                //console.log("cccc"+fee.tier())
                 return (this.fees[tier].newRes * newRes) +
                     (this.fees[tier].newNonRes * newNonRes) +
                     (this.fees["Tier 1"].nonResToRes * nonResToRes) +
