@@ -25,9 +25,9 @@ define([
             }
             return this.newRes() !== null && this.newRes() !== '' &&
                 this.newNonRes() !== null && this.newNonRes() !== '' &&
-                this.nonResToRes() !== null && this.nonResToRes() !== '' &&
-                this.pdrToRes() !== null && this.pdrToRes() !== '' &&
-                this.pdrToNonRes() !== null && this.pdrToNonRes() !== '' &&
+                this.nonResToResEN() !== null && this.nonResToResEN() !== '' &&
+                this.pdrToResEN() !== null && this.pdrToResEN() !== '' &&
+                this.pdrToNonResEN() !== null && this.pdrToNonResEN() !== '' &&
                 this.nonResToResReplacement() !== null && this.nonResToResReplacement() !== '' &&
                 this.pdrToResReplacement() !== null && this.pdrToResReplacement() !== '' &&
                 this.pdrToNonResReplacement() !== null && this.pdrToNonResReplacement() !== '';
@@ -61,9 +61,9 @@ define([
             var tier = this.tier();
             var newRes = this.newRes() || 0;
             var newNonRes = this.newNonRes() || 0;
-            var nonResToRes = this.nonResToRes() || 0;
-            var pdrToRes = this.pdrToRes() || 0;
-            var pdrToNonRes = this.pdrToNonRes() || 0;
+            var nonResToResEN = this.nonResToResEN() || 0;
+            var pdrToResEN = this.pdrToResEN() || 0;
+            var pdrToNonResEN = this.pdrToNonResEN() || 0;
 
             var nonResToResReplacement = this.nonResToResReplacement() || 0;
             var pdrToResReplacement = this.pdrToResReplacement() || 0;
@@ -73,9 +73,9 @@ define([
                 //console.log("cccc"+fee.tier())
                 return (this.fees[tier].newRes * newRes) +
                     (this.fees[tier].newNonRes * newNonRes) +
-                    (this.fees["Tier 1"].nonResToRes * nonResToRes) +
-                    (this.fees["Tier 1"].pdrToRes * pdrToRes) +
-                    (this.fees["Tier 1"].pdrToNonRes * pdrToNonRes) +
+                    (this.fees["Tier 1"].nonResToRes * nonResToResEN) +
+                    (this.fees["Tier 1"].pdrToRes * pdrToResEN) +
+                    (this.fees["Tier 1"].pdrToNonRes * pdrToNonResEN) +
                     (this.fees[tier].nonResToRes * nonResToResReplacement) +
                     (this.fees[tier].pdrToRes * pdrToResReplacement) +
                     (this.fees[tier].pdrToNonRes * pdrToNonResReplacement);
