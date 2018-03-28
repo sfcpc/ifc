@@ -3,9 +3,9 @@
     "code": "JD_423",
     "paramNames": [
         "newRes",
-        "nonResToRes",
-        "pdrToRes",
-        "pdrToNonRes",
+        "nonResToResEN",
+        "pdrToResEN",
+        "pdrToNonResEN",
         "nonResToResReplacement",
         "pdrToResReplacement",
         "pdrToNonResReplacement",
