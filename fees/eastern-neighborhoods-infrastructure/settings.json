@@ -68,14 +68,14 @@
             "pdrToRes": 18.39,
             "pdrToNonRes": 15.57
         },
-        "Tier 2 - Affordable": {
+        "Tier 2 - 100% Affordable Housing Project": {
             "newRes": 11.32,
             "newNonRes": 14.15,
             "nonResToRes": 2.83,
             "pdrToRes": 7.08,
             "pdrToNonRes": 9.91
         },
-        "Tier 3 - Affordable": {
+        "Tier 3 - 100% Affordable Housing Project": {
             "newRes": 11.32,
             "newNonRes": 19.81,
             "nonResToRes": 2.83,
