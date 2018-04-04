@@ -30,26 +30,32 @@ define([
                 this.pdrToNonResEN() !== null && this.pdrToNonResEN() !== '' &&
                 this.nonResToResReplacement() !== null && this.nonResToResReplacement() !== '' &&
                 this.pdrToResReplacement() !== null && this.pdrToResReplacement() !== '' &&
-                this.pdrToNonResReplacement() !== null && this.pdrToNonResReplacement() !== '';
+                this.pdrToNonResReplacement() !== null && this.pdrToNonResReplacement() !== '' ;
         }, this);
 
         this.tier = ko.computed(function() {
+            //console.log("here")
             var areas = this.isProjectInArea();
             if (areas) {
                 var defaultAreaName = this.areaName[0];
                 var prefix = defaultAreaName + ' - ';
                 var tiers = areas.map(function(area) {
+
                     return area.areaName;
+
                 }).reduce(function(tierNames, areaName) {
+                    //console.log("here2")
                     if (areaName !== defaultAreaName) {
                         var tierName = areaName.split(prefix)[1];
                         tierNames.push(tierName);
                     }
+                    //console.log("tierNames: "+tierNames)
                     return tierNames;
                 }, []);
                 if (tiers.length > 1 || !(tiers[0] in this.fees)) {
                     return null;
                 }
+                //console.log("tiers[0]: "+tiers[0]);
                 return tiers[0];
             }
         }, this);
@@ -68,9 +74,23 @@ define([
             var nonResToResReplacement = this.nonResToResReplacement() || 0;
             var pdrToResReplacement = this.pdrToResReplacement() || 0;
             var pdrToNonResReplacement = this.pdrToNonResReplacement() || 0;
+
+            var allAffordable = this.allAffordable() || 0;
+
+            var tmpTier="";
+
+
+
+
             if (tier) {
-                console.log(tier);
+                //console.log(tier);
                 //console.log("cccc"+fee.tier())
+                //console.log("allAffordable: "+allAffordable);
+                //tmpTier=tier;
+                if (allAffordable && (tier == "Tier 2" || tier == "Tier 3") ) {
+                    tier = tier +  " - Affordable"
+                }
+                //console.log("tier: " + tier)
                 return (this.fees[tier].newRes * newRes) +
                     (this.fees[tier].newNonRes * newNonRes) +
                     (this.fees["Tier 1"].nonResToRes * nonResToResEN) +
