@@ -10,7 +10,7 @@
         "geometry",
         "paySomaFee"
     ],
-    "label": "South Of Market Non-Residential Open Space Fee",
+    "label": "South of Market Non-Residential Open Space Fee",
     "areaLayer": "4",
     "minNewNonResGFA": 1,
     "minNetNonResGFA": 1,
