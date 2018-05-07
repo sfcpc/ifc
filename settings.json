@@ -2,18 +2,18 @@
     "appName": "Impact Fee Calculator",
     "feeTypes": [
         "balboa-park-infrastructure",
+        "citywide-childcare-residential",
+        "downtown-park-fee",
+        "eastern-neighborhoods-infrastructure",
+        "market-octavia-affordable-housing",
+        "market-octavia-infrastructure",
         "rincon-hill-infrastructure",
         "soma-community-stabilization-fee",
         "soma-non-residential-open-space",
-        "visitacion-valley-infrastructure",
-        "market-octavia-infrastructure",
-        "downtown-park-fee",
-        "market-octavia-affordable-housing",
-        "van-ness-market-infrastructure",
         "transit-center-open-space",
         "transit-center-transportation",
-        "citywide-childcare-residential",
-        "eastern-neighborhoods-infrastructure"
+        "van-ness-market-infrastructure",
+        "visitacion-valley-infrastructure"
     ],
     "globalFeeParams": [
         "newRes",
@@ -39,41 +39,18 @@
     "upperMarketNCTLayer": "7",
     "center": [-13630478.763700977, 4544696.014222133],
     "zoom": 12,
-    "unsupportedFees": [{
+    "unsupportedFees": [
+        {
+            "label": "Affordable Housing Fee",
+            "code": "JD_415"
+        },
+        {
             "label": "Bicycle Parking Fee",
             "code": "JD_430"
         },
         {
-            "label": "Transportation Sustainability Fee",
-            "code": "JD_411A"
-        },
-        {
-            "label": "South of Market Non-Residential Open Space Fee",
-            "code": "JD_425"
-        },
-        {
             "label": "Child Care Fee: Office/Hotel Projects",
             "code": "JD_414"
-        },
-        {
-            "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
-            "code": "JD_426"
-        },
-        {
-            "label": "Transit Development Fee",
-            "code": "JD_411"
-        },
-        {
-            "label": "Jobs-Housing Linkage Fee",
-            "code": "JD_413"
-        },
-        {
-            "label": "Eastern Neighborhoods Residential Open Space Fee",
-            "code": "JD_427"
-        },
-        {
-            "label": "Public Artwork Fee",
-            "code": "JD_429"
         },
         {
             "label": "Downtown Special Development District",
@@ -84,16 +61,36 @@
             "code": "JD_417"
         },
         {
-            "label": "UMU District Affordable Housing Fee",
-            "code": "JD_419"
+            "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
+            "code": "JD_426"
         },
         {
-            "label": "Street Tree In-Leiu Fee",
+            "label": "Eastern Neighborhoods Residential Open Space Fee",
+            "code": "JD_427"
+        },
+        {
+            "label": "Jobs-Housing Linkage Fee",
+            "code": "JD_413"
+        },
+        {
+            "label": "Public Artwork Fee",
+            "code": "JD_429"
+        },
+        {
+            "label": "South of Market Non-Residential Open Space Fee",
             "code": "JD_425"
         },
         {
-            "label": "Affordable Housing Fee",
-            "code": "JD_415"
+            "label": "Transit Impact Development Fee (TIDF)",
+            "code": "JD_411"
+        },
+        {
+            "label": "Transportation Sustainability Fee (TSF)",
+            "code": "JD_411A"
+        },
+        {
+            "label": "UMU District Affordable Housing Fee",
+            "code": "JD_419"
         }
     ]
 }
