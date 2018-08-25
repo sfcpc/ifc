@@ -1,0 +1,31 @@
+{
+    "name": "jobs-housing-linkage",
+    "code": "JD_414A.4",
+    "paramNames": [
+        "newRes",
+        "newNonRes",
+        "nonResToRes",
+        "pdrToRes",
+        "pdrToNonRes",
+        "netNewUnits",
+        "resGFA",
+        "nonResGFA",
+        "geometry",
+        "newConstructionCredit",
+        "changeOfUseCredit"
+    ],
+    "label": "Jobs-Housing Linkage Fee",
+    "minNetNewUnits": 1,
+    "minNewNonRes": 1,
+    "minResGFA": 800,
+    "lessThanOrEqualTo9": {
+        "feePerNewRes": 1.02,
+        "feePerNonResToRes": 0.15,
+        "feePerPDRToRes": 0.15
+    },
+    "greaterThanOrEqualTo10": {
+        "feePerNewRes": 2.03,
+        "feePerNonResToRes": 0.29,
+        "feePerPDRToRes": 0.29
+    }
+}
