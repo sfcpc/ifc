@@ -20,3 +20,18 @@
     2.  any free-standing retail use encompassed in the definition of "general grocery" proscribed in Section 790.102(a) of this Code, and which does not exceed more than 75,000 square feet of retail or other space; or
     
     3.  any mixed-use space consisting of residential space and pharmacy retail space not exceeding 50,000 square feet, or general grocery retail space not exceeding 75,000 square feet.
+
+[Fees](http://forms.sfplanning.org/Impact_Fee_Schedule.pdf): 
+*  Entertainment: $25.15/gsf
+*  Hotel: $20.18/gsf
+*  Integrated PDR: $21.19/gsf
+*  Office: $26.95/gsf
+*  Research and Development: $17.96/gsf
+*  Retail: $25.15/gsf
+*  Small Enterprise Workspace: $21.19/gsf
+
+[Thresholds](http://forms.sfplanning.org/Impact_Fee_Schedule.pdf):
+*  Residential: 
+    * N/A
+*  Non-Residential:
+    *  Increase by 25,000 g.s.f. or more of any combination of entertainment, hotel, Integrated PDR, office, research and development, retail, and/or Small Enterprise Workspace
