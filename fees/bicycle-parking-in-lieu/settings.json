@@ -1,0 +1,25 @@
+{
+    "name": "bicycle-parking-in-lieu",
+    "code": "JD_425",
+    "paramNames": [
+        "seniorDwellingUnits",
+        "studentDwellingUnits",
+        "housingBeds",
+        "seniorHousingBeds",
+        "sudentHousingBeds",
+        "numberOfBicycleSpacesRequired",
+        "payInLeiu",
+        "numberOfBicycleSpacesInLeiu",
+        "netNewUnits",
+        "resGFA"
+    ],
+    "label": "Bicycle Parking In Leiu Fee",
+    "numberOfDwellingUnitsPerClass2BicycleParking": 20,
+    "numberOfGroupHousingBedsPerClass2BicycleParking": 100,
+    "groupHousingMinimumClass2Bicycle": 2,
+    "studentHousingMultiplier": 1.5,
+    "numberOfSeniorHousingPerClass2BicycleParking": 50,
+    "seniorHousingMinimumClass2Bicycle": 2,
+    "class2BicycleParkingInLeiuFee": 489.68,
+    "maxInLeiu": 20
+}
