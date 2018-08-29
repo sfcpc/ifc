@@ -1,0 +1,115 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>New Construction or Addition</h4>
+
+        <label for="officeGFA">Increase in Office of Subject Project (GFA)</label>
+        <input type="number" class="form-control" id="officeGFA" placeholder="value" data-bind="value: fee.officeGFA, valueUpdate: 'keyup'">
+
+        <label for="hotelGFA">Increase in Hotel of Subject Project (GFA)</label>
+        <input type="number" class="form-control" id="hotelGFA" placeholder="value" data-bind="value: fee.hotelGFA, valueUpdate: 'keyup'">
+
+        <label for="totalProjGFA">Increase in Office and Hotel of Total Project (GFA)</label>
+        <input type="number" class="form-control" id="totalProjGFA" placeholder="value" data-bind="value: fee.totalProjGFA, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h4>Licensed Child Care Facility</h4>
+
+        <label for="ccfGFA">Area of on-site or off-site licensed child care facility (GFA)</label>
+        <input type="number" class="form-control" id="ccfGFA" placeholder="Input the GFA of the licensed child care facility." min="0" data-bind="value: fee.ccfGFA, valueUpdate: 'keyup', attr: {}">
+
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+        <!-- ko if: parseFloat(fee.ccfGFA()) >= parseFloat(fee.minCcfGFARequired()) -->
+            <thead>
+                <tr>
+                    <th>Required Childcare GFA</th>
+                    <th></th>
+                    <th>Proposed Childcare GFA</th>
+                    <th></th>
+                    <th>Assessed Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span data-bind="numericText: fee.minCcfGFARequired()"></span> GFA
+                    </td>
+                    <td></td>
+                    <td>
+                        <span data-bind="numericText: fee.ccfGFA"></span> GFA
+                    </td>
+                    <td>=</td>
+                    <td>
+                        <span data-bind="dollarsText: 0"></span>
+                    </td>
+                </tr>
+            </tbody>
+        <!-- /ko -->
+
+        <!-- ko if: parseFloat(fee.ccfGFA()) === 0 -->
+            <thead>
+                <tr>
+                    <th>Increase in Hotel and Office GFA</th>
+                    <th></th>
+                    <th>Fee per GFA</th>
+                    <th></th>
+                    <th>Assessed Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span data-bind="numericText: (parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))"></span> GFA
+                    </td>
+                    <td>*</td>
+                    <td>
+                        <span data-bind="dollarsText: fee.inLieuFee"></span>/GFA
+                    </td>
+                    <td>=</td>
+                    <td>
+                        <span data-bind="dollarsText: fee.inLieuFee * (parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))"></span>
+                    </td>
+                </tr>
+            </tbody>
+        <!-- /ko -->
+
+        <!-- ko if: parseFloat(fee.ccfGFA()) > 0 && parseFloat(fee.ccfGFA()) < parseFloat(fee.minCcfGFARequired()) -->
+            <thead>
+                <tr>
+                    <th>Subject Project GFA</th>
+                    <th></th>
+                    <th>Subject Project GFA/Total Project GFA</th>
+                    <th></th>
+                    <th>Proposed Childcare Facility GFA</th>
+                    <th></th>
+                    <th>Assessed Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span data-bind="numericText: (parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))"></span> GFA
+                    </td>
+                    <td>-</td>
+                    <td>
+                        <span data-bind="numericText: parseFloat(fee.subjectProjectPercentage())"></span>
+                    </td>
+                    <td>*</td>
+                    <td>
+                        <span data-bind="numericText: fee.ccfGFA"></span> GFA
+                    </td>
+                    <td>=</td>
+                    <td>
+                        <span data-bind="dollarsText: parseFloat((parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))) - (parseFloat(fee.subjectProjectPercentage()) * parseFloat(fee.ccfGFA()))"></span>
+                    </td>
+                </tr>
+            </tbody>
+        <!-- /ko -->
+</table>
+<!-- /ko -->

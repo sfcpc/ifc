@@ -3,6 +3,7 @@
     "feeTypes": [
         "balboa-park-infrastructure",
         "citywide-childcare-residential",
+        "citywide-childcare-hotel-office",
         "downtown-park-fee",
         "eastern-neighborhoods-infrastructure",
         "market-octavia-affordable-housing",
@@ -21,7 +22,6 @@
         "pdrToRes",
         "pdrToNonRes",
         "retailGFA",
-        "hotelGFA",
         "institutionalGFA",
         "industrialGFA",
         "parcelArea"
