@@ -11,10 +11,15 @@ define([
 
         AbstractFee.apply(this, [params]);
 
+        this.netNewNonResGFA = ko.computed(function() {
+            return parseFloat(this.nonResGFA()) + parseFloat(this.newNonRes());
+        }, this);
+
         this.triggered = ko.computed(function() {
             return (
                     this.netNewUnits() >= 1 ||
-                    this.resGFA() >= 1
+                    this.resGFA() >= 1 ||
+                    this.netNewNonResGFA() >= 1
                 );
         }, this);
 
@@ -37,26 +42,31 @@ define([
             return this.netNewUnits() - this.seniorDwellingUnits() - this.studentDwellingUnits();
         }, this);
 
-        this.numberOfBicycle
-
-        this.feeIfRequired = ko.computed(function() {
-            var netNewUnits = this.netNewUnits() || 0;
-
-            return (
-                (netNewUnits / this.numberOfDwellingUnitsPerClass2BicycleParking)
-            ) * this.class2BicycleParkingInLeiuFee;
-        }, this);
-
         this.calculatedFee = ko.computed(function() {
-            if (!this.triggered() || !this.payInLeiu()) {
+            if (!this.triggered() || this.numberOfBicycleSpacesInLeiu()== 0) {
                 return 0;
             }
-            return this.feeIfRequired();
+            return this.numberOfBicycleSpacesInLeiu() * this.class2BicycleParkingInLeiuFee;
         }, this);
 
         this.numberOfBicycleSpacesRequired = ko.computed(function() {
-            return (this.netNewUnits() - this.seniorDwellingUnits() - this.studentDwellingUnits()) / this.numberOfDwellingUnitsPerClass2BicycleParking ;
+            return (
+                (this.studentDwellingUnits() / this.numberOfDwellingUnitsPerClass2BicycleParking * this.studentHousingMultiplier) +
+                ((this.seniorDwellingUnits()>=100) ? (this.seniorDwellingUnits() / this.numberOfSeniorHousingPerClass2BicycleParking * 2) : 2) +
+                (this.standardDwellingUnits()<=3 ? 0 : this.standardDwellingUnits() / this.numberOfDwellingUnitsPerClass2BicycleParking)
+            )
         }, this);
+
+        this.maxInLeiuOption = ko.computed(function() {
+            var max = (this.numberOfBicycleSpacesRequired() / 2);
+            if (max > this.maxInLeiu){
+                return this.maxInLeiu;
+            } else if (max <= 1) {
+                return 0;
+            }
+            return max;
+        }, this);
+
     };
 
     bicycleParkingInLeiu.settings = settings;

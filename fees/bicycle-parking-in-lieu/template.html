@@ -7,10 +7,10 @@
             <!-- ko if: fee.netNewUnits() >= 1 -->
             <h5>Dwelling Units (<span data-bind="numericText: fee.netNewUnits"></span> total units)</h5>
             <label for="seniorDwellingUnits">New Senior Housing or Dwelling Units dedicated to persons with physical disabilities</label>
-            <input type="number" class="form-control" id="seniorDwellingUnits" placeholder="value" data-bind="value: fee.seniorDwellingUnits, valueUpdate: 'keyup', attr: { 'max' : fee.maxSeniorDwellingUnits(), 'min' : 0}">
+            <input type="number" class="form-control" id="seniorDwellingUnits" placeholder="value" min="0" data-bind="value: fee.seniorDwellingUnits, valueUpdate: 'keyup', attr: { 'max' : fee.maxSeniorDwellingUnits()}">
 
             <label for="studentDwellingUnits">New Student Dwelling Units</label>
-            <input type="number" class="form-control" id="studentDwellingUnits" placeholder="value" data-bind="value: fee.studentDwellingUnits, valueUpdate: 'keyup', attr: { 'max' : fee.maxStudentDwellingUnits() , 'min' : 0}">
+            <input type="number" class="form-control" id="studentDwellingUnits" placeholder="value" min="0" data-bind="value: fee.studentDwellingUnits, valueUpdate: 'keyup', attr: { 'max' : fee.maxStudentDwellingUnits()}">
             <hr>
             <!-- /ko -->
 
@@ -18,29 +18,51 @@
             <!-- ko if: fee.resGFA() >= 1 -->
             <h5>Group Housing (Homeless Shelters Exempt)</h5>
             <label for="housingBeds">New Group Housing (including SRO Units) Beds</label>
-            <input type="number" class="form-control" id="housingBeds" placeholder="value" data-bind="value: fee.housingBeds, valueUpdate: 'keyup', attr: { 'min' : 0}">
+            <input type="number" class="form-control" id="housingBeds" placeholder="value" min="0" data-bind="value: fee.housingBeds, valueUpdate: 'keyup'">
 
             <label for="seniorHousingBeds">New Senior Housing or Beds dedicated to persons with physical disabilities</label>
-            <input type="number" class="form-control" id="seniorHousingBeds" placeholder="value" data-bind="value: fee.seniorHousingBeds, valueUpdate: 'keyup', attr: { 'min' : 0}">
+            <input type="number" class="form-control" id="seniorHousingBeds" placeholder="value" min="0" data-bind="value: fee.seniorHousingBeds, valueUpdate: 'keyup'">
 
             <label for="sudentHousingBeds">New Student Housing Beds</label>
-            <input type="number" class="form-control" id="sudentHousingBeds" placeholder="value" data-bind="value: fee.sudentHousingBeds, valueUpdate: 'keyup', attr: { 'min' : 0}">
+            <input type="number" class="form-control" id="sudentHousingBeds" placeholder="value" min="0" data-bind="value: fee.sudentHousingBeds, valueUpdate: 'keyup'">
             <hr>
             <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if: fee.netNewNonResGFA() >= 1 -->
+        <h4>Non-Residential</h4>
 
+            <h5>Automotive Uses (Non Parking Lots)</h5>
+            <label for="automotiveParkingSpots">Parking Lots (number of Parking Spaces)</label>
+            <input type="number" class="form-control" id="automotiveParkingSpots" placeholder="value" min="0" data-bind="value: fee.automotiveParkingSpots, valueUpdate: 'keyup'">
+
+            <label for="automotiveNonParking">Other, Non Parking Lot, Automotive Uses (Square footage)</label>
+            <input type="number" class="form-control" id="automotiveNonParking" placeholder="value" min="0" data-bind="value: fee.automotiveNonParking, valueUpdate: 'keyup'">
+            <hr>
+
+            <h5>Entertainment, Arts and Recreation Uses Category</h5>
+            <label for="entertainmentArena">Sports Stadium, Arena, Amphitheater, or other venue of public gathering with a capacity of greater than 2,000 people</label>
+            <input type="number" class="form-control" id="entertainmentArena" placeholder="value" min="0" data-bind="value: fee.entertainmentArena, valueUpdate: 'keyup'">
+
+            <label for="entertainmentArts">Arts Activities</label>
+            <input type="number" class="form-control" id="entertainmentArts" placeholder="value" min="0" data-bind="value: fee.entertainmentArts, valueUpdate: 'keyup'">
+
+            <label for="entertainmentGeneral">Entertainment, Arts and Recreation Uses not included above</label>
+            <input type="number" class="form-control" id="entertainmentGeneral" placeholder="value" min="0" data-bind="value: fee.entertainmentGeneral, valueUpdate: 'keyup'">
+            <hr>
         <!-- /ko -->
         <div class="">
-            Total Class 2 Bicycle Parking required: <span data-bind="numericText: fee.numberOfBicycleSpacesRequired"></span> GFA
+            Total Class 2 Bicycle Parking required: <span data-bind="numericText: fee.numberOfBicycleSpacesRequired"></span>
         </div>
-        <input type="checkbox" id="payInLeiu" data-bind="checked: fee.payInLeiu">
-        <label for="payInLeiu">Pay this fee (<span data-bind="dollarsText: fee.feeIfRequired"></span>) in lieu of providing the required open space?</label>
-
+        <hr>
+        <label for="numberOfBicycleSpacesInLeiu">Number of Class 2 Bicycle Parking In Lieu Fee (Max: <span data-bind="numericText: fee.maxInLeiuOption"></span>): </label>
+        <input type="number" class="form-control" id="numberOfBicycleSpacesInLeiu" placeholder="value" min="0" data-bind="value: fee.numberOfBicycleSpacesInLeiu, valueUpdate: 'keyup', attr: { 'max' : fee.maxInLeiuOption()}">
     </div>
 </form>
 <!-- /ko -->
 
 <!-- ko if: state === 'report' && fee.triggered() -->
 <table class="table">
+    <!-- ko if: fee.netNewUnits() >= 1 || fee.resGFA() >= 1 -->
     <thead>
         <tr>
             <th>
@@ -106,7 +128,7 @@
             </td>
             <td>*</td>
             <td>
-                1 / <span data-bind="numericText: fee.numberOfGroupHousingBedsPerClass2BicycleParking"></span>
+                2 / <span data-bind="numericText: fee.numberOfGroupHousingBedsPerClass2BicycleParking"></span>
             </td>
             <td>=</td>
             <td>
@@ -143,18 +165,79 @@
         </tr>
         <!-- /ko -->
     </tbody>
+    <!-- /ko -->
+    <!-- ko if: fee.netNewNonResGFA() >= 1 -->
+    <thead>
+        <tr>
+            <th>
+                <h4>Non-Residential</h4>
+            </th>
+            <th>Units or Beds</th>
+            <th></th>
+            <th>Bicycle Parking Per Unit</th>
+            <th></th>
+            <th>Required Class 2 Bicycle Parking</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ko if: fee.netNewNonResGFA() >= 1 -->
+        <tr>
+            <th scope="row">New Group Housing (including SRO Units)</th>
+            <td>
+                <span data-bind="numericText: fee.housingBeds"></span>
+            </td>
+            <td>*</td>
+            <td>
+                2 / <span data-bind="numericText: fee.numberOfGroupHousingBedsPerClass2BicycleParking"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="numericText: fee.housingBeds()>=100 || fee.housingBeds()==0  ? (fee.housingBeds() / fee.numberOfGroupHousingBedsPerClass2BicycleParking * 2) : 2"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Senior Group Housing Group Beds</th>
+            <td>
+                <span data-bind="numericText: fee.seniorHousingBeds"></span>
+            </td>
+            <td>*</td>
+            <td>
+                2 / <span data-bind="numericText: fee.numberOfSeniorHousingPerClass2BicycleParking"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="numericText: fee.seniorHousingBeds()>=50 || fee.seniorHousingBeds()==0 ? (fee.seniorHousingBeds() / fee.numberOfSeniorHousingPerClass2BicycleParking * 2) : 2"></span> (Min 2 if any beds)
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Student Group Housing Beds</th>
+            <td>
+                <span data-bind="numericText: fee.sudentHousingBeds"></span>
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="numericText: fee.studentHousingMultiplier * 2"></span> / <span data-bind="numericText: fee.numberOfGroupHousingBedsPerClass2BicycleParking"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="numericText: fee.sudentHousingBeds()>=100 || fee.sudentHousingBeds()==0  ? (fee.sudentHousingBeds() / fee.numberOfGroupHousingBedsPerClass2BicycleParking * fee.studentHousingMultiplier * 2) : 2"></span> (Min 2 if any beds)
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tbody>
+    <!-- /ko -->
 </table>
 
-<!-- ko if: fee.payInLeiu() -->
+<!-- ko if: fee.numberOfBicycleSpacesInLeiu() > 0 -->
 <table class="table">
     <thead>
         <tr>
             <th>
                 <h4>In lieu fee applied</h4>
             </th>
-            <th>Open space required</th>
+            <th>Class 2 Bicycle Parking In Leiu</th>
             <th></th>
-            <th>Fee per GFA</th>
+            <th>Fee per Space In Leiu</th>
             <th></th>
             <th>Assessed Fee</th>
         </tr>
@@ -162,11 +245,11 @@
         <tr>
             <td></td>
             <td>
-                <span data-bind="numericText: fee.openSpaceRequired"></span> GFA
+                <span data-bind="numericText: fee.numberOfBicycleSpacesInLeiu"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.costMultiplier"></span>/GFA
+                <span data-bind="dollarsText: fee.class2BicycleParkingInLeiuFee"></span>/GFA
             </td>
             <td>=</td>
             <td>
@@ -177,7 +260,7 @@
 </table>
 <!-- /ko -->
 
-<!-- ko if: !fee.payInLeiu() -->
-<h4>Project required to provide <span data-bind="numericText: fee.openSpaceRequired"></span> GFA of open space in lieu of paying fee.</h4>
+<!-- ko if: fee.numberOfBicycleSpacesInLeiu() == 0 -->
+<h4>Project required to provide <span data-bind="numericText: fee.numberOfBicycleSpacesRequired"></span> spaces of Class 2 Bicycle Parking.</h4>
 <!-- /ko -->
 <!-- /ko -->
