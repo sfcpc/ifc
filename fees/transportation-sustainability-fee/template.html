@@ -1,0 +1,153 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>New Construction or Addition</h4>
+
+        <label for="newRes">New Residential (GFA)</label>
+        <input type="number" class="form-control" id="newRes" placeholder="value" data-bind="value: fee.newRes, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h4>Change of Use or Replacement of Use</h4>
+
+        <label for="nonResToRes">Non-Residential to Residential (GFA)</label>
+        <input type="number" class="form-control" id="nonResToRes" placeholder="value" data-bind="value: fee.nonResToRes, valueUpdate: 'keyup'">
+
+        <label for="pdrToRes">PDR to Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToRes" placeholder="value" data-bind="value: fee.pdrToRes, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h4>Credits</h4>
+
+        <label for="newConstructionCredit">New construction credit approved by Planning Dept. ($)</label>
+        <input type="number" class="form-control" id="newConstructionCredit" placeholder="See the Development Impact Fee Register for this credit." min="0" data-bind="value: fee.newConstructionCredit, valueUpdate: 'keyup', attr: {'max': fee.newConstructionFee}">
+
+        <label for="changeOfUseCredit">Change of use credit approved by Planning Dept. ($)</label>
+        <input type="number" class="form-control" id="changeOfUseCredit" placeholder="See the Development Impact Fee Register for this credit." min="0" data-bind="value: fee.changeOfUseCredit, valueUpdate: 'keyup', attr: {'max': fee.changeOfUseFee}">
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>New Construction</h4>
+            </th>
+            <th>GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Residential</th>
+            <td>
+                <span data-bind="numericText: fee.newRes"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newRes() * fee.feePerNewRes()"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h4>Change of Use or Replacement of Use</h4>
+            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">Non-Residential to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.nonResToRes"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes()"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">PDR to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.pdrToRes"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes()"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>Credits</h4>
+            </th>
+            <th>New construction</th>
+            <th></th>
+            <th>Change of use</th>
+            <th></th>
+            <th>Total credit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Credit calculation</th>
+            <td>
+                <span data-bind="dollarsText: fee.newConstructionCredit"></span>
+            </td>
+            <td>+</td>
+            <td>
+                <span data-bind="dollarsText: fee.changeOfUseCredit"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.feeCredit"></span>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Fee before credits</th>
+            <th></th>
+            <th>Fee credit</th>
+            <th></th>
+            <th>Final Fee</th>
+        </tr>
+        <tr>
+            <th scope="row">Fee calculation</th>
+            <td>
+                <span data-bind="dollarsText: fee.uncreditedFee"></span>
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="dollarsText: fee.feeCredit"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.calculatedFee"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- /ko -->

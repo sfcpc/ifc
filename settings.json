@@ -13,7 +13,8 @@
         "transit-center-open-space",
         "transit-center-transportation",
         "van-ness-market-infrastructure",
-        "visitacion-valley-infrastructure"
+        "visitacion-valley-infrastructure",
+        "transportation-sustainability-fee"
     ],
     "globalFeeParams": [
         "newRes",
