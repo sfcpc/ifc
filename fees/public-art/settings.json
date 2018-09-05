@@ -11,7 +11,8 @@
         "geometry"
     ],
     "label": "Public Art Fee",
-    "areaLayer": "8",
+    "areaLayer": "11",
+    "namedAreaLayer": "8",
     "mapFieldName": "zoning_sim",
     "areaName": [
         "RH DTR",

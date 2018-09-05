@@ -15,7 +15,7 @@ define([
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
-                    this.firstConstructionDocument() === "true"
+                    this.firstConstructionDocument() === true
                 );
         }, this);
 
@@ -23,8 +23,13 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.constructionCost() !== null && this.constructionCost() !== '' &&
-                this.posRequirement() !== null && this.posRequirement() !== '';
+
+            if (this.nonResProject()) {
+                return this.constructionCost() !== null && this.constructionCost() !== '' && this.posRequirement() !== null && this.posRequirement() !== '';
+            }
+            else {
+                return this.constructionCost() !== null && this.constructionCost() !== ''
+            };
         }, this);
 
 

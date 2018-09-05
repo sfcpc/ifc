@@ -52,7 +52,7 @@ define([
             areaNames.forEach(function (areaName) {
                 mapserverUtils.getAreaGeoJSON(areaName, function (areaGeom) {
                     self.areaGeoms.push(areaGeom);
-                }, self.mapFieldName, self.areaLayer);
+                }, self.mapFieldName, self.namedAreaLayer);
             });
         }
         if (this.areaLayer) {

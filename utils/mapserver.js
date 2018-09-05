@@ -8,9 +8,9 @@ define([
     var geojsonFormat = new ol.format.GeoJSON();
 
     var mapserverUtils = {
-        getAreaGeoJSON: function(areaName, callback, fieldName, areaLayer) {
+        getAreaGeoJSON: function(areaName, callback, fieldName, namedAreaLayer) {
             fieldName = fieldName || 'FEE';
-            areaLayer = areaLayer || settings.areaLayer;
+            areaLayer = namedAreaLayer || settings.areaLayer;
             $.getJSON(settings.mapserver + '/' + areaLayer + '/query', {
                 where: fieldName + "='" + areaName + "'",
                 geometryType: 'esriGeometryEnvelope',
