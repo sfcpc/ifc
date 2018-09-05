@@ -8,9 +8,11 @@ define([
     var geojsonFormat = new ol.format.GeoJSON();
 
     var mapserverUtils = {
-        getAreaGeoJSON: function(areaName, callback) {
-            $.getJSON(settings.mapserver + '/' + settings.areaLayer + '/query', {
-                where: "FEE='" + areaName + "'",
+        getAreaGeoJSON: function(areaName, callback, fieldName, areaLayer) {
+            fieldName = fieldName || 'FEE';
+            areaLayer = areaLayer || settings.areaLayer;
+            $.getJSON(settings.mapserver + '/' + areaLayer + '/query', {
+                where: fieldName + "='" + areaName + "'",
                 geometryType: 'esriGeometryEnvelope',
                 spatialRel: 'esriSpatialRelIntersects',
                 returnGeometry: true,

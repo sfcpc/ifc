@@ -1,0 +1,99 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>Total Construction Cost of Building or Addition</h4>
+
+        <label for="constructionCost">Construction Cost ($)</label>
+        <input type="number" class="form-control" id="constructionCost" data-bind="value: fee.constructionCost, valueUpdate: 'keyup'">
+
+    </div>
+
+    <div class="form-group">
+            <input type="checkbox" id="nonResProject" data-bind="checked: fee.nonResProject"/>
+            <label>Check box if this is a non-residential project</label>
+    </div>
+
+    <!-- ko if: fee.nonResProject() -->
+    <div class="form-group">
+        <h4>Public Open Space Requirement(GFA)</h4>
+        <label for="publicOpenSpace">Ground Floor Open Space (GFA)</label>
+        <input type="number" class="form-control" id="posRequirement" data-bind="value: fee.posRequirement, valueUpdate: 'keyup'">
+    </div>
+    <!-- /ko -->
+
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <!-- ko if: fee.nonResProject() -->
+    <thead>
+        <tr>
+            <th>
+                <h4>Land Use</h4>
+            </th>
+            <th>Total Project Cost</th>
+            <th></th>
+            <th>Fee Percentage</th>
+            <th></th>
+            <th>Proposed Public Open Space</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Non-Residential</th>
+            <td>
+                $<span data-bind="numericText: fee.constructionCost()"></span>
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="numericText: 1"></span> %
+            </td>
+            <td></td>
+            <td>
+                <span data-bind="numericText: fee.posRequirement()"></span> GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.publicArtFee"></span>
+            </td>
+        </tr>
+    </tbody>
+    <!-- /ko -->
+
+    <!-- ko if: !fee.nonResProject() -->
+    <thead>
+        <tr>
+            <th>
+                <h4>Land Use</h4>
+            </th>
+            <th>Total Project Cost</th>
+            <th></th>
+            <th>Fee Percentage</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Residential</th>
+            <td>
+                $<span data-bind="numericText: fee.constructionCost()"></span>
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="numericText: 1"></span> %
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.publicArtFee"></span>
+            </td>
+        </tr>
+    </tbody>
+    <!-- /ko -->
+
+
+</table>
+<!-- /ko -->
