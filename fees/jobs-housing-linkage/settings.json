@@ -1,0 +1,31 @@
+{
+    "name": "jobs-housing-linkage",
+    "code": "JD_414A.4",
+    "paramNames": [
+        "newRes",
+        "newNonRes",
+        "nonResToRes",
+        "pdrToRes",
+        "pdrToNonRes",
+        "netNewUnits",
+        "resGFA",
+        "nonResGFA",
+        "newEnt",
+        "newHotel",
+        "newIntegratedPDR",
+        "newOffice",
+        "newResearchAndDevelopment",
+        "newRetail",
+        "newSmallEnterpriseWorkspace",
+        "feeCredit"
+    ],
+    "label": "Jobs-Housing Linkage Fee",
+    "minNonResGFA": 25000,
+    "feePerNewEntertainment": 25.15,
+    "feePerNewHotel": 20.18,
+    "feePerNewIntegratedPDR": 21.19,
+    "feePerNewOffice": 26.95,
+    "feePerNewResearchAndDevelopment": 17.96,
+    "feePerNewRetail": 25.15,
+    "feePerNewSmallEnterpriseWorkspace": 21.19
+}

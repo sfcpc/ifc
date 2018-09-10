@@ -5,6 +5,7 @@
         "citywide-childcare-residential",
         "downtown-park-fee",
         "eastern-neighborhoods-infrastructure",
+        "jobs-housing-linkage",
         "market-octavia-affordable-housing",
         "market-octavia-infrastructure",
         "rincon-hill-infrastructure",
@@ -68,10 +69,6 @@
         {
             "label": "Eastern Neighborhoods Residential Open Space Fee",
             "code": "JD_427"
-        },
-        {
-            "label": "Jobs-Housing Linkage Fee",
-            "code": "JD_413"
         },
         {
             "label": "Public Artwork Fee",
