@@ -30,7 +30,6 @@ define([
             return this.feeCredit() !== null && this.feeCredit() !== '';
         }, this);
 
-
         this.uncreditedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
