@@ -50,10 +50,31 @@ define([
         }, this);
 
         this.numberOfBicycleSpacesRequired = ko.computed(function() {
+            var residentialCalculation = this.netNewUnits() <= 3 ? 0
+                : ((this.studentDwellingUnits() / this.numberOfDwellingUnitsPerClass2BicycleParking) * this.studentHousingMultiplier) +
+                  ((this.seniorDwellingUnits() === '0' || this.seniorDwellingUnits() === null || this.seniorDwellingUnits() === '') ? 0
+                      : (this.seniorDwellingUnits() < 100 ? 2
+                          : (this.seniorDwellingUnits() / this.numberOfSeniorHousingPerClass2BicycleParking * 2))) +
+                  (this.standardDwellingUnits() / this.numberOfDwellingUnitsPerClass2BicycleParking);
+
+            var automotiveCalculation =
+                ((this.automotiveParkingSpots() === '0' || this.automotiveParkingSpots() === null || this.automotiveParkingSpots() === '') ? 0
+                    : Math.max(this.automotiveParkingSpots() / 20, 6)) +
+                    ((this.automotiveNonParking() === '0' || this.automotiveNonParking() === null || this.automotiveNonParking() === '') ? 0
+                        : (this.automotiveNonParking() > 5000 ? 4 : 2));
+
+            var entertainmentCalculation = 0;
+            var industrialCalculation = 0;
+            var institutionalCalculation = 0;
+            var salesCalculation = 0;
+
             return (
-                (this.studentDwellingUnits() / this.numberOfDwellingUnitsPerClass2BicycleParking * this.studentHousingMultiplier) +
-                (this.seniorDwellingUnits() === 0) ? 0 : (((this.seniorDwellingUnits() >= 100) ? (this.seniorDwellingUnits() / this.numberOfSeniorHousingPerClass2BicycleParking * 2) : 2)) +
-                (this.standardDwellingUnits() <= 3 ? 0 : this.standardDwellingUnits() / this.numberOfDwellingUnitsPerClass2BicycleParking)
+                residentialCalculation +
+                automotiveCalculation +
+                entertainmentCalculation +
+                industrialCalculation +
+                institutionalCalculation +
+                salesCalculation
             );
         }, this);
 
