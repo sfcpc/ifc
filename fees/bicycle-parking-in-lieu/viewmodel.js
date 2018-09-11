@@ -27,7 +27,7 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return true;
+            return this.numberOfBicycleSpacesInLeiu() !== null && this.numberOfBicycleSpacesInLeiu() !== '';
         }, this);
 
         this.maxSeniorDwellingUnits = ko.computed(function() {
@@ -63,7 +63,10 @@ define([
                     ((this.automotiveNonParking() === '0' || this.automotiveNonParking() === null || this.automotiveNonParking() === '') ? 0
                         : (this.automotiveNonParking() > 5000 ? 4 : 2));
 
-            var entertainmentCalculation = 0;
+            var entertainmentCalculation = (this.entertainmentArena() >= 2000 ? (this.entertainmentArena()) * 0.05 : 0) +
+                (this.entertainmentArts() > 0 ? Math.max(2, this.entertainmentArts() / 2500) : 0);
+
+            // this.entertainmentGeneral()
             var industrialCalculation = 0;
             var institutionalCalculation = 0;
             var salesCalculation = 0;
@@ -80,7 +83,9 @@ define([
 
         this.maxInLeiuOption = ko.computed(function() {
             var max = (this.numberOfBicycleSpacesRequired() / 2);
-            if (max > this.maxInLeiu) {
+            if (this.numberOfBicycleSpacesRequired() <= 4) {
+                return this.numberOfBicycleSpacesRequired();
+            } else if (max > this.maxInLeiu) {
                 return this.maxInLeiu;
             } else if (max <= 1) {
                 return 0;
