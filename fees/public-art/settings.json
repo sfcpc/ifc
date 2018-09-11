@@ -19,15 +19,14 @@
         "TB DTR",
         "SB-DTR",
         "SLI",
+        "SLR",
         "SSO",
+        "C-M",
         "UMU",
         "WMUG",
         "WMUO",
-        "SALI",
-        "MUG",
-        "MUO",
-        "MUR",
-        "C-2"
+        "SALI"
+
     ],
     "maxNonResArtFeePOS1499": 500000,
     "maxNonResArtFeePOS3000": 750000
