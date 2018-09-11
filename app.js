@@ -86,7 +86,6 @@ define([
             var changeOfUse = this.changeOfUse();
             var officeGFA = this.officeGFA();
             var hotelGFA = this.hotelGFA();
-            var firstConstructionDocument = this.firstConstructionDocument();
             return newNonRes !== null && newNonRes !== '' &&
                 nonResGFA !== null && nonResGFA !== '' &&
                 pdrGFA !== null && pdrGFA !== '' &&
@@ -94,7 +93,6 @@ define([
                 changeOfUse !== null && changeOfUse !== '' &&
                 officeGFA !== null && officeGFA !== '';
                 hotelGFA !== null && hotelGFA !== '';
-                firstConstructionDocument !== null && firstConstructionDocument !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {

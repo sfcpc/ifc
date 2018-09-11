@@ -29,11 +29,13 @@ define([
                     console.error('Get fee area failed: ' + data['error'].message);
                     return;
                 }
-                var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
-                geom = geojsonFormat.writeGeometry(geom);
-                geom = JSON.parse(geom);
-                geom.areaName = areaName;
-                callback(geom);
+                if (data.features.length > 0){
+                    var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
+                    geom = geojsonFormat.writeGeometry(geom);
+                    geom = JSON.parse(geom);
+                    geom.areaName = areaName;
+                    callback(geom);
+                }
             });
         },
         isProjectInArea: function(projectGeom, areaGeoms) {
