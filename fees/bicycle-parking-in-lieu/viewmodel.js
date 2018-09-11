@@ -65,9 +65,9 @@ define([
 
             var entertainmentCalculation = (this.entertainmentArena() >= 2000 ? (this.entertainmentArena()) * 0.05 : 0) +
                 (this.entertainmentArts() > 0 ? Math.max(2, this.entertainmentArts() / 2500) : 0);
-
             // this.entertainmentGeneral()
-            var industrialCalculation = 0;
+
+            var industrialCalculation = this.industrialSpace() > 0 ? (this.industrialSpace() > 50000 ? 4 : 2) : 0;
             var institutionalCalculation = 0;
             var salesCalculation = 0;
 
