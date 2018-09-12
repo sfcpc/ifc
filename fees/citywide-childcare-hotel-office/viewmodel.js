@@ -25,6 +25,13 @@ define([
                 this.totalProjGFA() !== null && this.totalProjGFA() !== '';
         }, this);
 
+        this.totalProjGFA.subscribe(function(val) {
+            if (parseFloat(val) < (parseFloat(this.hotelGFA()) + parseFloat(this.officeGFA()))) {
+                val = (parseFloat(this.hotelGFA()) + parseFloat(this.officeGFA()));
+            }
+            this.totalProjGFA(parseFloat(val));
+        }, this)
+
         this.minCcfGFARequired = ko.computed(function(){
             return ((parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA())) * 0.1) < this.minCcfGFA ? this.minCcfGFA : ((parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA())) * 0.1)
         }, this);
@@ -38,9 +45,9 @@ define([
                 // case when adequate childcare facility has been constructed
                 return 0
             }
-            else if (this.ccfGFA() === 0) {
+            else if (parseFloat(this.ccfGFA()) === 0) {
                 // case when in 100% lieu fee is elected
-                return parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA()) * this.inLieuFee
+                return (parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA()) * this.inLieuFee)
             }
             else {
                 // case when combination in lieu fee and childcare is elected
