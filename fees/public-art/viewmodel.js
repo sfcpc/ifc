@@ -6,7 +6,6 @@ define([
     './component'
 ], function(ko, _, AbstractFee, settings) {
     var PublicArtFee = function(params) {
-        var self = this;
         this.settings = settings;
 
         AbstractFee.apply(this, [params]);
