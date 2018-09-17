@@ -3,6 +3,7 @@
     "feeTypes": [
         "balboa-park-infrastructure",
         "citywide-childcare-residential",
+        "citywide-childcare-hotel-office",
         "downtown-park-fee",
         "eastern-neighborhoods-infrastructure",
         "jobs-housing-linkage",
@@ -23,7 +24,6 @@
         "pdrToRes",
         "pdrToNonRes",
         "retailGFA",
-        "hotelGFA",
         "institutionalGFA",
         "industrialGFA",
         "parcelArea"
