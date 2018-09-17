@@ -21,9 +21,9 @@ define([
                 return true;
             }
             return this.newEnt() !== null && this.newEnt() !== '' &&
-                this.newHotel() !== null && this.newHotel() !== '' &&
+                this.hotelGFA() !== null && this.hotelGFA() !== '' &&
                 this.newIntegratedPDR() !== null && this.newIntegratedPDR() !== '' &&
-                this.newOffice() !== null && this.newOffice() !== '' &&
+                this.officeGFA() !== null && this.officeGFA() !== '' &&
                 this.newResearchAndDevelopment() !== null && this.newResearchAndDevelopment() !== '' &&
                 this.newRetail() !== null && this.newRetail() !== '' &&
                 this.newSmallEnterpriseWorkspace() !== null && this.newSmallEnterpriseWorkspace() !== '';
@@ -35,17 +35,17 @@ define([
                 return 0;
             }
             var newEnt = this.newEnt() || 0;
-            var newHotel = this.newHotel() || 0;
+            var hotelGFA = this.hotelGFA() || 0;
             var newIntegratedPDR = this.newIntegratedPDR() || 0;
-            var newOffice = this.newOffice() || 0;
+            var officeGFA = this.officeGFA() || 0;
             var newResearchAndDevelopment = this.newResearchAndDevelopment() || 0;
             var newRetail = this.newRetail() || 0;
             var newSmallEnterpriseWorkspace = this.newSmallEnterpriseWorkspace() || 0;
 
             return (this.feePerNewEntertainment * newEnt) +
-                   (this.feePerNewHotel * newHotel) +
+                   (this.feePerNewHotel * hotelGFA) +
                    (this.feePerNewIntegratedPDR * newIntegratedPDR) +
-                   (this.feePerNewOffice * newOffice) +
+                   (this.feePerNewOffice * officeGFA) +
                    (this.feePerNewResearchAndDevelopment * newResearchAndDevelopment) +
                    (this.feePerNewRetail * newRetail) +
                    (this.feePerNewSmallEnterpriseWorkspace * newSmallEnterpriseWorkspace);

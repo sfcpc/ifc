@@ -58,6 +58,14 @@ requirejs([
             .object()
             .value();
 
+        _.each(params, function(value, key) {
+            if (value === 'false') {
+                params[key] = false;
+            } else if (value === 'true') {
+                params[key] = true;
+            }
+        });
+
         var app = new App(
             _.extend(params, {
                 name: settings.appName

@@ -1,0 +1,33 @@
+{
+    "name": "public-art",
+    "code": "JD_429",
+    "paramNames": [
+        "nonResGFA",
+        "resGFA",
+        "firstConstructionDocument",
+        "constructionCost",
+        "posRequirement",
+        "nonResProject",
+        "geometry"
+    ],
+    "label": "Public Art Fee",
+    "areaLayer": "11",
+    "namedAreaLayer": "8",
+    "mapFieldName": "zoning_sim",
+    "areaName": [
+        "RH DTR",
+        "TB DTR",
+        "SB-DTR",
+        "SLI",
+        "SLR",
+        "SSO",
+        "C-M",
+        "UMU",
+        "WMUG",
+        "WMUO",
+        "SALI"
+
+    ],
+    "maxNonResArtFeePOS1499": 500000,
+    "maxNonResArtFeePOS3000": 750000
+}

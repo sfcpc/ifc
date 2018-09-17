@@ -5,12 +5,10 @@
 
         <label for="newEnt">New Entertainment (GFA)</label>
         <input type="number" class="form-control" id="newEnt" placeholder="value" data-bind="value: fee.newEnt, valueUpdate: 'keyup'">
-        <label for="newHotel">New Hotel (GFA)</label>
-        <input type="number" class="form-control" id="newHotel" placeholder="value" data-bind="value: fee.newHotel, valueUpdate: 'keyup'">
+        <label for="hotelGFA">New Hotel (GFA)</label>
+        <input type="number" class="form-control" id="hotelGFA" placeholder="value" data-bind="value: fee.hotelGFA, valueUpdate: 'keyup'">
         <label for="newIntegratedPDR">New Integrated PDR (GFA)</label>
         <input type="number" class="form-control" id="newIntegratedPDR" placeholder="value" data-bind="value: fee.newIntegratedPDR, valueUpdate: 'keyup'">
-        <label for="newOffice">New Office (GFA)</label>
-        <input type="number" class="form-control" id="newOffice" placeholder="value" data-bind="value: fee.newOffice, valueUpdate: 'keyup'">
         <label for="newResearchAndDevelopment">New Research and Development (GFA)</label>
         <input type="number" class="form-control" id="newResearchAndDevelopment" placeholder="value" data-bind="value: fee.newResearchAndDevelopment, valueUpdate: 'keyup'">
         <label for="newRetail">New Retail (GFA)</label>
@@ -65,7 +63,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newHotel() * fee.feePerNewHotel"></span>
+                <span data-bind="dollarsText: fee.hotelGFA() * fee.feePerNewHotel"></span>
             </td>
         </tr>
         <tr>
@@ -85,7 +83,7 @@
         <tr>
             <th scope="row">Office</th>
             <td>
-                <span data-bind="numericText: fee.newOffice"></span> GFA
+                <span data-bind="numericText: fee.officeGFA"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -93,7 +91,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newOffice() * fee.feePerNewOffice"></span>
+                <span data-bind="dollarsText: fee.officeGFA() * fee.feePerNewOffice"></span>
             </td>
         </tr>
         <tr>
