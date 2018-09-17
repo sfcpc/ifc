@@ -1,0 +1,165 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>New Construction or Addition</h4>
+
+        <label for="newEnt">New Entertainment (GFA)</label>
+        <input type="number" class="form-control" id="newEnt" placeholder="value" data-bind="value: fee.newEnt, valueUpdate: 'keyup'">
+        <label for="newHotel">New Hotel (GFA)</label>
+        <input type="number" class="form-control" id="newHotel" placeholder="value" data-bind="value: fee.newHotel, valueUpdate: 'keyup'">
+        <label for="newIntegratedPDR">New Integrated PDR (GFA)</label>
+        <input type="number" class="form-control" id="newIntegratedPDR" placeholder="value" data-bind="value: fee.newIntegratedPDR, valueUpdate: 'keyup'">
+        <label for="newOffice">New Office (GFA)</label>
+        <input type="number" class="form-control" id="newOffice" placeholder="value" data-bind="value: fee.newOffice, valueUpdate: 'keyup'">
+        <label for="newResearchAndDevelopment">New Research and Development (GFA)</label>
+        <input type="number" class="form-control" id="newResearchAndDevelopment" placeholder="value" data-bind="value: fee.newResearchAndDevelopment, valueUpdate: 'keyup'">
+        <label for="newRetail">New Retail (GFA)</label>
+        <input type="number" class="form-control" id="newRetail" placeholder="value" data-bind="value: fee.newRetail, valueUpdate: 'keyup'">
+        <label for="newSmallEnterpriseWorkspace">New Small Enterprise Workspace (GFA)</label>
+        <input type="number" class="form-control" id="newSmallEnterpriseWorkspace" placeholder="value" data-bind="value: fee.newSmallEnterpriseWorkspace, valueUpdate: 'keyup'">
+        <hr>
+        <label for="feeCredit">Fee credit ($)</label>
+        <input type="number" class="form-control" id="feeCredit" placeholder="value" data-bind="value: fee.feeCredit, valueUpdate: 'keyup'">
+
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>New Construction</h4>
+            </th>
+            <th>GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Entertainment</th>
+            <td>
+                <span data-bind="numericText: fee.newEnt"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewEntertainment"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newEnt() * fee.feePerNewEntertainment"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Hotel</th>
+            <td>
+                <span data-bind="numericText: fee.newhotel"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewHotel"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newHotel() * fee.feePerNewHotel"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Integrated PDR</th>
+            <td>
+                <span data-bind="numericText: fee.newIntegratedPDR"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewIntegratedPDR"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newIntegratedPDR() * fee.feePerNewIntegratedPDR"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Office</th>
+            <td>
+                <span data-bind="numericText: fee.newOffice"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewOffice"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newOffice() * fee.feePerNewOffice"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">New Research and Development</th>
+            <td>
+                <span data-bind="numericText: fee.newResearchAndDevelopment"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewResearchAndDevelopment"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newResearchAndDevelopment() * fee.feePerNewResearchAndDevelopment"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Retail</th>
+            <td>
+                <span data-bind="numericText: fee.newRetail"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewRetail"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newRetail() * fee.feePerNewRetail"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Entertainment</th>
+            <td>
+                <span data-bind="numericText: fee.newSmallEnterpriseWorkspace"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewSmallEnterpriseWorkspace"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newSmallEnterpriseWorkspace() * fee.feePerNewSmallEnterpriseWorkspace"></span>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Fee before credits</th>
+            <th></th>
+            <th>Fee credit</th>
+            <th></th>
+            <th>Final Fee</th>
+        </tr>
+        <tr>
+            <th scope="row">Fee calculation</th>
+            <td>
+                <span data-bind="dollarsText: fee.uncreditedFee"></span>
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="dollarsText: fee.feeCredit"></span>
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.calculatedFee"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- /ko -->
