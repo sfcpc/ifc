@@ -45,7 +45,7 @@
         <tr>
             <th scope="row">Non-Residential</th>
             <td>
-                $<span data-bind="numericText: fee.constructionCost()"></span>
+                $<span data-bind="numericText: fee.constructionCost"></span>
             </td>
             <td>*</td>
             <td>
@@ -53,11 +53,11 @@
             </td>
             <td></td>
             <td>
-                <span data-bind="numericText: fee.posRequirement()"></span> GFA
+                <span data-bind="numericText: fee.posRequirement"></span> GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.publicArtFee"></span>
+                <span data-bind="dollarsText: fee.calculatedFee"></span>
             </td>
         </tr>
     </tbody>
@@ -80,7 +80,7 @@
         <tr>
             <th scope="row">Residential</th>
             <td>
-                $<span data-bind="numericText: fee.constructionCost()"></span>
+                $<span data-bind="numericText: fee.constructionCost"></span>
             </td>
             <td>*</td>
             <td>
@@ -88,7 +88,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.publicArtFee"></span>
+                <span data-bind="dollarsText: fee.calculatedFee"></span>
             </td>
         </tr>
     </tbody>
