@@ -39,7 +39,7 @@ define([
 
         this.triggeredFeeViewModels.subscribe(function() {
             var feeViewModels = self.triggeredFeeViewModels();
-            self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null)
+            self.selectedFee(feeViewModels.length > 0 ? feeViewModels[0] : null);
         });
 
         this.paramNames = [
@@ -55,7 +55,8 @@ define([
             'resGFA',
             'changeOfUse',
             'officeGFA',
-            "hotelGFA"
+            'hotelGFA',
+            'firstConstructionDocument'
         ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
@@ -90,7 +91,7 @@ define([
                 pdrGFA !== null && pdrGFA !== '' &&
                 resGFA !== null && resGFA !== '' &&
                 changeOfUse !== null && changeOfUse !== '' &&
-                officeGFA !== null && officeGFA !== '';
+                officeGFA !== null && officeGFA !== '' &&
                 hotelGFA !== null && hotelGFA !== '';
         }, this);
 
@@ -119,7 +120,7 @@ define([
         this.geocodeLoading = ko.observable(false);
 
         this.viewTrigger = function() {
-            self.geocodeString('')
+            self.geocodeString('');
             self.state('trigger');
         };
 
@@ -136,7 +137,7 @@ define([
         };
 
         this.lastFeeSelected = ko.computed(function() {
-            var fees = self.feeViewModels().filter(function (fee) {
+            var fees = self.feeViewModels().filter(function(fee) {
                 return fee.triggered();
             });
             var selectedFee = self.selectedFee();
@@ -150,7 +151,7 @@ define([
             if (self.feesReady() && this.lastFeeSelected()) {
                 self.state('report');
             } else {
-                var fees = self.feeViewModels().filter(function (fee) {
+                var fees = self.feeViewModels().filter(function(fee) {
                     return fee.triggered();
                 });
                 var selectedFee = self.selectedFee();
@@ -173,7 +174,7 @@ define([
                 return 'view report';
             } else {
                 var selectedFee = self.selectedFee();
-                var fees = self.feeViewModels().filter(function (fee) {
+                var fees = self.feeViewModels().filter(function(fee) {
                     return fee.triggered();
                 });
                 var nextFee = fees[fees.indexOf(selectedFee) + 1];
@@ -185,14 +186,14 @@ define([
             var success = self.geocodeSuccess();
             var icon;
             switch (success) {
-                case null:
-                    icon = 'fa-search';
-                    break;
-                case true:
-                    icon = 'fa-check';
-                    break;
-                default:
-                    icon = 'fa-times-circle shake';
+            case null:
+                icon = 'fa-search';
+                break;
+            case true:
+                icon = 'fa-check';
+                break;
+            default:
+                icon = 'fa-times-circle shake';
             }
             if (self.geocodeLoading()) {
                 icon = 'fa-spinner fa-spin';

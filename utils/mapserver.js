@@ -8,9 +8,11 @@ define([
     var geojsonFormat = new ol.format.GeoJSON();
 
     var mapserverUtils = {
-        getAreaGeoJSON: function(areaName, callback) {
-            $.getJSON(settings.mapserver + '/' + settings.areaLayer + '/query', {
-                where: "FEE='" + areaName + "'",
+        getAreaGeoJSON: function(areaName, callback, fieldName, namedAreaLayer) {
+            fieldName = fieldName || 'FEE';
+            areaLayer = namedAreaLayer || settings.areaLayer;
+            $.getJSON(settings.mapserver + '/' + areaLayer + '/query', {
+                where: fieldName + "='" + areaName + "'",
                 geometryType: 'esriGeometryEnvelope',
                 spatialRel: 'esriSpatialRelIntersects',
                 returnGeometry: true,
@@ -27,11 +29,13 @@ define([
                     console.error('Get fee area failed: ' + data['error'].message);
                     return;
                 }
-                var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
-                geom = geojsonFormat.writeGeometry(geom);
-                geom = JSON.parse(geom);
-                geom.areaName = areaName;
-                callback(geom);
+                if (data.features.length > 0){
+                    var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
+                    geom = geojsonFormat.writeGeometry(geom);
+                    geom = JSON.parse(geom);
+                    geom.areaName = areaName;
+                    callback(geom);
+                }
             });
         },
         isProjectInArea: function(projectGeom, areaGeoms) {
