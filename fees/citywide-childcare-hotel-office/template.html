@@ -11,7 +11,7 @@
         <h4>Licensed Child Care Facility</h4>
 
         <label for="ccfGFA">Area of on-site or off-site licensed child care facility (GFA)</label>
-        <input type="number" class="form-control" id="ccfGFA" placeholder="Input the GFA of the licensed child care facility." min="0" data-bind="value: fee.ccfGFA, valueUpdate: 'keyup', attr: {}">
+        <input type="number" class="form-control" id="ccfGFA" placeholder="Input the GFA of the licensed child care facility." min="0" data-bind="value: fee.ccfGFA, valueUpdate: 'keyup'">
 
     </div>
 </form>
@@ -19,7 +19,7 @@
 
 <!-- ko if: state === 'report' && fee.triggered() -->
 <table class="table">
-        <!-- ko if: parseFloat(fee.ccfGFA()) >= parseFloat(fee.minCcfGFARequired()) -->
+        <!-- ko if: fee.adequateCCF() -->
             <thead>
                 <tr>
                     <th>Required Childcare GFA</th>
@@ -46,7 +46,7 @@
             </tbody>
         <!-- /ko -->
 
-        <!-- ko if: parseFloat(fee.ccfGFA()) === 0 -->
+        <!-- ko if: fee.fullInLieuFee() -->
             <thead>
                 <tr>
                     <th>Increase in Hotel and Office GFA</th>
@@ -59,7 +59,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <span data-bind="numericText: (parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))"></span> GFA
+                        <span data-bind="numericText: fee.subjectGFA"></span> GFA
                     </td>
                     <td>*</td>
                     <td>
@@ -67,13 +67,13 @@
                     </td>
                     <td>=</td>
                     <td>
-                        <span data-bind="dollarsText: fee.inLieuFee * (parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))"></span>
+                        <span data-bind="dollarsText: fee.calculatedFee"></span>
                     </td>
                 </tr>
             </tbody>
         <!-- /ko -->
 
-        <!-- ko if: parseFloat(fee.ccfGFA()) > 0 && parseFloat(fee.ccfGFA()) < parseFloat(fee.minCcfGFARequired()) -->
+        <!-- ko if: !fee.fullInLieuFee() && !fee.adequateCCF()-->
             <thead>
                 <tr>
                     <th>Subject Project GFA</th>
@@ -88,11 +88,11 @@
             <tbody>
                 <tr>
                     <td>
-                        <span data-bind="numericText: (parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))"></span> GFA
+                        <span data-bind="numericText: fee.subjectGFA"></span> GFA
                     </td>
                     <td>-</td>
                     <td>
-                        <span data-bind="numericText: parseFloat(fee.subjectProjectPercentage())"></span>
+                        <span data-bind="numericText: fee.subjectProjectPercentage"></span>
                     </td>
                     <td>*</td>
                     <td>
@@ -100,7 +100,7 @@
                     </td>
                     <td>=</td>
                     <td>
-                        <span data-bind="dollarsText: parseFloat((parseFloat(fee.hotelGFA()) + parseFloat(fee.officeGFA()))) - (parseFloat(fee.subjectProjectPercentage()) * parseFloat(fee.ccfGFA()))"></span>
+                        <span data-bind="dollarsText: fee.calculatedFee"></span>
                     </td>
                 </tr>
             </tbody>

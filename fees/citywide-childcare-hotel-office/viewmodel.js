@@ -10,10 +10,15 @@ define([
 
         AbstractFee.apply(this, [params]);
 
+        this.subjectGFA = ko.computed(function() {
+            return parseFloat(this.hotelGFA()) +
+                parseFloat(this.officeGFA());
+        }, this);
+
         this.triggered = ko.computed(function() {
             return (
-                    parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA()) >= this.minNewOfficeHotelGFA
-                );
+                this.subjectGFA() >= this.minNewOfficeHotelGFA
+            );
         }, this);
 
         this.ready = ko.computed(function() {
@@ -26,34 +31,43 @@ define([
         }, this);
 
         this.totalProjGFA.subscribe(function(val) {
-            if (parseFloat(val) < (parseFloat(this.hotelGFA()) + parseFloat(this.officeGFA()))) {
-                val = (parseFloat(this.hotelGFA()) + parseFloat(this.officeGFA()));
+            var subjectGFA = this.subjectGFA();
+            if (parseFloat(val) < subjectGFA) {
+                this.totalProjGFA(subjectGFA);
             }
-            this.totalProjGFA(parseFloat(val));
-        }, this)
+        }, this);
 
         this.minCcfGFARequired = ko.computed(function(){
-            return ((parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA())) * 0.1) < this.minCcfGFA ? this.minCcfGFA : ((parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA())) * 0.1)
+            var subjectGFACCFReq = this.subjectGFA() * 0.1;
+            return subjectGFACCFReq < this.minCcfGFA ?
+                this.minCcfGFA : subjectGFACCFReq;
         }, this);
 
         this.subjectProjectPercentage = ko.computed(function() {
-            return (parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA()))/this.totalProjGFA()
+            return this.subjectGFA() / parseFloat(this.totalProjGFA());
+        }, this);
+
+        this.adequateCCF = ko.computed(function() {
+            return parseFloat(this.ccfGFA()) >= this.minCcfGFARequired;
+        }, this);
+
+        this.fullInLieuFee = ko.computed(function() {
+            return !this.adequateCCF() && parseFloat(this.ccfGFA()) === 0;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            if (parseFloat(this.ccfGFA()) >= this.minCcfGFARequired) {
-                // case when adequate childcare facility has been constructed
-                return 0
+            var subjectGFA = this.subjectGFA();
+            var fee = 0;
+            if (!this.adequateCCF()) {
+                if (this.fullInLieuFee()) {
+                    // case when in 100% lieu fee is elected
+                    fee = subjectGFA * this.inLieuFee;
+                } else {
+                    // case when combination in lieu fee and childcare is elected
+                    fee = subjectGFA - (this.subjectProjectPercentage() * parseFloat(this.ccfGFA()));
+                }
             }
-            else if (parseFloat(this.ccfGFA()) === 0) {
-                // case when in 100% lieu fee is elected
-                return (parseFloat(this.officeGFA()) + parseFloat(this.hotelGFA()) * this.inLieuFee)
-            }
-            else {
-                // case when combination in lieu fee and childcare is elected
-                return parseFloat((parseFloat(this.hotelGFA()) + parseFloat(this.officeGFA()))) - (parseFloat(this.subjectProjectPercentage()) * parseFloat(this.ccfGFA()))
-            }
-
+            return fee > 0 ? fee : 0;
         }, this);
     };
 
