@@ -5,20 +5,16 @@ define([
     './component'
 ], function(ko, AbstractFee, settings) {
     var CitywideChildCareHotelOfficeFee = function(params) {
-        var self = this;
         this.settings = settings;
 
         AbstractFee.apply(this, [params]);
 
         this.subjectGFA = ko.computed(function() {
-            return parseFloat(this.hotelGFA()) +
-                parseFloat(this.officeGFA());
+            return parseFloat(this.hotelGFA()) + parseFloat(this.officeGFA());
         }, this);
 
         this.triggered = ko.computed(function() {
-            return (
-                this.subjectGFA() >= this.minNewOfficeHotelGFA
-            );
+            return this.subjectGFA() >= this.minNewOfficeHotelGFA;
         }, this);
 
         this.ready = ko.computed(function() {
@@ -26,7 +22,8 @@ define([
                 return true;
             }
             return this.ccfGFA() !== null && this.ccfGFA() !== '' &&
-                this.minCcfGFARequired() !== null && this.minCcfGFARequired() !== '' &&
+                this.minCcfGFARequired() !== null &&
+                this.minCcfGFARequired() !== '' &&
                 this.totalProjGFA() !== null && this.totalProjGFA() !== '';
         }, this);
 
@@ -60,11 +57,10 @@ define([
             var fee = 0;
             if (!this.adequateCCF()) {
                 if (this.fullInLieuFee()) {
-                    // case when in 100% lieu fee is elected
                     fee = subjectGFA * this.inLieuFee;
                 } else {
-                    // case when combination in lieu fee and childcare is elected
-                    fee = subjectGFA - (this.subjectProjectPercentage() * parseFloat(this.ccfGFA()));
+                    fee = subjectGFA - this.subjectProjectPercentage() *
+                        parseFloat(this.ccfGFA()) * 100;
                 }
             }
             return fee > 0 ? fee : 0;
