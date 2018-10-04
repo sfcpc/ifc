@@ -5,6 +5,10 @@
 
         <label for="newEnt">New Entertainment (GFA)</label>
         <input type="number" class="form-control" id="newEnt" placeholder="value" data-bind="value: fee.newEnt, valueUpdate: 'keyup'">
+        <label for="hotelGFA">New Hotel (GFA) (fill in on previous page)</label>
+        <input type="number" class="form-control" id="hotelGFA" placeholder="value" disabled data-bind="value: fee.hotelGFA">
+        <label for="officeGFA">New Office (GFA) (fill in on previous page)</label>
+        <input type="number" class="form-control" id="officeGFA" placeholder="value" disabled data-bind="value: fee.officeGFA">
         <label for="newIntegratedPDR">New Integrated PDR (GFA)</label>
         <input type="number" class="form-control" id="newIntegratedPDR" placeholder="value" data-bind="value: fee.newIntegratedPDR, valueUpdate: 'keyup'">
         <label for="newResearchAndDevelopment">New Research and Development (GFA)</label>
@@ -53,7 +57,7 @@
         <tr>
             <th scope="row">Hotel</th>
             <td>
-                <span data-bind="numericText: fee.newHotel"></span> GFA
+                <span data-bind="numericText: fee.hotelGFA"></span> GFA
             </td>
             <td>*</td>
             <td>
