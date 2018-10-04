@@ -26,8 +26,8 @@ define([
                 this.officeGFA() !== null && this.officeGFA() !== '' &&
                 this.newResearchAndDevelopment() !== null && this.newResearchAndDevelopment() !== '' &&
                 this.newRetail() !== null && this.newRetail() !== '' &&
-                this.newSmallEnterpriseWorkspace() !== null && this.newSmallEnterpriseWorkspace() !== '';
-            return this.feeCredit() !== null && this.feeCredit() !== '';
+                this.newSmallEnterpriseWorkspace() !== null && this.newSmallEnterpriseWorkspace() !== '' &&
+                this.feeCredit() !== null && this.feeCredit() !== '';
         }, this);
 
         this.uncreditedFee = ko.computed(function() {
