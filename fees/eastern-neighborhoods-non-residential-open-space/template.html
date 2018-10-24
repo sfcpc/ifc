@@ -1,0 +1,136 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>Type of Use</h4>
+
+        <label for="retailGFA">Retail etc. (GFA)</label>
+        <input type="number" class="form-control" id="retailGFA" data-bind="value: fee.retailGFA, valueUpdate: 'keyup'">
+
+        <label for="retailOpenSpaceProvidedGFA">Open Space Provided (GFA)</label>
+        <input type="number" class="form-control" id="retailOpenSpaceProvidedGFA" data-bind="value: fee.retailOpenSpaceProvidedGFA, valueUpdate: 'keyup'">
+
+
+        <hr>
+
+        <label for="manufacturingGFA">Manufacturing etc. (GFA)</label>
+        <input type="number" class="form-control" id="manufacturingGFA" data-bind="value: fee.manufacturingGFA, valueUpdate: 'keyup'">
+
+        <label for="manufacturingOpenSpaceProvidedGFA">Open Space Provided (GFA)</label>
+        <input type="number" class="form-control" id="manufacturingOpenSpaceProvidedGFA" data-bind="value: fee.manufacturingOpenSpaceProvidedGFA, valueUpdate: 'keyup'">
+
+
+        <hr>
+
+        <label for="officeGFA">Office (GFA)</label>
+        <input type="number" class="form-control" id="officeGFA" data-bind="value: fee.officeGFA, valueUpdate: 'keyup'">
+
+        <label for="officeOpenSpaceProvidedGFA">Open Space Provided (GFA)</label>
+        <input type="number" class="form-control" id="officeOpenSpaceProvidedGFA" data-bind="value: fee.officeOpenSpaceProvidedGFA, valueUpdate: 'keyup'">
+
+
+        <hr>
+
+        <label for="otherGFA">Other Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="otherGFA" data-bind="value: fee.otherGFA, valueUpdate: 'keyup'">
+
+        <label for="otherOpenSpaceProvidedGFA">Open Space Provided (GFA)</label>
+        <input type="number" class="form-control" id="otherOpenSpaceProvidedGFA" data-bind="value: fee.otherOpenSpaceProvidedGFA, valueUpdate: 'keyup'">
+    </div>
+
+
+
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Additional Open Space Required GFA</th>
+            <th></th>
+            <th>Open Space Provided GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Retail etc.</th>
+            <td>
+                <span data-bind="numericText: fee.retailOpenSpaceRequiredGFA"></span> GFA
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="numericText: fee.retailOpenSpaceProvidedGFA"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.retailFee"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Manufacturing etc.</th>
+            <td>
+                <span data-bind="numericText: fee.manufacturingOpenSpaceRequiredGFA"></span> GFA
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="numericText: fee.manufacturingOpenSpaceProvidedGFA"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.manufacturingFee"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Office</th>
+            <td>
+                <span data-bind="numericText: fee.officeOpenSpaceRequiredGFA"></span> GFA
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="numericText: fee.officeOpenSpaceProvidedGFA"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.officeFee"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Other</th>
+            <td>
+                <span data-bind="numericText: fee.otherOpenSpaceRequiredGFA"></span> GFA
+            </td>
+            <td>-</td>
+            <td>
+                <span data-bind="numericText: fee.otherOpenSpaceProvidedGFA"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.otherFee"></span>
+            </td>
+        </tr>
+        <tr>
+    </tbody>
+</table>
+<!-- /ko -->
