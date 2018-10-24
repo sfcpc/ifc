@@ -56,7 +56,8 @@ define([
             'changeOfUse',
             'officeGFA',
             'hotelGFA',
-            'firstConstructionDocument'
+            'firstConstructionDocument',
+            "existingNonResGFA"
         ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
@@ -86,13 +87,15 @@ define([
             var changeOfUse = this.changeOfUse();
             var officeGFA = this.officeGFA();
             var hotelGFA = this.hotelGFA();
+            var existingNonResGFA = this.existingNonResGFA();
             return newNonRes !== null && newNonRes !== '' &&
                 nonResGFA !== null && nonResGFA !== '' &&
                 pdrGFA !== null && pdrGFA !== '' &&
                 resGFA !== null && resGFA !== '' &&
                 changeOfUse !== null && changeOfUse !== '' &&
                 officeGFA !== null && officeGFA !== '' &&
-                hotelGFA !== null && hotelGFA !== '';
+                hotelGFA !== null && hotelGFA !== '' &&
+                existingNonResGFA !== null && existingNonResGFA !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {
