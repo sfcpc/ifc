@@ -34,10 +34,10 @@
     ],
     "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
     "feePerOpenSpaceGFA": 76,
-    "openSpaceRequirement": {
-        "retail": "1/250",
-        "manufacturing": "1/120",
-        "office": "1/90",
-        "other": "1/50"
+    "openSpaceRequirementPerFootNonRes": {
+        "retail": 250,
+        "manufacturing": 120,
+        "office": 90,
+        "other": 50
     }
 }

@@ -48,7 +48,7 @@
     <thead>
         <tr>
             <th></th>
-            <th>Additional Open Space Required GFA</th>
+            <th>Open Space Required GFA</th>
             <th></th>
             <th>Open Space Provided GFA</th>
             <th></th>
@@ -61,7 +61,7 @@
         <tr>
             <th scope="row">Retail etc.</th>
             <td>
-                <span data-bind="numericText: fee.retailOpenSpaceRequiredGFA"></span> GFA
+                <span data-bind="numericText: fee.retailOpenSpaceRequiredGFA()"></span> GFA
             </td>
             <td>-</td>
             <td>
@@ -73,13 +73,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.retailFee"></span>
+                <span data-bind="dollarsText: fee.retailFee()"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Manufacturing etc.</th>
             <td>
-                <span data-bind="numericText: fee.manufacturingOpenSpaceRequiredGFA"></span> GFA
+                <span data-bind="numericText: fee.manufacturingOpenSpaceRequiredGFA()"></span> GFA
             </td>
             <td>-</td>
             <td>
@@ -91,13 +91,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.manufacturingFee"></span>
+                <span data-bind="dollarsText: fee.manufacturingFee()"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Office</th>
             <td>
-                <span data-bind="numericText: fee.officeOpenSpaceRequiredGFA"></span> GFA
+                <span data-bind="numericText: fee.officeOpenSpaceRequiredGFA()"></span> GFA
             </td>
             <td>-</td>
             <td>
@@ -109,13 +109,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.officeFee"></span>
+                <span data-bind="dollarsText: fee.officeFee()"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Other</th>
             <td>
-                <span data-bind="numericText: fee.otherOpenSpaceRequiredGFA"></span> GFA
+                <span data-bind="numericText: fee.otherOpenSpaceRequiredGFA()"></span> GFA
             </td>
             <td>-</td>
             <td>
@@ -127,7 +127,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.otherFee"></span>
+                <span data-bind="dollarsText: fee.otherFee()"></span>
             </td>
         </tr>
         <tr>

@@ -35,37 +35,54 @@ define([
         }, this);
 
 
+        this.calculateRequiredOpenSpace = function(nonResGFA, requiredOpenSpaceGFAPerFootNonRes) {
+            return nonResGFA/requiredOpenSpaceGFAPerFootNonRes > 0 ? requiredOpenSpaceGFAPerFootNonRes : 0;
+        };
+
+        this.retailOpenSpaceRequiredGFA = ko.computed(function() {
+            return this.calculateRequiredOpenSpace(this.retailGFA(), this.openSpaceRequirementPerFootNonRes['retail']);
+        }, this);
+
+        this.manufacturingOpenSpaceRequiredGFA = ko.computed(function() {
+            return this.calculateRequiredOpenSpace(this.manufacturingGFA(), this.openSpaceRequirementPerFootNonRes['manufacturing']);
+        }, this);
+
+        this.officeOpenSpaceRequiredGFA = ko.computed(function() {
+            return this.calculateRequiredOpenSpace(this.officeGFA(), this.openSpaceRequirementPerFootNonRes['office']);
+        }, this);
+
+        this.otherOpenSpaceRequiredGFA = ko.computed(function() {
+            return this.calculateRequiredOpenSpace(this.otherGFA(), this.openSpaceRequirementPerFootNonRes['other']);
+        }, this);
+
+
+        this.calculateFee = function(requiredOpenSpace, providedOpenSpace, feePerOpenSpaceGFA) {
+            return (requiredOpenSpace-providedOpenSpace)*feePerOpenSpaceGFA > 0 ? (requiredOpenSpace-providedOpenSpace)*feePerOpenSpaceGFA : 0;
+        };
+
+        this.retailFee = ko.computed(function() {
+            return this.calculateFee(this.retailOpenSpaceRequiredGFA(), this.retailOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+        }, this);
+
+        this.manufacturingFee = ko.computed(function() {
+            return this.calculateFee(this.manufacturingOpenSpaceRequiredGFA(), this.manufacturingOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+        }, this);
+
+        this.officeFee = ko.computed(function() {
+            return this.calculateFee(this.officeOpenSpaceRequiredGFA(), this.officeOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+        }, this);
+
+        this.otherFee = ko.computed(function() {
+            return this.calculateFee(this.otherOpenSpaceRequiredGFA(), this.otherOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+        }, this);
+
+
         this.calculatedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
             }
 
-            this.calculateRequiredOpenSpaceOrFee = function(a, b, c) {
-                return (a-b)*eval(c);
-            };
-
-            this.retailOpenSpaceRequiredGFA(
-                this.calculateRequiredOpenSpaceOrFee(this.retailGFA(), this.retailOpenSpaceProvidedGFA(), this.openSpaceRequirement['retail'])
-            );
-
-            this.manufacturingOpenSpaceRequiredGFA(
-                this.calculateRequiredOpenSpaceOrFee(this.manufacturingGFA(), this.manufacturingOpenSpaceProvidedGFA(), this.openSpaceRequirement['manufacturing'])
-            );
-
-            this.officeOpenSpaceRequiredGFA(
-                this.calculateRequiredOpenSpaceOrFee(this.officeGFA(), this.officeOpenSpaceProvidedGFA(), this.openSpaceRequirement['office'])
-            );
-
-            this.otherOpenSpaceRequiredGFA(
-                this.calculateRequiredOpenSpaceOrFee(this.otherGFA(), this.otherOpenSpaceProvidedGFA(), this.openSpaceRequirement['other'])
-            );
-
-            this.retailFee = (this.calculateRequiredOpenSpaceOrFee(this.retailOpenSpaceRequiredGFA(), this.retailOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) > 0) ? this.calculateRequiredOpenSpaceOrFee(this.retailOpenSpaceRequiredGFA(), this.retailOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) : 0;
-            this.manufacturingFee = (this.calculateRequiredOpenSpaceOrFee(this.manufacturingOpenSpaceRequiredGFA(), this.manufacturingOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) > 0) ? this.calculateRequiredOpenSpaceOrFee(this.manufacturingOpenSpaceRequiredGFA(), this.manufacturingOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) : 0;
-            this.officeFee = (this.calculateRequiredOpenSpaceOrFee(this.officeOpenSpaceRequiredGFA(), this.officeOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) > 0) ? this.calculateRequiredOpenSpaceOrFee(this.officeOpenSpaceRequiredGFA(), this.officeOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) : 0;
-            this.otherFee = (this.calculateRequiredOpenSpaceOrFee(this.otherOpenSpaceRequiredGFA(), this.otherOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) > 0) ? this.calculateRequiredOpenSpaceOrFee(this.otherOpenSpaceRequiredGFA(), this.otherOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA) : 0;
-
-            return (this.retailFee + this.manufacturingFee + this.officeFee + this.otherFee);
+            return (this.retailFee() + this.manufacturingFee() + this.officeFee() + this.otherFee());
 
         }, this);
     };
