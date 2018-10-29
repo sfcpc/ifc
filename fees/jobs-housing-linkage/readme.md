@@ -21,7 +21,10 @@
     
     3.  any mixed-use space consisting of residential space and pharmacy retail space not exceeding 50,000 square feet, or general grocery retail space not exceeding 75,000 square feet.
 
-[Fees](http://forms.sfplanning.org/Impact_Fee_Schedule.pdf): 
+## [Fees](http://forms.sfplanning.org/Impact_Fee_Schedule.pdf): 
+
+### New Construction:
+
 *  Entertainment: $25.15/gsf
 *  Hotel: $20.18/gsf
 *  Integrated PDR: $21.19/gsf
@@ -30,7 +33,17 @@
 *  Retail: $25.15/gsf
 *  Small Enterprise Workspace: $21.19/gsf
 
-[Thresholds](http://forms.sfplanning.org/Impact_Fee_Schedule.pdf):
+### Change of Use:
+
+- Entertainment, Hotel, Integrated PDR, Office, Research & Development, Retail, or Small Enterprise Workspace **to** Entertainment, Hotel, Integrated PDR, Office, Retail, or Small Enterprise Workspace: $0.00
+- PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Entertainment, Hotel, Integrated PDR, Office, Research & Development, Retail, or Small Enterprise Workspace: Use Fee from Table 413.6A minus $14.09
+- Institutional which received its First Certificate of Occupancy on or before April 1, 2010 **to** Entertainment, Hotel, Integrated PDR, Office, Research & Development, Retail, or Small Enterprise Workspace: $0.00
+- Institutional or PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Institutional, PDR, Research & Development, Residential: $0.00
+- Institutional or PDR which received its First Certificate of Occupancy after April 1, 2010 **to** Any: Use Fee from Table 413.6
+- Residential **to** Entertainment, Hotel, Integrated PDR, Office, PDR, Research & Development, Retail, or Small Enterprise Workspace: Use Fee from Table 413.6
+
+
+## [Thresholds](http://forms.sfplanning.org/Impact_Fee_Schedule.pdf):
 *  Residential: 
     * N/A
 *  Non-Residential:
