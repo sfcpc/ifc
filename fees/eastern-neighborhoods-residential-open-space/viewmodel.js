@@ -22,15 +22,15 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.openSpaceProvidedGFA() !== null && this.openSpaceProvidedGFA() !== '' &&
-                this.netNewUnits !== null && this.netNewUnits !== '';
+            var openSpaceProvidedGFA = this.openSpaceProvidedGFA();
+            return openSpaceProvidedGFA !== null && openSpaceProvidedGFA !== '';
         }, this);
 
         this.openSpaceRequiredGFA = ko.computed(function() {
             if (this.publiclyAccessible()) {
-                return this.netNewUnits() * this.openSpaceRequirement['publiclyAccessible'];
+                return this.netNewUnits() * this.publicOpenSpaceRequirement;
             } else {
-                return this.netNewUnits() * this.openSpaceRequirement['privatelyAccessible'];
+                return this.netNewUnits() * this.privateOpenSpaceRequirement;
             }
         }, this);
 
@@ -39,7 +39,11 @@ define([
                 return 0;
             }
 
-            return (this.openSpaceRequiredGFA() - this.openSpaceProvidedGFA()) * this.feePerOpenSpaceGFA > 0 ? (this.openSpaceRequiredGFA() - this.openSpaceProvidedGFA()) * this.feePerOpenSpaceGFA : 0;
+            var fee = (
+                this.openSpaceRequiredGFA() - this.openSpaceProvidedGFA()
+            ) * this.feePerOpenSpaceGFA;
+
+            return fee > 0 ? fee : 0;
 
         }, this);
     };
