@@ -17,7 +17,8 @@
         "transit-center-transportation",
         "van-ness-market-infrastructure",
         "visitacion-valley-infrastructure",
-        "eastern-neighborhoods-non-residential-open-space"
+        "eastern-neighborhoods-non-residential-open-space",
+        "eastern-neighborhoods-residential-open-space"
     ],
     "globalFeeParams": [
         "newRes",
@@ -59,10 +60,6 @@
         {
             "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",
             "code": "JD_417"
-        },
-        {
-            "label": "Eastern Neighborhoods Residential Open Space Fee",
-            "code": "JD_427"
         },
         {
             "label": "Transit Impact Development Fee (TIDF)",

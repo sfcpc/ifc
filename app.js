@@ -57,7 +57,8 @@ define([
             'officeGFA',
             'hotelGFA',
             'firstConstructionDocument',
-            "existingNonResGFA"
+            "existingNonResGFA",
+            "finalBuildingHeight"
         ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
@@ -88,6 +89,7 @@ define([
             var officeGFA = this.officeGFA();
             var hotelGFA = this.hotelGFA();
             var existingNonResGFA = this.existingNonResGFA();
+            var finalBuildingHeight = this.finalBuildingHeight();
             return newNonRes !== null && newNonRes !== '' &&
                 nonResGFA !== null && nonResGFA !== '' &&
                 pdrGFA !== null && pdrGFA !== '' &&
@@ -95,7 +97,8 @@ define([
                 changeOfUse !== null && changeOfUse !== '' &&
                 officeGFA !== null && officeGFA !== '' &&
                 hotelGFA !== null && hotelGFA !== '' &&
-                existingNonResGFA !== null && existingNonResGFA !== '';
+                existingNonResGFA !== null && existingNonResGFA !== '' &&
+                finalBuildingHeight !== null && finalBuildingHeight !== '';
         }, this);
 
         this.triggersReady = ko.computed(function() {
