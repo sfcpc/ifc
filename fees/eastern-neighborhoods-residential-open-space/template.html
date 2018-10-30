@@ -1,15 +1,7 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
-        <h4>Number of New Units</h4>
-
-        <label for="netNewUnits">Net New Units</label>
-        <input type="number" class="form-control" id="netNewUnits" data-bind="value: fee.netNewUnits, valueUpdate: 'keyup'">
-
-        <hr />
-
         <h4>Open Space Provided</h4>
-
 
         <label for="openSpaceProvidedGFA">Open Space (GFA)</label>
         <input type="number" class="form-control" id="openSpaceProvidedGFA" data-bind="value: fee.openSpaceProvidedGFA, valueUpdate: 'keyup'">
@@ -20,12 +12,10 @@
         <label>Publicly Accessible</label>
 
     </div>
-
 </form>
 <!-- /ko -->
 
 <!-- ko if: state === 'report' && fee.triggered() -->
-
 <table class="table">
     <thead>
         <tr>

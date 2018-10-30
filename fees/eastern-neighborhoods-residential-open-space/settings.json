@@ -24,8 +24,6 @@
     "minNewResGFA": 25000,
     "minFinalBuildingHeight": 75,
     "feePerOpenSpaceGFA": 327,
-    "openSpaceRequirement": {
-        "privatelyAccessible": 80,
-        "publiclyAccessible": 54
-    }
+    "publicOpenSpaceRequirement": 80,
+    "privateOpenSpaceRequirement": 54
 }
