@@ -1,0 +1,24 @@
+{
+    "name": "downtown-special-development-district-open-space",
+    "code": "JD_427(b)",
+    "paramNames": [
+        "newRes",
+        "netNewUnits",
+        "newNonRes",
+        "nonResGFA",
+        "pdrGFA",
+        "resGFA",
+        "officeGFA",
+        "hotelGFA",
+        "openSpaceProvidedGFA",
+        "publiclyAccessible",
+        "finalBuildingHeight",
+        "totalExistingGFA",
+        "geometry"
+    ],
+    "areaLayer": "8",
+    "areaName": "C-3-O(SD)",
+    "label": "Downtown Special Development District Open Space Fee",
+    "feePerOpenSpaceGFA": 1410,
+    "openSpaceRequirementPerFoot": 50
+}
