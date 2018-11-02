@@ -12,12 +12,7 @@ define([
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
-                    this.newNonRes()/this.totalExistingGFA() >= .2 ||
-                    this.nonResGFA()/this.totalExistingGFA() >= .2 ||
-                    this.pdrGFA()/this.totalExistingGFA() >= .2 ||
-                    this.resGFA()/this.totalExistingGFA() >= .2 ||
-                    this.officeGFA()/this.totalExistingGFA() >= .2 ||
-                    this.hotelGFA()/this.totalExistingGFA() >= .2
+                    (this.newNonRes() + this.nonResGFA() + this.pdrGFA() + this.resGFA() + this.officeGFA() + this.hotelGFA())/this.totalExistingGFA() >= .2
                 );
         }, this);
 
@@ -36,7 +31,7 @@ define([
         }, this);
 
         this.openSpaceRequiredGFA = ko.computed(function() {
-            return (this.newNonRes() + this.nonResGFA() + this.pdrGFA() + this.resGFA() + this.officeGFA() + this.hotelGFA())/this.openSpaceRequirementPerFoot > 0 ? (this.newNonRes() + this.nonResGFA() + this.pdrGFA() + this.resGFA() + this.officeGFA() + this.hotelGFA())/this.openSpaceRequirementPerFoot : 0;
+            return (parseInt(this.newNonRes()) + parseInt(this.nonResGFA()) + parseInt(this.pdrGFA()) + parseInt(this.resGFA()) + parseInt(this.officeGFA()) + parseInt(this.hotelGFA()))/this.openSpaceRequirementPerFoot > 0 ? (parseInt(this.newNonRes()) + parseInt(this.nonResGFA()) + parseInt(this.pdrGFA()) + parseInt(this.resGFA()) + parseInt(this.officeGFA()) + parseInt(this.hotelGFA()))/this.openSpaceRequirementPerFoot : 0;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
