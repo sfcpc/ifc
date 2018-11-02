@@ -18,7 +18,8 @@
         "van-ness-market-infrastructure",
         "visitacion-valley-infrastructure",
         "eastern-neighborhoods-non-residential-open-space",
-        "eastern-neighborhoods-residential-open-space"
+        "eastern-neighborhoods-residential-open-space",
+        "downtown-special-development-district-open-space"
     ],
     "globalFeeParams": [
         "newRes",
@@ -54,8 +55,8 @@
             "code": "JD_430"
         },
         {
-            "label": "Downtown Special Development District",
-            "code": "JD_427"
+            "label": "Child Care Fee: Office/Hotel Projects",
+            "code": "JD_414"
         },
         {
             "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",

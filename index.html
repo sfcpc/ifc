@@ -174,7 +174,7 @@
                     </div>
 
                     <h4>
-                        Land Use
+                        Proposed Land Use
                         <i class="fa fa-check ready-check" aria-hidden="true" data-bind="visible: landUseReady()"></i>
                     </h4>
                     <div class="form-group">
@@ -208,10 +208,6 @@
                                 <input type="number" min="0" class="form-control" id="officeGFA" placeholder="Increase in office space (GFA)" data-bind="value: officeGFA, valueUpdate: 'keyup'">
                             </div>
                             <div class="col-6">
-                                <label for="existingNonResGFA">Total existing non-residential (GFA)</label>
-                                <input type="number" min="0" class="form-control" id="existingNonResGFA" placeholder="Increase in office space (GFA)" data-bind="value: existingNonResGFA, valueUpdate: 'keyup'">
-                            </div>
-                            <div class="col-6">
                                 <label for="hotelGFA">Increase in hotel space (GFA)</label>
                                 <input type="number" min="0" class="form-control" id="hotelGFA" placeholder="Increase in hotel space (GFA)" data-bind="value: hotelGFA, valueUpdate: 'keyup'">
                             </div>
@@ -221,6 +217,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <h4>
+                        Existing GFA
+                    </h4>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="existingNonResGFA">Total existing non-residential (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="existingNonResGFA" placeholder="Increase in office space (GFA)" data-bind="value: existingNonResGFA, valueUpdate: 'keyup'">
+                            </div>
+                            <div class="col-6">
+                                <label for="totalExistingGFA">Total existing (GFA)</label>
+                                <input type="number" min="0" class="form-control" id="totalExistingGFA" placeholder="Total existing space (GFA)" data-bind="value: totalExistingGFA, valueUpdate: 'keyup'">
+                            </div>
+                        </div>
 
                     <h4>
                         Other
