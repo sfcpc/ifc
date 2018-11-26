@@ -1,16 +1,10 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
-        <h4>Open Space Provided</h4>
+        <h4>Open Space Shortfall</h4>
 
-        <label for="openSpaceProvidedGFA">Open Space (GFA)</label>
-        <input type="number" class="form-control" id="openSpaceProvidedGFA" data-bind="value: fee.openSpaceProvidedGFA, valueUpdate: 'keyup'">
-
-        <h4 />
-
-        <input type="checkbox" data-bind="checked: fee.publiclyAccessible"/>
-        <label>Publicly Accessible</label>
-
+        <label for="openSpaceGFAShortfall">Total Open Space Shortfall (GFA)</label>
+        <input type="number" class="form-control" id="openSpaceGFAShortfall" data-bind="value: fee.openSpaceGFAShortfall, valueUpdate: 'keyup'">
     </div>
 </form>
 <!-- /ko -->
@@ -19,10 +13,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th></th>
-            <th>Open Space Required GFA</th>
-            <th></th>
-            <th>Open Space Provided GFA</th>
+            <th>Open Space Shortfall GFA</th>
             <th></th>
             <th>Fee per GFA</th>
             <th></th>
@@ -31,13 +22,8 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row"></th>
             <td>
-                <span data-bind="numericText: fee.openSpaceRequiredGFA"></span> GFA
-            </td>
-            <td>-</td>
-            <td>
-                <span data-bind="numericText: fee.openSpaceProvidedGFA"></span> GFA
+                <span data-bind="numericText: fee.openSpaceGFAShortfall"></span> GFA
             </td>
             <td>*</td>
             <td>

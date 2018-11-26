@@ -4,8 +4,7 @@
     "paramNames": [
         "resGFA",
         "netNewUnits",
-        "openSpaceProvidedGFA",
-        "publiclyAccessible",
+        "openSpaceGFAShortfall",
         "finalBuildingHeight",
         "geometry"
     ],
@@ -23,7 +22,5 @@
     "label": "Eastern Neighborhoods Residential Open Space Fee",
     "minNewResGFA": 25000,
     "minFinalBuildingHeight": 75,
-    "feePerOpenSpaceGFA": 327,
-    "publicOpenSpaceRequirement": 80,
-    "privateOpenSpaceRequirement": 54
+    "feePerOpenSpaceGFA": 462.67
 }
