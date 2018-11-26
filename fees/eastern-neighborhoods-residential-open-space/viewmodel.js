@@ -14,7 +14,6 @@ define([
                 (
                     this.resGFA() >= this.minNewResGFA ||
                     this.finalBuildingHeight() >= this.minFinalBuildingHeight
-
                 );
         }, this);
 
@@ -22,16 +21,8 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            var openSpaceProvidedGFA = this.openSpaceProvidedGFA();
-            return openSpaceProvidedGFA !== null && openSpaceProvidedGFA !== '';
-        }, this);
-
-        this.openSpaceRequiredGFA = ko.computed(function() {
-            if (this.publiclyAccessible()) {
-                return this.netNewUnits() * this.publicOpenSpaceRequirement;
-            } else {
-                return this.netNewUnits() * this.privateOpenSpaceRequirement;
-            }
+            var openSpaceGFAShortfall = this.openSpaceGFAShortfall();
+            return openSpaceGFAShortfall !== null && openSpaceGFAShortfall !== '';
         }, this);
 
         this.calculatedFee = ko.computed(function() {
@@ -39,12 +30,8 @@ define([
                 return 0;
             }
 
-            var fee = (
-                this.openSpaceRequiredGFA() - this.openSpaceProvidedGFA()
-            ) * this.feePerOpenSpaceGFA;
-
+            var fee = this.openSpaceGFAShortfall() * this.feePerOpenSpaceGFA;
             return fee > 0 ? fee : 0;
-
         }, this);
     };
 
