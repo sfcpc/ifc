@@ -7,18 +7,10 @@
         "newNonRes",
         "nonResGFA",
         "existingNonResGFA",
-        "retailGFA",
-        "retailOpenSpaceRequiredGFA",
-        "retailOpenSpaceProvidedGFA",
-        "manufacturingGFA",
-        "manufacturingOpenSpaceRequiredGFA",
-        "manufacturingOpenSpaceProvidedGFA",
-        "officeGFA",
-        "officeOpenSpaceRequiredGFA",
-        "officeOpenSpaceProvidedGFA",
-        "otherGFA",
-        "otherOpenSpaceRequiredGFA",
-        "otherOpenSpaceProvidedGFA",
+        "retailOpenSpaceGFAShortfall",
+        "manufacturingOpenSpaceGFAShortfall",
+        "officeOpenSpaceGFAShortfall",
+        "otherOpenSpaceGFAShortfall",
         "geometry"
     ],
     "areaName": [
@@ -33,11 +25,5 @@
         "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 45 and 55 feet. Tier 2 for 65 feet."
     ],
     "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
-    "feePerOpenSpaceGFA": 76,
-    "openSpaceRequirementPerFootNonRes": {
-        "retail": 250,
-        "manufacturing": 120,
-        "office": 90,
-        "other": 50
-    }
+    "feePerOpenSpaceGFA": 107.54
 }

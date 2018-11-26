@@ -16,7 +16,6 @@ define([
                     this.newNonRes()/this.existingNonResGFA() >= .2 ||
                     this.nonResGFA()/this.existingNonResGFA() >= .2 ||
                     this.officeGFA()/this.existingNonResGFA() >= .2
-
                 );
         }, this);
 
@@ -24,66 +23,44 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.retailGFA() !== null && this.retailGFA() !== '' &&
-                this.retailOpenSpaceProvidedGFA() !== null && this.retailOpenSpaceProvidedGFA() !== '' &&
-                this.manufacturingGFA() !== null && this.manufacturingGFA() !== '' &&
-                this.manufacturingOpenSpaceProvidedGFA() !== null && this.manufacturingOpenSpaceProvidedGFA() !== '' &&
-                this.officeGFA() !== null && this.officeGFA() !== '' &&
-                this.officeOpenSpaceProvidedGFA() !== null && this.officeOpenSpaceProvidedGFA() !== '' &&
-                this.otherGFA() !== null && this.otherGFA() !== '' &&
-                this.otherOpenSpaceProvidedGFA() !== null && this.otherOpenSpaceProvidedGFA() !== '';
+            return this.retailOpenSpaceGFAShortfall() !== null && this.retailOpenSpaceGFAShortfall() !== '' &&
+                this.manufacturingOpenSpaceGFAShortfall() !== null && this.manufacturingOpenSpaceGFAShortfall() !== '' &&
+                this.officeOpenSpaceGFAShortfall() !== null && this.officeOpenSpaceGFAShortfall() !== '' &&
+                this.otherOpenSpaceGFAShortfall() !== null && this.otherOpenSpaceGFAShortfall() !== '';
         }, this);
 
-
-        this.calculateRequiredOpenSpace = function(nonResGFA, requiredOpenSpaceGFAPerFootNonRes) {
-            return nonResGFA/requiredOpenSpaceGFAPerFootNonRes > 0 ? requiredOpenSpaceGFAPerFootNonRes : 0;
-        };
-
-        this.retailOpenSpaceRequiredGFA = ko.computed(function() {
-            return this.calculateRequiredOpenSpace(this.retailGFA(), this.openSpaceRequirementPerFootNonRes['retail']);
-        }, this);
-
-        this.manufacturingOpenSpaceRequiredGFA = ko.computed(function() {
-            return this.calculateRequiredOpenSpace(this.manufacturingGFA(), this.openSpaceRequirementPerFootNonRes['manufacturing']);
-        }, this);
-
-        this.officeOpenSpaceRequiredGFA = ko.computed(function() {
-            return this.calculateRequiredOpenSpace(this.officeGFA(), this.openSpaceRequirementPerFootNonRes['office']);
-        }, this);
-
-        this.otherOpenSpaceRequiredGFA = ko.computed(function() {
-            return this.calculateRequiredOpenSpace(this.otherGFA(), this.openSpaceRequirementPerFootNonRes['other']);
-        }, this);
-
-
-        this.calculateFee = function(requiredOpenSpace, providedOpenSpace, feePerOpenSpaceGFA) {
-            return (requiredOpenSpace-providedOpenSpace)*feePerOpenSpaceGFA > 0 ? (requiredOpenSpace-providedOpenSpace)*feePerOpenSpaceGFA : 0;
+        this.calculateFee = function(openSpaceShortfall) {
+            var fee = openSpaceShortfall*this.feePerOpenSpaceGFA;
+            return  fee > 0 ? fee : 0;
         };
 
         this.retailFee = ko.computed(function() {
-            return this.calculateFee(this.retailOpenSpaceRequiredGFA(), this.retailOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+            return this.calculateFee(this.retailOpenSpaceGFAShortfall());
         }, this);
 
         this.manufacturingFee = ko.computed(function() {
-            return this.calculateFee(this.manufacturingOpenSpaceRequiredGFA(), this.manufacturingOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+            return this.calculateFee(this.manufacturingOpenSpaceGFAShortfall());
         }, this);
 
         this.officeFee = ko.computed(function() {
-            return this.calculateFee(this.officeOpenSpaceRequiredGFA(), this.officeOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+            return this.calculateFee(this.officeOpenSpaceGFAShortfall());
         }, this);
 
         this.otherFee = ko.computed(function() {
-            return this.calculateFee(this.otherOpenSpaceRequiredGFA(), this.otherOpenSpaceProvidedGFA(), this.feePerOpenSpaceGFA);
+            return this.calculateFee(this.otherOpenSpaceGFAShortfall());
         }, this);
-
 
         this.calculatedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
             }
 
-            return (this.retailFee() + this.manufacturingFee() + this.officeFee() + this.otherFee());
-
+            return (
+                this.retailFee() +
+                this.manufacturingFee() +
+                this.officeFee() +
+                this.otherFee()
+            );
         }, this);
     };
 
