@@ -10,15 +10,12 @@
         "resGFA",
         "officeGFA",
         "hotelGFA",
-        "openSpaceProvidedGFA",
-        "publiclyAccessible",
-        "finalBuildingHeight",
+        "openSpaceGFAShortfall",
         "totalExistingGFA",
         "geometry"
     ],
     "areaLayer": "8",
     "areaName": "C-3-O(SD)",
     "label": "Downtown Special Development District Open Space Fee",
-    "feePerOpenSpaceGFA": 1876,
-    "openSpaceRequirementPerFoot": 50
+    "feePerOpenSpaceGFA": 1876
 }
