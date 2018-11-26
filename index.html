@@ -221,6 +221,7 @@
                     <h4>
                         Existing GFA
                     </h4>
+                    <div class="form-group">
                         <div class="row">
                             <div class="col-6">
                                 <label for="existingNonResGFA">Total existing non-residential (GFA)</label>
@@ -231,18 +232,7 @@
                                 <input type="number" min="0" class="form-control" id="totalExistingGFA" placeholder="Total existing space (GFA)" data-bind="value: totalExistingGFA, valueUpdate: 'keyup'">
                             </div>
                         </div>
-
-                    <h4>
-                        Other
-                    </h4>
-                        <div>
-                            <div class="col-4">
-                                <input type="checkbox" data-bind="checked: firstConstructionDocument"/>
-                                <label>First Construction Document</label>
-                            </div>
-                        </div>
-
-
+                    </div>
                     <h2>
                         <button class="btn btn-primary next-btn" data-bind="disable: !triggersReady(), click: viewCalculate">
                             Next: calculate fees...

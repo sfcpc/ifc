@@ -11,7 +11,7 @@ define([
         AbstractFee.apply(this, [params]);
 
         this.triggered = ko.computed(function() {
-            return this.isProjectInArea() && this.firstConstructionDocument();
+            return this.isProjectInArea();
         }, this);
 
         this.ready = ko.computed(function() {
@@ -29,7 +29,6 @@ define([
                     )
                 );
         }, this);
-
 
         this.calculatedFee = ko.computed(function() {
             var fee = 0;

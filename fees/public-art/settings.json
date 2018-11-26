@@ -4,7 +4,6 @@
     "paramNames": [
         "nonResGFA",
         "resGFA",
-        "firstConstructionDocument",
         "constructionCost",
         "posRequirement",
         "nonResProject",
@@ -25,8 +24,12 @@
         "UMU",
         "WMUG",
         "WMUO",
-        "SALI"
-
+        "SALI",
+        "C-3-G",
+        "C-3-O",
+        "C-3-O(SD)",
+        "C-3-R",
+        "C-3-S"
     ],
     "maxNonResArtFeePOS1499": 500000,
     "maxNonResArtFeePOS3000": 750000
