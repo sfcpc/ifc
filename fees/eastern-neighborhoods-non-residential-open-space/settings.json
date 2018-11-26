@@ -1,0 +1,29 @@
+{
+    "name": "eastern-neighborhoods-non-residential-open-space",
+    "code": "JD_426",
+    "paramNames": [
+        "pdrToNonResEN",
+        "pdrToNonResReplacement",
+        "newNonRes",
+        "nonResGFA",
+        "existingNonResGFA",
+        "retailOpenSpaceGFAShortfall",
+        "manufacturingOpenSpaceGFAShortfall",
+        "officeOpenSpaceGFAShortfall",
+        "otherOpenSpaceGFAShortfall",
+        "geometry"
+    ],
+    "areaName": [
+        "Eastern Neighborhoods Infrastructure Impact Fee",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 if residential, 2 if non-residential",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 if residential, 3 if non-residential",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 2",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 3",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 45 feet. Tier 2 for 65 feet.",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 65 feet. Tier 2 for 85 feet.",
+        "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 45 and 55 feet. Tier 2 for 65 feet."
+    ],
+    "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
+    "feePerOpenSpaceGFA": 107.54
+}
