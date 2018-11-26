@@ -56,7 +56,6 @@ define([
             'changeOfUse',
             'officeGFA',
             'hotelGFA',
-            'firstConstructionDocument',
             "existingNonResGFA",
             "finalBuildingHeight",
             "totalExistingGFA"

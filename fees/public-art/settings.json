@@ -4,7 +4,6 @@
     "paramNames": [
         "nonResGFA",
         "resGFA",
-        "firstConstructionDocument",
         "constructionCost",
         "posRequirement",
         "nonResProject",
@@ -26,7 +25,6 @@
         "WMUG",
         "WMUO",
         "SALI"
-
     ],
     "maxNonResArtFeePOS1499": 500000,
     "maxNonResArtFeePOS3000": 750000
