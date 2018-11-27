@@ -51,16 +51,25 @@
             <hr>
 
             <h5>Industrial Uses</h5>
-            <label for="industrialSpace">Entertainment, Arts and Recreation Uses not included above</label>
+            <label for="industrialSpace">Total industrial use (GSF)</label>
             <input type="number" class="form-control" id="industrialSpace" placeholder="value" min="0" data-bind="value: fee.industrialSpace, valueUpdate: 'keyup'">
+            <hr>
+
+            <h5>Institutional Uses</h5>
+            <label for="childCareChildren">Total # of children in child care facility</label>
+            <input type="number" class="form-control" id="childCareChildren" placeholder="value" min="0" data-bind="value: fee.childCareChildren, valueUpdate: 'keyup'">
+            <hr>
+
+            <label for="publicAccessibleGSF">Publicly-accessible or exhibition area in Community or Public Facility (GSF)</label>
+            <input type="number" class="form-control" id="publicAccessibleGSF" placeholder="value" min="0" data-bind="value: fee.publicAccessibleGSF, valueUpdate: 'keyup'">
             <hr>
         <!-- /ko -->
         <div class="">
             Total Class 2 Bicycle Parking required: <span data-bind="numericText: fee.numberOfBicycleSpacesRequired"></span>
         </div>
         <hr>
-        <label for="numberOfBicycleSpacesInLeiu">Number of Class 2 Bicycle Parking In Lieu Fee (Max: <span data-bind="numericText: fee.maxInLeiuOption"></span>): </label>
-        <input type="number" class="form-control" id="numberOfBicycleSpacesInLeiu" placeholder="value" min="0" data-bind="value: fee.numberOfBicycleSpacesInLeiu, valueUpdate: 'keyup', attr: { 'max' : fee.maxInLeiuOption()}">
+        <label for="numberOfBicycleSpacesInLieu">Number of Class 2 Bicycle Parking In Lieu Fee (Max: <span data-bind="numericText: fee.maxInLieuOption"></span>): </label>
+        <input type="number" class="form-control" id="numberOfBicycleSpacesInLieu" placeholder="value" min="0" data-bind="value: fee.numberOfBicycleSpacesInLieu, valueUpdate: 'keyup', attr: { 'max' : fee.maxInLieuOption()}">
     </div>
 </form>
 <!-- /ko -->
@@ -234,16 +243,16 @@
         <!-- /ko -->
     </table>
 
-    <!-- ko if: fee.numberOfBicycleSpacesInLeiu() > 0 -->
+    <!-- ko if: fee.numberOfBicycleSpacesInLieu() > 0 -->
     <table class="table">
         <thead>
             <tr>
                 <th>
                     <h4>In lieu fee applied</h4>
                 </th>
-                <th>Class 2 Bicycle Parking In Leiu</th>
+                <th>Class 2 Bicycle Parking In Lieu</th>
                 <th></th>
-                <th>Fee per Space In Leiu</th>
+                <th>Fee per Space In Lieu</th>
                 <th></th>
                 <th>Assessed Fee</th>
             </tr>
@@ -252,11 +261,11 @@
             <tr>
                 <td></td>
                 <td>
-                    <span data-bind="numericText: fee.numberOfBicycleSpacesInLeiu"></span> GFA
+                    <span data-bind="numericText: fee.numberOfBicycleSpacesInLieu"></span> GFA
                 </td>
                 <td>*</td>
                 <td>
-                    <span data-bind="dollarsText: fee.class2BicycleParkingInLeiuFee"></span>/GFA
+                    <span data-bind="dollarsText: fee.class2BicycleParkingInLieuFee"></span>/GFA
                 </td>
                 <td>=</td>
                 <td>
@@ -267,7 +276,7 @@
     </table>
     <!-- /ko -->
 
-    <!-- ko if: fee.numberOfBicycleSpacesInLeiu() == 0 -->
+    <!-- ko if: fee.numberOfBicycleSpacesInLieu() == 0 -->
     <h4>Project required to provide <span data-bind="numericText: fee.numberOfBicycleSpacesRequired"></span> spaces of Class 2 Bicycle Parking.</h4>
     <!-- /ko -->
 </div>

@@ -13,21 +13,23 @@
         "entertainmentArts",
         "entertainmentArena",
         "industrialSpace",
+        "childCareChildren",
+        "publicAccessibleGSF",
         "numberOfBicycleSpacesRequired",
-        "payInLeiu",
-        "numberOfBicycleSpacesInLeiu",
+        "payInLieu",
+        "numberOfBicycleSpacesInLieu",
         "netNewUnits",
         "resGFA",
         "nonResGFA",
         "newNonRes"
     ],
-    "label": "Bicycle Parking In Leiu Fee",
+    "label": "Bicycle Parking In Lieu Fee",
     "numberOfDwellingUnitsPerClass2BicycleParking": 20,
     "numberOfGroupHousingBedsPerClass2BicycleParking": 100,
     "groupHousingMinimumClass2Bicycle": 2,
     "studentHousingMultiplier": 1.5,
     "numberOfSeniorHousingPerClass2BicycleParking": 50,
     "seniorHousingMinimumClass2Bicycle": 2,
-    "class2BicycleParkingInLeiuFee": 489.68,
-    "maxInLeiu": 20
+    "class2BicycleParkingInLieuFee": 489.68,
+    "maxInLieu": 20
 }

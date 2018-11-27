@@ -5,7 +5,7 @@ define([
     'utils/mapserver',
     './component'
 ], function(ko, AbstractFee, settings, mapserverUtils) {
-    var bicycleParkingInLeiu = function(params) {
+    var bicycleParkingInLieu = function(params) {
         // var self = this;
         this.settings = settings;
 
@@ -27,7 +27,7 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.numberOfBicycleSpacesInLeiu() !== null && this.numberOfBicycleSpacesInLeiu() !== '';
+            return this.numberOfBicycleSpacesInLieu() !== null && this.numberOfBicycleSpacesInLieu() !== '';
         }, this);
 
         this.maxSeniorDwellingUnits = ko.computed(function() {
@@ -43,10 +43,10 @@ define([
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            if (!this.triggered() || this.numberOfBicycleSpacesInLeiu() === 0) {
+            if (!this.triggered() || this.numberOfBicycleSpacesInLieu() === 0) {
                 return 0;
             }
-            return this.numberOfBicycleSpacesInLeiu() * this.class2BicycleParkingInLeiuFee;
+            return this.numberOfBicycleSpacesInLieu() * this.class2BicycleParkingInLieuFee;
         }, this);
 
         this.numberOfBicycleSpacesRequired = ko.computed(function() {
@@ -68,7 +68,8 @@ define([
             // this.entertainmentGeneral()
 
             var industrialCalculation = this.industrialSpace() > 0 ? (this.industrialSpace() > 50000 ? 4 : 2) : 0;
-            var institutionalCalculation = 0;
+            var institutionalCalculation = (this.childCareChildren() / 20) +
+                (this.publicAccessibleGSF() / 2500 > 2 ? this.publicAccessibleGSF() / 2500 : 2);
             var salesCalculation = 0;
 
             return (
@@ -81,12 +82,12 @@ define([
             );
         }, this);
 
-        this.maxInLeiuOption = ko.computed(function() {
+        this.maxInLieuOption = ko.computed(function() {
             var max = (this.numberOfBicycleSpacesRequired() / 2);
             if (this.numberOfBicycleSpacesRequired() <= 4) {
                 return this.numberOfBicycleSpacesRequired();
-            } else if (max > this.maxInLeiu) {
-                return this.maxInLeiu;
+            } else if (max > this.maxInLieu) {
+                return this.maxInLieu;
             } else if (max <= 1) {
                 return 0;
             }
@@ -94,7 +95,7 @@ define([
         }, this);
     };
 
-    bicycleParkingInLeiu.settings = settings;
+    bicycleParkingInLieu.settings = settings;
 
-    return bicycleParkingInLeiu;
+    return bicycleParkingInLieu;
 });
