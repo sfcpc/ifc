@@ -1,0 +1,15 @@
+{
+    "name": "citywide-childcare-hotel-office",
+    "code": "JD_414",
+    "paramNames": [
+        "officeGFA",
+        "hotelGFA",
+        "ccfGFA",
+        "minCcfGFARequired",
+        "totalProjGFA"
+    ],
+    "label": "Hotel or Office Child Care Impact Fee",
+    "minCcfGFA": 3000,
+    "minNewOfficeHotelGFA": 25000,
+    "inLieuFee": 1.57
+}

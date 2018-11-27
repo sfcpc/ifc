@@ -3,11 +3,13 @@
     "feeTypes": [
         "balboa-park-infrastructure",
         "citywide-childcare-residential",
+        "citywide-childcare-hotel-office",
         "downtown-park-fee",
         "eastern-neighborhoods-infrastructure",
         "jobs-housing-linkage",
         "market-octavia-affordable-housing",
         "market-octavia-infrastructure",
+        "public-art",
         "rincon-hill-infrastructure",
         "soma-community-stabilization-fee",
         "soma-non-residential-open-space",
@@ -15,7 +17,10 @@
         "transit-center-transportation",
         "van-ness-market-infrastructure",
         "visitacion-valley-infrastructure",
-        "transportation-sustainability-fee"
+        "transportation-sustainability-fee",
+        "eastern-neighborhoods-non-residential-open-space",
+        "eastern-neighborhoods-residential-open-space",
+        "downtown-special-development-district-open-space"
     ],
     "globalFeeParams": [
         "newRes",
@@ -23,10 +28,10 @@
         "pdrToRes",
         "pdrToNonRes",
         "retailGFA",
-        "hotelGFA",
         "institutionalGFA",
         "industrialGFA",
-        "parcelArea"
+        "parcelArea",
+        "existingNonResGFA"
     ],
     "livereloadPort": "35729",
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
@@ -55,28 +60,8 @@
             "code": "JD_414"
         },
         {
-            "label": "Downtown Special Development District",
-            "code": "JD_427"
-        },
-        {
             "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",
             "code": "JD_417"
-        },
-        {
-            "label": "Eastern Neighborhoods Non-Residential Open Space Fee",
-            "code": "JD_426"
-        },
-        {
-            "label": "Eastern Neighborhoods Residential Open Space Fee",
-            "code": "JD_427"
-        },
-        {
-            "label": "Public Artwork Fee",
-            "code": "JD_429"
-        },
-        {
-            "label": "South of Market Non-Residential Open Space Fee",
-            "code": "JD_425"
         },
         {
             "label": "Transit Impact Development Fee (TIDF)",

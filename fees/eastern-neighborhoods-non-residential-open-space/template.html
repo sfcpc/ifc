@@ -1,0 +1,102 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>Open Space Shortfall by Type of Use</h4>
+
+        <label for="retailOpenSpaceGFAShortfall">Retail etc. Open Space Shortfall (GFA)</label>
+        <input type="number" class="form-control" id="retailOpenSpaceGFAShortfall" data-bind="value: fee.retailOpenSpaceGFAShortfall, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <label for="manufacturingOpenSpaceGFAShortfall">Manufacturing etc. Open Space Shortfall (GFA)</label>
+        <input type="number" class="form-control" id="manufacturingOpenSpaceGFAShortfall" data-bind="value: fee.manufacturingOpenSpaceGFAShortfall, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <label for="officeOpenSpaceGFAShortfall">Office Open Space Shortfall (GFA)</label>
+        <input type="number" class="form-control" id="officeOpenSpaceGFAShortfall" data-bind="value: fee.officeOpenSpaceGFAShortfall, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <label for="otherOpenSpaceGFAShortfall">Other Non-Residential Open Space Shortfall (GFA)</label>
+        <input type="number" class="form-control" id="otherOpenSpaceGFAShortfall" data-bind="value: fee.otherOpenSpaceGFAShortfall, valueUpdate: 'keyup'">
+    </div>
+
+
+
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Open Space Shortfall GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Retail etc.</th>
+            <td>
+                <span data-bind="numericText: fee.retailOpenSpaceGFAShortfall"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.retailFee"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Manufacturing etc.</th>
+            <td>
+                <span data-bind="numericText: fee.manufacturingOpenSpaceGFAShortfall"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.manufacturingFee"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Office</th>
+            <td>
+                <span data-bind="numericText: fee.officeOpenSpaceGFAShortfall"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.officeFee"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Other</th>
+            <td>
+                <span data-bind="numericText: fee.otherOpenSpaceGFAShortfall"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.otherFee"></span>
+            </td>
+        </tr>
+        <tr>
+    </tbody>
+</table>
+<!-- /ko -->

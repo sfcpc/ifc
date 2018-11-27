@@ -5,12 +5,12 @@
 
         <label for="newEnt">New Entertainment (GFA)</label>
         <input type="number" class="form-control" id="newEnt" placeholder="value" data-bind="value: fee.newEnt, valueUpdate: 'keyup'">
-        <label for="newHotel">New Hotel (GFA)</label>
-        <input type="number" class="form-control" id="newHotel" placeholder="value" data-bind="value: fee.newHotel, valueUpdate: 'keyup'">
+        <label for="hotelGFA">New Hotel (GFA) (fill in on previous page)</label>
+        <input type="number" class="form-control" id="hotelGFA" placeholder="value" disabled data-bind="value: fee.hotelGFA">
+        <label for="officeGFA">New Office (GFA) (fill in on previous page)</label>
+        <input type="number" class="form-control" id="officeGFA" placeholder="value" disabled data-bind="value: fee.officeGFA">
         <label for="newIntegratedPDR">New Integrated PDR (GFA)</label>
         <input type="number" class="form-control" id="newIntegratedPDR" placeholder="value" data-bind="value: fee.newIntegratedPDR, valueUpdate: 'keyup'">
-        <label for="newOffice">New Office (GFA)</label>
-        <input type="number" class="form-control" id="newOffice" placeholder="value" data-bind="value: fee.newOffice, valueUpdate: 'keyup'">
         <label for="newResearchAndDevelopment">New Research and Development (GFA)</label>
         <input type="number" class="form-control" id="newResearchAndDevelopment" placeholder="value" data-bind="value: fee.newResearchAndDevelopment, valueUpdate: 'keyup'">
         <label for="newRetail">New Retail (GFA)</label>
@@ -18,6 +18,66 @@
         <label for="newSmallEnterpriseWorkspace">New Small Enterprise Workspace (GFA)</label>
         <input type="number" class="form-control" id="newSmallEnterpriseWorkspace" placeholder="value" data-bind="value: fee.newSmallEnterpriseWorkspace, valueUpdate: 'keyup'">
         <hr>
+
+        <h4>Change or Replacement of Use</h4>
+
+        <h5>PDR which received its First Certificate of Occupancy on or before April 1, 2010 <strong>TO:</strong></h5>
+
+        <label for="oldPDRToEnt">Entertainment (GFA)</label>
+        <input type="number" class="form-control" id="oldPDRToEnt" placeholder="value" data-bind="value: fee.oldPDRToEnt, valueUpdate: 'keyup'">
+        <label for="oldPDRToHotel">Hotel (GFA)</label>
+        <input type="number" class="form-control" id="oldPDRToHotel" placeholder="value" data-bind="value: fee.oldPDRToHotel">
+        <label for="oldPDRToOffice">Office (GFA)</label>
+        <input type="number" class="form-control" id="oldPDRToOffice" placeholder="value" data-bind="value: fee.oldPDRToOffice">
+        <label for="oldPDRToIntegratedPDR">Integrated PDR (GFA)</label>
+        <input type="number" class="form-control" id="oldPDRToIntegratedPDR" placeholder="value" data-bind="value: fee.oldPDRToIntegratedPDR, valueUpdate: 'keyup'">
+        <label for="oldPDRToResearchAndDevelopment">Research and Development (GFA)</label>
+        <input type="number" class="form-control" id="oldPDRToResearchAndDevelopment" placeholder="value" data-bind="value: fee.oldPDRToResearchAndDevelopment, valueUpdate: 'keyup'">
+        <label for="oldPDRToRetail">Retail (GFA)</label>
+        <input type="number" class="form-control" id="oldPDRToRetail" placeholder="value" data-bind="value: fee.oldPDRToRetail, valueUpdate: 'keyup'">
+        <label for="oldPDRToSmallEnterpriseWorkspace">Small Enterprise Workspace (GFA)</label>
+        <input type="number" class="form-control" id="oldPDRToSmallEnterpriseWorkspace" placeholder="value" data-bind="value: fee.oldPDRToSmallEnterpriseWorkspace, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h5>Institutional or PDR which received its First Certificate of Occupancy after April 1, 2010 <strong>TO:</strong></h5>
+
+        <label for="newPDRToEnt">Entertainment (GFA)</label>
+        <input type="number" class="form-control" id="newPDRToEnt" placeholder="value" data-bind="value: fee.newPDRToEnt, valueUpdate: 'keyup'">
+        <label for="newPDRToHotel">Hotel (GFA)</label>
+        <input type="number" class="form-control" id="newPDRToHotel" placeholder="value" data-bind="value: fee.newPDRToHotel">
+        <label for="newPDRToOffice">Office (GFA)</label>
+        <input type="number" class="form-control" id="newPDRToOffice" placeholder="value" data-bind="value: fee.newPDRToOffice">
+        <label for="newPDRToIntegratedPDR">Integrated PDR (GFA)</label>
+        <input type="number" class="form-control" id="newPDRToIntegratedPDR" placeholder="value" data-bind="value: fee.newPDRToIntegratedPDR, valueUpdate: 'keyup'">
+        <label for="newPDRToResearchAndDevelopment">Research and Development (GFA)</label>
+        <input type="number" class="form-control" id="newPDRToResearchAndDevelopment" placeholder="value" data-bind="value: fee.newPDRToResearchAndDevelopment, valueUpdate: 'keyup'">
+        <label for="newPDRToRetail">Retail (GFA)</label>
+        <input type="number" class="form-control" id="newPDRToRetail" placeholder="value" data-bind="value: fee.newPDRToRetail, valueUpdate: 'keyup'">
+        <label for="newPDRToSmallEnterpriseWorkspace">Small Enterprise Workspace (GFA)</label>
+        <input type="number" class="form-control" id="newPDRToSmallEnterpriseWorkspace" placeholder="value" data-bind="value: fee.newPDRToSmallEnterpriseWorkspace, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h5>Residential <strong>TO:</strong></h5>
+
+        <label for="resToEnt">Entertainment (GFA)</label>
+        <input type="number" class="form-control" id="resToEnt" placeholder="value" data-bind="value: fee.resToEnt, valueUpdate: 'keyup'">
+        <label for="resToHotel">Hotel (GFA)</label>
+        <input type="number" class="form-control" id="resToHotel" placeholder="value" data-bind="value: fee.resToHotel">
+        <label for="resToOffice">Office (GFA)</label>
+        <input type="number" class="form-control" id="resToOffice" placeholder="value" data-bind="value: fee.resToOffice">
+        <label for="resToIntegratedPDR">Integrated PDR (GFA)</label>
+        <input type="number" class="form-control" id="resToIntegratedPDR" placeholder="value" data-bind="value: fee.resToIntegratedPDR, valueUpdate: 'keyup'">
+        <label for="resToResearchAndDevelopment">Research and Development (GFA)</label>
+        <input type="number" class="form-control" id="resToResearchAndDevelopment" placeholder="value" data-bind="value: fee.resToResearchAndDevelopment, valueUpdate: 'keyup'">
+        <label for="resToRetail">Retail (GFA)</label>
+        <input type="number" class="form-control" id="resToRetail" placeholder="value" data-bind="value: fee.resToRetail, valueUpdate: 'keyup'">
+        <label for="resToSmallEnterpriseWorkspace">Small Enterprise Workspace (GFA)</label>
+        <input type="number" class="form-control" id="resToSmallEnterpriseWorkspace" placeholder="value" data-bind="value: fee.resToSmallEnterpriseWorkspace, valueUpdate: 'keyup'">
+
+        <hr>
+
         <label for="feeCredit">Fee credit ($)</label>
         <input type="number" class="form-control" id="feeCredit" placeholder="value" data-bind="value: fee.feeCredit, valueUpdate: 'keyup'">
 
@@ -57,7 +117,7 @@
         <tr>
             <th scope="row">Hotel</th>
             <td>
-                <span data-bind="numericText: fee.newhotel"></span> GFA
+                <span data-bind="numericText: fee.hotelGFA"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -65,7 +125,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newHotel() * fee.feePerNewHotel"></span>
+                <span data-bind="dollarsText: fee.hotelGFA() * fee.feePerNewHotel"></span>
             </td>
         </tr>
         <tr>
@@ -85,7 +145,7 @@
         <tr>
             <th scope="row">Office</th>
             <td>
-                <span data-bind="numericText: fee.newOffice"></span> GFA
+                <span data-bind="numericText: fee.officeGFA"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -93,7 +153,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newOffice() * fee.feePerNewOffice"></span>
+                <span data-bind="dollarsText: fee.officeGFA() * fee.feePerNewOffice"></span>
             </td>
         </tr>
         <tr>
@@ -125,7 +185,7 @@
             </td>
         </tr>
         <tr>
-            <th scope="row">Entertainment</th>
+            <th scope="row">Small Enterprise Workspace</th>
             <td>
                 <span data-bind="numericText: fee.newSmallEnterpriseWorkspace"></span> GFA
             </td>
@@ -136,6 +196,336 @@
             <td>=</td>
             <td>
                 <span data-bind="dollarsText: fee.newSmallEnterpriseWorkspace() * fee.feePerNewSmallEnterpriseWorkspace"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <h4>Change or Replacement of Use</h4>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <h5>PDR which received its First Certificate of Occupancy on or before April 1, 2010 <strong>TO:</strong></h5>
+            </th>
+            <th>GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+        <tr>
+            <th scope="row">Entertainment</th>
+            <td>
+                <span data-bind="numericText: fee.oldPDRToEnt"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewEntertainment + fee.oldPDRFeeModifier"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.oldPDRToEnt() * (fee.feePerNewEntertainment + fee.oldPDRFeeModifier)"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Hotel</th>
+            <td>
+                <span data-bind="numericText: fee.oldPDRToHotel"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewHotel + fee.oldPDRFeeModifier"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.oldPDRToHotel() * (fee.feePerNewHotel + fee.oldPDRFeeModifier)"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Integrated PDR</th>
+            <td>
+                <span data-bind="numericText: fee.oldPDRToIntegratedPDR"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewIntegratedPDR + fee.oldPDRFeeModifier"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.oldPDRToIntegratedPDR() * (fee.feePerNewIntegratedPDR + fee.oldPDRFeeModifier)"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Office</th>
+            <td>
+                <span data-bind="numericText: fee.oldPDRToOffice"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewOffice + fee.oldPDRFeeModifier"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.oldPDRToOffice() * (fee.feePerNewOffice + fee.oldPDRFeeModifier)"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">New Research and Development</th>
+            <td>
+                <span data-bind="numericText: fee.oldPDRToResearchAndDevelopment"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewResearchAndDevelopment + fee.oldPDRFeeModifier"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.oldPDRToResearchAndDevelopment() * (fee.feePerNewResearchAndDevelopment + fee.oldPDRFeeModifier)"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Retail</th>
+            <td>
+                <span data-bind="numericText: fee.oldPDRToRetail"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewRetail + fee.oldPDRFeeModifier"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.oldPDRToRetail() * (fee.feePerNewRetail + fee.oldPDRFeeModifier)"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Small Enterprise Workspace</th>
+            <td>
+                <span data-bind="numericText: fee.oldPDRToSmallEnterpriseWorkspace"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewSmallEnterpriseWorkspace + fee.oldPDRFeeModifier"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.oldPDRToSmallEnterpriseWorkspace() * (fee.feePerNewSmallEnterpriseWorkspace + fee.oldPDRFeeModifier)"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h5>Institutional or PDR which received its First Certificate of Occupancy after April 1, 2010 <strong>TO:</strong></h5>
+            </th>
+            <th>GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+        <tr>
+            <th scope="row">Entertainment</th>
+            <td>
+                <span data-bind="numericText: fee.newPDRToEnt"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewEntertainment"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newPDRToEnt() * fee.feePerNewEntertainment"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Hotel</th>
+            <td>
+                <span data-bind="numericText: fee.newPDRToHotel"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewHotel"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newPDRToHotel() * fee.feePerNewHotel"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Integrated PDR</th>
+            <td>
+                <span data-bind="numericText: fee.newPDRToIntegratedPDR"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewIntegratedPDR"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newPDRToIntegratedPDR() * fee.feePerNewIntegratedPDR"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Office</th>
+            <td>
+                <span data-bind="numericText: fee.newPDRToOffice"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewOffice"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newPDRToOffice() * fee.feePerNewOffice"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">New Research and Development</th>
+            <td>
+                <span data-bind="numericText: fee.newPDRToResearchAndDevelopment"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewResearchAndDevelopment"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newPDRToResearchAndDevelopment() * fee.feePerNewResearchAndDevelopment"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Retail</th>
+            <td>
+                <span data-bind="numericText: fee.newPDRToRetail"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewRetail"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newPDRToRetail() * fee.feePerNewRetail"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Small Enterprise Workspace</th>
+            <td>
+                <span data-bind="numericText: fee.newPDRToSmallEnterpriseWorkspace"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewSmallEnterpriseWorkspace"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.newPDRToSmallEnterpriseWorkspace() * fee.feePerNewSmallEnterpriseWorkspace"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h5>Residential <strong>TO:</strong></h5>
+            </th>
+            <th>GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+        <tr>
+            <th scope="row">Entertainment</th>
+            <td>
+                <span data-bind="numericText: fee.resToEnt"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewEntertainment"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToEnt() * fee.feePerNewEntertainment"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Hotel</th>
+            <td>
+                <span data-bind="numericText: fee.resToHotel"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewHotel"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToHotel() * fee.feePerNewHotel"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Integrated PDR</th>
+            <td>
+                <span data-bind="numericText: fee.resToIntegratedPDR"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewIntegratedPDR"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToIntegratedPDR() * fee.feePerNewIntegratedPDR"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Office</th>
+            <td>
+                <span data-bind="numericText: fee.resToOffice"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewOffice"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToOffice() * fee.feePerNewOffice"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">New Research and Development</th>
+            <td>
+                <span data-bind="numericText: fee.resToResearchAndDevelopment"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewResearchAndDevelopment"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToResearchAndDevelopment() * fee.feePerNewResearchAndDevelopment"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Retail</th>
+            <td>
+                <span data-bind="numericText: fee.resToRetail"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewRetail"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToRetail() * fee.feePerNewRetail"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Small Enterprise Workspace</th>
+            <td>
+                <span data-bind="numericText: fee.resToSmallEnterpriseWorkspace"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewSmallEnterpriseWorkspace"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToSmallEnterpriseWorkspace() * fee.feePerNewSmallEnterpriseWorkspace"></span>
             </td>
         </tr>
         <tr>
