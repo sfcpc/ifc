@@ -1,0 +1,45 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>In Lieu Fee</h4>
+
+        <label for="spacesInLieu">Number of Class 2 Bicycle Parking In Lieu Fee (Max: <span data-bind="numericText: fee.maxInLieu"></span>): </label>
+        <input type="number" class="form-control" id="spacesInLieu" placeholder="value" min="0" data-bind="value: fee.spacesInLieu, valueUpdate: 'keyup', attr: { 'max': fee.maxInLieu }">
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <h4>In lieu fee applied</h4>
+                </th>
+                <th>Class 2 Bicycle Parking In Lieu</th>
+                <th></th>
+                <th>Fee per Space In Lieu</th>
+                <th></th>
+                <th>Assessed Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>
+                    <span data-bind="numericText: fee.spacesInLieu"></span> GFA
+                </td>
+                <td>*</td>
+                <td>
+                    <span data-bind="dollarsText: fee.inLieuFee"></span>/GFA
+                </td>
+                <td>=</td>
+                <td>
+                    <span data-bind="dollarsText: fee.calculatedFee"></span>/GFA
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- /ko -->

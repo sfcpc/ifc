@@ -4,6 +4,7 @@
         "balboa-park-infrastructure",
         "citywide-childcare-residential",
         "citywide-childcare-hotel-office",
+        "bicycle-parking-in-lieu",
         "downtown-park-fee",
         "eastern-neighborhoods-infrastructure",
         "jobs-housing-linkage",
@@ -49,14 +50,6 @@
         {
             "label": "Affordable Housing Fee",
             "code": "JD_415"
-        },
-        {
-            "label": "Bicycle Parking Fee",
-            "code": "JD_430"
-        },
-        {
-            "label": "Child Care Fee: Office/Hotel Projects",
-            "code": "JD_414"
         },
         {
             "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",

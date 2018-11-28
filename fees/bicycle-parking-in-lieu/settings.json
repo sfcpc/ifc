@@ -1,0 +1,14 @@
+{
+    "name": "bicycle-parking-in-lieu",
+    "code": "JD_425",
+    "paramNames": [
+        "spacesInLieu",
+        "netNewUnits",
+        "resGFA",
+        "nonResGFA",
+        "newNonRes"
+    ],
+    "label": "Bicycle Parking In Lieu Fee",
+    "inLieuFee": 489.68,
+    "maxInLieu": 20
+}
