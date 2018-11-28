@@ -103,7 +103,7 @@
         <tr>
             <th scope="row">Entertainment</th>
             <td>
-                <span data-bind="numericText: fee.newEnt"></span> GFA
+                <span data-bind="numericText: fee.entNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -111,13 +111,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newEnt() * fee.feePerNewEntertainment"></span>
+                <span data-bind="dollarsText: fee.entNewPortion() * fee.feePerNewEntertainment"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Hotel</th>
             <td>
-                <span data-bind="numericText: fee.hotelGFA"></span> GFA
+                <span data-bind="numericText: fee.hotelNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -125,13 +125,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.hotelGFA() * fee.feePerNewHotel"></span>
+                <span data-bind="dollarsText: fee.hotelNewPortion() * fee.feePerNewHotel"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Integrated PDR</th>
             <td>
-                <span data-bind="numericText: fee.newIntegratedPDR"></span> GFA
+                <span data-bind="numericText: fee.integratedPDRNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -139,13 +139,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newIntegratedPDR() * fee.feePerNewIntegratedPDR"></span>
+                <span data-bind="dollarsText: fee.integratedPDRNewPortion() * fee.feePerNewIntegratedPDR"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Office</th>
             <td>
-                <span data-bind="numericText: fee.officeGFA"></span> GFA
+                <span data-bind="numericText: fee.officeNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -153,13 +153,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.officeGFA() * fee.feePerNewOffice"></span>
+                <span data-bind="dollarsText: fee.officeNewPortion() * fee.feePerNewOffice"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">New Research and Development</th>
             <td>
-                <span data-bind="numericText: fee.newResearchAndDevelopment"></span> GFA
+                <span data-bind="numericText: fee.researchAndDevelopmentNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -167,13 +167,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newResearchAndDevelopment() * fee.feePerNewResearchAndDevelopment"></span>
+                <span data-bind="dollarsText: fee.researchAndDevelopmentNewPortion() * fee.feePerNewResearchAndDevelopment"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Retail</th>
             <td>
-                <span data-bind="numericText: fee.newRetail"></span> GFA
+                <span data-bind="numericText: fee.retailNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -181,13 +181,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newRetail() * fee.feePerNewRetail"></span>
+                <span data-bind="dollarsText: fee.retailNewPortion() * fee.feePerNewRetail"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Small Enterprise Workspace</th>
             <td>
-                <span data-bind="numericText: fee.newSmallEnterpriseWorkspace"></span> GFA
+                <span data-bind="numericText: fee.smallEnterpriseWorkspaceNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -195,7 +195,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newSmallEnterpriseWorkspace() * fee.feePerNewSmallEnterpriseWorkspace"></span>
+                <span data-bind="dollarsText: fee.smallEnterpriseWorkspaceNewPortion() * fee.feePerNewSmallEnterpriseWorkspace"></span>
             </td>
         </tr>
 

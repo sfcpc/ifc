@@ -5,7 +5,6 @@ define([
     './component'
 ], function(ko, AbstractFee, settings) {
     var JobsHousingLinkageFee = function(params) {
-        var self = this;
         this.settings = settings;
 
         AbstractFee.apply(this, [params]);
@@ -71,18 +70,90 @@ define([
                 ((this.feePerNewSmallEnterpriseWorkspace + modifier) * smallEnterpriseWorkspace);
         };
 
+        var getNewPortion = function(total, changeFromOldPDR, changeFromNewPDR, changeFromRes) {
+            var newPortion = parseFloat(total()) - (
+                parseFloat(changeFromOldPDR()) +
+                parseFloat(changeFromNewPDR()) +
+                parseFloat(changeFromRes())
+            );
+            return newPortion > 0 ? newPortion : 0;
+        };
+
+        this.entNewPortion = ko.computed(function() {
+            return getNewPortion(
+                this.newEnt,
+                this.oldPDRToEnt,
+                this.newPDRToEnt,
+                this.resToEnt
+            );
+        }, this);
+
+        this.hotelNewPortion = ko.computed(function() {
+            return getNewPortion(
+                this.hotelGFA,
+                this.oldPDRToHotel,
+                this.newPDRToHotel,
+                this.resToHotel
+            );
+        }, this);
+
+        this.integratedPDRNewPortion = ko.computed(function() {
+            return getNewPortion(
+                this.newIntegratedPDR,
+                this.oldPDRToIntegratedPDR,
+                this.newPDRToIntegratedPDR,
+                this.resToIntegratedPDR
+            );
+        }, this);
+
+        this.officeNewPortion = ko.computed(function() {
+            return getNewPortion(
+                this.officeGFA,
+                this.oldPDRToOffice,
+                this.newPDRToOffice,
+                this.resToOffice
+            );
+        }, this);
+
+        this.researchAndDevelopmentNewPortion = ko.computed(function() {
+            return getNewPortion(
+                this.newResearchAndDevelopment,
+                this.oldPDRToResearchAndDevelopment,
+                this.newPDRToResearchAndDevelopment,
+                this.resToResearchAndDevelopment
+            );
+        }, this);
+
+        this.retailNewPortion = ko.computed(function() {
+            return getNewPortion(
+                this.newRetail,
+                this.oldPDRToRetail,
+                this.newPDRToRetail,
+                this.resToRetail
+            );
+        }, this);
+
+        this.smallEnterpriseWorkspaceNewPortion = ko.computed(function() {
+            return getNewPortion(
+                this.newSmallEnterpriseWorkspace,
+                this.oldPDRToSmallEnterpriseWorkspace,
+                this.newPDRToSmallEnterpriseWorkspace,
+                this.resToSmallEnterpriseWorkspace
+            );
+        }, this);
+
         this.uncreditedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
             }
             return this.getFeeByType(
-                this.newEnt,
-                this.hotelGFA,
-                this.newIntegratedPDR,
-                this.officeGFA,
-                this.newResearchAndDevelopment,
-                this.newRetail,
-                this.newSmallEnterpriseWorkspace
+                this.entNewPortion,
+                this.hotelNewPortion,
+                this.integratedPDRNewPortion,
+                this.officeNewPortion,
+                this.researchAndDevelopmentNewPortion,
+                this.retailNewPortion,
+                this.smallEnterpriseWorkspaceNewPortion
             ) + this.getFeeByType(
                 this.oldPDRToEnt,
                 this.oldPDRToHotel,
