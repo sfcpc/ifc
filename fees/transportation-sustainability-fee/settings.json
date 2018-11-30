@@ -2,7 +2,37 @@
     "name": "transportation-sustainability-fee",
     "code": "JD_411A",
     "paramNames": [
+        "netNewUnits",
+        "resGFA",
+        "nonResGFA",
+        "pdrGFA",
+        "changeOfUse",
 
+        "exemptFromTSF",
+        "hospitalGFA",
+        "healthGFA",
+        "resToNonRes",
+        "resToHealth",
+        "resToHospital",
+        "hospitalToRes",
+        "hospitalToNonRes",
+        "hospitalToPDR",
+        "hospitalToHealth",
+        "healthToRes",
+        "healthToNonRes",
+        "healthToPDR",
+        "healthToHospital",
+        "pdrToRes",
+        "pdrToNonRes",
+        "pdrToHealth",
+        "pdrToHospital",
+        "newNewHospitalBeds",
+        "totalHospitalOperatorBeds"
     ],
-    "label": "Transportation Sustainability Fee"
+    "label": "Transportation Sustainability Fee",
+    "minNetNewUnits": 20,
+    "minResGFA": 800,
+    "minNonResGFA": 800,
+    "minPDRGFA": 1500,
+    "minChangeOfUse": 0
 }

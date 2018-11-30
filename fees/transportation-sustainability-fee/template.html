@@ -1,7 +1,85 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
+        <h4>New Construction or Addition</h4>
 
+        <label for="hospitalGFA">New Hospital (GFA)</label>
+        <input type="number" class="form-control" id="hospitalGFA" placeholder="value" data-bind="value: fee.hospitalGFA, valueUpdate: 'keyup'">
+
+        <label for="hospitalGFA">New Health Services (GFA)</label>
+        <input type="number" class="form-control" id="healthGFA" placeholder="value" data-bind="value: fee.healthGFA, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h4>Change of Use or Replacement of Use</h4>
+
+        <label for="resToNonRes">Residential to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="resToNonRes" placeholder="value" data-bind="value: fee.resToNonRes, valueUpdate: 'keyup'">
+
+        <label for="resToHealth">Residential to Health Services (GFA)</label>
+        <input type="number" class="form-control" id="resToHealth" placeholder="value" data-bind="value: fee.resToHealth, valueUpdate: 'keyup'">
+
+        <label for="resToHospital">Residential to Hospital (GFA)</label>
+        <input type="number" class="form-control" id="resToHospital" placeholder="value" data-bind="value: fee.resToHospital, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <label for="hospitalToRes">Hospital to Residential (GFA)</label>
+        <input type="number" class="form-control" id="hospitalToRes" placeholder="value" data-bind="value: fee.hospitalToRes, valueUpdate: 'keyup'">
+
+        <label for="hospitalToNonRes">Hospital to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="hospitalToNonRes" placeholder="value" data-bind="value: fee.hospitalToNonRes, valueUpdate: 'keyup'">
+
+        <label for="hospitalToPDR">Hospital to PDR (GFA)</label>
+        <input type="number" class="form-control" id="hospitalToPDR" placeholder="value" data-bind="value: fee.hospitalToPDR, valueUpdate: 'keyup'">
+
+        <label for="hospitalToHealth">Hospital to Health Services (GFA)</label>
+        <input type="number" class="form-control" id="hospitalToHealth" placeholder="value" data-bind="value: fee.hospitalToHealth, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <label for="healthToRes">Health Services to Residential (GFA)</label>
+        <input type="number" class="form-control" id="healthToRes" placeholder="value" data-bind="value: fee.healthToRes, valueUpdate: 'keyup'">
+
+        <label for="healthToNonRes">Health Services to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="healthToNonRes" placeholder="value" data-bind="value: fee.healthToNonRes, valueUpdate: 'keyup'">
+
+        <label for="healthToPDR">Health Services to PDR (GFA)</label>
+        <input type="number" class="form-control" id="healthToPDR" placeholder="value" data-bind="value: fee.healthToPDR, valueUpdate: 'keyup'">
+
+        <label for="healthToHospital">Health Services to Hospital (GFA)</label>
+        <input type="number" class="form-control" id="healthToHospital" placeholder="value" data-bind="value: fee.healthToHospital, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <label for="pdrToRes">PDR to Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToRes" placeholder="value" data-bind="value: fee.pdrToRes, valueUpdate: 'keyup'">
+
+        <label for="pdrToNonRes">PDR to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToNonRes" placeholder="value" data-bind="value: fee.pdrToNonRes, valueUpdate: 'keyup'">
+
+        <label for="pdrToHealth">PDR to Health Services (GFA)</label>
+        <input type="number" class="form-control" id="pdrToHealth" placeholder="value" data-bind="value: fee.pdrToHealth, valueUpdate: 'keyup'">
+
+        <label for="pdrToHospital">PDR to Hospital (GFA)</label>
+        <input type="number" class="form-control" id="pdrToHospital" placeholder="value" data-bind="value: fee.pdrToHospital, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h4>Hospital Beds</h4>
+
+        <label for="newNewHospitalBeds">Net increase of licensed inpatient beds</label>
+        <input type="number" class="form-control" id="newNewHospitalBeds" placeholder="value" data-bind="value: fee.newNewHospitalBeds, valueUpdate: 'keyup'">
+
+        <label for="totalHospitalOperatorBeds">Total number of existing operator inpatient beds in San Francisco</label>
+        <input type="number" class="form-control" id="totalHospitalOperatorBeds" placeholder="value" data-bind="value: fee.totalHospitalOperatorBeds, valueUpdate: 'keyup'">
+
+        <hr>
+
+        <h4>Project Exemption</h4>
+
+        <label for="exemptFromTSF">This project is TSF exempt</label>&nbsp;&nbsp;
+        <input type="checkbox"  aria-hidden="true" id="exemptFromTSF" data-bind="checked: fee.exemptFromTSF, checkedUpdate: 'keyup'">
     </div>
 </form>
 <!-- /ko -->
