@@ -21,7 +21,8 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.hospitalGFA() !== null && this.hospitalGFA() !== '' &&
+            return this.nonResNonHealthGFA() !== null && this.nonResNonHealthGFA() !== '' &&
+                this.hospitalGFA() !== null && this.hospitalGFA() !== '' &&
                 this.healthGFA() !== null && this.healthGFA() !== '' &&
                 this.resToNonRes() !== null && this.resToNonRes() !== '' &&
                 this.resToHealth() !== null && this.resToHealth() !== '' &&
@@ -42,8 +43,99 @@ define([
                 this.totalHospitalOperatorBeds() !== null && this.totalHospitalOperatorBeds() !== '';
         }, this);
 
+        this.applicableRes = ko.computed(function() {
+            var applicableRes = parseFloat(this.resGFA()) +
+                parseFloat(this.hospitalToRes()) +
+                parseFloat(this.healthToRes()) +
+                parseFloat(this.pdrToRes());
+            return applicableRes;
+        }, this);
+
+        this.applicableResTier2 = ko.computed(function() {
+            var totalUnits = (
+                parseFloat(this.newUnits()) +
+                parseFloat(this.existingUnits())
+            ) - parseFloat(this.removedUnits());
+            if (totalUnits - 99 < 0) {
+                return 0;
+            }
+            return (
+                (totalUnits - 99) /
+                totalUnits
+            ) * this.applicableRes();
+        }, this);
+
+        this.applicableResTier1 = ko.computed(function() {
+            return this.applicableRes() - this.applicableResTier2();
+        }, this);
+
+        this.applicableNonRes = ko.computed(function() {
+            var applicableNonRes = (
+                parseFloat(this.nonResNonHealthGFA()) +
+                parseFloat(this.resToNonRes()) +
+                parseFloat(this.hospitalToNonRes()) +
+                parseFloat(this.healthToNonRes()) +
+                parseFloat(this.pdrToNonRes())
+            ) - 800;
+            return applicableNonRes;
+        }, this);
+
+        this.applicableNonResTier1 = ko.computed(function() {
+            var applicableNonRes = this.applicableNonRes();
+            if (applicableNonRes <= 99199) {
+                return applicableNonRes;
+            }
+            return 99199;
+        }, this);
+
+        this.applicableNonResTier2 = ko.computed(function() {
+            var applicableNonRes = this.applicableNonRes() - 99199;
+            return applicableNonRes > 0 ? applicableNonRes : 0;
+        }, this);
+
+        this.applicableHospital = ko.computed(function() {
+            var applicableHospital = (
+                parseFloat(this.hospitalGFA()) +
+                parseFloat(this.resToHospital()) +
+                parseFloat(this.resToHospital()) +
+                parseFloat(this.healthToHospital()) +
+                parseFloat(this.healthToHospital()) +
+                parseFloat(this.pdrToHospital()) +
+                parseFloat(this.pdrToHospital())
+            ) * (
+                parseFloat(this.newNewHospitalBeds()) /
+                parseFloat(this.totalHospitalOperatorBeds())
+            );
+            return applicableHospital;
+        }, this);
+
+        this.applicableHealth = ko.computed(function() {
+            var applicableHealth = (
+                parseFloat(this.healthGFA()) +
+                parseFloat(this.resToHealth()) +
+                parseFloat(this.hospitalToHealth()) +
+                parseFloat(this.pdrToHealth())
+            ) - 12000;
+            return applicableHealth > 0 ? applicableHealth : 0;
+        }, this);
+
+        this.applicablePDR = ko.computed(function() {
+            return parseFloat(this.pdrGFA()) +
+                parseFloat(this.hospitalToPDR()) +
+                parseFloat(this.healthToPDR());
+        }, this);
+
         this.calculatedFee = ko.computed(function() {
-            return 0;
+            if (this.exemptFromTSF()) {
+                return 0;
+            }
+            return (this.applicableResTier1() * this.resTier1Fee) +
+                (this.applicableResTier2() * this.resTier2Fee) +
+                (this.applicableNonResTier1() * this.nonResTier1Fee) +
+                (this.applicableNonResTier2() * this.nonResTier2Fee) +
+                (this.applicableHospital() * this.hospitalFee) +
+                (this.applicableHealth() * this.healthFee) +
+                (this.applicablePDR() * this.pdrFee);
         }, this);
     };
 

@@ -3,6 +3,9 @@
     <div class="form-group">
         <h4>New Construction or Addition</h4>
 
+        <label for="nonResNonHealthGFA">New Non-Residential (Excluding Hospital/Health Services) (GFA)</label>
+        <input type="number" class="form-control" id="nonResNonHealthGFA" placeholder="value" data-bind="value: fee.nonResNonHealthGFA, valueUpdate: 'keyup'">
+
         <label for="hospitalGFA">New Hospital (GFA)</label>
         <input type="number" class="form-control" id="hospitalGFA" placeholder="value" data-bind="value: fee.hospitalGFA, valueUpdate: 'keyup'">
 
@@ -78,23 +81,136 @@
 
         <h4>Project Exemption</h4>
 
-        <label for="exemptFromTSF">This project is TSF exempt</label>&nbsp;&nbsp;
+        <label for="exemptFromTSF">This project is exempt from the TSF</label>&nbsp;&nbsp;
         <input type="checkbox"  aria-hidden="true" id="exemptFromTSF" data-bind="checked: fee.exemptFromTSF, checkedUpdate: 'keyup'">
     </div>
 </form>
 <!-- /ko -->
 
 <!-- ko if: state === 'report' && fee.triggered() -->
+<!-- ko if: !fee.exemptFromTSF() -->
 <table class="table">
     <thead>
         <tr>
-
+            <th>
+                <h4>Use type</h4>
+            </th>
+            <th>GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
         </tr>
     </thead>
     <tbody>
         <tr>
+            <th scope="row">Residential, 21-99 units</th>
+            <td>
+                <span data-bind="numericText: fee.applicableResTier1"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.resTier1Fee"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.applicableResTier1() * fee.resTier1Fee"></span>
+            </td>
+        </tr>
 
+        <tr>
+            <th scope="row">Residential, all units above 99 units</th>
+            <td>
+                <span data-bind="numericText: fee.applicableResTier2"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.resTier2Fee"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.applicableResTier2() * fee.resTier2Fee"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Non-Residential, 800-99,999 gsf</th>
+            <td>
+                <span data-bind="numericText: fee.applicableNonResTier1"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.nonResTier1Fee"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.applicableNonResTier1() * fee.nonResTier1Fee"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Non-Residential, all gsf above 99,999 gsf</th>
+            <td>
+                <span data-bind="numericText: fee.applicableNonResTier2"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.nonResTier2Fee"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.applicableNonResTier2() * fee.nonResTier2Fee"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Hospitals</th>
+            <td>
+                <span data-bind="numericText: fee.applicableHospital"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.hospitalFee"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.applicableHospital() * fee.hospitalFee"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Health Services, all gsf above 12,000 gsf</th>
+            <td>
+                <span data-bind="numericText: fee.applicableHealth"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.healthFee"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.applicableHealth() * fee.healthFee"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Production, Distribution and Repair</th>
+            <td>
+                <span data-bind="numericText: fee.applicablePDR"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.pdrFee"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.applicablePDR() * fee.pdrFee"></span>
+            </td>
         </tr>
     </tbody>
 </table>
+<!-- /ko -->
+<!-- ko if: fee.exemptFromTSF() -->
+<h4>This project is exempt from the TSF</h4>
+<!-- /ko -->
 <!-- /ko -->
