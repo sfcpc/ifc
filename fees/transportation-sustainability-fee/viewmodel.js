@@ -18,7 +18,7 @@ define([
         }, this);
 
         this.ready = ko.computed(function() {
-            if (!this.triggered()) {
+            if (!this.triggered() || this.exemptFromTSF()) {
                 return true;
             }
             return this.nonResNonHealthGFA() !== null && this.nonResNonHealthGFA() !== '' &&
@@ -56,13 +56,11 @@ define([
                 parseFloat(this.newUnits()) +
                 parseFloat(this.existingUnits())
             ) - parseFloat(this.removedUnits());
-            if (totalUnits - 99 < 0) {
+            var unitsAbove99 = totalUnits - 99;
+            if (unitsAbove99 < 0) {
                 return 0;
             }
-            return (
-                (totalUnits - 99) /
-                totalUnits
-            ) * this.applicableRes();
+            return (unitsAbove99 / totalUnits) * this.applicableRes();
         }, this);
 
         this.applicableResTier1 = ko.computed(function() {

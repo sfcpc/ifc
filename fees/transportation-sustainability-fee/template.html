@@ -1,6 +1,12 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
+        <h4>Project Exemption</h4>
+
+        <label for="exemptFromTSF">This project is exempt from the TSF</label>&nbsp;&nbsp;
+        <input type="checkbox"  aria-hidden="true" id="exemptFromTSF" data-bind="checked: fee.exemptFromTSF, checkedUpdate: 'keyup'">
+        <!-- ko if: !fee.exemptFromTSF() -->
+        <hr>
         <h4>New Construction or Addition</h4>
 
         <label for="nonResNonHealthGFA">New Non-Residential (Excluding Hospital/Health Services) (GFA)</label>
@@ -76,13 +82,7 @@
 
         <label for="totalHospitalOperatorBeds">Total number of existing operator inpatient beds in San Francisco</label>
         <input type="number" class="form-control" id="totalHospitalOperatorBeds" placeholder="value" data-bind="value: fee.totalHospitalOperatorBeds, valueUpdate: 'keyup'">
-
-        <hr>
-
-        <h4>Project Exemption</h4>
-
-        <label for="exemptFromTSF">This project is exempt from the TSF</label>&nbsp;&nbsp;
-        <input type="checkbox"  aria-hidden="true" id="exemptFromTSF" data-bind="checked: fee.exemptFromTSF, checkedUpdate: 'keyup'">
+        <!-- /ko -->
     </div>
 </form>
 <!-- /ko -->
