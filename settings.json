@@ -6,7 +6,10 @@
         "citywide-childcare-hotel-office",
         "bicycle-parking-in-lieu",
         "downtown-park-fee",
+        "downtown-special-development-district-open-space",
         "eastern-neighborhoods-infrastructure",
+        "eastern-neighborhoods-non-residential-open-space",
+        "eastern-neighborhoods-residential-open-space",
         "jobs-housing-linkage",
         "market-octavia-affordable-housing",
         "market-octavia-infrastructure",
@@ -16,11 +19,9 @@
         "soma-non-residential-open-space",
         "transit-center-open-space",
         "transit-center-transportation",
+        "transportation-sustainability-fee",
         "van-ness-market-infrastructure",
-        "visitacion-valley-infrastructure",
-        "eastern-neighborhoods-non-residential-open-space",
-        "eastern-neighborhoods-residential-open-space",
-        "downtown-special-development-district-open-space"
+        "visitacion-valley-infrastructure"
     ],
     "globalFeeParams": [
         "newRes",
@@ -58,10 +59,6 @@
         {
             "label": "Transit Impact Development Fee (TIDF)",
             "code": "JD_411"
-        },
-        {
-            "label": "Transportation Sustainability Fee (TSF)",
-            "code": "JD_411A"
         },
         {
             "label": "UMU District Affordable Housing Fee",
