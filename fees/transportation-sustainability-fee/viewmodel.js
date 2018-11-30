@@ -56,11 +56,11 @@ define([
                 parseFloat(this.newUnits()) +
                 parseFloat(this.existingUnits())
             ) - parseFloat(this.removedUnits());
-            var unitsAbove99 = totalUnits - 99;
-            if (unitsAbove99 < 0) {
+            var unitsAboveMin = totalUnits - this.minUnits;
+            if (unitsAboveMin < 0) {
                 return 0;
             }
-            return (unitsAbove99 / totalUnits) * this.applicableRes();
+            return (unitsAboveMin / totalUnits) * this.applicableRes();
         }, this);
 
         this.applicableResTier1 = ko.computed(function() {
@@ -74,20 +74,20 @@ define([
                 parseFloat(this.hospitalToNonRes()) +
                 parseFloat(this.healthToNonRes()) +
                 parseFloat(this.pdrToNonRes())
-            ) - 800;
+            ) - this.minNonResGFA;
             return applicableNonRes;
         }, this);
 
         this.applicableNonResTier1 = ko.computed(function() {
             var applicableNonRes = this.applicableNonRes();
-            if (applicableNonRes <= 99199) {
+            if (applicableNonRes <= this.minTier2NonResGFA) {
                 return applicableNonRes;
             }
-            return 99199;
+            return this.minTier2NonResGFA;
         }, this);
 
         this.applicableNonResTier2 = ko.computed(function() {
-            var applicableNonRes = this.applicableNonRes() - 99199;
+            var applicableNonRes = this.applicableNonRes() - this.minTier2NonResGFA;
             return applicableNonRes > 0 ? applicableNonRes : 0;
         }, this);
 
