@@ -9,8 +9,15 @@ define([
 
         AbstractFee.apply(this, [params]);
 
+        this.totalUnits = ko.computed(function() {
+            return (
+                parseFloat(this.newUnits()) +
+                parseFloat(this.existingUnits())
+            ) - parseFloat(this.removedUnits());
+        }, this);
+
         this.triggered = ko.computed(function() {
-            return this.netNewUnits() >= this.minNetNewUnits ||
+            return this.totalUnits() >= this.minTotalUnits ||
                 this.resGFA() >= this.minResGFA ||
                 this.nonResGFA() >= this.minNonResGFA ||
                 this.pdrGFA() >= this.minPDRGFA ||
@@ -52,11 +59,8 @@ define([
         }, this);
 
         this.applicableResTier2 = ko.computed(function() {
-            var totalUnits = (
-                parseFloat(this.newUnits()) +
-                parseFloat(this.existingUnits())
-            ) - parseFloat(this.removedUnits());
-            var unitsAboveMin = totalUnits - this.minUnits;
+            var totalUnits = this.totalUnits();
+            var unitsAboveMin = totalUnits - this.minTier1Units;
             if (unitsAboveMin < 0) {
                 return 0;
             }
