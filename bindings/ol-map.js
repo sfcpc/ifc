@@ -10,7 +10,7 @@ define([
             var readOnly = allBindingsAccessor().readOnly;
             var selectedPoint = allBindingsAccessor().selectedPoint || ko.observable();
             var onMapReady = allBindingsAccessor().onMapReady || function() {
-                return
+                return;
             };
             var esrijsonFormat = new ol.format.EsriJSON();
             var geojsonFormat = new ol.format.GeoJSON();
@@ -88,7 +88,7 @@ define([
 
             if (geometry()) {
                 var geom = geojsonFormat.readGeometry(geometry());
-                view.fit(geom, map.getSize())
+                view.fit(geom, map.getSize());
             }
 
             selectedPoint.subscribe(function(point) {
@@ -146,7 +146,7 @@ define([
                         }
                     });
                 }
-            })
+            });
 
             if (!readOnly) {
                 map.on('click', function(e) {
