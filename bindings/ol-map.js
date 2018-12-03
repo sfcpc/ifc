@@ -38,7 +38,11 @@ define([
                         url: settings.mapserver,
                         params: {
                             layers: 'show:' + [
-                                settings.downtownZoningLayer
+                                settings.somaDistrictsLayer,
+                                settings.downtownZoningLayer,
+                                settings.vanNessSUDLayer,
+                                settings.upperMarketNCTLayer,
+                                settings.areaLayer
                             ].join(',')
                         }
                     }),
