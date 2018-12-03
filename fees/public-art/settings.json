@@ -10,7 +10,7 @@
         "geometry"
     ],
     "label": "Public Art Fee",
-    "areaLayer": "11",
+    "areaLayer": "5,11",
     "namedAreaLayer": "8",
     "mapFieldName": "zoning_sim",
     "areaName": [
