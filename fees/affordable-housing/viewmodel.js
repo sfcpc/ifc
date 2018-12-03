@@ -10,7 +10,7 @@ define([
         AbstractFee.apply(this, [params]);
 
         this.triggered = ko.computed(function() {
-            return this.totalUnits() >= this.minTotalUnits;
+            return this.netNewUnits() >= this.minNewUnits;
         }, this);
 
         this.ready = ko.computed(function() {
@@ -21,7 +21,7 @@ define([
         }, this);
 
         this.applicableGFAPercentage = ko.computed(function() {
-            if (this.totalUnits() < 25) {
+            if (this.netNewUnits() < 25) {
                 return this.smallPercentage;
             } else if (this.ownershipType() === 'rental') {
                 return this.largeRentalPercentage;
