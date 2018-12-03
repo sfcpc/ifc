@@ -1,19 +1,20 @@
 {
     "appName": "Impact Fee Calculator",
     "feeTypes": [
+        "affordable-housing",
         "balboa-park-infrastructure",
-        "citywide-childcare-residential",
-        "citywide-childcare-hotel-office",
         "bicycle-parking-in-lieu",
         "downtown-park-fee",
         "downtown-special-development-district-open-space",
         "eastern-neighborhoods-infrastructure",
         "eastern-neighborhoods-non-residential-open-space",
         "eastern-neighborhoods-residential-open-space",
+        "citywide-childcare-hotel-office",
         "jobs-housing-linkage",
         "market-octavia-affordable-housing",
         "market-octavia-infrastructure",
         "public-art",
+        "citywide-childcare-residential",
         "rincon-hill-infrastructure",
         "soma-community-stabilization-fee",
         "soma-non-residential-open-space",
@@ -48,10 +49,6 @@
     "center": [-13630478.763700977, 4544696.014222133],
     "zoom": 12,
     "unsupportedFees": [
-        {
-            "label": "Affordable Housing Fee",
-            "code": "JD_415"
-        },
         {
             "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",
             "code": "JD_417"

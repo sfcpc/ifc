@@ -1,0 +1,44 @@
+define([
+    'knockout',
+    'fees/abstract-fee',
+    'json!./settings.json',
+    './component'
+], function(ko, AbstractFee, settings) {
+    var AffordableHousingFee = function(params) {
+        this.settings = settings;
+
+        AbstractFee.apply(this, [params]);
+
+        this.triggered = ko.computed(function() {
+            return this.totalUnits() >= this.minTotalUnits;
+        }, this);
+
+        this.ready = ko.computed(function() {
+            if (!this.triggered()) {
+                return true;
+            }
+            return this.ownershipType() !== null && this.ownershipType() !== '';
+        }, this);
+
+        this.applicableGFAPercentage = ko.computed(function() {
+            if (this.totalUnits() < 25) {
+                return this.smallProjectsPercentage;
+            } else if (this.ownershipType() === 'rental') {
+                return this.largeRentalProjectsPercentage;
+            }
+            return this.largeOwnershipProjectsPercentage;
+        }, this);
+
+        this.applicableGFA = ko.computed(function() {
+            return (this.applicableGFAPercentage()/100) * this.resGFA();
+        }, this);
+
+        this.calculatedFee = ko.computed(function() {
+            return this.applicableGFA() * this.affordableHousingFee;
+        }, this);
+    };
+
+    AffordableHousingFee.settings = settings;
+
+    return AffordableHousingFee;
+});

@@ -3,6 +3,7 @@
     "code": "JD_411A",
     "paramNames": [
         "netNewUnits",
+        "totalUnits",
         "newUnits",
         "removedUnits",
         "existingUnits",
