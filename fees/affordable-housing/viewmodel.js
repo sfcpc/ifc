@@ -22,15 +22,17 @@ define([
 
         this.applicableGFAPercentage = ko.computed(function() {
             if (this.totalUnits() < 25) {
-                return this.smallProjectsPercentage;
+                return this.smallPercentage;
             } else if (this.ownershipType() === 'rental') {
-                return this.largeRentalProjectsPercentage;
+                return this.largeRentalPercentage;
             }
-            return this.largeOwnershipProjectsPercentage;
+            return this.largeOwnershipPercentage;
         }, this);
 
         this.applicableGFA = ko.computed(function() {
-            return (this.applicableGFAPercentage()/100) * this.resGFA();
+            return (
+                this.applicableGFAPercentage() / 100
+            ) * this.resGFA();
         }, this);
 
         this.calculatedFee = ko.computed(function() {

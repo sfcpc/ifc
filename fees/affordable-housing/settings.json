@@ -9,7 +9,7 @@
     "label": "Affordable Housing Fee",
     "minTotalUnits": 10,
     "affordableHousingFee": 199.50,
-    "smallProjectsPercentage": 20,
-    "largeRentalProjectsPercentage": 30,
-    "largeOwnershipProjectsPercentage": 33
+    "smallPercentage": 20,
+    "largeRentalPercentage": 30,
+    "largeOwnershipPercentage": 33
 }
