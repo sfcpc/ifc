@@ -9,13 +9,6 @@ define([
 
         AbstractFee.apply(this, [params]);
 
-        this.totalUnits = ko.computed(function() {
-            return (
-                parseFloat(this.newUnits()) +
-                parseFloat(this.existingUnits())
-            ) - parseFloat(this.removedUnits());
-        }, this);
-
         this.triggered = ko.computed(function() {
             return this.totalUnits() >= this.minTotalUnits ||
                 this.resGFA() >= this.minResGFA ||

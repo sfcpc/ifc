@@ -1,0 +1,15 @@
+{
+    "name": "affordable-housing",
+    "code": "JD_415",
+    "paramNames": [
+        "totalUnits",
+        "ownershipType",
+        "resGFA"
+    ],
+    "label": "Affordable Housing Fee",
+    "minTotalUnits": 10,
+    "affordableHousingFee": 199.50,
+    "smallPercentage": 20,
+    "largeRentalPercentage": 30,
+    "largeOwnershipPercentage": 33
+}

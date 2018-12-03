@@ -71,6 +71,13 @@ define([
             return newUnits - removedUnits;
         }, this);
 
+        this.totalUnits = ko.computed(function() {
+            return (
+                parseFloat(this.newUnits()) +
+                parseFloat(this.existingUnits())
+            ) - parseFloat(this.removedUnits());
+        }, this);
+
         this.dwellingsReady = ko.computed(function() {
             var newUnits = this.newUnits();
             var removedUnits = this.removedUnits();
