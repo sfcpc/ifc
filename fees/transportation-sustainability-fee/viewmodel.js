@@ -72,7 +72,7 @@ define([
                 parseFloat(this.healthToNonRes()) +
                 parseFloat(this.pdrToNonRes())
             ) - this.minNonResGFA;
-            return applicableNonRes;
+            return applicableNonRes > 0 ? applicableNonRes : 0;
         }, this);
 
         this.applicableNonResTier1 = ko.computed(function() {
@@ -99,7 +99,7 @@ define([
                 parseFloat(this.pdrToHospital())
             ) * (
                 parseFloat(this.newNewHospitalBeds()) /
-                parseFloat(this.totalHospitalOperatorBeds())
+                (parseFloat(this.totalHospitalOperatorBeds()) || 1)
             );
             return applicableHospital;
         }, this);
