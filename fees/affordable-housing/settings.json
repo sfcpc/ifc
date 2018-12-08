@@ -4,7 +4,8 @@
     "paramNames": [
         "netNewUnits",
         "ownershipType",
-        "resGFA"
+        "resGFA",
+        "exemptFromAffordableHousingFee"
     ],
     "label": "Affordable Housing Fee",
     "minNewUnits": 10,

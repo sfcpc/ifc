@@ -14,7 +14,7 @@ define([
         }, this);
 
         this.ready = ko.computed(function() {
-            if (!this.triggered()) {
+            if (!this.triggered() || this.exemptFromAffordableHousingFee()) {
                 return true;
             }
             return this.ownershipType() !== null && this.ownershipType() !== '';
@@ -36,6 +36,9 @@ define([
         }, this);
 
         this.calculatedFee = ko.computed(function() {
+            if (this.exemptFromAffordableHousingFee()) {
+                return 0;
+            }
             return this.applicableGFA() * this.affordableHousingFee;
         }, this);
     };

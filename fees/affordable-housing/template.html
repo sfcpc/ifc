@@ -1,6 +1,13 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
+        <h4>Project Exemption</h4>
+
+        <label for="exemptFromAffordableHousingFee">This project fulfills affordable housing requirements</label>&nbsp;&nbsp;
+        <input type="checkbox"  aria-hidden="true" id="exemptFromAffordableHousingFee" data-bind="checked: fee.exemptFromAffordableHousingFee, checkedUpdate: 'keyup'">
+        <!-- ko if: !fee.exemptFromAffordableHousingFee() -->
+        <hr>
+
         <h4>Ownership type</h4>
         <div>
             <input type="radio"  aria-hidden="true" id="rentalRadio" value="rental" name="ownershipType" data-bind="checked: fee.ownershipType">
@@ -12,11 +19,13 @@
             &nbsp;&nbsp;
             <label for="ownershipRadio">Ownership</label>
         </div>
+        <!-- /ko -->
     </div>
 </form>
 <!-- /ko -->
 
 <!-- ko if: state === 'report' && fee.triggered() -->
+<!-- ko if: !fee.exemptFromAffordableHousingFee() -->
 <table class="table">
     <thead>
         <tr>
@@ -49,4 +58,8 @@
         </tr>
     </tbody>
 </table>
+<!-- /ko -->
+<!-- ko if: fee.exemptFromAffordableHousingFee() -->
+<h4>This project fulfills affordable housing requirements</h4>
+<!-- /ko -->
 <!-- /ko -->
