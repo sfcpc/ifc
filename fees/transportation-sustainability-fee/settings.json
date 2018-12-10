@@ -22,7 +22,7 @@
     "minTotalUnits": 20,
     "minResGFA": 800,
     "minNonResGFA": 800,
-    "minTier2NonResGFA": 99199,
+    "minTier2NonResGFA": 99999,
     "minPDRGFA": 1500,
     "minChangeOfUse": 0,
     "minTier1Units": 99,
