@@ -70,7 +70,7 @@
         <tr>
             <th scope="row">Residential</th>
             <td>
-                <span data-bind="numericText: fee.newRes"></span> GFA
+                <span data-bind="numericText: fee.resNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -78,13 +78,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newRes() * fee.fees[fee.tier()].newRes"></span>
+                <span data-bind="dollarsText: fee.resNewPortion() * fee.fees[fee.tier()].newRes"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Non-Residential</th>
             <td>
-                <span data-bind="numericText: fee.newNonRes"></span> GFA
+                <span data-bind="numericText: fee.nonResNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -92,7 +92,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newNonRes() * fee.fees[fee.tier()].newNonRes"></span>
+                <span data-bind="dollarsText: fee.nonResNewPortion() * fee.fees[fee.tier()].newNonRes"></span>
             </td>
         </tr>
         <tr>

@@ -34,36 +34,47 @@ define([
         }, this);
 
         this.tier = ko.computed(function() {
-            //console.log("here")
             var areas = this.isProjectInArea();
             if (areas) {
                 var defaultAreaName = this.areaName[0];
                 var prefix = defaultAreaName + ' - ';
                 var tiers = areas.map(function(area) {
-
                     return area.areaName;
-
                 }).reduce(function(tierNames, areaName) {
-                    //console.log("here2")
                     if (areaName !== defaultAreaName) {
                         var tierName = areaName.split(prefix)[1];
                         tierNames.push(tierName);
                     }
-                    //console.log("tierNames: "+tierNames)
                     return tierNames;
                 }, []);
                 if (tiers.length > 1 || !(tiers[0] in this.fees)) {
                     return null;
                 }
-                //console.log("tiers[0]: "+tiers[0]);
                 var allAffordable = this.allAffordable() || 0;
-		        var tier = tiers[0]
-		        if (allAffordable && (tier == "Tier 2" || tier == "Tier 3") ) {
-                    tier = tier +  " - 100% Affordable Housing Project"
+                var tier = tiers[0];
+                if (allAffordable && (tier == "Tier 2" || tier == "Tier 3") ) {
+                    tier +=  " - 100% Affordable Housing Project";
                 }
-                //console.log("tiers[0]: "+tiers[0]);
                 return tier;
             }
+        }, this);
+
+        this.resNewPortion = ko.computed(function() {
+            var newPortion = parseFloat(this.newRes()) - (
+                parseFloat(this.nonResToResEN()) +
+                parseFloat(this.pdrToResEN()) +
+                parseFloat(this.nonResToResReplacement()) +
+                parseFloat(this.pdrToResReplacement())
+            );
+            return newPortion > 0 ? newPortion : 0;
+        }, this);
+
+        this.nonResNewPortion = ko.computed(function() {
+            var newPortion = parseFloat(this.newNonRes()) - (
+                parseFloat(this.pdrToNonResEN()) +
+                parseFloat(this.pdrToNonResReplacement())
+            );
+            return newPortion > 0 ? newPortion : 0;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
@@ -71,32 +82,16 @@ define([
                 return 0;
             }
             var tier = this.tier();
-            var newRes = this.newRes() || 0;
-            var newNonRes = this.newNonRes() || 0;
+            var newRes = this.resNewPortion() || 0;
+            var newNonRes = this.nonResNewPortion() || 0;
             var nonResToResEN = this.nonResToResEN() || 0;
             var pdrToResEN = this.pdrToResEN() || 0;
             var pdrToNonResEN = this.pdrToNonResEN() || 0;
-
             var nonResToResReplacement = this.nonResToResReplacement() || 0;
             var pdrToResReplacement = this.pdrToResReplacement() || 0;
             var pdrToNonResReplacement = this.pdrToNonResReplacement() || 0;
 
-            var allAffordable = this.allAffordable() || 0;
-
-            var tmpTier="";
-
-
-
-
             if (tier) {
-                //console.log(tier);
-                //console.log("cccc"+fee.tier())
-                //console.log("allAffordable: "+allAffordable);
-                //tmpTier=tier;
-                if (allAffordable && (tier == "Tier 2" || tier == "Tier 3") ) {
-                    tier = tier +  " - 100% Affordable Housing Project"
-                }
-                //console.log("tier: " + tier)
                 return (this.fees[tier].newRes * newRes) +
                     (this.fees[tier].newNonRes * newNonRes) +
                     (this.fees["Tier 1"].nonResToRes * nonResToResEN) +
