@@ -5,14 +5,13 @@ define([
     './component'
 ], function(ko, AbstractFee, settings) {
     var JobsHousingLinkageFee = function(params) {
-        var self = this;
         this.settings = settings;
 
         AbstractFee.apply(this, [params]);
 
         this.triggered = ko.computed(function() {
             return (
-                this.newNonRes() + this.nonResGFA() >= this.minNonResGFA
+                this.nonResGFA() >= this.minNonResGFA
             );
         }, this);
 
