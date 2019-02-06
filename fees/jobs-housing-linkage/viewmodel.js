@@ -11,7 +11,7 @@ define([
 
         this.triggered = ko.computed(function() {
             return (
-                this.newNonRes() + this.nonResGFA() >= this.minNonResGFA
+                this.nonResGFA() >= this.minNonResGFA
             );
         }, this);
 

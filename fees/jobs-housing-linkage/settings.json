@@ -3,7 +3,6 @@
     "code": "JD_414A.4",
     "paramNames": [
         "newRes",
-        "newNonRes",
         "nonResToRes",
         "pdrToRes",
         "pdrToNonRes",
