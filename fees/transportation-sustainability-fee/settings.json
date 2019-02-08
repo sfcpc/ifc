@@ -26,11 +26,11 @@
     "minPDRGFA": 1500,
     "minChangeOfUse": 0,
     "minTier1Units": 99,
-    "resTier1Fee": 8.6,
-    "resTier2Fee": 9.71,
-    "nonResTier1Fee": 20.03,
-    "nonResTier2Fee": 21.14,
-    "hospitalFee": 20.81,
-    "healthFee": 12.21,
-    "pdrFee": 8.45
+    "resTier1Fee": 9.11,
+    "resTier2Fee": 10.29,
+    "nonResTier1Fee": 21.23,
+    "nonResTier2Fee": 24.04,
+    "hospitalFee": 22.06,
+    "healthFee": 12.94,
+    "pdrFee": 8.96
 }
