@@ -52,10 +52,6 @@
         {
             "label": "Transit Impact Development Fee (TIDF)",
             "code": "JD_411"
-        },
-        {
-            "label": "UMU District Affordable Housing Fee",
-            "code": "JD_419"
         }
     ]
 }
