@@ -20,12 +20,12 @@
 
 Residential | Non-residential
 ----------- | ---------------
-$12.73/gsf   | $4.81/gsf
+$13.49/gsf   | $5.10/gsf
 
 ## 421.3B FEE SCHEDULE FOR REPLACEMENT OF USE OR CHANGE OF USE IN THE MARKET AND OCTAVIA PROGRAM AREA
 
 Residential to Residential or Non-residential; or Non-residential to Non-residential | Non-Residential to Residential | PDR to Residential | PDR to Non-Residential
 ------------------------------------------------------------------------------------ | ------------------------------ | ------------------ | ----------------------
-$0                                                                                   | $7.93/gsf                      | $10.33/gsf          | $2.03/gsf
+$0                                                                                   | $8.40/gsf                      | $10.95/gsf          | $2.54/gsf
 
-**2018 fee schedule
+**2019 fee schedule
