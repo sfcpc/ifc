@@ -5,7 +5,7 @@
         1. creates at least one new residential unit, or
         2. creates additional space in an existing residential unit of more than 800 gross square feet.
     2. have both not filed an application or a building permit, site permit, conditional use, planned unit development, environmental evaluation, Zoning Map amendment or General Plan amendment prior to September 1, 2003, and have filed an application for a building permit, site permit, conditional use, planned unit development, environmental evaluation, Zoning Map amendment or General Plan amendment on or after September 1, 2003.
-2. Amount of Fee. The Visitacion Valley Community Facilities and Infrastructure Fee ("Fee") shall be $6.48 for each net addition of occupiable square feet of residential use within a development project subject to this Section. Any replacement of gross square feet or change of use shall pay per the Fee Schedule in Table 420.3A below.
+2. Amount of Fee. The Visitacion Valley Community Facilities and Infrastructure Fee ("Fee") shall be $6.87 for each net addition of occupiable square feet of residential use within a development project subject to this Section. Any replacement of gross square feet or change of use shall pay per the Fee Schedule in Table 420.3A below.
 
 ## 420.3A FEE SCHEDULE FOR REPLACEMENT OR CHANGE OF USE IN THE RINCON HILL PROGRAM AREA
 
