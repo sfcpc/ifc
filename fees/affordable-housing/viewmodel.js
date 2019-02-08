@@ -100,7 +100,7 @@ define([
                 return 0;
             }
             if (this.feeApplied() === 'Eastern Neighborhoods Alternate Affordable Housing Fee') {
-                return this.easternAffordableFee();
+                return parseFloat(this.easternAffordableFee());
             }
             return this.applicableGFA() * this.affordableHousingFee;
         }, this);
