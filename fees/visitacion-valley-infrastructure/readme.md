@@ -11,6 +11,6 @@
 
 Residential to Residential or Non-residential; Non-residential to Non-residential; PDR to Non-Residential | Non-Residential to Residential | PDR to Residential
 --------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------
-$0/gsf                                                                                                    | $5.10/gsf                      | $3.28/gsf
+$0/gsf                                                                                                    | $5.40/gsf                      | $3.48/gsf
 
-**2018 fee Schedule
+**2019 fee Schedule
