@@ -301,6 +301,11 @@ hr {
     font-weight: bold;
 }
 
+.affordable-fee-name{
+    font-size: 24px;
+    font-weight: bold;
+}
+
 @-moz-keyframes shake {
     0%, 100% {
         left: 0px;

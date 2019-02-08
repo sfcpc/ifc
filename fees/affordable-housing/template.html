@@ -19,6 +19,22 @@
             &nbsp;&nbsp;
             <label for="ownershipRadio">Ownership</label>
         </div>
+
+        <!-- ko if: fee.easternElligible() -->
+        <hr>
+        <div>
+            <label for="payEasternFee">Pay Eastern Neighborhoods Alternate Fee</label>&nbsp;&nbsp;
+            <input type="checkbox"  aria-hidden="true" id="payEasternFee" data-bind="checked: fee.payEasternFee, checkedUpdate: 'keyup'">
+        </div>
+            <!-- ko if: fee.payEasternFee() -->
+            <div class="eastern-affordable-fee-form">
+                (Fee must be manually calculated)
+            </div>
+            <label for="easternAffordableFee">Eastern Neighborhoods Alternate Fee ($)</label>
+            <input type="number" class="form-control" id="easternAffordableFee" data-bind="value: fee.easternAffordableFee, valueUpdate: 'keyup'">
+            <!-- /ko -->
+        <!-- /ko -->
+
         <!-- /ko -->
     </div>
 </form>
@@ -26,38 +42,49 @@
 
 <!-- ko if: state === 'report' && fee.triggered() -->
 <!-- ko if: !fee.exemptFromAffordableHousingFee() -->
-<table class="table">
-    <thead>
-        <tr>
-            <th>Residential GFA</th>
-            <th></th>
-            <th>Applicable fee percentage</th>
-            <th></th>
-            <th>Fee per GFA</th>
-            <th></th>
-            <th>Assessed Fee</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <span data-bind="numericText: fee.resGFA"></span> GFA
-            </td>
-            <td>*</td>
-            <td>
-                <span data-bind="numericText: fee.applicableGFAPercentage"></span>%
-            </td>
-            <td>*</td>
-            <td>
-                <span data-bind="dollarsText: fee.affordableHousingFee"></span>
-            </td>
-            <td>=</td>
-            <td>
-                <span data-bind="dollarsText: fee.calculatedFee"></span>/GFA
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="affordable-fee-name">
+    Fee Applied:
+    <span data-bind="text: fee.feeApplied"></span>
+</div>
+    <!-- ko if: fee.feeApplied() !== 'Eastern Neighborhoods Alternate Affordable Housing Fee' -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Residential GFA</th>
+                <th></th>
+                <th>Applicable fee percentage</th>
+                <th></th>
+                <th>Fee per GFA</th>
+                <th></th>
+                <th>Assessed Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <span data-bind="numericText: fee.resGFA"></span> GFA
+                </td>
+                <td>*</td>
+                <td>
+                    <span data-bind="numericText: fee.applicableGFAPercentage"></span>%
+                </td>
+                <td>*</td>
+                <td>
+                    <span data-bind="dollarsText: fee.affordableHousingFee"></span>
+                </td>
+                <td>=</td>
+                <td>
+                    <span data-bind="dollarsText: fee.calculatedFee"></span>/GFA
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- /ko -->
+    <!-- ko if: fee.feeApplied() === 'Eastern Neighborhoods Alternate Affordable Housing Fee' -->
+    <div class="eastern-affordable-fee-report">
+        (Fee calculated manually)
+    </div>
+    <!-- /ko -->
 <!-- /ko -->
 <!-- ko if: fee.exemptFromAffordableHousingFee() -->
 <h4>This project fulfills affordable housing requirements</h4>

@@ -50,10 +50,6 @@
     "zoom": 12,
     "unsupportedFees": [
         {
-            "label": "Eastern Neighborhoods Alternate Affordable Housing Fee",
-            "code": "JD_417"
-        },
-        {
             "label": "Transit Impact Development Fee (TIDF)",
             "code": "JD_411"
         },
