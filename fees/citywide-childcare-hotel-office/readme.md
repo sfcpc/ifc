@@ -13,7 +13,7 @@
 
     (a)   The sponsor of a development project subject to Section 414.1et seq. may elect to pay a fee in lieu of providing a child-care facility. The fee shall be computed as follows:
 
-                                        Net add. gross sq. ft. office or hotel space × $1.57 = Total Fee
+                                        Net add. gross sq. ft. office or hotel space × $1.85 = Total Fee
 
 
 ## 414.9.  COMPLIANCE BY COMBINING PAYMENT OF AN IN-LIEU FEE WITH CONSTRUCTION OF A CHILD-CARE FACILITY.

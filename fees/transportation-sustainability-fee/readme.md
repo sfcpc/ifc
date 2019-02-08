@@ -68,10 +68,10 @@ Development Projects subject to the TSF shall pay the following fees, as adjuste
 
 | Land Use Categories                                                             | TSF                                                                                                                   |
 | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Residential, 21-99 units                                                        | $8.60 for all gsf of Residential use in the first 99 dwelling units (see Section 411A.4(c) above).                    |
-| Residential, all units above 99 units                                           | $9.71 for all gsf of Residential use in all dwelling units at and above the 100th unit (see Section 411A.4(c) above). |
-| Non-Residential, except Hospitals and Health Services, 800-99,999 gsf           | $20.03 for all gsf of Non-Residential uses less than 100,000 gsf.                                                     |
-| Non-Residential, except Hospitals and Health Services, all gsf above 99,999 gsf | $21.14 for all gsf of Non-Residential use greater than 99,999 gsf.                                                    |
-| Hospitals                                                                       | $20.81 per calculation method set forth in Section 411A.4(d).                                                         |
-| Health Services, all gsf above 12,000 gsf                                       | $12.21 for all gsf above 12,000 gsf                                                                                   |
-| Production, Distribution and Repair                                             | $8.45                                                                                                                 |
+| Residential, 21-99 units                                                        | $9.11 for all gsf of Residential use in the first 99 dwelling units (see Section 411A.4(c) above).                    |
+| Residential, all units above 99 units                                           | $10.29 for all gsf of Residential use in all dwelling units at and above the 100th unit (see Section 411A.4(c) above). |
+| Non-Residential, except Hospitals and Health Services, 800-99,999 gsf           | $21.23 for all gsf of Non-Residential uses less than 100,000 gsf.                                                     |
+| Non-Residential, except Hospitals and Health Services, all gsf above 99,999 gsf | $24.04 for all gsf of Non-Residential use greater than 99,999 gsf.                                                    |
+| Hospitals                                                                       | $22.06 per calculation method set forth in Section 411A.4(d).                                                         |
+| Health Services, all gsf above 12,000 gsf                                       | $12.94 for all gsf above 12,000 gsf                                                                                   |
+| Production, Distribution and Repair                                             | $8.96                                                                                                                 |
