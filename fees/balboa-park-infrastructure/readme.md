@@ -30,4 +30,4 @@ Residential to Residential or Non-residential; or Non-residential to Non-residen
 ------------------------------------------------------------------------------------ | ------------------------------ | ------------------ | ----------------------
 $0                                                                                   | $9.75/gsf                      | $10.87/gsf          | $1.12/gsf
 
-**2018 fee schedule
+**2019 fee schedule
