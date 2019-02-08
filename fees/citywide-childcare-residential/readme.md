@@ -20,8 +20,8 @@ $2.15/gsf                                | $1.08/gsf
 
 Residential project units | Residential Use to Residential Use | Non-Residential to Residential | PDR to Residential
 ---------------------------------------- | ---------------------------------- | ------------------------------ | ------------------
-10 or more | $0/gsf                             | $0.29/gsf                      | $0.29/gsf
-up to 9    | $0/gsf                             | $0.15/gsf                      | $0.15/gsf
+10 or more | $0/gsf                             | $0.31/gsf                      | $0.31/gsf
+up to 9    | $0/gsf                             | $0.16/gsf                      | $0.16/gsf
 
 
 **2019 fee schedule
