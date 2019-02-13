@@ -48,5 +48,11 @@
     "feePerNewResearchAndDevelopment": 19.04,
     "feePerNewRetail": 26.66,
     "feePerNewSmallEnterpriseWorkspace": 22.46,
-    "oldPDRFeeModifier": -14.09
+    "oldFeePerNewEntertainment": 7.03,
+    "oldFeePerNewHotel": 1.33,
+    "oldFeePerNewIntegratedPDR": 2.49,
+    "oldFeePerNewOffice": 9.12,
+    "oldFeePerNewResearchAndDevelopment": 0,
+    "oldFeePerNewRetail": 7.03,
+    "oldFeePerNewSmallEnterpriseWorkspace": 2.49
 }

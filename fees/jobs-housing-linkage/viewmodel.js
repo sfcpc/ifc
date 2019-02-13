@@ -50,10 +50,14 @@ define([
                 this.feeCredit() !== null && this.feeCredit() !== '';
         }, this);
 
-        this.getFeeByType = function(ent, hotel, integratedPDR, office, researchAndDevelopment, retail, smallEnterpriseWorkspace, modifier) {
-            if (!modifier) {
-                modifier = 0;
-            }
+        this.getFeeByType = function(ent, hotel, integratedPDR, office, researchAndDevelopment, retail, smallEnterpriseWorkspace, oldPDR) {
+            var feePerNewEntertainment = oldPDR ? this.oldFeePerNewEntertainment : this.feePerNewEntertainment;
+            var feePerNewHotel = oldPDR ? this.oldFeePerNewHotel : this.feePerNewHotel;
+            var feePerNewIntegratedPDR = oldPDR ? this.oldFeePerNewIntegratedPDR : this.feePerNewIntegratedPDR;
+            var feePerNewOffice = oldPDR ? this.oldFeePerNewOffice : this.feePerNewOffice;
+            var feePerNewResearchAndDevelopment = oldPDR ? this.oldFeePerNewResearchAndDevelopment : this.feePerNewResearchAndDevelopment;
+            var feePerNewRetail = oldPDR ? this.oldFeePerNewRetail : this.feePerNewRetail;
+            var feePerNewSmallEnterpriseWorkspace = oldPDR ? this.oldFeePerNewSmallEnterpriseWorkspace : this.feePerNewSmallEnterpriseWorkspace;
             ent = ent() || 0;
             hotel = hotel() || 0;
             integratedPDR = integratedPDR() || 0;
@@ -61,13 +65,13 @@ define([
             researchAndDevelopment = researchAndDevelopment() || 0;
             retail = retail() || 0;
             smallEnterpriseWorkspace = smallEnterpriseWorkspace() || 0;
-            return ((this.feePerNewEntertainment + modifier) * ent) +
-                ((this.feePerNewHotel + modifier) * hotel) +
-                ((this.feePerNewIntegratedPDR + modifier) * integratedPDR) +
-                ((this.feePerNewOffice + modifier) * office) +
-                ((this.feePerNewResearchAndDevelopment + modifier) * researchAndDevelopment) +
-                ((this.feePerNewRetail + modifier) * retail) +
-                ((this.feePerNewSmallEnterpriseWorkspace + modifier) * smallEnterpriseWorkspace);
+            return (feePerNewEntertainment * ent) +
+                (feePerNewHotel * hotel) +
+                (feePerNewIntegratedPDR * integratedPDR) +
+                (feePerNewOffice * office) +
+                (feePerNewResearchAndDevelopment * researchAndDevelopment) +
+                (feePerNewRetail * retail) +
+                (feePerNewSmallEnterpriseWorkspace * smallEnterpriseWorkspace);
         };
 
         var getNewPortion = function(total, changeFromOldPDR, changeFromNewPDR, changeFromRes) {
@@ -162,7 +166,7 @@ define([
                 this.oldPDRToResearchAndDevelopment,
                 this.oldPDRToRetail,
                 this.oldPDRToSmallEnterpriseWorkspace,
-                this.oldPDRFeeModifier
+                true
             ) + this.getFeeByType(
                 this.newPDRToEnt,
                 this.newPDRToHotel,
