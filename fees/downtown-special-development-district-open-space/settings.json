@@ -14,7 +14,7 @@
         "totalExistingGFA",
         "geometry"
     ],
-    "areaLayer": "8",
+    "namedAreaLayer": "8",
     "areaName": "C-3-O(SD)",
     "label": "Downtown Special Development District Open Space Fee",
     "feePerOpenSpaceGFA": 1989
