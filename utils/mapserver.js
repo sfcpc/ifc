@@ -10,7 +10,7 @@ define([
     var mapserverUtils = {
         getAreaGeoJSON: function(areaName, callback, fieldName, namedAreaLayer) {
             fieldName = fieldName || 'FEE';
-            areaLayer = namedAreaLayer || settings.areaLayer;
+            var areaLayer = namedAreaLayer || settings.areaLayer;
             $.getJSON(settings.mapserver + '/' + areaLayer + '/query', {
                 where: fieldName + "='" + areaName + "'",
                 geometryType: 'esriGeometryEnvelope',
@@ -43,8 +43,8 @@ define([
             });
         },
         isProjectInArea: function(projectGeom, areaGeoms) {
-            var projectGeom = projectGeom();
-            var areaGeoms = areaGeoms();
+            projectGeom = projectGeom();
+            areaGeoms = areaGeoms();
             if (!projectGeom || !areaGeoms || areaGeoms.length === 0) {
                 return false;
             }
@@ -64,7 +64,7 @@ define([
         queryLayer: function(geometry, layer, callback) {
             var geoJSONGeom = geometry();
             if (geoJSONGeom) {
-                geom = geojsonFormat.readGeometry(geoJSONGeom);
+                var geom = geojsonFormat.readGeometry(geoJSONGeom);
                 $.getJSON(settings.mapserver + '/' + layer + '/query', {
                     geometry: geom.getExtent().join(','),
                     inSR: 102100,
