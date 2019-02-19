@@ -49,15 +49,15 @@ define([
             } else {
                 areaNames = this.areaName.split(',');
             }
-            areaNames.forEach(function (areaName) {
-                mapserverUtils.getAreaGeoJSON(areaName, function (areaGeom) {
-                    self.areaGeoms.push(areaGeom);
+            areaNames.forEach(function(areaName) {
+                mapserverUtils.getAreaGeoJSON(areaName, function(areaGeoms) {
+                    self.areaGeoms.push.apply(self.areaGeoms, areaGeoms);
                 }, self.mapFieldName, self.namedAreaLayer);
             });
         }
         if (this.areaLayer) {
             var areaLayers = this.areaLayer.split(',');
-            var updateIntersectFeatures = function () {
+            var updateIntersectFeatures = function() {
                 self.intersectFeatures.removeAll();
                 if (self.geometry()) {
                     areaLayers.forEach(function(areaLayer) {
@@ -65,8 +65,8 @@ define([
                             features.forEach(function(feature) {
                                 self.intersectFeatures.push(feature);
                             });
-                        })
-                    })
+                        });
+                    });
                 }
             };
             this.geometry.subscribe(updateIntersectFeatures);
@@ -82,7 +82,7 @@ define([
         // indicates if this fee is ready for calculation
         // override with fee type specific logic
         this.ready = ko.computed(function() {
-            return true
+            return true;
         }, this);
 
         // returns the calculated fee value

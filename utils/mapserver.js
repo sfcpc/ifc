@@ -25,16 +25,20 @@ define([
                 outSR: 102100,
                 f: 'json'
             }, function(data) {
+                var geoms = [];
                 if (data['error']) {
                     console.error('Get fee area failed: ' + data['error'].message);
                     return;
                 }
                 if (data.features.length > 0){
-                    var geom = esrijsonFormat.readGeometry(data.features[0].geometry);
-                    geom = geojsonFormat.writeGeometry(geom);
-                    geom = JSON.parse(geom);
-                    geom.areaName = areaName;
-                    callback(geom);
+                    data.features.forEach(function(feature) {
+                        var geom = esrijsonFormat.readGeometry(feature.geometry);
+                        geom = geojsonFormat.writeGeometry(geom);
+                        geom = JSON.parse(geom);
+                        geom.areaName = areaName;
+                        geoms.push(geom);
+                    });
+                    callback(geoms);
                 }
             });
         },
@@ -81,7 +85,7 @@ define([
                         return;
                     }
                     var intersectedFeatures = [];
-                    data.features.forEach(function (feature) {
+                    data.features.forEach(function(feature) {
                         var geometry = esrijsonFormat.readGeometry(feature.geometry);
                         geometry = geojsonFormat.writeGeometry(geometry);
                         var intersection = turf.intersect(
@@ -97,7 +101,7 @@ define([
                 });
             }
         }
-    }
+    };
 
     return mapserverUtils;
 });
