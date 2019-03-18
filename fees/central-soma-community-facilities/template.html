@@ -1,0 +1,143 @@
+<!-- ko if: state === 'form' -->
+<form>
+    <div class="form-group">
+        <h4>New Construction</h4>
+
+        <label for="resGFA">Net Additional Residential (GFA)</label>
+        <input type="number" class="form-control" id="resGFA" data-bind="value: fee.resGFA, valueUpdate: 'keyup'">
+
+        <label for="nonResGFA">Net Additional Non Residential (GFA)</label>
+        <input type="number" class="form-control" id="nonResGFA" data-bind="value: fee.nonResGFA, valueUpdate: 'keyup'">
+
+
+        <hr>
+
+        <h4>Change or Replacement of Use</h4>
+
+        <label for="nonResToRes">Non-Residential to Residential (GFA)</label>
+        <input type="number" class="form-control" id="nonResToRes" data-bind="value: fee.nonResToRes, valueUpdate: 'keyup'">
+
+        <label for="resToNonRes">Residential to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="resToNonRes" data-bind="value: fee.resToNonRes, valueUpdate: 'keyup'">
+
+        <label for="pdrToRes">PDR to Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToRes" data-bind="value: fee.pdrToRes, valueUpdate: 'keyup'">
+
+        <label for="pdrToNonRes">PDR to Non-Residential (GFA)</label>
+        <input type="number" class="form-control" id="pdrToNonRes" data-bind="value: fee.pdrToNonRes, valueUpdate: 'keyup'">
+    </div>
+</form>
+<!-- /ko -->
+
+<!-- ko if: state === 'report' && fee.triggered() -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>New Construction</h4>
+            </th>
+            <th>GFA</th>
+            <th></th>
+            <th>Fee per GFA</th>
+            <th></th>
+            <th>Assessed Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Net Additional Residential</th>
+            <td>
+                <span data-bind="numericText: fee.resGFA"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resGFA() * fee.feePerNewRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Net Additional Non-Residential</th>
+            <td>
+                <span data-bind="numericText: fee.nonResGFA"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNewNonRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.nonResGFA() * fee.feePerNewNonRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <h4>Change or Replacement of Use</h4>
+            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">Non-Residential to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.nonResToRes"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Residential to Non-Residential</th>
+            <td>
+                <span data-bind="numericText: fee.resToNonRes"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerResToNonRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.resToNonRes() * fee.feePerResToNonRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">PDR to Residential</th>
+            <td>
+                <span data-bind="numericText: fee.pdrToRes"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">PDR to Non-Residential</th>
+            <td>
+                <span data-bind="numericText: fee.pdrToNonRes"></span> GFA
+            </td>
+            <td>*</td>
+            <td>
+                <span data-bind="dollarsText: fee.feePerPDRToNonRes"></span>/GFA
+            </td>
+            <td>=</td>
+            <td>
+                <span data-bind="dollarsText: fee.pdrToNonRes() * fee.feePerPDRToNonRes"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- /ko -->
