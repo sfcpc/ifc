@@ -1,5 +1,8 @@
 # [Affordable Housing Fee](https://sf-planning.org/inclusionary-affordable-housing-program)
 
+See Inclusionary Affordable Housing Affidavit for details on how to calculate the fee percentage:
+http://forms.sfplanning.org/Inclusionary_Affordable_Housing_Affidavit.pdf
+
 ## What is the Inclusionary Housing Program?
 
 San Francisco's Inclusionary Housing Program has been in effect since 2002 and requires new residential projects of 10 or more units to pay an Affordable Housing Fee, or meet the inclusionary requirement by providing a percentage of the units as "below market rate" (BMR) units at a price that is affordable to low or middle income households, either "on-site" within the project, or "off-site" at another location in the City.
@@ -20,7 +23,7 @@ Effective January 1, 2019, residential development projects that comply by payin
 
 This change is pursuant to amendments to Section 415.5 that were adopted by the Board of Supervisors in July, 2017 (Board File No. 161351). Specifically, the Code requires that the Fee reflect MOHCD’s actual cost to subsidize the construction of affordable housing units over the past three years, and directed the Controller to develop a new methodology for calculating, indexing, and applying the Fee, in consultation with the Inclusionary Housing Technical Advisory Committee (TAC). In May, 2018 the Controller and TAC determined that the Fee should be applied on a per gross square foot basis to ensure that MOHCD’s cost to construct the required amount of off-site affordable housing is appropriately and equitably captured from all projects, regardless of the size and number of units distributed within the project. The Controller directed MOHCD, in consultation with the Planning Department, to convert MOHCD’s per unit cost to a per-square-foot fee, based on the average residential Gross Floor Area of projects that have paid the Fee in the past three years. The Fee amount indicated above has been calculated accordingly.    
 
-Pursuant to Section 415.5 and the specific direction of the Controller and TAC, MOHCD shall update the amount of the Affordable Housing Fee each year on January 1, using the MOHCD average cost to construct an affordable unit in projects that were financed in the previous three years and the Planning Department’s average residential Gross Floor Area of projects that have elected to pay the Fee and have been entitled in the same time period. Each year this analysis will be updated to include new projects from the most recent year, and drop older projects that no longer fall into the three year period of analysis. The updated Fee amount will be included in the Citywide Impact Fee Register that is posted December 1 and effective on January 1. 
+Pursuant to Section 415.5 and the specific direction of the Controller and TAC, MOHCD shall update the amount of the Affordable Housing Fee each year on January 1, using the MOHCD average cost to construct an affordable unit in projects that were financed in the previous three years and the Planning Department’s average residential Gross Floor Area of projects that have elected to pay the Fee and have been entitled in the same time period. Each year this analysis will be updated to include new projects from the most recent year, and drop older projects that no longer fall into the three year period of analysis. The updated Fee amount will be included in the Citywide Impact Fee Register that is posted December 1 and effective on January 1.
 
 ## 2017 Amendments to the Inclusionary Program
 

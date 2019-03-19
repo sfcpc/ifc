@@ -51,7 +51,7 @@ define([
                     return 'Eastern Neighborhoods Alternate Affordable Housing Fee';
                 }
             }
-            return this.label;
+            return "Inclusionary Affordable Housing";
         }, this);
 
         this.triggered = ko.computed(function() {
@@ -69,24 +69,211 @@ define([
         }, this);
 
         this.applicableGFAPercentage = ko.computed(function() {
-            var areaNames = this.areaNames();
-            if (areaNames) {
-                if (areaNames.indexOf('UMU District') >= 0) {
-                    if (areaNames.indexOf('Tier A') >= 0) {
-                        return this.umuTierAPercent;
-                    } else if (areaNames.indexOf('Tier B') >= 0) {
-                        return this.umuTierBPercent;
-                    } else if (areaNames.indexOf('Tier C') >= 0) {
-                        return this.umuTierCPercent;
+                var areaNames = this.areaNames();
+                if (areaNames) {
+                    if (areaNames.indexOf('UMU District') >= 0) {
+                        //after 2016
+                        if (this.EEADate() =='EEARadioAfter16') {
+                            if (areaNames.indexOf('Tier A') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    if (this.ownershipType() === 'rental') {
+                                        return this.umuTierARentalSmall
+                                    } else {
+                                        return this.umuTierAOwnerSmall
+                                    }
+                                } else {
+                                    if (this.ownershipType() === 'rental') {
+                                        return this.umuTierARentalLarge
+                                    } else {
+                                        return this.umuTierAOwnerLarge
+                                    }
+                                }
+                            } else if (areaNames.indexOf('Tier B') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    if (this.ownershipType() === 'rental') {
+                                        return this.umuTierBRentalSmall
+                                    } else {
+                                        return this.umuTierBOwnerSmall
+                                    }
+                                } else {
+                                    if (this.ownershipType() === 'rental') {
+                                        return this.umuTierBRentalLarge
+                                    } else {
+                                        return this.umuTierBOwnerLarge
+                                    }
+                                }
+                            } else if (areaNames.indexOf('Tier C') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    if (this.ownershipType() === 'rental') {
+                                        return this.umuTierCRentalSmall
+                                    } else {
+                                        return this.umuTierCOwnerSmall
+                                    }
+                                } else {
+                                    if (this.ownershipType() === 'rental') {
+                                        return this.umuTierCRentalLarge
+                                    } else {
+                                        return this.umuTierCOwnerLarge
+                                    }
+                                }
+                            }
+                        }
+                        //Before 16
+                        if (this.EEADate() =='EEARadio16') {
+                            if (areaNames.indexOf('Tier A') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierASmallPercent16
+                                } else {
+                                    return this.umuTierALargePercent16
+                                }
+                            }
+                            if (areaNames.indexOf('Tier B') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierBSmallPercent16
+                                } else {
+                                    return this.umuTierBLargePercent16
+                                }
+                            }
+                            if (areaNames.indexOf('Tier C') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierCSmallPercent16
+                                } else {
+                                    return this.umuTierCLargePercent16
+                                }
+                            }
+                        }
+                        //Before 15
+                        if (this.EEADate() =='EEARadio15') {
+                            if (areaNames.indexOf('Tier A') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierASmallPercent15
+                                } else {
+                                    return this.umuTierALargePercent15
+                                }
+                            }
+                            if (areaNames.indexOf('Tier B') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierBSmallPercent15
+                                } else {
+                                    return this.umuTierBLargePercent15
+                                }
+                            }
+                            if (areaNames.indexOf('Tier C') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierCSmallPercent15
+                                } else {
+                                    return this.umuTierCLargePercent15
+                                }
+                            }
+                        }
+                        //Before 14
+                        if (this.EEADate() =='EEARadio14') {
+                            if (areaNames.indexOf('Tier A') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierASmallPercent14
+                                } else {
+                                    return this.umuTierALargePercent14
+                                }
+                            }
+                            if (areaNames.indexOf('Tier B') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierBSmallPercent14
+                                } else {
+                                    return this.umuTierBLargePercent14
+                                }
+                            }
+                            if (areaNames.indexOf('Tier C') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierCSmallPercent14
+                                } else {
+                                    return this.umuTierCLargePercent14
+                                }
+                            }
+                        }
+                        //Before 13
+                        if (this.EEADate() =='EEARadio13') {
+                            if (areaNames.indexOf('Tier A') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierASmallPercent13
+                                } else {
+                                    return this.umuTierALargePercent13
+                                }
+                            }
+                            if (areaNames.indexOf('Tier B') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierBSmallPercent13
+                                } else {
+                                    return this.umuTierBLargePercent13
+                                }
+                            }
+                            if (areaNames.indexOf('Tier C') >= 0) {
+                                if (this.netNewUnits() < 25) {
+                                    return this.umuTierCSmallPercent13
+                                } else {
+                                    return this.umuTierCLargePercent13
+                                }
+                            }
+                        }
                     }
                 }
-            }
-            if (this.netNewUnits() < 25) {
-                return this.smallPercentage;
-            } else if (this.ownershipType() === 'rental') {
-                return this.largeRentalPercentage;
-            }
-            return this.largeOwnershipPercentage;
+                //console.log(this.finalBuildingHeight())
+                if (this.EEADate() =='EEARadioAfter16') {
+                    if (this.netNewUnits() < 25) {
+                        return this.smallPercentage;
+                    } else if (this.ownershipType() === 'rental') {
+                        return this.largeRentalPercentage;
+                    }
+                    return this.largeOwnershipPercentage;
+                }
+                if (this.EEADate() =='EEARadio16') {
+                    if (this.netNewUnits() < 25) {
+                        return this.smallPercentage;
+                    }
+                    if (this.netNewUnits() >= 25) {
+                        if (this.finalBuildingHeight()>120) {
+                            return this.largePercentageOver120Ft16;
+                        } else {
+                            return this.largePercentageUnder120Ft16;
+                        }
+                    }
+                }
+                if (this.EEADate() =='EEARadio15') {
+                    if (this.netNewUnits() < 25) {
+                        return this.smallPercentage;
+                    }
+                    if (this.netNewUnits() >= 25) {
+                        if (this.finalBuildingHeight()>120) {
+                            return this.largePercentageOver120Ft15;
+                        } else {
+                            return this.largePercentageUnder120Ft15;
+                        }
+                    }
+                }
+                if (this.EEADate() =='EEARadio14') {
+                    if (this.netNewUnits() < 25) {
+                        return this.smallPercentage;
+                    }
+                    if (this.netNewUnits() >= 25) {
+                        if (this.finalBuildingHeight()>120) {
+                            return this.largePercentageOver120Ft14;
+                        } else {
+                            return this.largePercentageUnder120Ft14;
+                        }
+                    }
+                }
+                if (this.EEADate() =='EEARadio13') {
+                    if (this.netNewUnits() < 25) {
+                        return this.smallPercentage;
+                    }
+                    if (this.netNewUnits() >= 25) {
+                        if (this.finalBuildingHeight()>120) {
+                            return this.largePercentageOver120Ft13;
+                        } else {
+                            return this.largePercentageUnder120Ft13;
+                        }
+                    }
+                }
+
         }, this);
 
         this.applicableGFA = ko.computed(function() {
