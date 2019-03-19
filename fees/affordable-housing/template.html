@@ -8,6 +8,38 @@
         <!-- ko if: !fee.exemptFromAffordableHousingFee() -->
         <hr>
 
+        <h4>Project Date</h4>
+        <label> Complete EEA was accepted:</label>
+
+        <div>
+            <input type="radio" aria-hidden="true" id="EEARadioAfter16" value="EEARadioAfter16" name="EEADate" data-bind="checked: fee.EEADate">
+            &nbsp;&nbsp;
+            <label for="rentalRadio">On or After 1/12/2016</label>
+        </div>
+        <div>
+            <input type="radio"  aria-hidden="true" id="EEARadio16" value="EEARadio16" name="EEADate" data-bind="checked: fee.EEADate">
+            &nbsp;&nbsp;
+            <label for="rentalRadio">Before 1/12/2016</label>
+        </div>
+        <div>
+            <input type="radio"  aria-hidden="true" id="EEARadio15" value="EEARadio15" name="EEADate" data-bind="checked: fee.EEADate">
+            &nbsp;&nbsp;
+            <label for="ownershipRadio">Before 1/12/2015</label>
+        </div>
+        <div>
+            <input type="radio"  aria-hidden="true" id="EEARadio14" value="EEARadio14" name="EEADate" data-bind="checked: fee.EEADate">
+            &nbsp;&nbsp;
+            <label for="rentalRadio">Before 1/12/2014</label>
+        </div>
+        <div>
+            <input type="radio"  aria-hidden="true" id="EEARadio13" value="EEARadio13" name="EEADate" data-bind="checked: fee.EEADate">
+            &nbsp;&nbsp;
+            <label for="ownershipRadio">Before 1/12/2013</label>
+        </div>
+
+
+        <hr>
+
         <h4>Ownership type</h4>
         <div>
             <input type="radio"  aria-hidden="true" id="rentalRadio" value="rental" name="ownershipType" data-bind="checked: fee.ownershipType">

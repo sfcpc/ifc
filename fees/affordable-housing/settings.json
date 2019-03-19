@@ -6,9 +6,12 @@
         "ownershipType",
         "resGFA",
         "exemptFromAffordableHousingFee",
+        "percentageOverride",
         "geometry",
         "payEasternFee",
-        "easternAffordableFee"
+        "easternAffordableFee",
+        "EEADate",
+        "finalBuildingHeight"
     ],
     "areaName": [
         "Eastern Neighborhoods Infrastructure Impact Fee",
@@ -24,13 +27,65 @@
         "UMU District Affordable Housing Fee - Tier B",
         "UMU District Affordable Housing Fee - Tier C"
     ],
-    "label": "Affordable Housing Fee",
+    "label": "Affordable Housing Fee (Inclusionary/UMU)",
     "minNewUnits": 10,
     "affordableHousingFee": 199.50,
     "smallPercentage": 20,
     "largeRentalPercentage": 30,
     "largeOwnershipPercentage": 33,
+
+    "largePercentageUnder120Ft13":20,
+    "largePercentageUnder120Ft14":25,
+    "largePercentageUnder120Ft15":27.5,
+    "largePercentageUnder120Ft16":30,
+
+    "largePercentageOver120Ft13":20,
+    "largePercentageOver120Ft14":30,
+    "largePercentageOver120Ft15":30,
+    "largePercentageOver120Ft16":30,
+
+    "umuTierASmallPercent13": 23,
+    "umuTierALargePercent13": 23,
+    "umuTierBSmallPercent13": 25,
+    "umuTierBLargePercent13": 25,
+    "umuTierCSmallPercent13": 27,
+    "umuTierCLargePercent13": 30,
+
+    "umuTierASmallPercent14": 23,
+    "umuTierALargePercent14": 28,
+    "umuTierBSmallPercent14": 25,
+    "umuTierBLargePercent14": 30,
+    "umuTierCSmallPercent14": 27,
+    "umuTierCLargePercent14": 30,
+
+    "umuTierASmallPercent15": 23,
+    "umuTierALargePercent15": 30,
+    "umuTierBSmallPercent15": 25,
+    "umuTierBLargePercent15": 30,
+    "umuTierCSmallPercent15": 27,
+    "umuTierCLargePercent15": 30,
+
+    "umuTierASmallPercent16": 23,
+    "umuTierALargePercent16": 30,
+    "umuTierBSmallPercent16": 25,
+    "umuTierBLargePercent16": 30,
+    "umuTierCSmallPercent16": 27,
+    "umuTierCLargePercent16": 30,
+
     "umuTierAPercent": 14.4,
     "umuTierBPercent": 16,
-    "umuTierCPercent": 17.6
+    "umuTierCPercent": 17.6,
+    "umuTierARentalSmall":23,
+    "umuTierARentalLarge":30,
+    "umuTierBRentalSmall":25,
+    "umuTierBRentalLarge":30,
+    "umuTierCRentalSmall":27,
+    "umuTierCRentalLarge":30,
+    "umuTierAOwnerSmall":23,
+    "umuTierAOwnerLarge":33,
+    "umuTierBOwnerSmall":25,
+    "umuTierBOwnerLarge":33,
+    "umuTierCOwnerSmall":27,
+    "umuTierCOwnerLarge":33
+
 }
