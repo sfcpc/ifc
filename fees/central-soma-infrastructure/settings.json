@@ -1,0 +1,31 @@
+{
+    "name": "central-soma-infrastructure",
+    "code": "JD_433",
+    "paramNames": [
+        "newRes",
+        "newNonRes",
+        "nonResToRes",
+        "resToNonRes",
+        "pdrToRes",
+        "pdrToNonRes",
+        "netNewUnits",
+        "resGFA",
+        "nonResGFA",
+        "geometry"
+    ],
+    "label": "Central SoMa Infrastructure Fee",
+    "areaName": [
+        "Central SoMa Infrastructure Fee - Tier A",
+        "Central SoMa Infrastructure Fee - Tier B",
+        "Central SoMa Infrastructure Fee - Tier C"],
+
+    "minResGFA": 800,
+    "minNonResGFA": 800,
+    "minAllDev": 800,
+    "feePerNewRes": 1.30,
+    "feePerNewNonRes": 1.75,
+    "feePerResToNonRes": 0.45,
+    "feePerPDRToRes": 1.30,
+    "feePerPDRToNonRes": 1.75,
+    "feePerNonResToRes": 0
+}
