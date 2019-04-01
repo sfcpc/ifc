@@ -26,21 +26,28 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.newRes() !== null && this.newRes() !== '' &&
-                this.newNonRes() !== null && this.newNonRes() !== '' &&
+            //console.log("testing")
+            if (this.resGFA() !== null && this.resGFA() !== '' &&
+                this.nonResGFA() !== null && this.nonResGFA() !== '' &&
                 this.nonResToRes() !== null && this.nonResToRes() !== '' &&
                 this.resToNonRes() !== null && this.resToNonRes() !== '' &&
                 this.pdrToRes() !== null && this.pdrToRes() !== '' &&
-                this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
+                this.pdrToNonRes() !== null && this.pdrToNonRes() !== '') {
+                return true;
+                }
+            else {
+                return false;
+            }
+
         }, this);
 
         this.calculatedFee = ko.computed(function() {
-            var newRes = this.resGFA() || 0;
-            var newNonRes = this.nonResGFA() || 0;
-            var nonResToRes = this.nonResToRes() || 0;
-            var resToNonRes = this.resToNonRes() || 0;
-            var pdrToRes = this.pdrToRes() || 0;
-            var pdrToNonRes = this.pdrToNonRes() || 0;
+            var newRes = parseFloat(this.resGFA()) || 0;
+            var newNonRes = parseFloat(this.nonResGFA()) || 0;
+            var nonResToRes = parseFloat(this.nonResToRes()) || 0;
+            var resToNonRes = parseFloat(this.resToNonRes()) || 0;
+            var pdrToRes = parseFloat(this.pdrToRes()) || 0;
+            var pdrToNonRes = parseFloat(this.pdrToNonRes()) || 0;
             if (!this.triggered()) {
                 return 0;
             }

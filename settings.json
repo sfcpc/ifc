@@ -4,6 +4,8 @@
         "affordable-housing",
         "balboa-park-infrastructure",
         "bicycle-parking-in-lieu",
+        "central-soma-community-facilities",
+        "central-soma-infrastructure",
         "downtown-park-fee",
         "downtown-special-development-district-open-space",
         "eastern-neighborhoods-infrastructure",
@@ -26,6 +28,8 @@
     "globalFeeParams": [
         "newRes",
         "nonResToRes",
+        "resToNonRes",
+        "ownershipType",
         "pdrToRes",
         "pdrToNonRes",
         "retailGFA",
@@ -50,8 +54,6 @@
     "unsupportedFees": [
         {
             "label": "Transit Impact Development Fee (TIDF)",
-            "code": "JD_411"},
-        {   "label": "Central SoMa Community Services Facilities Fee",
             "code": "JD_411"},
         {    "label": "Central SoMa Infrastructure Fee",
             "code": "JD_433"}
