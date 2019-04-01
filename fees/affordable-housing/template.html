@@ -55,15 +55,17 @@
         <!-- ko if: fee.easternElligible() -->
         <hr>
         <div>
-            <label for="payEasternFee">Pay Eastern Neighborhoods Alternate Fee</label>&nbsp;&nbsp;
+            <label for="payEasternFee">Pay Eastern Neighborhoods Alternate Affordable Housing Fee</label>&nbsp;&nbsp;
             <input type="checkbox"  aria-hidden="true" id="payEasternFee" data-bind="checked: fee.payEasternFee, checkedUpdate: 'keyup'">
         </div>
             <!-- ko if: fee.payEasternFee() -->
             <div class="eastern-affordable-fee-form">
-                (Fee must be manually calculated)
+                (Fee must be manually calculated. Details are available <a href="http://library.amlegal.com/nxt/gateway.dll/California/planning/article4developmentimpactfeesandprojectr?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=JD_417" target="_blank">here</a>)
             </div>
-            <label for="easternAffordableFee">Eastern Neighborhoods Alternate Fee ($)</label>
+            <br>
+            <label for="easternAffordableFee">Eastern Neighborhoods Alternate Affordable Housing Fee ($)</label>
             <input type="number" class="form-control" id="easternAffordableFee" data-bind="value: fee.easternAffordableFee, valueUpdate: 'keyup'">
+
             <!-- /ko -->
         <!-- /ko -->
 
