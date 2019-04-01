@@ -27,7 +27,15 @@
         <input type="number" class="form-control" id="pdrToNonRes" data-bind="value: fee.pdrToNonRes, valueUpdate: 'keyup'">
 
         <hr>
-        <!-- ko if: fee.easternElligible() -->
+        <!-- ko if: fee.thereIsResidential() -->
+        <h4>Office Allocation</h4>
+        <label for="seekingOfficeAllocation">Check this box if the project is seeking an Office Allocation of 50,000 gross square feet or more pursuant to the requirements of Planning Code <a target='_blank' href='http://library.amlegal.com/nxt/gateway.dll/California/planning/article3zoningprocedures?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=JD_321'>Section 321.</a></label>&nbsp;&nbsp;
+        <input type="checkbox"  aria-hidden="true" id="seekingOfficeAllocation" data-bind="checked: fee.seekingOfficeAllocation, checkedUpdate: 'keyup'">
+
+        <!-- /ko -->
+
+        <hr>
+        <!-- ko if: fee.thereIsResidential() -->
         <h4>Ownership Type</h4>
         <div>
             <input type="radio"  aria-hidden="true" id="rentalRadio" value="rental" name="ownershipType" data-bind="checked: fee.ownershipType">
@@ -45,6 +53,15 @@
 <!-- /ko -->
 
 <!-- ko if: state === 'report' && fee.triggered() -->
+<!-- ko if: fee.tier() === null -->
+<div class="fee-tier tier-not-found">
+    Could not determine fee tier - contact SF Planning staff for fee calculation.
+</div>
+<!-- /ko -->
+<!-- ko if: fee.tier() !== null -->
+<div class="fee-tier">
+    Fee Tier: <span class="tier-value" data-bind="text: fee.tier"></span>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -62,15 +79,15 @@
         <tr>
             <th scope="row">Net Additional Residential</th>
             <td>
-                <span data-bind="numericText: fee.resGFA"></span> GFA
+                <span data-bind="numericText: fee.resGFA()"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNewRes"></span>/GFA
+                <span data-bind="dollarsText: fee.applicableNewResFee()"></span> GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.resGFA() * fee.feePerNewRes"></span>
+                <span data-bind="dollarsText: fee.resGFA() * fee.applicableNewResFee()"></span>
             </td>
         </tr>
         <tr>
@@ -80,11 +97,11 @@
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNewNonRes"></span>/GFA
+                <span data-bind="dollarsText: fee.applicableNetNonResFee()"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.nonResGFA() * fee.feePerNewNonRes"></span>
+                <span data-bind="dollarsText: fee.nonResGFA() * fee.applicableNetNonResFee()"></span>
             </td>
         </tr>
         <tr>
@@ -104,7 +121,7 @@
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNonResToRes"></span>/GFA
+                <span data-bind="dollarsText: fee.feePerNonResToRes"></span> GFA
             </td>
             <td>=</td>
             <td>
@@ -118,25 +135,25 @@
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerResToNonRes"></span>/GFA
+                <span data-bind="dollarsText: fee.applicableResToNonResFee()"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.resToNonRes() * fee.feePerResToNonRes"></span>
+                <span data-bind="dollarsText: fee.resToNonRes() * fee.applicableResToNonResFee()"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">PDR to Residential</th>
             <td>
-                <span data-bind="numericText: fee.pdrToRes"></span> GFA
+                <span data-bind="numericText: fee.pdrToRes()"></span> GFA
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerPDRToRes"></span>/GFA
+                <span data-bind="dollarsText: fee.applicableNewResFee()"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.pdrToRes() * fee.feePerPDRToRes"></span>
+                <span data-bind="dollarsText: fee.pdrToRes() * fee.applicableNewResFee()"></span>
             </td>
         </tr>
         <tr>
@@ -146,13 +163,14 @@
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerPDRToNonRes"></span>/GFA
+                <span data-bind="dollarsText: fee.applicablePDRToNonResFee()"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.pdrToNonRes() * fee.feePerPDRToNonRes"></span>
+                <span data-bind="dollarsText: fee.pdrToNonRes() * fee.applicablePDRToNonResFee()"></span>
             </td>
         </tr>
     </tbody>
 </table>
+<!-- /ko -->
 <!-- /ko -->
