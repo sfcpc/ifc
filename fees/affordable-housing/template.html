@@ -1,14 +1,14 @@
 <!-- ko if: state === 'form' -->
 <form>
     <div class="form-group">
-        <h4>Project Exemption</h4>
+        <h4>Method of Compliance</h4>
 
         <label for="exemptFromAffordableHousingFee">This project fulfills affordable housing requirements</label>&nbsp;&nbsp;
         <input type="checkbox"  aria-hidden="true" id="exemptFromAffordableHousingFee" data-bind="checked: fee.exemptFromAffordableHousingFee, checkedUpdate: 'keyup'">
         <!-- ko if: !fee.exemptFromAffordableHousingFee() -->
         <hr>
 
-        <h4>Project Date</h4>
+        <h4>Date of Application</h4>
         <label> Complete EEA was accepted:</label>
 
         <div>
@@ -24,23 +24,23 @@
         <div>
             <input type="radio"  aria-hidden="true" id="EEARadio15" value="EEARadio15" name="EEADate" data-bind="checked: fee.EEADate">
             &nbsp;&nbsp;
-            <label for="ownershipRadio">Before 1/12/2015</label>
+            <label for="ownershipRadio">Before 1/1/2015</label>
         </div>
         <div>
             <input type="radio"  aria-hidden="true" id="EEARadio14" value="EEARadio14" name="EEADate" data-bind="checked: fee.EEADate">
             &nbsp;&nbsp;
-            <label for="rentalRadio">Before 1/12/2014</label>
+            <label for="rentalRadio">Before 1/1/2014</label>
         </div>
         <div>
             <input type="radio"  aria-hidden="true" id="EEARadio13" value="EEARadio13" name="EEADate" data-bind="checked: fee.EEADate">
             &nbsp;&nbsp;
-            <label for="ownershipRadio">Before 1/12/2013</label>
+            <label for="ownershipRadio">Before 1/1/2013</label>
         </div>
 
 
         <hr>
 
-        <h4>Ownership Type</h4>
+        <h4>Project Tenure</h4>
         <div>
             <input type="radio"  aria-hidden="true" id="rentalRadio" value="rental" name="ownershipType" data-bind="checked: fee.ownershipType">
             &nbsp;&nbsp;

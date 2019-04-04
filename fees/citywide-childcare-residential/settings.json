@@ -14,7 +14,7 @@
         "newConstructionCredit",
         "changeOfUseCredit"
     ],
-    "label": "Residential Child Care Impact Fee",
+    "label": "Child Care Fee - Residential",
     "minNetNewUnits": 1,
     "minNewNonRes": 1,
     "minResGFA": 800,

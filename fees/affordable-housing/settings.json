@@ -27,7 +27,7 @@
         "UMU District Affordable Housing Fee - Tier B",
         "UMU District Affordable Housing Fee - Tier C"
     ],
-    "label": "Affordable Housing Fee (Inclusionary/UMU)",
+    "label": "Inclusionary Affordable Housing Program Fee",
     "minNewUnits": 10,
     "affordableHousingFee": 199.50,
     "smallPercentage": 20,

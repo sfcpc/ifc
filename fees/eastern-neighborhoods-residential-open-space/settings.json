@@ -19,7 +19,7 @@
         "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 65 feet. Tier 2 for 85 feet.",
         "Eastern Neighborhoods Infrastructure Impact Fee - Tier 1 for 45 and 55 feet. Tier 2 for 65 feet."
     ],
-    "label": "Eastern Neighborhoods Residential Open Space Fee",
+    "label": "Eastern Neighborhoods Payment in Case of Variance or Exception for Open Space",
     "minNewResGFA": 25000,
     "minFinalBuildingHeight": 75,
     "feePerOpenSpaceGFA": 490.43
