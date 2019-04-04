@@ -14,7 +14,7 @@
         "industrialGFA",
         "parcelArea"
     ],
-    "label": "Transit Center Transportation and Street Improvement Impact Fee",
+    "label": "Transit Center Transportation and Street Improvement Fee",
     "areaName": "Transit Center Transportation and Street Improvement Fee",
     "minNetNewUnits": 1,
     "minResGFA": 800,
