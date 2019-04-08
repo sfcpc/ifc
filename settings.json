@@ -1,11 +1,10 @@
 {
-    "appName": "Impact Fee Calculator",
+    "appName": "Impact Fee Calculator - beta",
     "feeTypes": [
         "eastern-neighborhoods-non-residential-open-space",
         "balboa-park-infrastructure",
         "bicycle-parking-in-lieu",
-        "central-soma-community-facilities",
-        "central-soma-infrastructure",
+
         "citywide-childcare-hotel-office",
         "citywide-childcare-residential",
         "downtown-park-fee",
@@ -55,6 +54,12 @@
     "center": [-13630478.763700977, 4544696.014222133],
     "zoom": 12,
     "unsupportedFees": [
+        {
+            "label": "Central SoMa Community Facilities Fee",
+            "code": "JD_432"},
+        {
+            "label": "Central SoMa Infrastructure Fee",
+            "code": "JD_433"},
         {
             "label": "Transit Impact Development Fee (TIDF)",
             "code": "JD_411"}

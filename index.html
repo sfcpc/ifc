@@ -51,6 +51,39 @@
             </div>
         </div>
     </div>
+    <!-- feedback link modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true" data-bind="event: {
+            'shown.bs.modal': function(d, e) {
+                $(e.target).find('input').focus().select();
+            }
+        }">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Feedback</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            Please send feedback to <a href="mailto:mike.wynne@sfgov.org">mike.wynne@sfgov.org</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
     <div style="display:none;" data-bind="visible: true">
         <!-- navigation -->
@@ -94,10 +127,14 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkModal">
                     <i class="fa fa-link"></i> Copy Link
                 </button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#feedbackModal">
+                    <i class="fa fa-envelope"></i> Feedback
+                </button>
                 <button type="button" class="btn btn-warning restart-btn" data-bind="click: function() { window.location.href = '?'; }">
                     <i class="fa fa-refresh"></i> Restart
                 </button>
             </div>
+
         </nav>
 
         <!-- trigger form -->
@@ -295,6 +332,7 @@
                 </div>
             </div>
             <!-- /ko -->
+
 
             <!-- ko if: triggeredFeeViewModels().length === 0 -->
             <div class="row">
