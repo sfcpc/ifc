@@ -1,5 +1,5 @@
 {
-    "appName": "Impact Fee Calculator - beta",
+    "appName": "Impact Fee Calculator - beta version",
     "feeTypes": [
         "eastern-neighborhoods-non-residential-open-space",
         "balboa-park-infrastructure",
@@ -62,6 +62,9 @@
             "code": "JD_433"},
         {
             "label": "Transit Impact Development Fee (TIDF)",
-            "code": "JD_411"}
+            "code": "JD_411"},
+        {
+            "label": "Union Square Park Recreation and Open Space Fee",
+            "code": "JD_435"}
     ]
 }
