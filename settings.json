@@ -7,10 +7,8 @@
 
         "citywide-childcare-hotel-office",
         "citywide-childcare-residential",
-        "public-art",
         "downtown-park-fee",
         "downtown-special-development-district-open-space",
-
         "eastern-neighborhoods-infrastructure",
 
         "eastern-neighborhoods-residential-open-space",
@@ -19,13 +17,14 @@
         "jobs-housing-linkage",
         "market-octavia-affordable-housing",
         "market-octavia-infrastructure",
-
+        "public-art",
 
         "rincon-hill-infrastructure",
         "soma-community-stabilization-fee",
         "transit-center-open-space",
         "transit-center-transportation",
         "transportation-sustainability-fee",
+        "union-square-park-recreation-and-open-space",
         "van-ness-market-infrastructure",
         "visitacion-valley-infrastructure"
     ],

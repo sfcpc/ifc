@@ -1,0 +1,21 @@
+{
+    "name": "union-square-park-recreation-and-open-space",
+    "code": "JD_424",
+    "paramNames": [
+        "geometry",
+        "parcelArea",
+        "nonResGFA",
+        "pdrGFA",
+        "resGFA",
+        "officeGFA",
+        "totalGFA"
+    ],
+    "label": "Union Square Park Recreation And Open Space Fee",
+    "areaLayer": "5,11",
+    "namedAreaLayer": "8",
+    "mapFieldName": "zoning_sim",
+    "areaName": [
+        "C-3-R"
+    ],
+    "costPerSquareFoot": 4
+}
