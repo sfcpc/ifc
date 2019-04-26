@@ -63,9 +63,6 @@
             "code": "JD_433"},
         {
             "label": "Transit Impact Development Fee (TIDF)",
-            "code": "JD_411"},
-        {
-            "label": "Union Square Park Recreation and Open Space Fee",
-            "code": "JD_435"}
+            "code": "JD_411"}
     ]
 }
