@@ -17,9 +17,9 @@
     ],
     "label": "Central SoMa Infrastructure Fee",
     "areaName": [
-        "Central SoMa Infrastructure Fee - Tier A",
-        "Central SoMa Infrastructure Fee - Tier B",
-        "Central SoMa Infrastructure Fee - Tier C"],
+        "Central SoMa Infrastructure Impact Fee - Tier A",
+        "Central SoMa Infrastructure Impact Fee - Tier B",
+        "Central SoMa Infrastructure Impact Fee - Tier C"],
 
     "minResGFA": 800,
     "minNonResGFA": 800,
