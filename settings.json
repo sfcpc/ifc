@@ -6,7 +6,7 @@
         "bicycle-parking-in-lieu",
         "central-soma-community-facilities",
         "central-soma-infrastructure",
-        
+
         "citywide-childcare-hotel-office",
         "citywide-childcare-residential",
         "downtown-park-fee",
@@ -58,16 +58,7 @@
     "zoom": 12,
     "unsupportedFees": [
         {
-            "label": "Central SoMa Community Facilities Fee",
-            "code": "JD_432"},
-        {
-            "label": "Central SoMa Infrastructure Fee",
-            "code": "JD_433"},
-        {
             "label": "Transit Impact Development Fee (TIDF)",
-            "code": "JD_411"},
-        {
-            "label": "Union Square Park Recreation and Open Space Fee",
-            "code": "JD_435"}
+            "code": "JD_411"}
     ]
 }
