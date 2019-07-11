@@ -5,13 +5,12 @@ define([
     'json!./settings.json',
     './component'
 ], function(ko, _, AbstractFee, settings) {
-    var UnionSquareParkRecreateAndOpenSpaceFee = function(params) {
+    var NorthOfMarketFee = function(params) {
         this.settings = settings;
-
         AbstractFee.apply(this, [params]);
 
         this.triggered = ko.computed(function() {
-            return this.isProjectInArea();
+            return this.isProjectInArea() && (this.app.finalBuildingHeight() > this.minHeightForTrigger);
         }, this);
 
         // console.log(this.triggered)
@@ -38,6 +37,6 @@ define([
         }, this);
     };
 
-    UnionSquareParkRecreateAndOpenSpaceFee.settings = settings;
-    return UnionSquareParkRecreateAndOpenSpaceFee;
+    NorthOfMarketFee.settings = settings;
+    return NorthOfMarketFee;
 });

@@ -11,11 +11,9 @@
         "totalGFA"
     ],
     "label": "Union Square Park Recreation And Open Space Fee",
-    "areaLayer": "5,11",
+    "areaName": "C-3-R",
     "namedAreaLayer": "8",
     "mapFieldName": "zoning_sim",
-    "areaName": [
-        "C-3-R"
-    ],
+
     "costPerSquareFoot": 6
 }
