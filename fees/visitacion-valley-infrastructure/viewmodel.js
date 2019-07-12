@@ -26,6 +26,10 @@ define([
                 this.existingUnits() !== null && this.existingUnits() !== ''
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         this.calculatedFee = ko.computed(function() {
             var newRes = this.newRes() || 0;
             var nonResToRes = this.nonResToRes() || 0;

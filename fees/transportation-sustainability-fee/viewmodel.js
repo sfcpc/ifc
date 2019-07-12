@@ -28,6 +28,10 @@ define([
                 this.totalHospitalOperatorBeds() !== null && this.totalHospitalOperatorBeds() !== '';
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         this.applicableResTier2 = ko.computed(function() {
             var totalUnits = this.totalUnits();
             var unitsAboveMin = totalUnits - this.minTier1Units;
