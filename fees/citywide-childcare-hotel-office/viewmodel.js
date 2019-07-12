@@ -27,10 +27,6 @@ define([
                 this.totalProjGFA() !== null && this.totalProjGFA() !== '';
         }, this);
 
-        this.isArticle25 = ko.computed(function() {
-            return this.article25;
-        }, this);
-
         this.totalProjGFA.subscribe(function(val) {
             var subjectGFA = this.subjectGFA();
             if (parseFloat(val) < subjectGFA) {

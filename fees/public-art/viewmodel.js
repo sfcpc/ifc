@@ -30,10 +30,6 @@ define([
                 );
         }, this);
 
-        this.isArticle25 = ko.computed(function() {
-            return this.article25;
-        }, this);
-
         this.calculatedFee = ko.computed(function() {
             var fee = 0;
             var maxFee = this.maxNonResArtFeePOS1499;
