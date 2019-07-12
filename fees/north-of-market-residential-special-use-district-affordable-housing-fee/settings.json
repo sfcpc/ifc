@@ -1,0 +1,21 @@
+{
+    "name": "north-of-market-residential-special-use-district-affordable-housing-fee",
+    "code": "JD_422",
+    "paramNames": [
+        "geometry",
+        "parcelArea",
+        "nonResGFA",
+        "pdrGFA",
+        "resGFA",
+        "officeGFA",
+        "totalGFA"
+    ],
+    "label": "North of Market Residential Special Use District Affordable Housing Fee",
+    "areaName": "North of Market Residential Special Use District Affordable Housing Fee",
+    "costPerSquareFoot": 25.41,
+    "minHeightForTrigger": 80
+}
+
+
+
+
