@@ -13,14 +13,9 @@ define([
             return this.isProjectInArea() && (this.app.finalBuildingHeight() > this.minHeightForTrigger);
         }, this);
 
-        // console.log(this.triggered)
-        // this.netNewGFA = ko.computed(function() {
-        //     var total = parseFloat(this.nonResGFA()) +
-        //         parseFloat(this.pdrGFA()) +
-        //         parseFloat(this.resGFA()) +
-        //         parseFloat(this.officeGFA());
-        //     return total;
-        // }, this);
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
 
         this.ready = ko.computed(function() {
             if (!this.triggered()) {

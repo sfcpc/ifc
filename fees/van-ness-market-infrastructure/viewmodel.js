@@ -32,6 +32,10 @@ define([
             return this.totalGFA() / this.parcelArea();
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         this.gsfAbove9To1 = ko.computed(function () {
             var totalFAR = this.totalFAR();
             var totalGFA = this.totalGFA();

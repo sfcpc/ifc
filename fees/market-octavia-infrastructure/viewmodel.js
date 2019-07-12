@@ -30,6 +30,10 @@ define([
                 this.pdrToNonRes() !== null && this.pdrToNonRes() !== '';
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         this.calculatedFee = ko.computed(function() {
             var newRes = this.newRes() || 0;
             var newNonRes = this.newNonRes() || 0;

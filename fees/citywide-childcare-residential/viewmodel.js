@@ -36,6 +36,10 @@ define([
             return self.greaterThanOrEqualTo10[feeType];
         }
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         this.feePerNonResToRes = ko.computed(function () {
             return getFeeRate('feePerNonResToRes');
         }, this);

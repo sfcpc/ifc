@@ -21,6 +21,10 @@ define([
                 ) / this.totalExistingGFA() >= .2;
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         this.ready = ko.computed(function() {
             if (!this.triggered()) {
                 return true;

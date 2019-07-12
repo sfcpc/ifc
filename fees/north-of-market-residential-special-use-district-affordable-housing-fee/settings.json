@@ -1,6 +1,7 @@
 {
     "name": "north-of-market-residential-special-use-district-affordable-housing-fee",
-    "code": "JD_422",
+    "code": "JD_263.7",
+    "article25": true,
     "paramNames": [
         "geometry",
         "parcelArea",

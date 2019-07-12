@@ -18,6 +18,10 @@ define([
             return this.totalRes() !== null && this.totalRes() !== '';
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         this.calculatedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;

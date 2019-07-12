@@ -6,7 +6,6 @@ define([
 ], function(ko, AbstractFee, settings) {
     var BalboaParkInfrastructureFee = function(params) {
         this.settings = settings;
-
         AbstractFee.apply(this, [params]);
 
         this.triggered = ko.computed(function() {
@@ -19,6 +18,10 @@ define([
                 );
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+        
         this.ready = ko.computed(function() {
             if (!this.triggered()) {
                 return true;
