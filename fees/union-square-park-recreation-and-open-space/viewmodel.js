@@ -14,15 +14,6 @@ define([
             return this.isProjectInArea();
         }, this);
 
-        // console.log(this.triggered)
-        // this.netNewGFA = ko.computed(function() {
-        //     var total = parseFloat(this.nonResGFA()) +
-        //         parseFloat(this.pdrGFA()) +
-        //         parseFloat(this.resGFA()) +
-        //         parseFloat(this.officeGFA());
-        //     return total;
-        // }, this);
-
         this.ready = ko.computed(function() {
             if (!this.triggered()) {
                 return true;

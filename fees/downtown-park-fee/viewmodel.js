@@ -31,9 +31,6 @@ define([
             return (this.feePerofficeGFA * officeGFA);
         }, this);
 
-        this.isArticle25 = ko.computed(function() {
-            return this.article25;
-        }, this);
     };
 
     

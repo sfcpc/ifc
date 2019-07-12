@@ -50,10 +50,6 @@ define([
                 this.feeCredit() !== null && this.feeCredit() !== '';
         }, this);
 
-        this.isArticle25 = ko.computed(function() {
-            return this.article25;
-        }, this);
-
         this.getFeeByType = function(ent, hotel, integratedPDR, office, researchAndDevelopment, retail, smallEnterpriseWorkspace, oldPDR) {
             var feePerNewEntertainment = oldPDR ? this.oldFeePerNewEntertainment : this.feePerNewEntertainment;
             var feePerNewHotel = oldPDR ? this.oldFeePerNewHotel : this.feePerNewHotel;

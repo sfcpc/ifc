@@ -19,10 +19,6 @@ define([
             return '';
         }, this);
 
-        this.isArticle25 = ko.computed(function() {
-            return this.article25;
-        }, this);
-
         this.easternElligible = ko.computed(function() {
             var easternElligible = false;
             var areaNames = this.areaNames();

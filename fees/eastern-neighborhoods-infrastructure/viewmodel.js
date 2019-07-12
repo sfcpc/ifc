@@ -33,10 +33,6 @@ define([
                 this.pdrToNonResReplacement() !== null && this.pdrToNonResReplacement() !== '' ;
         }, this);
 
-        this.isArticle25 = ko.computed(function() {
-            return this.article25;
-        }, this);
-
         this.tier = ko.computed(function() {
             var areas = this.isProjectInArea();
             if (areas) {

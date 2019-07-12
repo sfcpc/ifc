@@ -91,6 +91,10 @@ define([
             return 0;
         }, this);
 
+        this.isArticle25 = ko.computed(function() {
+            return this.article25;
+        }, this);
+
         // returns the json object needed to restore the state of this viewmodel
         // this value is automatically stored in the querystring
         // this should not need to be overridden in fee types
