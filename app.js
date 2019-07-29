@@ -58,7 +58,7 @@ define([
             'hotelGFA',
             "existingNonResGFA",
             "finalBuildingHeight",
-            "totalExistingGFA"
+            "totalExistingGFA",
         ].concat(settings.globalFeeParams);
 
         this.paramNames.forEach(function(name) {
