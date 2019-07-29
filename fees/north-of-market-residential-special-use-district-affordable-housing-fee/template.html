@@ -3,8 +3,8 @@
     <div class="form-group">
         <h4>Area Measurements</h4>
 
-        <label for="totalGFA">Total Proposed Office GFA</label>
-        <input type="number" class="form-control" id="totalGFA" data-bind="value: fee.officeGFA, valueUpdate: 'keyup'">
+        <label for="totalGFA">Total Proposed Residential GFA above 80 feet</label>
+        <input type="number" class="form-control" id="resGFA" data-bind="value: fee.resGFA, valueUpdate: 'keyup'">
 
         <!-- <label for="parcelArea">Parcel Area (Sq Ft)</label> -->
         <!-- <input type="number" class="form-control" id="parcelArea" data-bind="value: fee.parcelArea, valueUpdate: 'keyup'"> -->
@@ -150,9 +150,9 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row">Office Space</th>
+            <th scope="row">Residential Space</th>
             <td>
-                <span data-bind="numericText: fee.officeGFA"></span> GFA
+                <span data-bind="numericText: fee.resGFA"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -160,7 +160,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.officeGFA() * fee.costPerSquareFoot"></span>
+                <span data-bind="dollarsText: fee.resGFA() * fee.costPerSquareFoot"></span>
             </td>
         </tr>
     </tbody>

@@ -8,7 +8,6 @@ define([
     var NorthOfMarketFee = function(params) {
         this.settings = settings;
         AbstractFee.apply(this, [params]);
-
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() && (this.app.finalBuildingHeight() > this.minHeightForTrigger);
         }, this);
@@ -17,14 +16,14 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.officeGFA() !== null;
+            return this.resGFA() !== null;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
             }
-            return this.officeGFA() * this.costPerSquareFoot;
+            return this.resGFA() * this.costPerSquareFoot;
         }, this);
     };
 
