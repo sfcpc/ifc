@@ -24,7 +24,7 @@ define([
                 return 0;
             }
             return this.resGFA() * this.costPerSquareFoot;
-        }, this);
+        }, this); 
     };
 
     NorthOfMarketFee.settings = settings;
