@@ -13,17 +13,16 @@ define([
         }, this);
 
         this.ready = ko.computed(function() {
-            if (!this.triggered()) {
-                return true;
-            }
-            return this.resGFA() !== null;
+        
+            var resGFAAbove80 = this.resGFAAbove80();
+            return resGFAAbove80 !== null;
         }, this);
 
         this.calculatedFee = ko.computed(function() {
             if (!this.triggered()) {
                 return 0;
             }
-            return this.resGFA() * this.costPerSquareFoot;
+            return this.resGFAAbove80() * this.costPerSquareFoot;
         }, this); 
     };
 
