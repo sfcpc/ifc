@@ -13,7 +13,9 @@ define([
         }, this);
 
         this.ready = ko.computed(function() {
-        
+            if (!this.triggered()) {
+                return true;
+            }
             var resGFAAbove80 = this.resGFAAbove80();
             return resGFAAbove80 !== null;
         }, this);
