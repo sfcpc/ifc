@@ -7,15 +7,15 @@
         <input type="checkbox"  aria-hidden="true" id="exemptFromTSF" data-bind="checked: fee.exemptFromTSF, checkedUpdate: 'keyup'">
         <!-- ko if: !fee.exemptFromTSF() -->
         <hr>
-        <h4>New Construction or Addition</h4>
+        <h4>Net New Construction or Addition</h4>
 
-        <label for="nonResNonHealthGFA">New Non-Residential (Excluding Hospital/Health Services) (GFA)</label>
+        <label for="nonResNonHealthGFA">Net New Non-Residential (Excluding Hospital/Health Services) (GFA)</label>
         <input type="number" class="form-control" id="nonResNonHealthGFA" placeholder="value" data-bind="value: fee.nonResNonHealthGFA, valueUpdate: 'keyup'">
 
-        <label for="hospitalGFA">New Hospital (GFA)</label>
+        <label for="hospitalGFA">Net New Hospital (GFA)</label>
         <input type="number" class="form-control" id="hospitalGFA" placeholder="value" data-bind="value: fee.hospitalGFA, valueUpdate: 'keyup'">
 
-        <label for="hospitalGFA">New Health Services (GFA)</label>
+        <label for="hospitalGFA">Net New Health Services (GFA)</label>
         <input type="number" class="form-control" id="healthGFA" placeholder="value" data-bind="value: fee.healthGFA, valueUpdate: 'keyup'">
 
         <hr>
