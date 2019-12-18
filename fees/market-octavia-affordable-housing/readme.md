@@ -9,12 +9,12 @@ The requirements of Sections 415.1 through 415.9 shall apply in the Market and O
 
 Land use                                                                          |Van Ness and Market Special Use District | NCT                       | RTO
 --------------------------------------------------------------------------|-----------------------------------------|---------------------------|------------------------
-Net addition of residential use or change of use to residential use       | $10.79/gross square foot                 | $5.40/gross square foot   | $0.00/gross square foot
-Replacement of, or change of use from, non-residential to residential use | $5.69/gross square foot                 | $0.30/gross square foot   | $0.00/gross square foot
-Replacement of, or change of use from, PDR to residential use             | $8.25/gross square foot                 | $2.85/gross square foot   | $0.00/gross square foot
+Net addition of residential use or change of use to residential use       | $11.38/gross square foot                | $5.70/gross square foot   | $0.00/gross square foot
+Replacement of, or change of use from, non-residential to residential use | $6.00/gross square foot                 | $0.32/gross square foot   | $0.00/gross square foot
+Replacement of, or change of use from, PDR to residential use             | $8.70/gross square foot                 | $3.01/gross square foot   | $0.00/gross square foot
 
 1. Other Fee Provisions. This additional affordable housing fee shall be subject to the inflation adjustment provisions of Section 409 and the waiver and reduction provisions of Section 406. This additional affordable housing fee may not be met through the in-kind provision of community improvements or Community Facilities (Mello Roos) financing options of Sections 421.3(d) and (e).
 1. Exemption for Affordable Housing. A project applicant shall not pay a supplemental affordable housing fee for any square foot of space designated as a below market rate unit under Section 415.1et seq., the Citywide Inclusionary Affordable Housing Program, or any other residential unit that is designated as an affordable housing unit under a Federal, State, or local restriction in a manner that maintains affordability for a term no less than 50 years.
 1. Timing of Payment. The Market and Octavia Plan Area and Upper Market NCD Affordable Housing Fee shall be paid at the time of and in no event later than the City issues a first construction document, with an option for the project sponsor to defer payment to prior to issuance of the first certificate of occupancy upon agreeing to pay a deferral surcharge in accordance with Section 107A.13.3 of the San Francisco Building Code.
 
-**2019 fee schedule
+**2020 fee schedule

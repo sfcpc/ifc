@@ -14,13 +14,13 @@
     "areaName": "Market and Octavia Inclusionary Affordable Housing Fee",
     "minNetNewUnits": 10,
     "Van Ness & Market Downtown Residential": {
-        "feePerNewRes": 10.79,
-        "feePerNonResToRes": 5.69,
-        "feePerPDRToRes": 8.25
+        "feePerNewRes": 11.38,
+        "feePerNonResToRes": 6.00,
+        "feePerPDRToRes": 8.70
     },
     "UPPER MARKET NEIGHBORHOOD COMMERCIAL TRANSIT": {
-        "feePerNewRes": 5.40,
-        "feePerNonResToRes": 0.30,
-        "feePerPDRToRes": 2.85
+        "feePerNewRes": 5.70,
+        "feePerNonResToRes": 0.32,
+        "feePerPDRToRes": 3.01
     }
 }
