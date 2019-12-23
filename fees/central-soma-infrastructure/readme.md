@@ -19,22 +19,22 @@ In summary (fee per GFA):
 Residential:
 	Tier B:
 		Condos:
-			$20 per GFA of net increase in Residential
-			$20 per GFA of replacement of use/change of use from PDR to Residential
+			$21.10 per GFA of net increase in Residential
+			$21.10 per GFA of replacement of use/change of use from PDR to Residential
 		Rental:
-			$10 per GFA of net increase in Residential
-			$10 per GFA of replacement of use/change of use from PDR to Residential
+			$10.55 per GFA of net increase in Residential
+			$10.55 per GFA of replacement of use/change of use from PDR to Residential
 Non Residential:
 	Tier A:
 		Non-Residential uses that are seeking Office Allocation >50K GFA persuant to PC Section 321:
-			$21.50 per GFA of net increase in Non-Residential uses
-			$21.50 per GFA of replacement of use/change of use from PDR to Non-Residential uses
+			$22.68 per GFA of net increase in Non-Residential uses
+			$22.68 per GFA of replacement of use/change of use from PDR to Non-Residential uses
 		Non-Residential uses that are NOT seeking Office Allocation >50K GFA persuant to PC Section 321:
-			$41.50 per GFA of net increase in Non-Residential
-			$41.50 per GFA of replacement of use/change of use from PDR to Non-Residential uses
-			$21.50 per GFA of replacement of use/change of use from Residential to Non-Residential uses
+			$43.78 per GFA of net increase in Non-Residential
+			$43.78 per GFA of replacement of use/change of use from PDR to Non-Residential uses
+			$22.68 per GFA of replacement of use/change of use from Residential to Non-Residential uses
 	Tier C:
 		Non-Residential uses that are NOT seeking Office Allocation >50K GFA persuant to PC Section 321:
-			$20 per GFA of net increase in Non-Residential
-			$20 per GFA of replacement of use/change of use from PDR to Non-Residential uses
-**2019 fee schedule
+			$21.10 per GFA of net increase in Non-Residential
+			$21.10 per GFA of replacement of use/change of use from PDR to Non-Residential uses
+**2020 fee schedule

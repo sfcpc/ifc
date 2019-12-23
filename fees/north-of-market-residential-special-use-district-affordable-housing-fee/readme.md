@@ -6,8 +6,8 @@
   1. The height of the building or structure does not exceed 130 feet; and
   2. The additional height will not add significant shadows on public sidewalks and parks; and
   3. The structure provides an appropriate transition to adjacent higher or lower buildings; and
-  4. The additional height of the structure is set back an appropriate distance from the street frontage to maintain continuity of the 
+  4. The additional height of the structure is set back an appropriate distance from the street frontage to maintain continuity of the
 
 | Non-residential |
-----------------  | 
-$25.41/gsf        | 
+----------------  |
+$7.92/gsf        | 

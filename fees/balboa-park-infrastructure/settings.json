@@ -18,9 +18,9 @@
     "minResGFA": 800,
     "minNewNonRes": 0,
     "minNonResGFA": 800,
-    "feePerNewRes": 12,
-    "feePerNewNonRes": 2.25,
-    "feePerNonResToRes": 9.75,
-    "feePerPDRToRes": 10.87,
-    "feePerPDRToNonRes": 1.12
+    "feePerNewRes": 12.66,
+    "feePerNewNonRes": 2.37,
+    "feePerNonResToRes": 10.29,
+    "feePerPDRToRes": 11.47,
+    "feePerPDRToNonRes": 1.18
 }

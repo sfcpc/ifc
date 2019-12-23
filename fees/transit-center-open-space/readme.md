@@ -22,11 +22,11 @@
 
 Use                            | Column A (Base Fee) | Column B (GFA Above 9:1)
 ------------------------------ | ------------------- | ------------------------
-Residential                    | $3.38/gsf           | N/A
-Office                         | $4.07/gsf           | $9.49/gsf
-Retail                         | $6.78/gsf           | $6.10/gsf
-Hotel                          | $5.42/gsf           | N/A
-Institutional/Cultural/Medical | $6.78/gsf           | $5.83/gsf
-Industrial                     | $3.38/gsf           | N/A
+Residential                    | $3.57/gsf           | N/A
+Office                         | $4.29/gsf           | $10.01/gsf
+Retail                         | $7.15/gsf           | $6.44/gsf
+Hotel                          | $5.72/gsf           | N/A
+Institutional/Cultural/Medical | $7.15/gsf           | $6.15/gsf
+Industrial                     | $3.57/gsf           | N/A
 
-**2019 fee schedule
+**2020 fee schedule

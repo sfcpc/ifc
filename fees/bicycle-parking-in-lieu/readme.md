@@ -60,6 +60,6 @@
 
 ## Fee per Class 2 Bicycle Parking Space
 
-$519.06 (Max of 20)
+$547.61 (Max of 20)
 
 [1]&#x3A; <http://library.amlegal.com/nxt/gateway.dll/California/planning/article15off-streetparkingandloading?f=templates$fn=altmain-nf.htm$q=[field%20folio-destination-name:%27Table%20155.2%27]$x=Advanced#JD_Table155.2>
