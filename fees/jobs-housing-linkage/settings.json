@@ -37,7 +37,10 @@
         "resToIntegratedPDR",
         "resToResearchAndDevelopment",
         "resToRetail",
-        "resToSmallEnterpriseWorkspace"
+        "resToSmallEnterpriseWorkspace",
+        "JHLFOffice",
+        "JHLFLab",
+        "JHLFOldRate"
     ],
     "label": "Jobs-Housing Linkage Program Fee",
     "minNonResGFA": 25000,
@@ -54,5 +57,15 @@
     "oldFeePerNewOffice": 9.12,
     "oldFeePerNewResearchAndDevelopment": 0,
     "oldFeePerNewRetail": 7.03,
-    "oldFeePerNewSmallEnterpriseWorkspace": 2.49
+    "oldFeePerNewSmallEnterpriseWorkspace": 2.49,
+
+    "feePerLargeOffice2": 52.20,
+    "feePerLargeOffice3": 60.90,
+    "feePerLargeOffice4": 69.90,
+    "feePerSmallOffice2": 46.98,
+    "feePerSmallOffice3": 54.81,
+    "feePerSmallOffice4": 62.64,
+    "feePerLab2": 31.43,
+    "feePerLab3": 34.90,
+    "feePerLab4": 38.37
 }
