@@ -9,10 +9,65 @@
         <input type="number" class="form-control" id="hotelGFA" placeholder="value" disabled data-bind="value: fee.hotelGFA">
         <label for="officeGFA">New Office (GFA) (fill in on previous page)</label>
         <input type="number" class="form-control" id="officeGFA" placeholder="value" disabled data-bind="value: fee.officeGFA">
-        <label for="newIntegratedPDR">New Integrated PDR (GFA)</label>
-        <input type="number" class="form-control" id="newIntegratedPDR" placeholder="value" data-bind="value: fee.newIntegratedPDR, valueUpdate: 'keyup'">
-        <label for="newResearchAndDevelopment">New Research and Development (GFA)</label>
-        <input type="number" class="form-control" id="newResearchAndDevelopment" placeholder="value" data-bind="value: fee.newResearchAndDevelopment, valueUpdate: 'keyup'">
+        <div class="form-jhl-radio-group">
+            <div data-bind="visible: fee.isLargeOffice()">
+                <label for="officeRadio">
+                    <input type="radio" aria-hidden="true" id="JHLFOffice1" value="JHLFOffice1" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
+                    Received an approval from the Planning Commission or Department on or before September 10, 2019
+                    stating that the project shall be subject to any new, changed or increased Jobs Housing Linkage Fee (JHLF) adopted prior
+                    to procurement of a Certificate of Occupancy or Final Completion and have not procured the Certificate of Occupancy
+                    or Final Completion by December 15, 2019
+                </label>
+                <label for="JHLFOldRate">The Fee Assessed at Site Permit Issuance</label>
+                <input type="number" class="form-control" id="JHLFOldRate" placeholder="value" data-bind="value: fee.JHLFOldRate">
+            </div>
+            <div>
+                <label for="officeRadio">
+                    <input type="radio"  aria-hidden="true" id="JHLFOffice2" value="JHLFOffice2" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
+                    Submitted a complete Preliminary Project Assessment (PPA) on or before September 10, 2019
+                    and have not had its building or site permit issued as of December 15, 2019
+                </label>
+            </div>
+            <div>
+                <label for="officeRadio">
+                    <input type="radio"  aria-hidden="true" id="JHLFOffice3" value="JHLFOffice3" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
+                    Submitted a complete Development Application between September 11, 2019
+                    and January 1, 2021 and have not had its building or site permit issues as of December 15, 2019
+                </label>
+            </div>
+            <div>
+                <label for="officeRadio">
+                <input type="radio"  aria-hidden="true" id="JHLFOffice4" value="JHLFOffice4" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
+                Submit a complete Development Application after January 1, 2021</label>
+            </div>
+        </div>
+            <label for="newIntegratedPDR">New Integrated PDR (GFA)</label>
+            <input type="number" class="form-control" id="newIntegratedPDR" placeholder="value" data-bind="value: fee.newIntegratedPDR, valueUpdate: 'keyup'">
+
+            <label for="newResearchAndDevelopment">New Research and Development (GFA)</label>
+            <input type="number" class="form-control" id="newResearchAndDevelopment" placeholder="value" data-bind="value: fee.newResearchAndDevelopment, valueUpdate: 'keyup'">
+        <div class="form-jhl-radio-group">
+            <div>
+                <label for="labRadio">
+                    <input type="radio"  aria-hidden="true" id="JHLFLab1" value="JHLFLab1" name="JHLFLab" data-bind="checked: fee.JHLFLab">
+                    Submitted a complete Preliminary Project Assessment (PPA) on or before September 10, 2019
+                    and have not had its building or site permit issued as of December 15, 2019
+                </label>
+            </div>
+            <div>
+                <label for="labRadio">
+                    <input type="radio"  aria-hidden="true" id="JHLFLab2" value="JHLFLab2" name="JHLFLab" data-bind="checked: fee.JHLFLab">
+                    Submitted a complete Development Application between September 11, 2019
+                    and January 1, 2021 and have not had its building or site permit issues as of December 15, 2019
+                </label>
+            </div>
+            <div>
+                <label for="labRadio">
+                    <input type="radio"  aria-hidden="true" id="JHLFLab3" value="JHLFLab3" name="JHLFLab" data-bind="checked: fee.JHLFLab">
+                    Submit a complete Development Application after January 1, 2021
+                </label>
+            </div>
+        </div>
         <label for="newRetail">New Retail (GFA)</label>
         <input type="number" class="form-control" id="newRetail" placeholder="value" data-bind="value: fee.newRetail, valueUpdate: 'keyup'">
         <label for="newSmallEnterpriseWorkspace">New Small Enterprise Workspace (GFA)</label>
@@ -149,11 +204,11 @@
             </td>
             <td>*</td>
             <td>
-                <span data-bind="dollarsText: fee.feePerNewOffice"></span>/GFA
+                <span data-bind="dollarsText: fee.officeNewRates()"></span>/GFA
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.officeNewPortion() * fee.feePerNewOffice"></span>
+                <span data-bind="dollarsText: fee.officeNewPortion() * fee.officeNewRates()"></span>
             </td>
         </tr>
         <tr>

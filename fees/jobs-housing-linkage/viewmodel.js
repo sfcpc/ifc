@@ -19,7 +19,8 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.newEnt() !== null && this.newEnt() !== '' &&
+            return (
+                this.newEnt() !== null && this.newEnt() !== '' &&
                 this.hotelGFA() !== null && this.hotelGFA() !== '' &&
                 this.newIntegratedPDR() !== null && this.newIntegratedPDR() !== '' &&
                 this.officeGFA() !== null && this.officeGFA() !== '' &&
@@ -47,14 +48,21 @@ define([
                 this.resToResearchAndDevelopment() !== null && this.resToResearchAndDevelopment() !== '' &&
                 this.resToRetail() !== null && this.resToRetail() !== '' &&
                 this.resToSmallEnterpriseWorkspace() !== null && this.resToSmallEnterpriseWorkspace() !== '' &&
-                this.feeCredit() !== null && this.feeCredit() !== '';
+                this.feeCredit() !== null && this.feeCredit() !== ''
+                ) && (
+                    (this.officeGFA() == 0) || (this.JHLFOffice() !== null && this.JHLFOffice() !== '')
+                ) && (
+                    (this.newResearchAndDevelopment() == 0) || (this.JHLFLab() !== null && this.JHLFLab() !== '')
+                ) && (
+                    !(this.JHLFOffice() === 'JHLFOffice1') || (this.JHLFOldRate() !== null && this.JHLFOldRate() !== '')
+                );
         }, this);
 
         this.getFeeByType = function(ent, hotel, integratedPDR, office, researchAndDevelopment, retail, smallEnterpriseWorkspace, oldPDR) {
             var feePerNewEntertainment = oldPDR ? this.oldFeePerNewEntertainment : this.feePerNewEntertainment;
             var feePerNewHotel = oldPDR ? this.oldFeePerNewHotel : this.feePerNewHotel;
             var feePerNewIntegratedPDR = oldPDR ? this.oldFeePerNewIntegratedPDR : this.feePerNewIntegratedPDR;
-            var feePerNewOffice = oldPDR ? this.oldFeePerNewOffice : this.feePerNewOffice;
+            var feePerNewOffice = oldPDR ? this.oldFeePerNewOffice : this.officeNewRates();
             var feePerNewResearchAndDevelopment = oldPDR ? this.oldFeePerNewResearchAndDevelopment : this.feePerNewResearchAndDevelopment;
             var feePerNewRetail = oldPDR ? this.oldFeePerNewRetail : this.feePerNewRetail;
             var feePerNewSmallEnterpriseWorkspace = oldPDR ? this.oldFeePerNewSmallEnterpriseWorkspace : this.feePerNewSmallEnterpriseWorkspace;
@@ -126,6 +134,45 @@ define([
                 this.newPDRToResearchAndDevelopment,
                 this.resToResearchAndDevelopment
             );
+        }, this);
+
+        this.isLargeOffice = ko.computed(function() {
+            return this.officeGFA() >= 50000}, this);
+
+        this.officeNewRates = ko.computed(function() {
+            if (this.officeGFA() >= 50000) {
+                if (this.JHLFOffice() === 'JHLFOffice1') {
+                    if (this.feePerLargeOffice2 - this.JHLFOldRate() > 0) {
+                        return this.feePerLargeOffice2 - this.JHLFOldRate();
+                    } else {
+                        return 0;
+                    }
+                } else if (this.JHLFOffice() === 'JHLFOffice2') {
+                    return this.feePerLargeOffice2;
+                } else if (this.JHLFOffice() === 'JHLFOffice3') {
+                    return this.feePerLargeOffice3;
+                } else if (this.JHLFOffice() === 'JHLFOffice4') {
+                    return this.feePerLargeOffice4;
+                }
+            } else {
+                if (this.JHLFOffice() === 'JHLFOffice2') {
+                    return this.feePerSmallOffice2;
+                } else if (this.JHLFOffice() === 'JHLFOffice3') {
+                    return this.feePerSmallOffice3;
+                } else if (this.JHLFOffice() === 'JHLFOffice4') {
+                    return this.feePerSmallOffice4;
+                }
+            }
+        }, this);
+
+        this.labNewRates = ko.computed(function() {
+            if (this.JHLFLab() === 'JHLFLab2') {
+                return this.feePerLab2;
+            } else if (this.JHLFLab() === 'JHLFLab3') {
+                return this.feePerLab3;
+            } else if (this.JHLFLab() === 'JHLFLab4') {
+                return this.feePerLab4;
+            }
         }, this);
 
         this.retailNewPortion = ko.computed(function() {

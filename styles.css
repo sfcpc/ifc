@@ -23,6 +23,13 @@ hr {
     border-top: 1px solid rgba(249, 149, 32, 1);
 }
 
+.form-jhl-radio-group {
+    font-size: 0.9em;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
 .navbar-brand, .jumbotron h1 {
     font-family: Offside;
 }
