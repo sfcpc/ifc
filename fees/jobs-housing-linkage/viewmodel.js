@@ -19,7 +19,8 @@ define([
             if (!this.triggered()) {
                 return true;
             }
-            return this.newEnt() !== null && this.newEnt() !== '' &&
+            return (
+                this.newEnt() !== null && this.newEnt() !== '' &&
                 this.hotelGFA() !== null && this.hotelGFA() !== '' &&
                 this.newIntegratedPDR() !== null && this.newIntegratedPDR() !== '' &&
                 this.officeGFA() !== null && this.officeGFA() !== '' &&
@@ -47,10 +48,14 @@ define([
                 this.resToResearchAndDevelopment() !== null && this.resToResearchAndDevelopment() !== '' &&
                 this.resToRetail() !== null && this.resToRetail() !== '' &&
                 this.resToSmallEnterpriseWorkspace() !== null && this.resToSmallEnterpriseWorkspace() !== '' &&
-                this.JHLFOffice() !== null && this.JHLFOffice() !== '' &&
-                this.JHLFLab() !== null && this.JHLFLab() !== '' &&
-                this.JHLFOldRate() !== null && this.JHLFOldRate() !== '' &&
-                this.feeCredit() !== null && this.feeCredit() !== '';
+                this.feeCredit() !== null && this.feeCredit() !== ''
+                ) && (
+                    (this.officeGFA() == 0) || (this.JHLFOffice() !== null && this.JHLFOffice() !== '')
+                ) && (
+                    (this.newResearchAndDevelopment() == 0) || (this.JHLFLab() !== null && this.JHLFLab() !== '')
+                ) && (
+                    !(this.JHLFOffice() === 'JHLFOffice1') || (this.JHLFOldRate() !== null && this.JHLFOldRate() !== '')
+                );
         }, this);
 
         this.getFeeByType = function(ent, hotel, integratedPDR, office, researchAndDevelopment, retail, smallEnterpriseWorkspace, oldPDR) {
@@ -131,11 +136,14 @@ define([
             );
         }, this);
 
+        this.isLargeOffice = ko.computed(function() {
+            return this.officeGFA() >= 50000}, this);
+
         this.officeNewRates = ko.computed(function() {
-            if (officeGFA >= 50000) {
+            if (this.officeGFA() >= 50000) {
                 if (this.JHLFOffice() === 'JHLFOffice1') {
-                    if (this.feePerLargeOffice1 > this.JHLFOldRate) {
-                        return this.feePerLargeOffice2 - this.JHLFOldRate;
+                    if (this.feePerLargeOffice2 - this.JHLFOldRate() > 0) {
+                        return this.feePerLargeOffice2 - this.JHLFOldRate();
                     } else {
                         return 0;
                     }
@@ -155,10 +163,6 @@ define([
                     return this.feePerSmallOffice4;
                 }
             }
-        }, this);
-
-        this.officeChoice1 = ko.computed(function() {
-
         }, this);
 
         this.labNewRates = ko.computed(function() {
