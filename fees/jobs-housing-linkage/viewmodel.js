@@ -62,8 +62,8 @@ define([
             var feePerNewEntertainment = oldPDR ? this.oldFeePerNewEntertainment : this.feePerNewEntertainment;
             var feePerNewHotel = oldPDR ? this.oldFeePerNewHotel : this.feePerNewHotel;
             var feePerNewIntegratedPDR = oldPDR ? this.oldFeePerNewIntegratedPDR : this.feePerNewIntegratedPDR;
-            var feePerNewOffice = oldPDR ? this.oldFeePerNewOffice : this.officeNewRates();
-            var feePerNewResearchAndDevelopment = oldPDR ? this.oldFeePerNewResearchAndDevelopment : this.feePerNewResearchAndDevelopment;
+            var feePerNewOffice = oldPDR ? (this.oldFeePerNewOffice-20.71) : this.officeNewRates();
+            var feePerNewResearchAndDevelopment = oldPDR ? this.oldFeePerNewResearchAndDevelopment : this.labNewRates();
             var feePerNewRetail = oldPDR ? this.oldFeePerNewRetail : this.feePerNewRetail;
             var feePerNewSmallEnterpriseWorkspace = oldPDR ? this.oldFeePerNewSmallEnterpriseWorkspace : this.feePerNewSmallEnterpriseWorkspace;
             ent = ent() || 0;
@@ -137,7 +137,16 @@ define([
         }, this);
 
         this.isLargeOffice = ko.computed(function() {
-            return this.officeGFA() >= 50000}, this);
+            return (this.officeGFA() >= 50000)}, this);
+
+        this.isOfficeNonZero = ko.computed(function() {
+            return (this.officeGFA() > 0)}, this);
+
+        this.isOfficeSelection1 = ko.computed(function() {
+            return (this.JHLFOffice() === 'JHLFOffice1')}, this);
+
+        this.isLabNonZero = ko.computed(function() {
+            return (this.newResearchAndDevelopment() > 0)}, this);
 
         this.officeNewRates = ko.computed(function() {
             if (this.officeGFA() >= 50000) {

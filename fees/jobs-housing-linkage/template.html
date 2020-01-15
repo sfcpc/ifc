@@ -9,7 +9,7 @@
         <input type="number" class="form-control" id="hotelGFA" placeholder="value" disabled data-bind="value: fee.hotelGFA">
         <label for="officeGFA">New Office (GFA) (fill in on previous page)</label>
         <input type="number" class="form-control" id="officeGFA" placeholder="value" disabled data-bind="value: fee.officeGFA">
-        <div class="form-jhl-radio-group">
+        <div class="form-jhl-radio-group" data-bind="visible: fee.isOfficeNonZero()">
             <div data-bind="visible: fee.isLargeOffice()">
                 <label for="officeRadio">
                     <input type="radio" aria-hidden="true" id="JHLFOffice1" value="JHLFOffice1" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
@@ -18,8 +18,10 @@
                     to procurement of a Certificate of Occupancy or Final Completion and have not procured the Certificate of Occupancy
                     or Final Completion by December 15, 2019
                 </label>
-                <label for="JHLFOldRate">The Fee Assessed at Site Permit Issuance</label>
-                <input type="number" class="form-control" id="JHLFOldRate" placeholder="value" data-bind="value: fee.JHLFOldRate">
+                <div data-bind="visible: fee.isOfficeSelection1()">
+                    <label for="JHLFOldRate">The Fee Assessed at Site Permit Issuance</label>
+                    <input type="number" class="form-control" id="JHLFOldRate" placeholder="value" data-bind="value: fee.JHLFOldRate">
+                </div>
             </div>
             <div>
                 <label for="officeRadio">
@@ -46,7 +48,7 @@
 
             <label for="newResearchAndDevelopment">New Research and Development (GFA)</label>
             <input type="number" class="form-control" id="newResearchAndDevelopment" placeholder="value" data-bind="value: fee.newResearchAndDevelopment, valueUpdate: 'keyup'">
-        <div class="form-jhl-radio-group">
+        <div class="form-jhl-radio-group" data-bind="visible: fee.isLabNonZero()">
             <div>
                 <label for="labRadio">
                     <input type="radio"  aria-hidden="true" id="JHLFLab1" value="JHLFLab1" name="JHLFLab" data-bind="checked: fee.JHLFLab">
