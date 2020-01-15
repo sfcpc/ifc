@@ -142,6 +142,9 @@ define([
         this.isOfficeNonZero = ko.computed(function() {
             return (this.officeGFA() > 0)}, this);
 
+        this.isOfficeSelection1 = ko.computed(function() {
+            return (this.JHLFOffice() === 'JHLFOffice1')}, this);
+
         this.isLabNonZero = ko.computed(function() {
             return (this.newResearchAndDevelopment() > 0)}, this);
 

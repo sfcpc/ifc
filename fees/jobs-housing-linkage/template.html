@@ -18,8 +18,10 @@
                     to procurement of a Certificate of Occupancy or Final Completion and have not procured the Certificate of Occupancy
                     or Final Completion by December 15, 2019
                 </label>
-                <label for="JHLFOldRate">The Fee Assessed at Site Permit Issuance</label>
-                <input type="number" class="form-control" id="JHLFOldRate" placeholder="value" data-bind="value: fee.JHLFOldRate">
+                <div data-bind="visible: fee.isOfficeSelection1()">
+                    <label for="JHLFOldRate">The Fee Assessed at Site Permit Issuance</label>
+                    <input type="number" class="form-control" id="JHLFOldRate" placeholder="value" data-bind="value: fee.JHLFOldRate">
+                </div>
             </div>
             <div>
                 <label for="officeRadio">
