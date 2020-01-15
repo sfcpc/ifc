@@ -137,7 +137,13 @@ define([
         }, this);
 
         this.isLargeOffice = ko.computed(function() {
-            return this.officeGFA() >= 50000}, this);
+            return (this.officeGFA() >= 50000)}, this);
+
+        this.isOfficeNonZero = ko.computed(function() {
+            return (this.officeGFA() > 0)}, this);
+
+        this.isLabNonZero = ko.computed(function() {
+            return (this.newResearchAndDevelopment() > 0)}, this);
 
         this.officeNewRates = ko.computed(function() {
             if (this.officeGFA() >= 50000) {
