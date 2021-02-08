@@ -50,16 +50,16 @@
 
 | Tier (per Sec. 423.2(a)) | Residential | Non-residential | Net TIDF |
 | ------------------------ | ----------- | --------------- | -------- |
-| 1                        | $12.66/gsf  | $9.50/gsf       | $10/gsf  |
-| 2                        | $18.99/gsf  | $15.83/gsf      | $10/gsf  |
-| 3                        | $25.32/gsf  | $22.16/gsf      | $10/gsf  |
+| 1                        | $13.10/gsf  | $9.83/gsf       | $10/gsf  |
+| 2                        | $19.65/gsf  | $16.38/gsf      | $10/gsf  |
+| 3                        | $26.21/gsf  | $22.94/gsf      | $10/gsf  |
 
 ## 423.3B FEE SCHEDULE FOR REPLACEMENT OF USE OR CHANGE OF USE IN THE EASTERN NEIGHBORHOODS PROGRAM AREA
 
 | Tier (per Sec. 423.3(a)) | Residential to Residential or Non-residential; or Non-residential to Non-residential | Non-Residential to Residential | PDR to Residential | PDR to Non-residential |
 | ------------------------ | ------------------------------------------------------------------------------------ | ------------------------------ | ------------------ | ---------------------- |
-| 1                        | $0                                                                                   | $3.17/gsf                      | $7.91/gsf          | $4.74/gsf              |
-| 2                        | $0                                                                                   | $3.17/gsf                      | $14.23/gsf         | $11.08/gsf             |
-| 3                        | $0                                                                                   | $3.17/gsf                      | $20.56/gsf         | $17.41/gsf             |
+| 1                        | $0                                                                                   | $3.28/gsf                      | $8.19/gsf          | $4.91/gsf              |
+| 2                        | $0                                                                                   | $3.28/gsf                      | $14.73/gsf         | $11.47/gsf             |
+| 3                        | $0                                                                                   | $3.28/gsf                      | $21.28/gsf         | $18.02/gsf             |
 
 -   **Option for In-Kind Provision of Community Improvements and Fee Credits.** Project sponsors may propose to directly provide community improvements to the City. In such a case, the City may enter into an In-Kind Improvements Agreement with the sponsor and issue a fee waiver for the Eastern Neighborhoods Infrastructure Impact Fee from the Planning Commission

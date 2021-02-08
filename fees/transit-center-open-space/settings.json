@@ -21,13 +21,13 @@
     "minNewNonRes": 0,
     "minNonResGFA": 800,
     "farBaseMax": 9,
-    "resBaseFee": 3.57,
-    "officeBaseFee": 4.29,
-    "officeFARFee": 10.01,
-    "retailBaseFee": 7.15,
-    "retailFARFee": 6.44,
-    "hotelBaseFee": 5.72,
-    "institutionalBaseFee": 7.15,
-    "institutionalFARFee": 6.15,
-    "industrialBaseFee": 3.57
+    "resBaseFee": 3.69,
+    "officeBaseFee": 4.44,
+    "officeFARFee": 10.36,
+    "retailBaseFee": 7.40,
+    "retailFARFee": 6.67,
+    "hotelBaseFee": 5.92,
+    "institutionalBaseFee": 7.40,
+    "institutionalFARFee": 6.37,
+    "industrialBaseFee": 3.69
 }
