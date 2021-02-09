@@ -1,0 +1,17 @@
+{
+    "name": "van-ness-market-community-facility",
+    "code": "JD_425",
+    "paramNames": [
+        "geometry",
+        "parcelArea",
+        "nonResGFA",
+        "pdrGFA",
+        "resGFA",
+        "officeGFA",
+        "totalGFA"
+    ],
+    "label": "Van Ness & Market Community Facilities Fee and Fund",
+    "areaName": "Van Ness and Market Inclusionary Affordable Housing Fee",
+    "minResGFA": 800,
+    "feePerNewRes": 1.20
+}
