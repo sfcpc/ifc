@@ -14,14 +14,14 @@
 
 Residential projects of 10 or more units | Residential Protects of up to 9 units
 ---------------------------------------- | -------------------------------------
-$2.27/gsf                                | $1.14/gsf
+$2.35/gsf                                | $1.18/gsf
 
 ## TABLE 414A.5B FEE SCHEDULE FOR REPLACEMENT OF USE OR CHANGE OF USE
 
 Residential project units | Residential Use to Residential Use | Non-Residential to Residential | PDR to Residential
 ---------------------------------------- | ---------------------------------- | ------------------------------ | ------------------
-10 or more | $0/gsf                             | $0.31/gsf                      | $0.31/gsf
-up to 9    | $0/gsf                             | $0.16/gsf                      | $0.16/gsf
+10 or more | $0/gsf                             | $0.34/gsf                      | $0.34/gsf
+up to 9    | $0/gsf                             | $0.18/gsf                      | $0.18/gsf
 
 
-**2020 fee schedule
+**2021 fee schedule

@@ -25,13 +25,14 @@
 
 ### New Construction:
 
-*  Entertainment: $28.13/gsf
-*  Hotel: $22.57/gsf
+*  Entertainment: $29.11/gsf
+*  Hotel: $23.36/gsf
+*  Retail: $29.11/gsf
+*  Small Enterprise Workspace: $24.53/gsf
+
 *  Integrated PDR: $22.46/gsf
 *  Office: $28.57/gsf
 *  Research and Development: $19.04/gsf
-*  Retail: $28.13/gsf
-*  Small Enterprise Workspace: $23.70/gsf
 
 ### Change of Use:
 
