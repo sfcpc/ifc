@@ -48,7 +48,7 @@
     "basemap": "//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
     "mapserver": "//sfplanninggis.org/arcgiswa/rest/services/ImpactFees/MapServer",
     "geocoder": "//sfplanninggis.org/cpc_geocode/",
-    "codeURL": "http://library.amlegal.com/nxt/gateway.dll/California/planning/article4developmentimpactfeesandprojectr?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=",
+    "codeURL": "https://codelibrary.amlegal.com/codes/san_francisco/latest/sf_planning/",
     "codeURL_25": "http://library.amlegal.com/nxt/gateway.dll/California/planning/article25heightandbulkdistricts?f=templates$fn=default.htm$3.0$vid=amlegal:sanfrancisco_ca$anc=",
     "parcelLayer": "2",
     "areaLayer": "0",
