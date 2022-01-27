@@ -4,8 +4,8 @@
 
 2. Amount of Fee.
 
-  1. All uses in any development project within the Van Ness and Market Downtown Residential Special Use District shall pay $49.12 per net additional gross square foot of floor area in any portion of building area exceeding the base development site FAR of 6:1 up to a base development site FAR of 9:1.
+  1. All uses in any development project within the Van Ness and Market Downtown Residential Special Use District shall pay $52.07 per net additional gross square foot of floor area in any portion of building area exceeding the base development site FAR of 6:1 up to a base development site FAR of 9:1.
 
-  2. All uses in any development project within the Van Ness and Market Downtown Residential Special Use District shall pay $24.56 per net additional gross square foot of floor area in any portion of building area exceeding the base development site FAR of 9:1.
+  2. All uses in any development project within the Van Ness and Market Downtown Residential Special Use District shall pay $26.03 per net additional gross square foot of floor area in any portion of building area exceeding the base development site FAR of 9:1.
 
-**2021 fee schedule
+**2022 fee schedule

@@ -4,8 +4,8 @@
 
 2. Amount of Fee.
 
-  1. The applicable fee shall be $6.55 per square foot.
+  1. The applicable fee shall be $6.94 per square foot.
 
 3. Other Fee Provisions.
   1. The Union Square Park, Recreation, and Open Space Fee shall be subject to the provisions of this Article, including, but not limited to Sections 401 through 410.
-**2021 fee schedule
+**2022 fee schedule
