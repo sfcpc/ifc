@@ -9,6 +9,10 @@ To facilitate asynchronous loading of local json and html template files, the ap
 ```sh
 python -m SimpleHTTPServer 8000
 ```
+or
+```sh
+python3 -m http.server 8000
+```
 
 The impact fee calculator will then be running at <http://localhost:8000/>
 
