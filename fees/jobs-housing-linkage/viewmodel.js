@@ -150,13 +150,7 @@ define([
 
         this.officeNewRates = ko.computed(function() {
             if (this.officeGFA() >= 50000) {
-                if (this.JHLFOffice() === 'JHLFOffice1') {
-                    if (this.feePerLargeOffice2 - this.JHLFOldRate() > 0) {
-                        return this.feePerLargeOffice2 - this.JHLFOldRate();
-                    } else {
-                        return 0;
-                    }
-                } else if (this.JHLFOffice() === 'JHLFOffice2') {
+                if (this.JHLFOffice() === 'JHLFOffice2') {
                     return this.feePerLargeOffice2;
                 } else if (this.JHLFOffice() === 'JHLFOffice3') {
                     return this.feePerLargeOffice3;
