@@ -25,19 +25,23 @@
 
 ### New Construction:
 
-*  Entertainment: $29.11/gsf
-*  Hotel: $23.36/gsf
-*  Retail: $29.11/gsf
-*  Small Enterprise Workspace: $24.53/gsf
+*  Entertainment: $30.86/gsf
+*  Hotel: $24.76/gsf
+*  Retail: $30.86/gsf
+*  Small Enterprise Workspace: $26.00/gsf
 
-*  Integrated PDR: $22.46/gsf
-*  Office: $28.57/gsf
-*  Research and Development: $19.04/gsf
-
+Projects | Office (50,000 net gsf or more) | Office (less than 50,000 net gsf) | Laboratory
+-------- | ------------------------------- | --------------------------------- | ----------
+Projects that submitted a Preliminary Project Assessment (PPA) on or before September 10, 2019 | $57.27/gsf | $51.54/gsf | $34.48/gsf
+Projects that submit a complete Project Application between September 11, 2019 and January 1,  | $66.81/gsf | $60.13/gsf | $38.29/gsf
+Projects that submit a complete Project Application after January 1, 2021                      | $76.36/gsf | $68.72/gsf | $42.09/gsf
 ### Change of Use:
 
 - Entertainment, Hotel, Integrated PDR, Office, Research & Development, Retail, or Small Enterprise Workspace **to** Entertainment, Hotel, Integrated PDR, Office, Retail, or Small Enterprise Workspace: $0.00
-- PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Entertainment, Hotel, Integrated PDR, Office, Research & Development, Retail, or Small Enterprise Workspace: Use Fee from Table 413.6A minus $14.09
+- PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Entertainment, Retail: $8.14
+- PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Hotel: $1.54
+- PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Small Enterprise Workspace: $2.88
+- PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Office, Laboratory: Applicable Fee Schedule minus $22.72
 - Institutional which received its First Certificate of Occupancy on or before April 1, 2010 **to** Entertainment, Hotel, Integrated PDR, Office, Research & Development, Retail, or Small Enterprise Workspace: $0.00
 - Institutional or PDR which received its First Certificate of Occupancy on or before April 1, 2010 **to** Institutional, PDR, Research & Development, Residential: $0.00
 - Institutional or PDR which received its First Certificate of Occupancy after April 1, 2010 **to** Any: Use Fee from Table 413.6
