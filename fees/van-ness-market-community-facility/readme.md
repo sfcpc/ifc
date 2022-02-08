@@ -6,7 +6,7 @@
 
     2. Converts 800 gross square feet or more of existing structure(s) from non-residential to residential use.
 
-2. Fee Calculation. For applicable projects, the fee is $1.20 per net additional gross square foot of residential use or gross square foot of space converted from non-residential to residential use.
+2. Fee Calculation. For applicable projects, the fee is $1.27 per net additional gross square foot of residential use or gross square foot of space converted from non-residential to residential use.
 
 3. Option for In-Kind Provision of Community Improvements and Fee Credits. Project sponsors may propose to provide community improvements directly to the City. In such a case, the City may enter into an In-Kind Improvements Agreement with the sponsor and issue a partial or total fee waiver for the Van Ness & Market Community Facilities Fund from the Planning Commission, subject to the following rules and requirements:
 
@@ -18,4 +18,4 @@
 
 5. Waiver or Reduction of Fees. Development projects may be eligible for a waiver or reduction of impact fees, pursuant to Section 406.
 
-**2021 fee schedule
+**2022 fee schedule

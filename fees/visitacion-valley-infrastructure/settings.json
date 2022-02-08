@@ -17,7 +17,7 @@
     "minResidentialUnits": 20,
     "minNetNewUnits": 1,
     "minResGFA": 800,
-    "feePerNewRes": 7.50,
-    "feePerNonResToRes": 5.90,
-    "feePerPDRToRes": 3.80
+    "feePerNewRes": 7.95,
+    "feePerNonResToRes": 6.25,
+    "feePerPDRToRes": 4.03
 }

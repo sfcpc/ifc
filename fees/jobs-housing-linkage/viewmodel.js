@@ -62,8 +62,8 @@ define([
             var feePerNewEntertainment = oldPDR ? this.oldFeePerNewEntertainment : this.feePerNewEntertainment;
             var feePerNewHotel = oldPDR ? this.oldFeePerNewHotel : this.feePerNewHotel;
             var feePerNewIntegratedPDR = oldPDR ? this.oldFeePerNewIntegratedPDR : this.feePerNewIntegratedPDR;
-            var feePerNewOffice = oldPDR ? (this.oldFeePerNewOffice-20.71) : this.officeNewRates();
-            var feePerNewResearchAndDevelopment = oldPDR ? this.oldFeePerNewResearchAndDevelopment : this.labNewRates();
+            var feePerNewOffice = oldPDR ? (this.officeNewRates()-this.oldFeeOfficeLabDifference) : this.officeNewRates();
+            var feePerNewResearchAndDevelopment = oldPDR ? (this.labNewRates()-this.oldFeeOfficeLabDifference) : this.labNewRates();
             var feePerNewRetail = oldPDR ? this.oldFeePerNewRetail : this.feePerNewRetail;
             var feePerNewSmallEnterpriseWorkspace = oldPDR ? this.oldFeePerNewSmallEnterpriseWorkspace : this.feePerNewSmallEnterpriseWorkspace;
             ent = ent() || 0;
@@ -150,13 +150,7 @@ define([
 
         this.officeNewRates = ko.computed(function() {
             if (this.officeGFA() >= 50000) {
-                if (this.JHLFOffice() === 'JHLFOffice1') {
-                    if (this.feePerLargeOffice2 - this.JHLFOldRate() > 0) {
-                        return this.feePerLargeOffice2 - this.JHLFOldRate();
-                    } else {
-                        return 0;
-                    }
-                } else if (this.JHLFOffice() === 'JHLFOffice2') {
+                if (this.JHLFOffice() === 'JHLFOffice2') {
                     return this.feePerLargeOffice2;
                 } else if (this.JHLFOffice() === 'JHLFOffice3') {
                     return this.feePerLargeOffice3;

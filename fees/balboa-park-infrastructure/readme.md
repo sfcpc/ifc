@@ -22,12 +22,12 @@ All fees consistent with 2018 fee schedule
 
 Residential | Non-residential
 ----------- | ---------------
-$13.10/gsf   | $2.45/gsf
+$13.89/gsf   | $2.60/gsf
 
 ## 422.3B FEE SCHEDULE FOR REPLACEMENT OF USE OR CHANGE OF USE IN THE BALBOA PARK PROGRAM AREA
 
 Residential to Residential or Non-residential; or Non-residential to Non-residential | Non-Residential to Residential | PDR to Residential | PDR to Non-Residential
 ------------------------------------------------------------------------------------ | ------------------------------ | ------------------ | ----------------------
-$0                                                                                   | $10.65/gsf                      | $11.87/gsf          | $1.22/gsf
+$0                                                                                   | $11.29/gsf                      | $12.58/gsf          | $1.29/gsf
 
-**2021po fee schedule
+**2022 fee schedule

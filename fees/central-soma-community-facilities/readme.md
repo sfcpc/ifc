@@ -12,13 +12,13 @@ Applicable Projects. The Central SoMa Community Services Facilities Fee is appli
 
 In summary (fee per GFA):
 Res
-  New Construction - $1.42
+  New Construction - $1.51
   Change of use - $0 unless..
-  Change of use from PDR - $1.42
+  Change of use from PDR - $1.51
 
 Non-Res
-  New Construction - $1.91
-  Change of use - $1.91 unless...
-  Change of use from Res - $0.49 or...
-  Change of use from PDR - $1.91
-**2021 fee schedule
+  New Construction - $2.02
+  Change of use - $2.02 unless...
+  Change of use from Res - $0.52 or...
+  Change of use from PDR - $2.02
+**2022 fee schedule

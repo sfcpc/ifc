@@ -10,37 +10,23 @@
         <label for="officeGFA">New Office (GFA) (fill in on previous page)</label>
         <input type="number" class="form-control" id="officeGFA" placeholder="value" disabled data-bind="value: fee.officeGFA">
         <div class="form-jhl-radio-group" data-bind="visible: fee.isOfficeNonZero()">
-            <div data-bind="visible: fee.isLargeOffice()">
-                <label for="officeRadio">
-                    <input type="radio" aria-hidden="true" id="JHLFOffice1" value="JHLFOffice1" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
-                    Received an approval from the Planning Commission or Department on or before September 10, 2019
-                    stating that the project shall be subject to any new, changed or increased Jobs Housing Linkage Fee (JHLF) adopted prior
-                    to procurement of a Certificate of Occupancy or Final Completion and have not procured the Certificate of Occupancy
-                    or Final Completion by December 15, 2019
-                </label>
-                <div data-bind="visible: fee.isOfficeSelection1()">
-                    <label for="JHLFOldRate">The Fee Assessed at Site Permit Issuance</label>
-                    <input type="number" class="form-control" id="JHLFOldRate" placeholder="value" data-bind="value: fee.JHLFOldRate">
-                </div>
-            </div>
             <div>
                 <label for="officeRadio">
                     <input type="radio"  aria-hidden="true" id="JHLFOffice2" value="JHLFOffice2" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
-                    Submitted a complete Preliminary Project Assessment (PPA) on or before September 10, 2019
-                    and have not had its building or site permit issued as of December 15, 2019
+                    Projects that submitted a Preliminary Project Assessment (PPA) on or before September 10, 2019
                 </label>
             </div>
             <div>
                 <label for="officeRadio">
                     <input type="radio"  aria-hidden="true" id="JHLFOffice3" value="JHLFOffice3" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
-                    Submitted a complete Development Application between September 11, 2019
-                    and January 1, 2021 and have not had its building or site permit issues as of December 15, 2019
+                    Projects that submit a complete Project Application between September 11, 2019 and January 1, 2021
                 </label>
             </div>
             <div>
                 <label for="officeRadio">
-                <input type="radio"  aria-hidden="true" id="JHLFOffice4" value="JHLFOffice4" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
-                Submit a complete Development Application after January 1, 2021</label>
+                    <input type="radio"  aria-hidden="true" id="JHLFOffice4" value="JHLFOffice4" name="JHLFOffice" data-bind="checked: fee.JHLFOffice">
+                    Projects that submit a complete Project Application after January 1, 2021
+                </label>
             </div>
         </div>
             <label for="newIntegratedPDR">New Integrated PDR (GFA)</label>
@@ -52,21 +38,19 @@
             <div>
                 <label for="labRadio">
                     <input type="radio"  aria-hidden="true" id="JHLFLab1" value="JHLFLab1" name="JHLFLab" data-bind="checked: fee.JHLFLab">
-                    Submitted a complete Preliminary Project Assessment (PPA) on or before September 10, 2019
-                    and have not had its building or site permit issued as of December 15, 2019
+                    Projects that submitted a Preliminary Project Assessment (PPA) on or before September 10, 2019
                 </label>
             </div>
             <div>
                 <label for="labRadio">
                     <input type="radio"  aria-hidden="true" id="JHLFLab2" value="JHLFLab2" name="JHLFLab" data-bind="checked: fee.JHLFLab">
-                    Submitted a complete Development Application between September 11, 2019
-                    and January 1, 2021 and have not had its building or site permit issues as of December 15, 2019
+                    Projects that submit a complete Project Application between September 11, 2019 and January 1, 2021
                 </label>
             </div>
             <div>
                 <label for="labRadio">
                     <input type="radio"  aria-hidden="true" id="JHLFLab3" value="JHLFLab3" name="JHLFLab" data-bind="checked: fee.JHLFLab">
-                    Submit a complete Development Application after January 1, 2021
+                    Projects that submit a complete Project Application after January 1, 2021
                 </label>
             </div>
         </div>

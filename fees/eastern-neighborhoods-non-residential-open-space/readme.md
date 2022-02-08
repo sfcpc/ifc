@@ -21,6 +21,6 @@ All non-residential uses in DTR Districts | 1 sq. ft. per 50 sq. ft. of occupied
 
 ### Fee
 
-**$124.47** per square foot of required
+**$131.94** per square foot of required
 usable open space required, but not
 provided.

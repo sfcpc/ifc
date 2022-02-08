@@ -13,7 +13,7 @@ The Program is governed by Planning Code Section 415 and the Inclusionary Housin
 
 Effective January 1, 2019, residential development projects that comply by paying the Affordable Housing Fee will be subject to the following fee based on the Gross Floor Area of residential use, rather than the number of dwelling units. The fee will be applied to the applicable percentage of the project, as set forth in Section 415.5 of the Planning Code:
 
-**Affordable Housing Fee**: $210.47 per square foot of Gross Floor Area of residential use, applied to the applicable percentage of the project:
+**Affordable Housing Fee**: $230.91 per square foot of Gross Floor Area of residential use, applied to the applicable percentage of the project:
 
 -   **Small Projects (fewer than 25 dwelling units)**:  20% of the project’s Gross Floor Area of residential use
 -   **Large Projects (25 or more units), Rental**:  30% of the project’s Gross Floor Area of residential use
