@@ -9,6 +9,10 @@ define([
 
         AbstractFee.apply(this, [params]);
 
+        this.isCentralSoMa = ko.computed(function(){
+            return !!this.intersectFeatures()?.find(x => x.attributes.name === this.feeException);
+        }, this);
+
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
@@ -30,7 +34,15 @@ define([
         }, this);
 
         this.calculateFee = function(openSpaceShortfall) {
-            var fee = openSpaceShortfall*this.feePerOpenSpaceGFA;
+            let fee;
+            if (this.isCentralSoMa()) {
+                fee = openSpaceShortfall * this.feePerOpenSpaceGFACentralSoMa;
+            } else {
+                fee = openSpaceShortfall * this.feePerOpenSpaceGFA;
+            }
+
+
+
             return  fee > 0 ? fee : 0;
         };
 

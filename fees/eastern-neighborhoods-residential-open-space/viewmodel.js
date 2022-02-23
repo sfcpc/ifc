@@ -9,6 +9,10 @@ define([
 
         AbstractFee.apply(this, [params]);
 
+        this.isCentralSoMa = ko.computed(function(){
+            return !!this.intersectFeatures()?.find(x => x.attributes.name === this.feeException);
+        }, this);
+
         this.triggered = ko.computed(function() {
             return this.isProjectInArea() &&
                 (
@@ -29,8 +33,14 @@ define([
             if (!this.triggered()) {
                 return 0;
             }
-
-            var fee = this.openSpaceGFAShortfall() * this.feePerOpenSpaceGFA;
+            let fee;
+            if (this.isCentralSoMa()) {
+                fee = this.openSpaceGFAShortfall() * this.feePerOpenSpaceGFACentralSoMa;
+                console.log(fee)
+            } else {
+                fee = this.openSpaceGFAShortfall() * this.feePerOpenSpaceGFA;
+                console.log(fee)
+            }
             return fee > 0 ? fee : 0;
         }, this);
     };

@@ -47,7 +47,12 @@
             </td>
             <td>*</td>
             <td>
+                <!-- ko ifnot: $parent.isCentralSoMa -->
                 <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+                <!-- /ko -->
+                <!-- ko if: $parent.isCentralSoMa -->
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFACentralSoMa"></span>/GFA
+                <!-- /ko -->
             </td>
             <td>=</td>
             <td>
@@ -61,7 +66,12 @@
             </td>
             <td>*</td>
             <td>
+                <!-- ko ifnot: $parent.isCentralSoMa -->
                 <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+                <!-- /ko -->
+                <!-- ko if: $parent.isCentralSoMa -->
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFACentralSoMa"></span>/GFA
+                <!-- /ko -->
             </td>
             <td>=</td>
             <td>
@@ -75,7 +85,12 @@
             </td>
             <td>*</td>
             <td>
+                <!-- ko ifnot: $parent.isCentralSoMa -->
                 <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+                <!-- /ko -->
+                <!-- ko if: $parent.isCentralSoMa -->
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFACentralSoMa"></span>/GFA
+                <!-- /ko -->
             </td>
             <td>=</td>
             <td>
@@ -89,7 +104,12 @@
             </td>
             <td>*</td>
             <td>
+                <!-- ko ifnot: $parent.isCentralSoMa -->
                 <span data-bind="dollarsText: fee.feePerOpenSpaceGFA"></span>/GFA
+                <!-- /ko -->
+                <!-- ko if: $parent.isCentralSoMa -->
+                <span data-bind="dollarsText: fee.feePerOpenSpaceGFACentralSoMa"></span>/GFA
+                <!-- /ko -->
             </td>
             <td>=</td>
             <td>

@@ -21,6 +21,5 @@ All non-residential uses in DTR Districts | 1 sq. ft. per 50 sq. ft. of occupied
 
 ### Fee
 
-**$131.94** per square foot of required
-usable open space required, but not
-provided.
+**$131.94** per square foot of required usable open space but not provided.
+**$1,030.12** for Central SOMA Special Use District.
