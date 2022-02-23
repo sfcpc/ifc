@@ -16,8 +16,11 @@
         "hospitalGFA",
         "healthGFA",
         "newNewHospitalBeds",
-        "totalHospitalOperatorBeds"
+        "totalHospitalOperatorBeds",
+        "geometry"
     ],
+    "areaLayer": "12",
+    "feeException": "Central SoMa",
     "label": "Transportation Sustainability Fee (TSF)",
     "minTotalUnits": 20,
     "minResGFA": 800,
@@ -30,6 +33,7 @@
     "resTier2Fee": 11.91,
     "nonResTier1Fee": 24.57,
     "nonResTier2Fee": 27.83,
+    "nonResTier2FeeCentralSoMa": 24.36,
     "hospitalFee": 25.52,
     "healthFee": 14.98,
     "pdrFee": 10.37

@@ -36,10 +36,8 @@ define([
             let fee;
             if (this.isCentralSoMa()) {
                 fee = this.openSpaceGFAShortfall() * this.feePerOpenSpaceGFACentralSoMa;
-                console.log(fee)
             } else {
                 fee = this.openSpaceGFAShortfall() * this.feePerOpenSpaceGFA;
-                console.log(fee)
             }
             return fee > 0 ? fee : 0;
         }, this);
