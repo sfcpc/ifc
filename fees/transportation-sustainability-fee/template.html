@@ -100,11 +100,21 @@
             </td>
             <td>*</td>
             <td>
+                <!-- ko ifnot: $parent.isCentralSoMa -->
                 <span data-bind="dollarsText: fee.nonResTier2Fee"></span>/GFA
+                <!-- /ko -->
+                <!-- ko if: $parent.isCentralSoMa -->
+                <span data-bind="dollarsText: fee.nonResTier2FeeCentralSoMa"></span>/GFA
+                <!-- /ko -->
             </td>
             <td>=</td>
             <td>
+                <!-- ko ifnot: $parent.isCentralSoMa -->
                 <span data-bind="dollarsText: fee.applicableNonResTier2() * fee.nonResTier2Fee"></span>
+                <!-- /ko -->
+                <!-- ko if: $parent.isCentralSoMa -->
+                <span data-bind="dollarsText: fee.applicableNonResTier2() * fee.nonResTier2FeeCentralSoMa"></span>
+                <!-- /ko -->
             </td>
         </tr>
 

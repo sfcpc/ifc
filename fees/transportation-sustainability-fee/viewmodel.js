@@ -9,6 +9,10 @@ define([
 
         AbstractFee.apply(this, [params]);
 
+        this.isCentralSoMa = ko.computed(function(){
+            return !!this.intersectFeatures()?.find(x => x.attributes.name === this.feeException);
+        }, this);
+
         this.triggered = ko.computed(function() {
             return this.totalUnits() >= this.minTotalUnits ||
                 this.resGFA() >= this.minResGFA ||
@@ -71,10 +75,16 @@ define([
             if (this.exemptFromTSF()) {
                 return 0;
             }
+            let nonResTier2Fee;
+            if (this.isCentralSoMa()) {
+                nonResTier2Fee = this.nonResTier2FeeCentralSoMa;
+            } else {
+                nonResTier2Fee = this.nonResTier2Fee;
+            }
             return (this.applicableResTier1() * this.resTier1Fee) +
                 (this.applicableResTier2() * this.resTier2Fee) +
                 (this.applicableNonResTier1() * this.nonResTier1Fee) +
-                (this.applicableNonResTier2() * this.nonResTier2Fee) +
+                (this.applicableNonResTier2() * nonResTier2Fee) +
                 (this.applicableHospital() * this.hospitalFee) +
                 (this.applicableHealth() * this.healthFee) +
                 (this.pdrGFA() * this.pdrFee);
