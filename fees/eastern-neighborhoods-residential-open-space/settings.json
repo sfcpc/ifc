@@ -23,7 +23,7 @@
     "label": "Eastern Neighborhoods Payment in Case of Variance or Exception for Open Space",
     "minNewResGFA": 25000,
     "minFinalBuildingHeight": 75,
-    "feePerOpenSpaceGFA": 567.64,
+    "feePerOpenSpaceGFA": 601.70,
     "feeException": "Central SoMa",
-    "feePerOpenSpaceGFACentralSoMa": 1030.12
+    "feePerOpenSpaceGFACentralSoMa": 1091.93
 }

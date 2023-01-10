@@ -13,7 +13,7 @@
     "areaName": "Rincon Hill Community Infrastructure Impact Fee",
     "minNetNewUnits": 1,
     "minResGFA": 800,
-    "feePerNewRes": 14.94,
-    "feePerNonResToRes": 8.68,
-    "feePerPDRToRes": 11.81
+    "feePerNewRes": 15.84,
+    "feePerNonResToRes": 9.20,
+    "feePerPDRToRes": 12.52
 }
