@@ -27,7 +27,7 @@
     ],
     "areaLayer":"12",
     "label": "Alternative Means of Satisfying the Open Space Requirement in the Eastern Neighborhoods Mixed Use Districts",
-    "feePerOpenSpaceGFA": 139.86,
+    "feePerOpenSpaceGFA": 152.66,
     "feeException": "Central SoMa",
-    "feePerOpenSpaceGFACentralSoMa": 1091.93
+    "feePerOpenSpaceGFACentralSoMa": 1113.77
 }
