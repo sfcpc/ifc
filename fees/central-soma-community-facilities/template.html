@@ -47,7 +47,7 @@
         <tr>
             <th scope="row">Net Additional Residential</th>
             <td>
-                <span data-bind="numericText: fee.resGFA"></span> GFA
+                <span data-bind="numericText: fee.resNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -55,13 +55,13 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.resGFA() * fee.feePerNewRes"></span>
+                <span data-bind="dollarsText: feeresNewPortion() * fee.feePerNewRes"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Net Additional Non-Residential</th>
             <td>
-                <span data-bind="numericText: fee.nonResGFA"></span> GFA
+                <span data-bind="numericText: fee.nonResNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -69,7 +69,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.nonResGFA() * fee.feePerNewNonRes"></span>
+                <span data-bind="dollarsText: fee.nonResNewPortion() * fee.feePerNewNonRes"></span>
             </td>
         </tr>
         <tr>

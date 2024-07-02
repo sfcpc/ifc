@@ -38,7 +38,7 @@
         <tr>
             <th scope="row">Residential</th>
             <td>
-                <span data-bind="numericText: fee.newRes"></span> GFA
+                <span data-bind="numericText: fee.resNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -46,7 +46,7 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.newRes() * fee[fee.district()].feePerNewRes"></span>
+                <span data-bind="dollarsText: fee.resNewPortion() * fee[fee.district()].feePerNewRes"></span>
             </td>
         </tr>
         <tr>
