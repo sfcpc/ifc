@@ -42,7 +42,7 @@ define([
 
         }, this);
 
-        // calculate portion resNew by removing nonResToRes and pdrToRes from resNew
+        // 2024_methods_update - calculate portion resNew by removing nonResToRes and pdrToRes from resNew
         this.resNewPortion = ko.computed(function() {
             var newPortion = parseFloat(this.resGFA()) - (
                 parseFloat(this.nonResToRes()) +
@@ -60,6 +60,7 @@ define([
         }, this);
 
         this.calculatedFee = ko.computed(function() {
+            // 2024_methods_update
             var newRes = parseFloat(this.resNewPortion()) || 0;
             var newNonRes = parseFloat(this.nonResNewPortion()) || 0;
             var nonResToRes = parseFloat(this.nonResToRes()) || 0;

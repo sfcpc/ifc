@@ -79,6 +79,7 @@
         <tr>
             <th scope="row">Net Additional Residential</th>
             <td>
+                <!--2024_methods_update-->
                 <span data-bind="numericText: fee.resNewPortion()"></span> GFA
             </td>
             <td>*</td>
@@ -87,12 +88,14 @@
             </td>
             <td>=</td>
             <td>
+                <!--2024_methods_update-->
                 <span class="res-fee" data-bind="dollarsText: fee.resNewPortion() * fee.applicableNewResFee()"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Net Additional Non-Residential</th>
             <td>
+                <!--2024_methods_update-->
                 <span data-bind="numericText: fee.resNewPortion"></span> GFA
             </td>
             <td>*</td>
@@ -101,6 +104,7 @@
             </td>
             <td>=</td>
             <td>
+                <!--2024_methods_update-->
                 <span class="non-res-fee" data-bind="dollarsText: fee.resNewPortion() * fee.applicableNetNonResFee()"></span>
             </td>
         </tr>
@@ -125,6 +129,7 @@
             </td>
             <td>=</td>
             <td>
+                <!--2024_methods_update-->
                 <span class="res-fee" data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
             </td>
         </tr>
@@ -139,6 +144,7 @@
             </td>
             <td>=</td>
             <td>
+                <!--2024_methods_update-->
                 <span class="non-res-fee" data-bind="dollarsText: fee.resToNonRes() * fee.applicableResToNonResFee()"></span>
             </td>
         </tr>
@@ -153,6 +159,7 @@
             </td>
             <td>=</td>
             <td>
+                <!--2024_methods_update-->
                 <span class="res-fee" data-bind="dollarsText: fee.pdrToRes() * fee.applicableNewResFee()"></span>
             </td>
         </tr>
@@ -167,6 +174,7 @@
             </td>
             <td>=</td>
             <td>
+                <!--2024_methods_update-->
                 <span class="non-res-fee" data-bind="dollarsText: fee.pdrToNonRes() * fee.applicablePDRToNonResFee()"></span>
             </td>
         </tr>
