@@ -140,11 +140,27 @@ define([
             }
             return 0;
         }, this);
+        // 2024_methods_update - calculate portion resNew by removing nonResToRes and pdrToRes from resNew
+        this.resNewPortion = ko.computed(function() {
+            var newPortion = parseFloat(this.resGFA()) - (
+                parseFloat(this.nonResToRes()) +
+                parseFloat(this.pdrToRes())
+            );
+            return newPortion > 0 ? newPortion : 0;
+        }, this);
+
+        this.nonResNewPortion = ko.computed(function() {
+            var newPortion = parseFloat(this.nonResGFA()) - (
+                parseFloat(this.pdrToNonRes()) + 
+                parseFloat(this.resToNonRes())
+            );
+            return newPortion > 0 ? newPortion : 0;
+        }, this);
 
         this.calculatedFee = ko.computed(function() {
-
-            var newRes = parseFloat(this.resGFA()) || 0;
-            var newNonRes = parseFloat(this.nonResGFA()) || 0;
+            // 2024_methods_update
+            var newRes = parseFloat(this.resNewPortion()) || 0;
+            var newNonRes = parseFloat(this.nonResNewPortion()) || 0;
             var nonResToRes = parseFloat(this.nonResToRes()) || 0;
             var resToNonRes = parseFloat(this.resToNonRes()) || 0;
             var pdrToRes = parseFloat(this.pdrToRes()) || 0;

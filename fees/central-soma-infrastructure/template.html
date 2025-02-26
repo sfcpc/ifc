@@ -79,7 +79,8 @@
         <tr>
             <th scope="row">Net Additional Residential</th>
             <td>
-                <span data-bind="numericText: fee.resGFA()"></span> GFA
+                <!--2024_methods_update-->
+                <span data-bind="numericText: fee.resNewPortion()"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -87,13 +88,15 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.resGFA() * fee.applicableNewResFee()"></span>
+                <!--2024_methods_update-->
+                <span class="res-fee" data-bind="dollarsText: fee.resNewPortion() * fee.applicableNewResFee()"></span>
             </td>
         </tr>
         <tr>
             <th scope="row">Net Additional Non-Residential</th>
             <td>
-                <span data-bind="numericText: fee.nonResGFA"></span> GFA
+                <!--2024_methods_update-->
+                <span data-bind="numericText: fee.resNewPortion"></span> GFA
             </td>
             <td>*</td>
             <td>
@@ -101,7 +104,8 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.nonResGFA() * fee.applicableNetNonResFee()"></span>
+                <!--2024_methods_update-->
+                <span class="non-res-fee" data-bind="dollarsText: fee.resNewPortion() * fee.applicableNetNonResFee()"></span>
             </td>
         </tr>
         <tr>
@@ -125,7 +129,8 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
+                <!--2024_methods_update-->
+                <span class="res-fee" data-bind="dollarsText: fee.nonResToRes() * fee.feePerNonResToRes"></span>
             </td>
         </tr>
         <tr>
@@ -139,7 +144,8 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.resToNonRes() * fee.applicableResToNonResFee()"></span>
+                <!--2024_methods_update-->
+                <span class="non-res-fee" data-bind="dollarsText: fee.resToNonRes() * fee.applicableResToNonResFee()"></span>
             </td>
         </tr>
         <tr>
@@ -153,7 +159,8 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.pdrToRes() * fee.applicableNewResFee()"></span>
+                <!--2024_methods_update-->
+                <span class="res-fee" data-bind="dollarsText: fee.pdrToRes() * fee.applicableNewResFee()"></span>
             </td>
         </tr>
         <tr>
@@ -167,7 +174,8 @@
             </td>
             <td>=</td>
             <td>
-                <span data-bind="dollarsText: fee.pdrToNonRes() * fee.applicablePDRToNonResFee()"></span>
+                <!--2024_methods_update-->
+                <span class="non-res-fee" data-bind="dollarsText: fee.pdrToNonRes() * fee.applicablePDRToNonResFee()"></span>
             </td>
         </tr>
     </tbody>

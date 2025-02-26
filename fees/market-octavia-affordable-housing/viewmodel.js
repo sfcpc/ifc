@@ -36,8 +36,19 @@ define([
                 this.pdrToRes() !== null && this.pdrToRes() !== '';
         }, this);
 
+         // 2024_methods_update - calculate portion resNew by removing nonResToRes and pdrToRes from resNew
+         this.resNewPortion = ko.computed(function() {
+            var newPortion = parseFloat(this.newRes()) - (
+                parseFloat(this.nonResToRes()) +
+                parseFloat(this.pdrToRes())
+            );
+            return newPortion > 0 ? newPortion : 0;
+        }, this);
+
+
         this.calculatedFee = ko.computed(function() {
-            var newRes = this.newRes() || 0;
+            // 2024_methods_update
+            var newRes = this.resNewPortion() || 0;
             var nonResToRes = this.nonResToRes() || 0;
             var pdrToRes = this.pdrToRes() || 0;
             var district = this.district();
