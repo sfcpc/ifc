@@ -34,39 +34,39 @@
     "label": "Eastern Neighborhoods Infrastructure Impact Fee",
     "fees": {
         "Tier 1": {
-            "newRes": 15.01,
-            "newNonRes": 11.27,
-            "nonResToRes": 3.76,
-            "pdrToRes": 9.38,
-            "pdrToNonRes": 5.62
+            "newRes": 15.31,
+            "newNonRes": 11.50,
+            "nonResToRes": 3.84,
+            "pdrToRes": 9.57,
+            "pdrToNonRes": 5.73
         },
         "Tier 1 if residential, 2 if non-residential": {
-            "newRes": 13.89,
-            "newNonRes": 17.36,
-            "nonResToRes": 3.76,
-            "pdrToRes": 9.38,
-            "pdrToNonRes": 13.15
+            "newRes": 15.31,
+            "newNonRes": 19.15,
+            "nonResToRes": 3.84,
+            "pdrToRes": 9.57,
+            "pdrToNonRes": 17.22
         },
         "Tier 1 if residential, 3 if non-residential": {
-            "newRes": 15.01,
-            "newNonRes": 25.78,
-            "nonResToRes": 3.76,
-            "pdrToRes": 9.38,
-            "pdrToNonRes": 20.66
+            "newRes": 15.31,
+            "newNonRes": 26.83,
+            "nonResToRes": 3.84,
+            "pdrToRes": 9.57,
+            "pdrToNonRes": 21.07
         },
         "Tier 2": {
-            "newRes": 22.52,
-            "newNonRes": 18.77,
-            "nonResToRes": 3.76,
-            "pdrToRes": 16.88,
-            "pdrToNonRes": 13.15
+            "newRes": 22.97,
+            "newNonRes": 19.15,
+            "nonResToRes": 3.84,
+            "pdrToRes": 17.22,
+            "pdrToNonRes": 13.41
         },
         "Tier 3": {
-            "newRes": 30.04,
-            "newNonRes": 26.30,
-            "nonResToRes": 3.76,
-            "pdrToRes": 24.39,
-            "pdrToNonRes": 20.66
+            "newRes": 30.64,
+            "newNonRes": 26.83,
+            "nonResToRes": 3.84,
+            "pdrToRes": 24.88,
+            "pdrToNonRes": 27.07
         },
         "Tier 2 - 100% Affordable Housing Project": {
             "newRes": 12.00,
