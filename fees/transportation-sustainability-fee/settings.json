@@ -29,12 +29,12 @@
     "minPDRGFA": 1500,
     "minChangeOfUse": 0,
     "minTier1Units": 99,
-    "resTier1Fee": 11.40,
-    "resTier2Fee": 12.87,
-    "nonResTier1Fee": 26.56,
-    "nonResTier2Fee": 30.09,
-    "nonResTier2FeeCentralSoMa": 26.34,
-    "hospitalFee": 27.59,
-    "healthFee": 16.20,
-    "pdrFee": 11.21
+    "resTier1Fee": 11.63,
+    "resTier2Fee": 13.13,
+    "nonResTier1Fee": 27.09,
+    "nonResTier2Fee": 30.69,
+    "nonResTier2FeeCentralSoMa": 26.87,
+    "hospitalFee": 28.14,
+    "healthFee": 16.52,
+    "pdrFee": 11.43
 }

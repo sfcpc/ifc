@@ -31,8 +31,8 @@
     "minNewUnits": 10,
     "affordableHousingFee": 249.66,
     "smallPercentage": 20,
-    "largeRentalPercentage": 30,
-    "largeOwnershipPercentage": 33,
+    "largeRentalPercentage": 20.5,
+    "largeOwnershipPercentage": 20.5,
 
     "largePercentageUnder120Ft13":20,
     "largePercentageUnder120Ft14":25,
