@@ -77,10 +77,13 @@ define([
                 this.institutionalGFA() * this.institutionalMitigationFee;
             var percentAboveFAR1 = this.percentAboveFAR1();
             var percentAboveFAR2 = this.percentAboveFAR2();
-            var farFee1 = (percentAboveFAR1 * this.officeGFA()) * this.officeFARFee  +
+            // add missing res FAR and FAR2 fees
+            var farFee1 = (percentAboveFAR1 * this.resGFA()) * this.resFARFee  +
+                (percentAboveFAR1 * this.officeGFA()) * this.officeFARFee  +
                 (percentAboveFAR1 * this.retailGFA()) * this.retailFARFee  +
                 (percentAboveFAR1 * this.institutionalGFA()) * this.institutionalFARFee;
-            var farFee2 = (percentAboveFAR2 * this.officeGFA()) * this.officeFARFee2  +
+            var farFee2 = (percentAboveFAR2 * this.resGFA()) * this.resFARFee2  +
+                (percentAboveFAR2 * this.officeGFA()) * this.officeFARFee2  +
                 (percentAboveFAR2 * this.retailGFA()) * this.retailFARFee2  +
                 (percentAboveFAR2 * this.institutionalGFA()) * this.institutionalFARFee2;
             return baseFee + mitigationFee + farFee1 + farFee2;
